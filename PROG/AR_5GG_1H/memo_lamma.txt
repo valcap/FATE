@@ -1,0 +1,8 @@
+ - nei files *exe
+
+eliminare la parte finale:
+python3 scatter_contour_ws.py out_scatter_for_python_bef.dat "OBS (m/s)" "MNH-stan (m/s)" "" 0. 20. 5.
+python3 scatter_contour_ws.py out_scatter_for_python_aft.dat "OBS (m/s)" "AR (m/s)" "" 0. 20. 5.
+mv out_scatter_for_python_bef.png ws_out_scatter_for_python_bef.png
+mv out_scatter_for_python_aft.png ws_out_scatter_for_python_aft.png
+
