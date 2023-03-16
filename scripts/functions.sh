@@ -2,7 +2,7 @@
 
 function notice ( )
 {
-  echo `date +%H:%M:%S`" - "$@
+  echo `date +%H:%M:%S`" * "$@
   return 0
 }
 
@@ -19,6 +19,7 @@ function error ( )
   exit 1
 }
 
+#########################################################################
 function email_alert ()
 {
   echo `date +%H:%M:%S`" - "$@

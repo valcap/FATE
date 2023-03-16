@@ -10,67 +10,163 @@
 #  echo ""
 #  exit 1
 #fi
-#if [ ! -f $1 ]; then
-#  echo "Usage: $0 env_file [00 or 12]"
-#  echo "Example: $0 /home/lamma/scripts/etc/campo_regata/saipem.env 00"
-#  echo ""
-#  echo "Argument 1 was $1"
-#  exit 1;
-#fi
-#if [ $2 != "00" ] && [ $2 != "12" ]; then
-#  echo "Usage: $0 env_file [00 or 12]"
-#  echo "Example: $0 /home/lamma/scripts/etc/campo_regata/saipem.env 00"
-#  echo ""
-#  echo "Argument 2 was $2"
-#  exit 1;
-#fi
 
-GG='5GG'
-HH='1H'
-STARTMINUTE=300  # from 19:00 LT
-ENDMINUTE=960    # to 06:00 LT
-WRKDIR=$HOME'/scripts'
-REPORTDIR=$HOME'/REPORT'
-FIGSDIR=$HOME"/FIGS/$GG/$HH"
-PROGDIR=$HOME"/PROG/AR_${GG}_${HH}"
-header_tmpl_file=$WRKDIR'/TMPL_LATEX/header_tmpl.tex'
-tail_tmpl_file=$WRKDIR'/TMPL_LATEX/tail_tmpl.tex'
-TODAYSTRING=`date +"%d-%m-%Y" --date "today"`
-TODAYDOWSTRING=`date +"%a" --date "today"`
-TODAYDOWSTRINGL=`date +"%A" --date "today"`
-TODAYTIMESTRING=`date +"%H%M" --date "today"`
-TODAYSTRING_CHILE=`TZ='America/Santiago'     date +"%d-%m-%Y" --date "now"`
-TODAYDOWSTRING_CHILE=`TZ='America/Santiago'  date +"%a"       --date "now"`
-TODAYDOWSTRINGL_CHILE=`TZ='America/Santiago' date +"%A"       --date "now"`
-TODAYTIMESTRING_CHILE=`TZ='America/Santiago' date +"%H:%M"    --date "now"`
+# Source of functions
+funcfile='/home/report/scripts/functions.sh'
+if [ -e $funcfile ]; then
+  source $funcfile
+else
+  echo "ops $funcfile does not exist in "`pwd`; exit 1
+fi
 
+# Source of env file
+envfile='/home/report/scripts/fate-report.env'
+if [ -e $envfile ]; then
+  source $envfile
+else 
+  echo "ops $envfile does not exist in "`pwd`; exit 1
+fi
+
+#################################################################
 # Start of procedure
-echo "Start of "`basename $0`
+notice "Start of "`basename $0`
+
+#################################################################
+# START OF STEP 1
+# Run the program by Elena to produce graphics and statistics
+# for [[BEF & AFT]]
+# to be included in the central body of the report
+
+# Loop over variables
+for prefix in ws wd rh pwv see tau glf
+do
+  cd $PROG_ROOT_DIR
+  if [ ! -e ./lancia_atmo.sh ]; then
+    error "lancia_atmo.sh does not exist in $PROG_ROOT_DIR"
+  fi
+  if [ ! -e ./lancia_astro.sh ]; then
+    error "lancia_astro.sh does not exist in $PROG_ROOT_DIR"
+  fi
+  rm -f $PROG_ROOT_DIR/tmpfile_*
+  case "$prefix" in
+  ws)  
+    prefixUC='WS'
+    descri='Wind speed'
+    unitof='$m s^{-1}$'
+    suffix='stan'
+    sh ./lancia_atmo.sh $prefix
+    ;;
+  wd) 
+    prefixUC='WD'
+    descri='Wind direction'
+    unitof='degree'
+    suffix='stan_0_90'
+    sh ./lancia_atmo.sh $prefix
+    ;;
+  rh)
+    prefixUC='RH'
+    descri='Relative humidity'
+    unitof='\%'
+    suffix='stan'
+    sh ./lancia_atmo.sh $prefix
+    ;;
+  pwv) 
+    prefixUC='PWV'
+    descri='Precipitable water vapor'
+    unitof='mm'
+    suffix='stan'
+    sh ./lancia_atmo.sh $prefix
+    ;;
+  see) 
+    prefixUC='SEE'
+    descri='Total Seeing'
+    unitof='arcsec'
+    suffix='os18_1000'
+    sh ./lancia_astro.sh $prefix
+    ;;
+  tau) 
+    prefixUC='TAU'
+    descri='Coeherence time'
+    unitof='ms'
+    suffix='os18_1000'
+    sh ./lancia_astro.sh $prefix
+    ;;
+  glf) 
+    prefixUC='GLF'
+    descri='Ground layer fraction'
+    unitof='\textit{add unit of measure}'
+    suffix='stan'
+    sh ./lancia_astro.sh $prefix
+    ;;
+  *) echo "ti saluta stoca"
+     exit 1
+     ;;
+  esac  
+
+  # check tmpfile file
+  # a file named tmpfile_NAME-OF-THE-VARIABLE is expected in $PROG_ROOT_DIR
+  if [ ! -e $PROG_ROOT_DIR/tmpfile_${prefix} ]; then
+    notice "$PROG_ROOT_DIR/tmpfile_${prefix} not produced"
+    error "ops $PROG_ROOT_DIR/lancia_atmo.sh ${prefix} didnt work"
+  fi
+
+  # check .ps files
+  # .ps files (see naming below) are also expected in $FIGS_ROOT_DIR
+  if [ ! -e $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps ]; then
+    notice "ops $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps not produced"
+    error "ops $PROG_ROOT_DIR/lancia_atmo.sh ${prefix} didnt work"
+  else
+    cp $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.eps
+    rm -f $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps
+  fi
+  if [ ! -e $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps ]; then
+    notice "ops $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps not produced"
+    error "ops $PROG_ROOT_DIR/lancia_atmo.sh ${prefix} didnt work";
+  else
+    cp $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.eps
+    rm -f $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps
+  fi
+done
+# END OF STEP 1
+#################################################################
+
+
+
+
+
+
+
+
+
+
+notice "End of "`basename $0`
+exit 1
 fout=$REPORTDIR/FATE-REPORT_${TODAYSTRING}.tex
 rm -f $REPORTDIR/FATE-REPORT_${TODAYSTRING}.*
 
 #################################################################
 # Modify here the header by using the template $header_tmpl_file
 if [ ! -e $header_tmpl_file ]; then
-  exit 1
+  error "$header_tmpl_file doe not exist"
 fi
 cat $header_tmpl_file | sed -e "s!TODAYDOWSTRING!$TODAYDOWSTRING_CHILE!" | \
                         sed -e "s!TODAYSTRING!$TODAYSTRING_CHILE!"       | \
                         sed -e "s!TODAYTIMESTRING!$TODAYTIMESTRING_CHILE!" > $WRKDIR/header.tex
 if [ $? != 0 ]; then
-  echo  "+++ "`date +%c`" Problem in creating header file"; exit 1;
+  error "Problem in creating header file"
 fi
 if [ ! -f "$WRKDIR/header.tex" ]; then
-  echo "Ops..big problem"
-  echo "Cannot create header.tex. Exiting..."
-  exit 1;
+  notice "Ops..big problem"
+  error "Cannot create header.tex. Exiting..."
 fi
+
 #################################################################
 # Modify here the tail (if any) by using the template $tail_tmpl_file
 if [ ! -e $tail_tmpl_file ]; then
-  exit 1
+  error "$tail_tmpl_file doe not exist"
+else
+  cp $tail_tmpl_file $WRKDIR/tail.tex
 fi
-cp $tail_tmpl_file $WRKDIR/tail.tex
 
 #################################################################
 # Housekeeping
@@ -78,95 +174,15 @@ rm -f $WRKDIR/body.tex
 rm -f $WRKDIR/temporary_tableBEF.tex $WRKDIR/temporary_tableAFT.tex
 cp $WRKDIR/TMPL_LATEX/table_tmpl.tex $WRKDIR/temporary_tableBEF.tex
 cp $WRKDIR/TMPL_LATEX/table_tmpl.tex $WRKDIR/temporary_tableAFT.tex
+cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableBEF.tex
+cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableAFT.tex
 cat << EOF > $WRKDIR/body.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \section{Data for $GG $HH}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 EOF
-#################################################################
-# Now run the program by Elena to produce graphics and statistics
-# to be included in the central body of the report
 
-# Loop over variables
-for prefix in ws wd rh pwv see tau glf
-do
-  cd $PROGDIR
-  rm -f $PROGDIR/stoca_*
-  case "$prefix" in
-  ws)  
-    prefixUC='WS'
-    descri='Wind speed ($m s^{-1}$)'
-    suffix='stan'
-    sh ./lancia_atmo.sh $prefix
-    ;;
-  wd) 
-    prefixUC='WD'
-    descri='Wind direction (degree)'
-    suffix='stan_0_90'
-    sh ./lancia_atmo.sh $prefix
-    ;;
-  rh)
-    prefixUC='RH'
-    descri='Relative humidity (\%)'
-    suffix='stan'
-    sh ./lancia_atmo.sh $prefix
-    ;;
-  pwv) 
-    prefixUC='PWV'
-    descri='Precipitable water vapor (mm)'
-    suffix='stan'
-    sh ./lancia_atmo.sh $prefix
-    ;;
-  see) 
-    prefixUC='SEE'
-    descri='Total Seeing (arcsec)'
-    suffix='os18_1000'
-    sh ./lancia_astro.sh $prefix
-    ;;
-  tau) 
-    prefixUC='TAU'
-    descri='Coeherence time (ms)'
-    suffix='os18_1000'
-    sh ./lancia_astro.sh $prefix
-    ;;
-  glf) 
-    prefixUC='GLF'
-    descri='Ground layer fraction \textit{(add unit of measure)}'
-    suffix='stan'
-    sh ./lancia_astro.sh $prefix
-    ;;
-  *) echo "stoca"
-     exit 1
-     ;;
-  esac  
-  # check if outputs were produced
-  # a file named stoca_NAME-OF-THE-VARIABLE is expected in $PROGDIR
-  # .ps files (see naming below) are also expected in $FIGSDIR
-  # check stoca file
-  if [ ! -e $PROGDIR/stoca_${prefix} ]; then
-    echo "$PROGDIR/stoca_${prefix} not produced"
-    echo "ops $PROGDIR/lancia_atmo.sh ${prefix} didnt work"
-    exit 1
-  fi
-
-  # check .ps files
-  if [ ! -e $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps ]; then
-    echo "ops $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps not produced"
-    echo "ops $PROGDIR/lancia_atmo.sh ${prefix} didnt work"
-    exit 1
-  else
-    cp $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.eps
-    rm -f $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps
-  fi
-  if [ ! -e $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps ]; then
-    echo "ops $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps not produced"
-    echo "ops $PROGDIR/lancia_atmo.sh ${prefix} didnt work";
-    exit 1
-  else
-    cp $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.eps
-    rm -f $FIGSDIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps
-  fi
   
   #################################################################
   # Now ingest the outputs of the program by Elena
@@ -174,34 +190,57 @@ do
 
   ## Figures
   #
-  cd $FIGSDIR
+  cd $FIGS_ROOT_DIR
   PROG=1
-  for FILEEPS  in `ls ${prefix}_sim_mnh_ar_dimm_*${suffix}.eps`
-  do
+
+#  for FILEEPS  in `ls -r ${prefix}_sim_mnh_ar_dimm_*${suffix}.eps`
+#  do
+#cat << EOF >> $WRKDIR/body.tex
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#\newpage
+#
+#\begin{center}
+#\textbf{$descri}
+#\end{center}
+#
+#\begin{figure}[htbp]
+#\centering
+#{\includegraphics[scale=0.99,angle=-90]{$FIGS_ROOT_DIR/$FILEEPS}}
+#\caption{${prefix} - ${descri}}\label{fig:${prefix}${PROG}}
+#\end{figure}
+#EOF
+#  PROG=$((PROG+1))
+#  done
+EPSBEF=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.eps
+EPSAFT=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.eps
+EPSPER=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.eps
 cat << EOF >> $WRKDIR/body.tex
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-
-\begin{center}
-\textbf{$descri}
-\end{center}
-
-\begin{figure}[htbp]
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
 \centering
-{\includegraphics[scale=0.99,angle=-90]{$FIGSDIR/$FILEEPS}}
-\caption{${prefix} - ${descri}}\label{fig:${prefix}${PROG}}
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{$EPSBEF}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{$EPSAFT}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{$EPSPER}}
+\caption{my fig}
+\label{fig:main}
 \end{figure}
 EOF
-  PROG=$((PROG+1))
-  done
 
   ## Statistics
   #
-  cd $PROGDIR
+  cd $PROG_ROOT_DIR
   # BEFORE STUFF
-  BIAS=`cat stoca_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep BIAS | cut -d '=' -f2`
-  RMSE=`cat stoca_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep RMSE | cut -d '=' -f2`
-  SD=`cat stoca_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep SIGMA | cut -d '=' -f2`
+  BIAS=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep BIAS | cut -d '=' -f2`
+  RMSE=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep RMSE | cut -d '=' -f2`
+  SD=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep SIGMA | cut -d '=' -f2`
   my_caption='Statistics for standard variables (i.e. BEF)'
   cat $WRKDIR/temporary_tableBEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                     sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
@@ -217,10 +256,113 @@ EOF
     echo "Cannot create temporary_tableBEF.tex. Exiting..."
     exit 1;
   fi
+  if [ ${prefix} = 'ws' ]; then
+  ## Contingency
+  #
+  cd $PROG_ROOT_DIR
+  # BEFORE STUFF
+  PERC1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW0 | awk '{print $6}'`
+  PERC2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW0 | awk '{print $9}'`
+  SAMPLESIZE=`cat tmpfile_${prefix} | grep LOGINFO | grep BEF | grep NbLines_TOT | cut -d '=' -f2`
+  VAL1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $5}'`
+  VAL2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $6}'`
+  VAL3=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $7}'`
+  VAL4=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW2 | awk '{print $5}'`
+  VAL5=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW2 | awk '{print $6}'`
+  VAL6=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW2 | awk '{print $7}'`
+  VAL7=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW3 | awk '{print $5}'`
+  VAL8=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW3 | awk '{print $6}'`
+  VAL9=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW3 | awk '{print $7}'`
+  POD1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD1 | awk '{print $5}'`
+  POD2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD2 | awk '{print $5}'`
+  POD3=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD3 | awk '{print $5}'`
+  PC=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep PC | awk '{print $5}'`
+  EBD=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep EBD | awk '{print $5}'`
+  cat $WRKDIR/contingency_tableBEF.tex | sed -e "s/PERC1/$PERC1/g"    | \
+                                    sed -e "s/PERC2/$PERC2/g"    | \
+                                    sed -e "s/UNITVAR/$unitof/g"    | \
+                                    sed -e "s!VAL1!$VAL1!"    | \
+                                    sed -e "s!VAL2!$VAL2!"    | \
+                                    sed -e "s!VAL3!$VAL3!"    | \
+                                    sed -e "s!VAL4!$VAL4!"    | \
+                                    sed -e "s!VAL5!$VAL5!"    | \
+                                    sed -e "s!VAL6!$VAL6!"    | \
+                                    sed -e "s!VAL7!$VAL7!"    | \
+                                    sed -e "s!VAL8!$VAL8!"    | \
+                                    sed -e "s!VAL9!$VAL9!"    | \
+                                    sed -e "s!POD1!$POD1!"    | \
+                                    sed -e "s!POD2!$POD2!"    | \
+                                    sed -e "s!POD3!$POD3!"    | \
+                                    sed -e "s!SAMPLESIZE!$SAMPLESIZE!"    | \
+                                    sed -e "s!PCIS!$PC!"           | \
+                                    sed -e "s!EBDIS!$EBD!"         | \
+                                    sed -e "s/SHORTVAR/$prefix/g"  | \
+                                    sed -e "s!LONGVAR!$descri!"      \
+                                    > $WRKDIR/contingency_table${PROG}BEF.tex
+  mv $WRKDIR/contingency_table${PROG}BEF.tex $WRKDIR/contingency_tableBEF.tex
+  if [ $? != 0 ]; then
+    echo  "+++ "`date +%c`" Problem in creating table file"; exit 1;
+  fi
+  if [ ! -f "$WRKDIR/contingency_tableBEF.tex" ]; then
+    echo "Ops..big problem"
+    echo "Cannot create contingency_tableBEF.tex. Exiting..."
+    exit 1;
+  fi
   # AFTER STUFF
-  BIAS=`cat stoca_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep BIAS | cut -d '=' -f2`
-  RMSE=`cat stoca_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
-  SD=`cat stoca_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep SIGMA | cut -d '=' -f2`
+  PERC1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW0 | awk '{print $6}'`
+  PERC2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW0 | awk '{print $9}'`
+  SAMPLESIZE=`cat tmpfile_${prefix} | grep LOGINFO | grep AFT | grep NbLines_TOT | cut -d '=' -f2`
+  VAL1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $5}'`
+  VAL2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $6}'`
+  VAL3=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $7}'`
+  VAL4=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW2 | awk '{print $5}'`
+  VAL5=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW2 | awk '{print $6}'`
+  VAL6=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW2 | awk '{print $7}'`
+  VAL7=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW3 | awk '{print $5}'`
+  VAL8=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW3 | awk '{print $6}'`
+  VAL9=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW3 | awk '{print $7}'`
+  POD1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD1 | awk '{print $5}'`
+  POD2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD2 | awk '{print $5}'`
+  POD3=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD3 | awk '{print $5}'`
+  PC=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep PC | awk '{print $5}'`
+  EBD=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep EBD | awk '{print $5}'`
+  cat $WRKDIR/contingency_tableAFT.tex | sed -e "s/PERC1/$PERC1/g"    | \
+                                    sed -e "s/PERC2/$PERC2/g"    | \
+                                    sed -e "s/UNITVAR/$unitof/g"    | \
+                                    sed -e "s!VAL1!$VAL1!"    | \
+                                    sed -e "s!VAL2!$VAL2!"    | \
+                                    sed -e "s!VAL3!$VAL3!"    | \
+                                    sed -e "s!VAL4!$VAL4!"    | \
+                                    sed -e "s!VAL5!$VAL5!"    | \
+                                    sed -e "s!VAL6!$VAL6!"    | \
+                                    sed -e "s!VAL7!$VAL7!"    | \
+                                    sed -e "s!VAL8!$VAL8!"    | \
+                                    sed -e "s!VAL9!$VAL9!"    | \
+                                    sed -e "s!POD1!$POD1!"    | \
+                                    sed -e "s!POD2!$POD2!"    | \
+                                    sed -e "s!POD3!$POD3!"    | \
+                                    sed -e "s!SAMPLESIZE!$SAMPLESIZE!"    | \
+                                    sed -e "s!PCIS!$PC!"           | \
+                                    sed -e "s!EBDIS!$EBD!"         | \
+                                    sed -e "s/SHORTVAR/$prefix/g"  | \
+                                    sed -e "s!LONGVAR!$descri!"      \
+                                    > $WRKDIR/contingency_table${PROG}AFT.tex
+  mv $WRKDIR/contingency_table${PROG}AFT.tex $WRKDIR/contingency_tableAFT.tex
+  if [ $? != 0 ]; then
+    echo  "+++ "`date +%c`" Problem in creating table file"; exit 1;
+  fi
+  if [ ! -f "$WRKDIR/contingency_tableAFT.tex" ]; then
+    echo "Ops..big problem"
+    echo "Cannot create contingency_tableAFT.tex. Exiting..."
+    exit 1;
+  fi
+
+  fi
+
+  # AFTER STUFF
+  BIAS=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep BIAS | cut -d '=' -f2`
+  RMSE=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
+  SD=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep SIGMA | cut -d '=' -f2`
   my_caption='Statistics for variables processed with AR (i.e. AFT)'
   cat $WRKDIR/temporary_tableAFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                     sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
@@ -228,7 +370,7 @@ EOF
                                     sed -e "s!TABCAPTION!$my_caption!"   \
                                     > $WRKDIR/temporary_table${PROG}AFT.tex
   mv $WRKDIR/temporary_table${PROG}AFT.tex $WRKDIR/temporary_tableAFT.tex
-  rm -f stoca_${prefix}
+  rm -f tmpfile_${prefix}
   if [ $? != 0 ]; then
     echo  "+++ "`date +%c`" Problem in creating table file"; exit 1;
   fi
@@ -238,9 +380,10 @@ EOF
     exit 1;
   fi
 done
-rm -f $PROGDIR/stoca_*
-cat $WRKDIR/temporary_tableBEF.tex $WRKDIR/temporary_tableAFT.tex >> $WRKDIR/body.tex
+rm -f $PROG_ROOT_DIR/tmpfile_*
+cat $WRKDIR/temporary_tableBEF.tex $WRKDIR/contingency_tableBEF.tex $WRKDIR/temporary_tableAFT.tex $WRKDIR/contingency_tableAFT.tex >> $WRKDIR/body.tex
 rm -f $WRKDIR/temporary_tableBEF.tex $WRKDIR/temporary_tableAFT.tex
+rm -f $WRKDIR/contingency_tableBEF.tex $WRKDIR/contingency_tableAFT.tex
 ########################################################################
 
 #################################################################
@@ -264,5 +407,6 @@ else
 fi
 
 #################################################################
+notice "End of "`basename $0`
 exit 0
 

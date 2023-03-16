@@ -1,0 +1,9 @@
+/DATA/*.zip
+/misc/
+/OLD/
+/REPORT/OLD/
+/github_token.txt
+/bin/NUMREC/*.o
+/bin/NUMREC/*.mod
+/bin/LIBPERSO/*.o
+/bin/LIBPERSO/*.mod

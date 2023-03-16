@@ -22,7 +22,7 @@ if [[ -z $VARIN ]]; then
 fi
 case $VARIN in
 ws | wd | wd45 | rh | pwv)
-  echo ""
+#  echo ""
   echo -n "OK! input string is $VARIN"
   echo ""
   ;;
@@ -38,16 +38,26 @@ esac
 ## End of input arguments
 #########################################
 
+# Source of functions
+funcfile='/home/report/scripts/functions.sh'
+if [ -e $funcfile ]; then
+  source $funcfile
+else
+  echo "ops $funcfile does not exist in "`pwd`; exit 1
+fi
+
+# Source of env file
+envfile='/home/report/scripts/fate-report.env'
+if [ -e $envfile ]; then
+  source $envfile
+else
+  echo "ops $envfile does not exist in "`pwd`; exit 1
+fi
+
+
 #########################################
-## Start of global variables
+## Check directories 
 #
-export GG=5GG
-export HH=1H
-#export STARTMINUTE=0  # from 14:00 LT
-#export ENDMINUTE=1080    # to 08:00 LT
-DATA_ROOT_DIR=$HOME"/DATA/AR_TREATED_365N_20180801_20190731_STANDARD/$GG/$HH"
-FIGS_ROOT_DIR=$HOME"/FIGS/$GG/$HH"
-PROG_ROOT_DIR=$HOME"/PROG/AR_${GG}_${HH}"
 if [ ! -d $DATA_ROOT_DIR ]; then
   echo "ops $DATA_ROOT_DIR is missing or is not a directory"; exit 1
 fi
@@ -58,7 +68,7 @@ if [ ! -d $PROG_ROOT_DIR ]; then
   echo "ops $PROG_ROOT_DIR is missing or is not a directory"; exit 1
 fi
 #
-## End of global variables
+## End of check directories
 #########################################
 
 cd $PROG_ROOT_DIR
@@ -67,48 +77,48 @@ cd $PROG_ROOT_DIR
 # 1. Wind Speed (variable prefix is 'ws')
 
 if [ $VARIN == 'ws' ]; then
-## Start of local variables
-#
-prefix_lc='ws'
-PREFIX_UC='WS'
-export JOB=$prefix_lc'_mnh_ar_hit_def_stan'
-if [ ! -e ${JOB}.f90 ]; then
-  echo "ops ${JOB}.f90 is missing"; exit 1
-fi
-export IDELTA=10
-export STARTMINUTE=300  # from 19:00 LT
-export ENDMINUTE=960    # to 06:00 LT
-export FILE_LIST="list_"$PREFIX_UC"_${GG}.txt"
-if [ ! -e $FILE_LIST ]; then
-  echo "ops $FILE_LIST is missing in the current directory"; exit 1
-fi
-export NbNights=`wc -l $FILE_LIST | cut -d ' ' -f 1`
-export ROOT=$DATA_ROOT_DIR"/${PREFIX_UC}_TREATED/"
-if [ ! -d $ROOT ]; then
-  echo "ops $ROOT is missing or is not a directory"; exit 1
-fi
-export STARTIN="${PREFIX_UC}_ARevol_"
-export TAIL=".dat"
-export LIMIT=0.     # limite inferiore da usarsi quando si vuole studiare lo scattering plot di WS sopra una certa soglia.
-                    # Se si vuole considerare tutto il sample mettere LIMIT=0.
-export MAXWS=999.   # put 999. if one wants to consider the whole values without filtering
-                    # ATT: use the option 999 if you wish to calculate the contingency tables
-#
-## End of local variables
-
-## Start of procedure for ws
-#
-rm -f ${JOB}.exe
-test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
-test -f out_scatter_for_python_aft.dat && rm -f out_scatter_for_python_aft.dat
-# Compile f90 file
-gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I/home/report/bin/NUMREC -I/home/report/bin/LIBPERSO/mod -L/home/report/bin/LIBPERSO -L/home/report/bin/NUMREC -J/home/report/bin/NUMREC -lpgplot -lpng -lz -lpers -lnumrec > /dev/null 2>&1
-if [ ! -e ${JOB}.exe ]; then
-  echo "ops problem in compiling ${JOB}.f90"; exit 1
-fi
+  ## Start of local variables
+  #
+  prefix_lc='ws'
+  PREFIX_UC='WS'
+  export JOB=$prefix_lc'_mnh_ar_hit_def_stan'
+  if [ ! -e ${JOB}.f90 ]; then
+    echo "ops ${JOB}.f90 is missing"; exit 1
+  fi
+  export IDELTA=10
+#  export STARTMINUTE=300  # from 19:00 LT
+#  export ENDMINUTE=960    # to 06:00 LT
+  export FILE_LIST="list_"$PREFIX_UC"_${GG}.txt"
+  if [ ! -e $FILE_LIST ]; then
+    echo "ops $FILE_LIST is missing in the current directory"; exit 1
+  fi
+  export NbNights=`wc -l $FILE_LIST | cut -d ' ' -f 1`
+  export ROOT=$DATA_ROOT_DIR"/${PREFIX_UC}_TREATED/"
+  if [ ! -d $ROOT ]; then
+    echo "ops $ROOT is missing or is not a directory"; exit 1
+  fi
+  export STARTIN="${PREFIX_UC}_ARevol_"
+  export TAIL=".dat"
+  export LIMIT=0.     # limite inferiore da usarsi quando si vuole studiare lo scattering plot di WS sopra una certa soglia.
+                      # Se si vuole considerare tutto il sample mettere LIMIT=0.
+  export MAXWS=999.   # put 999. if one wants to consider the whole values without filtering
+                      # ATT: use the option 999 if you wish to calculate the contingency tables
+  #
+  ## End of local variables
+  
+  ## Start of procedure for ws
+  #
+  rm -f ${JOB}.exe
+  test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
+  test -f out_scatter_for_python_aft.dat && rm -f out_scatter_for_python_aft.dat
+  # Compile f90 file
+  gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I/home/report/bin/NUMREC -I/home/report/bin/LIBPERSO/mod -L/home/report/bin/LIBPERSO -L/home/report/bin/NUMREC -J/home/report/bin/NUMREC -lpgplot -lpng -lz -lpers -lnumrec > /dev/null 2>&1
+  if [ ! -e ${JOB}.exe ]; then
+    echo "ops problem in compiling ${JOB}.f90"; exit 1
+  fi
 
 # Run f90 file
-./${JOB}.exe<<EOF > stoca_${VARIN}
+./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
 ${IDELTA}
@@ -123,10 +133,10 @@ ${LIMIT}
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_stan.ps/cps'
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_stan.ps/cps'
 EOF
-rm -f ${JOB}.exe
-rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
-#
-## End of procedure for ws
+  rm -f ${JOB}.exe
+  rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+  #
+  ## End of procedure for ws
 fi
 
 #############################################
@@ -173,7 +183,7 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 # Run f90 file
-./${JOB}.exe<<EOF > stoca_${VARIN}
+./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
 ${IDELTA}
@@ -240,7 +250,7 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 # Run f90 file
-./${JOB}.exe<<EOF > stoca_${VARIN}
+./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
 ${IDELTA}
@@ -301,7 +311,7 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 # Run .exe file
-./${JOB}.exe<<EOF > stoca_${VARIN}
+./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
 ${IDELTA}
@@ -363,7 +373,7 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 # Run f90 file
-./${JOB}.exe<<EOF > stoca_${VARIN}
+./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
 ${IDELTA}
@@ -384,6 +394,5 @@ rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
 ## End of procedure for pwv
 fi
 
-cd -
 exit 0;
 

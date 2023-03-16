@@ -505,6 +505,7 @@ end subroutine ccc
 subroutine hit_rate(array1,array2,size_array,xlim1,xlim2,noval,tab_hr,pod,pc,ebd,lflag)
 !array1=reference (obs) from which xlim1 and xlim2 have been extracted
 ! To be used for 3x3 tables
+! valcap 20230314 viene utilizzata questa
 !******************************************************************************
 implicit none
 
@@ -518,7 +519,6 @@ real, intent(out) :: pc, ebd
 
 integer :: i,icount
 real :: a,b,c,d,e,f,g,h,ii
-
 if (present(lflag)) then
  if (lflag.eqv..true.) print *, 'Contingency table filled with percent.'
  if (lflag.eqv..false.) print *, 'Contingency table filled with numbers.'
@@ -549,7 +549,7 @@ do i=1,size_array
  endif
 enddo
 
-print *, 'Hit rate computed on',icount,'points.'
+print *, 'LOGINFO Hit rate computed on',icount,'points.'
 
 
 !  Expressed in percent
@@ -576,7 +576,7 @@ print *, 'POD(event2)=', pod(2)
 pod(3)=ii/(c+f+ii)*100
 print *, 'POD(event3)=', pod(3)
 pc=(a+e+ii)
-print*,'PC=',pc
+print*,'C=',pc
 ebd=(c+g)
 print*,'ebd=',ebd
 endif
@@ -594,20 +594,20 @@ f = tab_hr(2,3)
 g = tab_hr(3,1)
 h = tab_hr(3,2)
 ii = tab_hr(3,3)
-print *, 'X<',xlim1,xlim1,'<X<',xlim2,'X>',xlim2
-print *, tab_hr(1,1),tab_hr(1,2),tab_hr(1,3)
-print *, tab_hr(2,1),tab_hr(2,2),tab_hr(2,3)
-print *, tab_hr(3,1),tab_hr(3,2),tab_hr(3,3)
+print *, 'LOGINFO X<',xlim1,xlim1,'<X<',xlim2,'X>',xlim2
+print *, 'LOGINFO ',tab_hr(1,1),tab_hr(1,2),tab_hr(1,3)
+print *, 'LOGINFO ',tab_hr(2,1),tab_hr(2,2),tab_hr(2,3)
+print *, 'LOGINFO ',tab_hr(3,1),tab_hr(3,2),tab_hr(3,3)
 pod(1)=a/(a+d+g)*100
-print *, 'POD(event1)=', pod(1)
+print *, 'LOGINFO POD(event1)=', pod(1)
 pod(2)=e/(b+e+h)*100
-print *, 'POD(event2)=', pod(2)
+print *, 'LOGINFO POD(event2)=', pod(2)
 pod(3)=ii/(c+f+ii)*100
-print *, 'POD(event3)=', pod(3)
+print *, 'LOGINFO POD(event3)=', pod(3)
 pc=((a+e+ii)/icount)*100
-print*,'PC=',pc
+print*,'LOGINFO PC=',pc
 ebd=((c+g)/icount)*100
-print*,'ebd=',ebd
+print*,'LOGINFO ebd=',ebd
 endif
 
 end subroutine hit_rate
@@ -1207,7 +1207,7 @@ statnum(11)= (a - ar) / (a -ar + b + c) ! GSS (Gilbert Skill Score) or ETS (Equi
 if ( (present(lflag).and.(lflag.eqv..True.)).or.(.not.present(lflag)) ) tab_hr = (tab_hr / icount)*100. !in %
 
 print *, '------------'
-print *, 'X<',xlim,xlim,'<X<'
+print *, 'LOGINFO X<',xlim,xlim,'<X<'
 print *, tab_hr(1,1),tab_hr(1,2)
 print *, tab_hr(2,1),tab_hr(2,2)
 print *, '------------'

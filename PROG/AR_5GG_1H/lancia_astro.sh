@@ -107,7 +107,7 @@ if [ ! -e ${JOB}.exe ]; then
 fi
 
 # Run f90 file
-./${JOB}.exe<<EOF > stoca_${VARIN}
+./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
 ${IDELTA}
@@ -172,7 +172,7 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 # Run f90 file
-./${JOB}.exe<<EOF > stoca_${VARIN}
+./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
 ${IDELTA}
@@ -233,7 +233,7 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 # Run .exe file
-./${JOB}.exe<<EOF > stoca_${VARIN}
+./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
 ${IDELTA}

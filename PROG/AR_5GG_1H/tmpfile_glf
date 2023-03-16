@@ -1,0 +1,116 @@
+ GG=5GG
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=         347
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ MAXGLF=   999.000000    
+ ACC=  0.140000001    
+ ROOT=/home/report/DATA/AR_TREATED_365N_20180801_20190731_STANDARD/5GG/1H/GLF_TREATED/
+ TAIL=.dat
+ STARTIN=GLF_ARevol_
+ CFILE_LIST_NIGHTS=list_GLF_5GG.txt                                                                                                        
+ /home/report/FIGS/5GG/1H/glf_sim_mnh_ar_dimm_300_960_BEF_stan.ps/cps                                                    
+ /home/report/FIGS/5GG/1H/glf_sim_mnh_ar_dimm_300_960_AFT_stan.ps/cps                                                    
+ GLF_ARevol_1H_5GG_
+ NbLines_TOT=         660
+ MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
+ End of OBS data treatement
+ NbLines_TOT_Pix=       37476
+ MAXVAL_GLF_OBS_1D=  0.954956472    
+ LOGINFO BIAS_GLF_MOD_BEF= -0.146696731    
+ LOGINFO RMSE_GLF_MOD_BEF=  0.263756543    
+ LOGINFO SIGMA_GLF_MOD_BEF=  0.219197601    
+ INC_GLF_MOD_BEF=       17271
+ NbLines_TOT=       37476
+ LOGINFO BIAS_GLF_MOD_AFT=  -6.72777649E-03
+ LOGINFO RMSE_GLF_MOD_AFT=   6.71435669E-02
+ LOGINFO SIGMA_GLF_MOD_AFT=   6.68056533E-02
+ INC_GLF_MOD_AFT=       17270
+ NbLines_TOT=       37476
+ NbFit=       17270 NbLines_TOT=         660 NbPix=         108
+ K=           0
+ #### FIT BEF ####
+ ENTERING fit routine
+ ARRAYS SIZE:        17270       17270
+ ndata=        17270
+ sx=   10778.5498    
+ invx=   8.60754490E-09
+ q=   0.00000000     ndata=       17270 size(x)=       17270 chi2=   671.426331     sigb=   2.40416336E-03
+ B_TOT(slope)=  0.764894724    
+ #### FIT AFT #####
+ ENTERING fit routine
+ ARRAYS SIZE:        17270       17270
+ ndata=        17270
+ sx=   10778.5498    
+ invx=   8.60754490E-09
+ q=   0.00000000     ndata=       17270 size(x)=       17270 chi2=   76.5440063     sigb=   8.11746460E-04
+ B_TOT(slope)=  0.989219606    
+ ***************
+ XMED_GLF=  0.644202769    
+ X33_GLF=  0.564103842    
+ X66_GLF=  0.714223981    
+ ***************
+ ***************
+ XMED_MOD_BEF=  0.460069418    
+ ***************
+ ##########################################
+ ######## HIT_RATE for BEF ###########
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on       17270 points.
+ X<  0.564103842      0.564103842     <X<  0.714223981     X>  0.714223981    
+   4369.00000       3882.00000       3308.00000    
+   1034.00000       1283.00000       1478.00000    
+   354.000000       592.000000       970.000000    
+ POD(event1)=   75.8902206    
+ POD(event2)=   22.2859135    
+ POD(event3)=   16.8519802    
+ PC=   38.3439484    
+ ebd=   21.2043991    
+ **************************************************
+ ****** HIT_RATE for BEF WITH RMSE=SD_instr *******
+ **************************************************
+ Contingency table filled with numbers.
+ Hit rate computed on       17270 points.
+ X<  0.564103842      0.564103842     <X<  0.714223981     X>  0.714223981    
+   5353.00000       2517.00000       3403.00000    
+   50.0000000       3223.00000       1436.00000    
+   354.000000       17.0000000       2353.00000    
+ POD(event1)=   92.9824600    
+ POD(event2)=   55.9840202    
+ POD(event3)=   32.7169075    
+ PC=   63.2831497    
+ ebd=   21.7544861    
+ ***************
+ XMED_MOD_AFT=  0.636936843    
+ ***************
+ ##########################################
+ ############ HIT_RATE for AFT #############
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on       17270 points.
+ X<  0.564103842      0.564103842     <X<  0.714223981     X>  0.714223981    
+   5041.00000       935.000000       43.0000000    
+   676.000000       4140.00000       904.000000    
+   40.0000000       682.000000       4809.00000    
+ POD(event1)=   87.5629654    
+ POD(event2)=   71.9124527    
+ POD(event3)=   83.5476074    
+ PC=   81.0075302    
+ ebd=  0.480602205    
+ **************************************************
+ ****** HIT_RATE for AFT WITH RMSE=SD_instr *******
+ **************************************************
+ Contingency table filled with numbers.
+ Hit rate computed on       17270 points.
+ X<  0.564103842      0.564103842     <X<  0.714223981     X>  0.714223981    
+   5712.00000       74.0000000       55.0000000    
+   5.00000000       5658.00000       54.0000000    
+   40.0000000       25.0000000       5701.00000    
+ POD(event1)=   99.2183456    
+ POD(event2)=   98.2803497    
+ POD(event3)=   98.1239243    
+ PC=   98.8477097    
+ ebd=  0.550086856    
