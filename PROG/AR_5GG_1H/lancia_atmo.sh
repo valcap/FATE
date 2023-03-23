@@ -23,8 +23,7 @@ fi
 case $VARIN in
 ws | wd | wd45 | rh | pwv)
 #  echo ""
-  echo -n "OK! input string is $VARIN"
-  echo ""
+  echo "OK! input string is $VARIN"
   ;;
 *)
   echo ""
@@ -143,46 +142,47 @@ fi
 # 2a. Wind Direction 0-90 (variable prefix is 'wd')
 
 if [ $VARIN == 'wd' ]; then
-## Start of local variables
-#
-prefix_lc='wd'
-PREFIX_UC='WD'
-export JOB=$prefix_lc'_mnh_ar_hit_def_stan_0_90'
-if [ ! -e ${JOB}.f90 ]; then
-  echo "ops ${JOB}.f90 is missing"; exit 1
-fi
-export IDELTA=10
-export STARTMINUTE=300  # from 19:00 LT
-export ENDMINUTE=960    # to 06:00 LT
-export FILE_LIST="list_"$PREFIX_UC"_${GG}.txt"
-if [ ! -e $FILE_LIST ]; then
-  echo "ops $FILE_LIST is missing in the current directory"; exit 1
-fi
-export NbNights=`wc -l $FILE_LIST | cut -d ' ' -f 1`
-export ROOT=$DATA_ROOT_DIR"/${PREFIX_UC}_TREATED/"
-if [ ! -d $ROOT ]; then
-  echo "ops $ROOT is missing or is not a directory"; exit 1
-fi
-export ROOT_WS=$DATA_ROOT_DIR"/WS_TREATED/"
-export STARTIN=$PREFIX_UC"_ARevol_"
-export STARTIN_WS="WS_ARevol_"
-export TAIL=".dat"
-export LIMIT=3.          #export MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
-                         # ATT: only the option 999. is valid if one wish to calculate the contingency tables
-#
-## End of local variables
-
-## Start of procedure for wd
-#
-rm -f ${JOB}.exe
-test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
-test -f out_scatter_for_python_aft.dat && rm -f out_scatter_for_python_aft.dat
-# Compile f90 file
-gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I/home/report/bin/NUMREC -I/home/report/bin/LIBPERSO/mod -L/home/report/bin/LIBPERSO -L/home/report/bin/NUMREC -J/home/report/bin/NUMREC -lpgplot -lpng -lz -lpers -lnumrec > /dev/null 2>&1
-if [ ! -e ${JOB}.exe ]; then
-  echo "ops problem in compiling ${JOB}.f90"; exit 1
-fi
-# Run f90 file
+  ## Start of local variables
+  #
+  prefix_lc='wd'
+  PREFIX_UC='WD'
+  export JOB=$prefix_lc'_mnh_ar_hit_def_stan_0_90'
+  if [ ! -e ${JOB}.f90 ]; then
+    echo "ops ${JOB}.f90 is missing"; exit 1
+  fi
+  export IDELTA=10
+  export STARTMINUTE=300  # from 19:00 LT
+  export ENDMINUTE=960    # to 06:00 LT
+  export FILE_LIST="list_"$PREFIX_UC"_${GG}.txt"
+  if [ ! -e $FILE_LIST ]; then
+    echo "ops $FILE_LIST is missing in the current directory"; exit 1
+  fi
+  export NbNights=`wc -l $FILE_LIST | cut -d ' ' -f 1`
+  export ROOT=$DATA_ROOT_DIR"/${PREFIX_UC}_TREATED/"
+  if [ ! -d $ROOT ]; then
+    echo "ops $ROOT is missing or is not a directory"; exit 1
+  fi
+  export ROOT_WS=$DATA_ROOT_DIR"/WS_TREATED/"
+  export STARTIN=$PREFIX_UC"_ARevol_"
+  export STARTIN_WS="WS_ARevol_"
+  export TAIL=".dat"
+  export LIMIT=3.          #export MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
+                           # ATT: only the option 999. is valid if one wish to calculate the contingency tables
+  #
+  ## End of local variables
+  
+  ## Start of procedure for wd
+  #
+  rm -f ${JOB}.exe
+  test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
+  test -f out_scatter_for_python_aft.dat && rm -f out_scatter_for_python_aft.dat
+  # Compile f90 file
+  gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I/home/report/bin/NUMREC -I/home/report/bin/LIBPERSO/mod -L/home/report/bin/LIBPERSO -L/home/report/bin/NUMREC -J/home/report/bin/NUMREC -lpgplot -lpng -lz -lpers -lnumrec > /dev/null 2>&1
+  if [ ! -e ${JOB}.exe ]; then
+    echo "ops problem in compiling ${JOB}.f90"; exit 1
+  fi
+  
+  # Run f90 file
 ./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
@@ -200,10 +200,10 @@ ${LIMIT}
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_stan_0_90.ps/cps'
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_stan_0_90.ps/cps'
 EOF
-rm -f ${JOB}.exe
-rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
-#
-## End of procedure for wd
+  rm -f ${JOB}.exe
+  rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+  #
+  ## End of procedure for wd
 fi
 
 #############################################
@@ -249,6 +249,7 @@ gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I/home/report/bin/NUMREC
 if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
+
 # Run f90 file
 ./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
@@ -310,7 +311,8 @@ gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I/home/report/bin/NUMREC
 if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
-# Run .exe file
+
+# Run .f90 file
 ./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
 ${HH}
@@ -372,6 +374,7 @@ gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I/home/report/bin/NUMREC
 if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
+
 # Run f90 file
 ./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}

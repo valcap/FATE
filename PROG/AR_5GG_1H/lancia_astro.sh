@@ -22,9 +22,7 @@ if [[ -z $VARIN ]]; then
 fi
 case $VARIN in
 see | tau | glf )
-  echo ""
-  echo -n "OK! input string is $VARIN"
-  echo ""
+  echo "OK! input string is $VARIN"
   ;;
 *)
   echo ""
@@ -171,6 +169,7 @@ gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I/home/report/bin/NUMREC
 if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
+
 # Run f90 file
 ./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
@@ -232,6 +231,7 @@ gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I/home/report/bin/NUMREC
 if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
+
 # Run .exe file
 ./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
@@ -255,6 +255,5 @@ rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
 ## End of procedure for rh
 fi
 
-cd -
 exit 0;
 
