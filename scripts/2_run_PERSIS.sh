@@ -11,14 +11,6 @@
 #  exit 1
 #fi
 
-# Source of functions
-funcfile='/home/report/scripts/functions.sh'
-if [ -e $funcfile ]; then
-  source $funcfile
-else
-  echo "ops $funcfile does not exist in "`pwd`; exit 1
-fi
-
 # Source of env file
 envfile='/home/report/scripts/fate-report.env'
 if [ -e $envfile ]; then
@@ -27,23 +19,31 @@ else
   echo "ops $envfile does not exist in "`pwd`; exit 1
 fi
 
+# Source of functions
+if [ -e $funcfile ]; then
+  source $funcfile
+else
+  echo "ops $funcfile does not exist in "`pwd`; exit 1
+fi
+
 #################################################################
 # START OF STEP 1
 # Run the program by Elena to produce graphics and statistics
 # for [[BEF & AFT]]
 # to be included in the central body of the report
 notice "Start of "`basename $0`
-rm -f $PROG_ROOT_DIR/tmpfile_*
+rm -f $PERS_ROOT_DIR/tmpfile_*
 
 # Loop over variables
-for prefix in ws wd rh pwv see tau glf
+#for prefix in ws wd rh pwv see tau glf
+for prefix in ws rh pwv
 do
-  cd $PROG_ROOT_DIR
-  if [ ! -e ./lancia_atmo.sh ]; then
-    error "lancia_atmo.sh does not exist in $PROG_ROOT_DIR"
+  cd $PERS_ROOT_DIR
+  if [ ! -e ./lancia_atmo_persi.sh ]; then
+    error "lancia_atmo.sh does not exist in $PERS_ROOT_DIR"
   fi
-  if [ ! -e ./lancia_astro.sh ]; then
-    error "lancia_astro.sh does not exist in $PROG_ROOT_DIR"
+  if [ ! -e ./lancia_astro_persi.sh ]; then
+    error "lancia_astro.sh does not exist in $PERS_ROOT_DIR"
   fi
   case "$prefix" in
   ws)  
@@ -51,7 +51,7 @@ do
     descri='Wind speed'
     unitof='$m s^{-1}$'
     suffix='stan'
-    sh ./lancia_atmo.sh $prefix
+    sh ./lancia_atmo_persi.sh $prefix
     ;;
   wd) 
     prefixUC='WD'
@@ -65,14 +65,14 @@ do
     descri='Relative humidity'
     unitof='\%'
     suffix='stan'
-    sh ./lancia_atmo.sh $prefix
+    sh ./lancia_atmo_persi.sh $prefix
     ;;
   pwv) 
     prefixUC='PWV'
     descri='Precipitable water vapor'
     unitof='mm'
     suffix='stan'
-    sh ./lancia_atmo.sh $prefix
+    sh ./lancia_atmo_persi.sh $prefix
     ;;
   see) 
     prefixUC='SEE'
@@ -99,7 +99,8 @@ do
      exit 1
      ;;
   esac  
-
+#############################################
+# CONTINUARE DA QUI PIU O MENO
   # check tmpfile file
   # a file named tmpfile_NAME-OF-THE-VARIABLE is expected in $PROG_ROOT_DIR
   if [ ! -e $PROG_ROOT_DIR/tmpfile_${prefix} ]; then
