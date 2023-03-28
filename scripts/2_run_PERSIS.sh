@@ -35,8 +35,7 @@ notice "Start of "`basename $0`
 rm -f $PERS_ROOT_DIR/tmpfile_*
 
 # Loop over variables
-#for prefix in ws wd rh pwv see tau glf
-for prefix in ws rh pwv
+for prefix in ws wd rh pwv see tau glf
 do
   cd $PERS_ROOT_DIR
   if [ ! -e ./lancia_atmo_persi.sh ]; then
@@ -50,62 +49,62 @@ do
     prefixUC='WS'
     descri='Wind speed'
     unitof='$m s^{-1}$'
-    suffix='stan'
+    suffix='stan_per'
     sh ./lancia_atmo_persi.sh $prefix
     ;;
   wd) 
     prefixUC='WD'
     descri='Wind direction'
     unitof='degree'
-    suffix='stan_0_90'
-    sh ./lancia_atmo.sh $prefix
+    suffix='stan_0_90_per'
+    sh ./lancia_atmo_persi.sh $prefix
     ;;
   rh)
     prefixUC='RH'
     descri='Relative humidity'
     unitof='\%'
-    suffix='stan'
+    suffix='stan_per'
     sh ./lancia_atmo_persi.sh $prefix
     ;;
   pwv) 
     prefixUC='PWV'
     descri='Precipitable water vapor'
     unitof='mm'
-    suffix='stan'
+    suffix='stan_per'
     sh ./lancia_atmo_persi.sh $prefix
     ;;
   see) 
     prefixUC='SEE'
     descri='Total Seeing'
     unitof='arcsec'
-    suffix='os18_1000'
-    sh ./lancia_astro.sh $prefix
+    suffix='os18_1000_per'
+    sh ./lancia_astro_persi.sh $prefix
     ;;
   tau) 
     prefixUC='TAU'
     descri='Coeherence time'
     unitof='ms'
-    suffix='os18_1000'
-    sh ./lancia_astro.sh $prefix
+    suffix='os18_1000_per'
+    sh ./lancia_astro_persi.sh $prefix
     ;;
   glf) 
     prefixUC='GLF'
     descri='Ground layer fraction'
     unitof='\textit{add unit of measure}'
-    suffix='stan'
-    sh ./lancia_astro.sh $prefix
+    suffix='stan_per'
+    sh ./lancia_astro_persi.sh $prefix
     ;;
   *) echo "Lo sai chi ti saluta?"
      exit 1
      ;;
   esac  
 #############################################
-# CONTINUARE DA QUI PIU O MENO
+  
   # check tmpfile file
   # a file named tmpfile_NAME-OF-THE-VARIABLE is expected in $PROG_ROOT_DIR
-  if [ ! -e $PROG_ROOT_DIR/tmpfile_${prefix} ]; then
-    notice "$PROG_ROOT_DIR/tmpfile_${prefix} not produced"
-    error "ops $PROG_ROOT_DIR/lancia_atmo.sh ${prefix} didnt work"
+  if [ ! -e $PERS_ROOT_DIR/tmpfile_${prefix} ]; then
+    notice "$PERS_ROOT_DIR/tmpfile_${prefix} not produced"
+    error "ops $PERS_ROOT_DIR/lancia_atmo.sh ${prefix} didnt work"
   fi
 
   # check .ps files

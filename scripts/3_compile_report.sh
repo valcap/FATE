@@ -39,8 +39,8 @@ rm -f $WRKDIR/body.tex
 rm -f $WRKDIR/temporary_tableBEF.tex $WRKDIR/temporary_tableAFT.tex
 cp $WRKDIR/TMPL_LATEX/table_tmpl.tex $WRKDIR/temporary_tableBEF.tex
 cp $WRKDIR/TMPL_LATEX/table_tmpl.tex $WRKDIR/temporary_tableAFT.tex
-cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableBEF.tex
-cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableAFT.tex
+#cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableBEF.tex
+#cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableAFT.tex
 
 #################################################################
 # HEADER

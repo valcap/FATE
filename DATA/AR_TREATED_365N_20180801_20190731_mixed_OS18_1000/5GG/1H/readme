@@ -1,0 +1,6 @@
+Il numero di notti per i quali ci sono misure non e' 365 ma un po' di meno.
+Il motivo e' duplice:
+- da un alto ci osno alcune notti (poche0- in cui gli strumenti per qualche motivo non hanno funzionato.
+In altre parole mancano le notti nel data base di ESO.
+- dato che si devono avere 5 notti pregresse per fare l'AR alla fine abbiamo avuto 348 per il seeing e 347 notti per (tau0, theta0 e GLF).
+

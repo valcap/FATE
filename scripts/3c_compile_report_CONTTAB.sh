@@ -93,12 +93,15 @@ do
   # Now ingest the outputs of the program by Elena
   # into the latex file (both figures and statistics)
 
+  cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableBEF.tex
+  cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableAFT.tex
+
   ## Statistics
   #
   cd $PROG_ROOT_DIR
   PROG=1
   # BEFORE STUFF
-  if [ ${prefix} = 'ws' ]; then
+  if [[ ${prefix} = 'ws' || ${prefix} = 'see' || ${prefix} = 'tau' ]]; then
   ## Contingency
   #
   # BEFORE STUFF
