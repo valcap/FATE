@@ -11,20 +11,19 @@
 #  exit 1
 #fi
 
-# Source of functions
-funcfile='/home/report/scripts/functions.sh'
-if [ -e $funcfile ]; then
-  source $funcfile
-else
-  echo "ops $funcfile does not exist in "`pwd`; exit 1
-fi
-
 # Source of env file
 envfile='/home/report/scripts/fate-report.env'
 if [ -e $envfile ]; then
   source $envfile
 else 
   echo "ops $envfile does not exist in "`pwd`; exit 1
+fi
+
+# Source of functions
+if [ -e $funcfile ]; then
+  source $funcfile
+else
+  echo "ops $funcfile does not exist in "`pwd`; exit 1
 fi
 
 #################################################################
@@ -91,7 +90,7 @@ do
   
   #################################################################
   # Now ingest the outputs of the program by Elena
-  # into the latex file (both figures and statistics)
+  # into the latex file
 
   ## Figures
   #
@@ -100,7 +99,7 @@ do
 
   EPSBEF=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.eps
   EPSAFT=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.eps
-  EPSPER=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.eps
+  EPSPER=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.eps
 cat << EOF >> $WRKDIR/body.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,8 +115,8 @@ cat << EOF >> $WRKDIR/body.tex
 \end{minipage}\par\medskip
 \centering
 \subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{$EPSPER}}
-\caption{my fig}
-\label{fig:main}
+\caption{$descri ($unitof): (a) STANDARD, (b) WITH AR, (c) PERSISTENCE.}
+\label{fig:$prefix}
 \end{figure}
 EOF
 done

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sh 1_run_BEFAFT.sh
+sh 2_run_PERSIS.sh
+sh 3_compile_report.sh  
+exit 0
