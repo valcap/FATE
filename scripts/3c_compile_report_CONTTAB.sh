@@ -38,7 +38,7 @@ notice "Start of "`basename $0`
 # CENTRAL BODY OF THE DOCUMENT
 
 # Loop over variables
-for prefix in ws wd rh pwv see tau glf
+for prefix in ws #wd rh pwv see tau glf
 do
   case "$prefix" in
   ws)

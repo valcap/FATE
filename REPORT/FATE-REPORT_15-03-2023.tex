@@ -1,0 +1,228 @@
+\documentclass[11pt,english]{article}
+\pagestyle{plain}
+\pagenumbering{arabic}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subfig}
+%\usepackage{auto-pst-pdf}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage[hmargin={0.8cm,1.2cm},vmargin=1.2cm]{geometry}
+\usepackage{lscape}
+\usepackage{pdflscape}
+\renewcommand*\familydefault{\sfdefault}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% packages for headers and footers
+\usepackage{fancyhdr}
+%\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyfoot[C]{Page\ \thepage\ of \pageref{LastPage}}
+
+\begin{document}
+
+\begin{figure}
+\begin{center}
+\hspace{.5cm}
+\parbox{5.5cm}{\includegraphics[width=2.2cm]{/home/report/scripts/LOGOS/logoLaMMA}}
+\hspace{.5cm}
+\parbox{5.5cm}{\includegraphics[width=2.2cm]{/home/report/scripts/LOGOS/LogoFATE}}
+\hspace{.5cm}
+\parbox{5.5cm}{\includegraphics[width=2.2cm]{/home/report/scripts/LOGOS/logoINAF}}
+\hspace{.1cm}
+\vspace{1.2cm}
+\end{center}
+\end{figure}
+
+\begin{center}
+\HRule \\[0.4cm]
+\Huge{\textbf{Progetto FATE LaMMA-OAA per ESO @ Cerro Paranal etcetcetc\ldots}}
+\HRule \\[0.4cm]
+\end{center}
+
+\begin{center}
+\vspace{2cm}\Huge{Issued: mer, 15-03-2023\\ 13:26 America-Santiago local time}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Data for 5GG 1H}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/ws_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/ws_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/ws_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\caption{my fig}
+\label{fig:main}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/wd_sim_mnh_ar_dimm_300_960_BEF_stan_0_90.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/wd_sim_mnh_ar_dimm_300_960_AFT_stan_0_90.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/wd_sim_mnh_ar_dimm_300_960_BEF_stan_0_90.eps}}
+\caption{my fig}
+\label{fig:main}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/rh_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/rh_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/rh_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\caption{my fig}
+\label{fig:main}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\caption{my fig}
+\label{fig:main}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{BIAS}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{SD}} \\\hline
+\cellcolor[HTML]{C0C0C0}WS  &   0.10418                                &     2.487                                &     2.485                                \\
+\cellcolor[HTML]{C0C0C0}WD  &   -.97265                                &    35.224                                &    35.211                                \\
+\cellcolor[HTML]{C0C0C0}RH  &   0.734517217                                    &    6.63800907                                    &    6.59724522                                    \\
+\cellcolor[HTML]{C0C0C0}PWV &  -0.195013925                                   &    1.00488377                                   &   0.985779345                                   \\
+\cellcolor[HTML]{C0C0C0}SEE & SEEBIAS                               & SEERMSE                               & SEESD                               \\
+\cellcolor[HTML]{C0C0C0}TAU & TAUBIAS                               & TAURMSE                               & TAUSD                               \\
+\cellcolor[HTML]{C0C0C0}GLF & GLFBIAS                               & GLFRMSE                               & GLFSD                               \\
+\hline
+\end{tabular}
+\caption{Statistics for standard variables (i.e. BEF)}
+\end{center}
+\end{table}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%t
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{Wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{($m s^{-1}$)}                                       &                             & ws$<3.5$   & $3.5<$ws$<8.7$ & ws$>8.7$ \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws$<3.5$          & 2846                & 2024                       & 63              \\
+                                                 & $3.5<$ws$<8.7$ & 3087                & 8192                       & 1531              \\
+                                                 & ws$>8.7$          & 71                & 1791                       & 4409              \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Sample size:        38880; PC= 64.3\%; EBD= 0.6\%; POD$_1$=47.4\%; POD$_2$=68.2\%; POD$_3$=73.4\%.}\label{tab:contingency}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+                            & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{BIAS}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{SD}} \\\hline
+\cellcolor[HTML]{C0C0C0}WS  &   -.01012                                &     0.659                                &     0.659                                \\
+\cellcolor[HTML]{C0C0C0}WD  &   0.29764                                &     6.650                                &     6.644                                \\
+\cellcolor[HTML]{C0C0C0}RH  &   -1.17930677E-02                                &    1.36777270                                    &    1.36772180                                    \\
+\cellcolor[HTML]{C0C0C0}PWV &   -7.24002346E-03                               &   0.125356585                                   &   0.125147328                                   \\
+\cellcolor[HTML]{C0C0C0}SEE & SEEBIAS                               & SEERMSE                               & SEESD                               \\
+\cellcolor[HTML]{C0C0C0}TAU & TAUBIAS                               & TAURMSE                               & TAUSD                               \\
+\cellcolor[HTML]{C0C0C0}GLF & GLFBIAS                               & GLFRMSE                               & GLFSD                               \\
+\hline
+\end{tabular}
+\caption{Statistics for variables processed with AR (i.e. AFT)}
+\end{center}
+\end{table}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%t
+\begin{table}[tbp]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{Wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{($m s^{-1}$)}                                       &                             & ws$<3.5$   & $3.5<$ws$<8.7$ & ws$>8.7$ \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws$<3.5$          & 5398                & 583                       & 0              \\
+                                                 & $3.5<$ws$<8.7$ & 606                & 11053                       & 376              \\
+                                                 & ws$>8.7$          & 0                & 371                       & 5627              \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Sample size: ; PC= 91.9\%; EBD= 0.0\%; POD$_1$=89.9\%; POD$_2$=92.1\%; POD$_3$=93.7\%.}\label{tab:contingency}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\begin{center}
+\HRule \\[0.4cm]
+\begin{figure}[htbp]
+\centering
+{\includegraphics[width=5.0cm]{/home/report/scripts/LOGOS/LogoFATE}}
+\caption{Add some meaningfull logo or figure here}
+\end{figure}
+\HRule \\[0.4cm]
+\end{center}
+
+\vspace{5.55cm}
+\begin{flushright}
+\large{For any further information or questions please contact
+\\\textit{example} LaMMA Consortium
+\\\textit{example} Via Madonna del Piano 10
+\\\textit{example} 50019 Sesto Fiorentino (Florence) - Italy
+\\\textit{example} Maps: 43.818948 N, 11.201912 E
+\\\textit{example} Email: \href{mailto:previsori@lamma.toscana.it}{previsori@lamma.toscana.it}
+\\\textit{example} web: \href{www.lamma.toscana.it}{www.lamma.toscana.it}
+\\\textit{example} Phone: +39 055 44 83 01
+\\\textit{example} Fax: +39 055 44 40 83}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+

@@ -60,33 +60,43 @@ fi
 
 #################################################################
 # NAME OF SECTION - FIGURES
-cat << EOF > $WRKDIR/body.tex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
-\section{Figures for ${GG}-${HH}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-EOF
+#cat << EOF > $WRKDIR/body.tex
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#learpage
+#ection{Figures for ${GG}-${HH}}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#F
 sh $SCRDIR/3a_compile_report_FIGS.sh
 
 #################################################################
 # NAME OF SECTION - STATISTICS
-cat << EOF >> $WRKDIR/body.tex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
-\section{Statistics for ${GG}-${HH}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-EOF
+#t << EOF >> $WRKDIR/body.tex
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#learpage
+#ection{Statistics for ${GG}-${HH}}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#F
 sh $SCRDIR/3b_compile_report_STATS.sh
 
 #################################################################
 # NAME OF SECTION - CONTINGENCY TABLE
-cat << EOF >> $WRKDIR/body.tex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
-\section{Contingency tables ${GG}-${HH}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-EOF
+#t << EOF >> $WRKDIR/body.tex
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#learpage
+#ection{Contingency tables ${GG}-${HH}}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#F
 sh $SCRDIR/3c_compile_report_CONTTAB.sh
+
+#################################################################
+# NAME OF SECTION - PODs TABLE
+#t << EOF >> $WRKDIR/body.tex
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#learpage
+#ection{PODs table ${GG}-${HH}}
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#F
+sh $SCRDIR/3d_compile_report_PODs.sh
 
 #################################################################
 # TAIL
@@ -105,13 +115,35 @@ rm -f $PROG_ROOT_DIR/tmpfile_*
 #################################################################
 # Create the latex file by catting head, body and tail
 cd $WRKDIR
+cat << EOF >> $WRKDIR/body.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Statistics for ${GG}-${HH}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+EOF
 cat temporary_tableBEF.tex \
-    contingency_tableBEF.tex \
-    temporary_tableAFT.tex \
-    contingency_tableAFT.tex >> body.tex
+    temporary_tableAFT.tex >> body.tex
+cat << EOF >> $WRKDIR/body.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Contingency tables ${GG}-${HH}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+EOF
+cat contingency_tableBEF.tex \
+    contingency_tableAFT.tex  >> body.tex
+cat << EOF >> $WRKDIR/body.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{PODs table ${GG}-${HH}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+EOF
+cat temporary_tablePODs.tex >> body.tex
+
+# cat sections head, body and tail to the final output file
 cat header.tex body.tex tail.tex > $report_tex_file
 rm -f temporary_tableBEF.tex temporary_tableAFT.tex
 rm -f contingency_tableBEF.tex contingency_tableAFT.tex
+rm -f temporary_tablePODs.tex
 rm -f header.tex body.tex tail.tex
 
 # Compile twice latex (graphics are included as .eps file format)

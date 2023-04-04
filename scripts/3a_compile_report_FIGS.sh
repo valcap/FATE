@@ -37,6 +37,13 @@ notice "Start of "`basename $0`
 #################################################################
 # CENTRAL BODY OF THE DOCUMENT
 
+cat << EOF >> $WRKDIR/body.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Figures for ${GG}-${HH}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+EOF
+
 # Loop over variables
 for prefix in ws wd rh pwv see tau glf
 do
