@@ -35,7 +35,7 @@ notice "Start of "`basename $0`
 rm -f $PERS_ROOT_DIR/tmpfile_*
 
 # Loop over variables
-for prefix in ws wd rh pwv see tau glf
+for prefix in ws wd # rh pwv see tau glf
 do
   cd $PERS_ROOT_DIR
   if [ ! -e ./lancia_atmo_persi.sh ]; then
@@ -90,7 +90,7 @@ do
   glf) 
     prefixUC='GLF'
     descri='Ground layer fraction'
-    unitof='\textit{add unit of measure}'
+    unitof='\textit{no unit of measure}'
     suffix='stan_per'
     sh ./lancia_astro_persi.sh $prefix
     ;;

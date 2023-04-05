@@ -87,7 +87,7 @@ do
   glf)
     prefixUC='GLF'
     descri='Ground layer fraction'
-    unitof='\textit{add unit of measure}'
+    unitof='\textit{no unit of measure}'
     suffix='stan'
     ;;
   *) echo "Lo sai chi ti saluta?"

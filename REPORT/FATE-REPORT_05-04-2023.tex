@@ -1,0 +1,318 @@
+\documentclass[11pt,english]{article}
+\pagestyle{plain}
+\pagenumbering{arabic}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subfig}
+%\usepackage{auto-pst-pdf}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage[hmargin={0.8cm,1.2cm},vmargin=1.2cm]{geometry}
+\usepackage{lscape}
+\usepackage{pdflscape}
+\renewcommand*\familydefault{\sfdefault}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% packages for headers and footers
+\usepackage{fancyhdr}
+%\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyfoot[C]{Page\ \thepage\ of \pageref{LastPage}}
+
+\begin{document}
+
+\begin{figure}
+\begin{center}
+\hspace{1.5cm}
+\parbox{5.5cm}{\includegraphics[width=2.2cm]{/home/report/scripts/LOGOS/logoLaMMA}}
+\hspace{.3cm}
+\parbox{5.5cm}{\includegraphics[width=2.2cm]{/home/report/scripts/LOGOS/fate_logo_11def}}
+\hspace{.3cm}
+\parbox{5.5cm}{\includegraphics[width=2.2cm]{/home/report/scripts/LOGOS/logoINAFBIS}}
+\hspace{.1cm}
+\vspace{1.2cm}
+\end{center}
+\end{figure}
+
+\begin{center}
+\HRule \\[0.4cm]
+\Huge{\textbf{Progetto FATE LaMMA-OAA per ESO @ Cerro Paranal etcetcetc\ldots}}
+\HRule \\[0.4cm]
+\end{center}
+
+\begin{center}
+\vspace{2cm}\Huge{Issued: mer, 05-04-2023\\ 11:23 America-Santiago local time}
+\end{center}
+
+\begin{center}
+\HRule \\[0.1cm]
+\tableofcontents
+\HRule \\[0.1cm]
+\end{center}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Figures for 5GG-1H}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/ws_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/ws_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.eps}}
+\caption{Wind speed ($m s^{-1}$): (a) STANDARD, (b) WITH AR, (c) PERSISTENCE.}
+\label{fig:ws}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/wd_sim_mnh_ar_dimm_300_960_BEF_stan_0_90.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/wd_sim_mnh_ar_dimm_300_960_AFT_stan_0_90.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/wd_sim_mnh_ar_dimm_300_960_AFT_stan_0_90_per.eps}}
+\caption{Wind direction (degree): (a) STANDARD, (b) WITH AR, (c) PERSISTENCE.}
+\label{fig:wd}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/rh_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/rh_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.eps}}
+\caption{Relative humidity (\%): (a) STANDARD, (b) WITH AR, (c) PERSISTENCE.}
+\label{fig:rh}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.eps}}
+\caption{Precipitable water vapor (mm): (a) STANDARD, (b) WITH AR, (c) PERSISTENCE.}
+\label{fig:pwv}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.eps}}
+\caption{Total seeing (arcsec): (a) STANDARD, (b) WITH AR, (c) PERSISTENCE.}
+\label{fig:see}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/tau_sim_mnh_ar_dimm_300_960_BEF_os18_1000.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.eps}}
+\caption{Coeherence time (ms): (a) STANDARD, (b) WITH AR, (c) PERSISTENCE.}
+\label{fig:tau}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{figure}
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/glf_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\centering
+\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/glf_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\end{minipage}\par\medskip
+\centering
+\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{/home/report/FIGS/5GG/1H/glf_sim_mnh_ar_dimm_300_960_AFT_stan_per.eps}}
+\caption{Ground layer fraction (\textit{no unit of measure}): (a) STANDARD, (b) WITH AR, (c) PERSISTENCE.}
+\label{fig:glf}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Statistics for 5GG-1H}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{VARIABLE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{BIAS}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{SD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE-PERS}}\\\hline
+\cellcolor[HTML]{C0C0C0}WS  &     0.104                                &     2.487                                &     2.485  & WSPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}WD  &    -0.973                                &    35.224                                &    35.211  & WDPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}RH  &                                 &                                 &   & RHPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}PWV &                                &                                &  & PWVPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}SEE &                                &                                &  & SEEPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}TAU &                                &                                &  & TAUPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}GLF &                                &                                &  & GLFPERSRMSE \\
+\hline
+\end{tabular}
+\caption{Statistics for variables in standard configuration (i.e. BEF)}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{VARIABLE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{BIAS}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{SD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE-PERS}}\\\hline
+\cellcolor[HTML]{C0C0C0}WS  &    -0.010                                &     0.659                                &     0.659  & WSPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}WD  &     0.298                                &     6.650                                &     6.644  & WDPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}RH  &                                 &                                 &   & RHPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}PWV &                                &                                &  & PWVPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}SEE &                                &                                &  & SEEPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}TAU &                                &                                &  & TAUPERSRMSE \\
+\cellcolor[HTML]{C0C0C0}GLF &                                &                                &  & GLFPERSRMSE \\
+\hline
+\end{tabular}
+\caption{Statistics for variables processed with AR (i.e. AFT)}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Contingency tables 5GG-1H}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%t
+%\begin{table}[tbp]
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{Wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{$m s^{-1}$}                                       &                             & ws$<4.2$   & $4.2<$ws$<7.5$ & ws$>7.5$ \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws$<4.2$          & 4541                & 2127                       & 249              \\
+                                                 & $4.2<$ws$<7.5$ & 3034                & 3970                       & 1347              \\
+                                                 & ws$>7.5$          & 430                & 1908                       & 6408              \\
+\hline
+\end{tabular}
+\end{center}
+%\caption{Sample size:        38880; PC= 62.1\%; EBD= 2.8\%; POD$_1$=56.7\%; POD$_2$=49.6\%; POD$_3$=80.1\%.}
+\label{tab:contingency}
+\end{table}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%t
+%\begin{table}[tbp]
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{Wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{$m s^{-1}$}                                       &                             & ws$<4.2$   & $4.2<$ws$<7.5$ & ws$>7.5$ \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws$<4.2$          & 7377                & 623                       & 1              \\
+                                                 & $4.2<$ws$<7.5$ & 628                & 6950                       & 386              \\
+                                                 & ws$>7.5$          & 0                & 432                       & 7617              \\
+\hline
+\end{tabular}
+\end{center}
+%\caption{Sample size: ; PC= 91.4\%; EBD= 0.0\%; POD$_1$=92.2\%; POD$_2$=86.8\%; POD$_3$=95.2\%.}
+\label{tab:contingency}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{PODs table 5GG-1H}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{PERSISTENCE}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 56.7                                & 92.2                                &                                 \\
+\cellcolor[HTML]{C0C0C0}POD2  & 49.6                                & 86.8                                &                                 \\
+\cellcolor[HTML]{C0C0C0}POD3  & 80.1                                & 95.2                                &                                 \\
+\cellcolor[HTML]{C0C0C0}PC    & 62.1                                  & 91.4                                  &                                \\
+\cellcolor[HTML]{C0C0C0}EBD   & 2.8                                 & 0.0                                 &                                \\
+\hline
+\end{tabular}
+\caption{PODs for Wind speed ($m s^{-1}$)}
+\end{center}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\begin{center}
+\HRule \\[0.4cm]
+\begin{figure}[htbp]
+\centering
+{\includegraphics[width=5.0cm]{/home/report/scripts/LOGOS/fate_logo_11def}}
+\caption{Add some meaningfull logo or figure here}
+\end{figure}
+\HRule \\[0.4cm]
+\end{center}
+
+%\section{Contacts}
+\vspace{5.55cm}
+\begin{flushright}
+\large{For any further information or questions please contact
+\\\textit{example} LaMMA Consortium
+\\\textit{example} Via Madonna del Piano 10
+\\\textit{example} 50019 Sesto Fiorentino (Florence) - Italy
+\\\textit{example} Maps: 43.818948 N, 11.201912 E
+\\\textit{example} Email: \href{mailto:previsori@lamma.toscana.it}{previsori@lamma.toscana.it}
+\\\textit{example} web: \href{www.lamma.toscana.it}{www.lamma.toscana.it}
+\\\textit{example} Phone: +39 055 44 83 01
+\\\textit{example} Fax: +39 055 44 40 83}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+

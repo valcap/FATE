@@ -80,7 +80,7 @@ do
   glf)
     prefixUC='GLF'
     descri='Ground layer fraction'
-    unitof='\textit{add unit of measure}'
+    unitof='\textit{no unit of measure}'
     suffix='stan'
     ;;
   *) echo "Lo sai chi ti saluta?"
@@ -101,10 +101,15 @@ do
   BIAS=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep BIAS | cut -d '=' -f2`
   RMSE=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep RMSE | cut -d '=' -f2`
   SD=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep SIGMA | cut -d '=' -f2`
-  my_caption='Statistics for standard variables (i.e. BEF)'
+  # PERSISTENCE (RMSE only)
+#  cd $PERS_ROOT_DIR
+#  RMSE_PERS=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep RMSE | cut -d '=' -f2`
+  
+  my_caption='Statistics for variables in standard configuration (i.e. BEF)'
   cat $WRKDIR/temporary_tableBEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                     sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                     sed -e "s!${prefixUC}SD!$SD!"        | \
+#                                    sed -e "s!${prefixUC}PERSRMSE!$RMSE_PERS!"        | \
                                     sed -e "s!TABCAPTION!$my_caption!"   \
                                     > $WRKDIR/temporary_table${PROG}BEF.tex
   mv $WRKDIR/temporary_table${PROG}BEF.tex $WRKDIR/temporary_tableBEF.tex
@@ -121,10 +126,14 @@ do
   BIAS=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep BIAS | cut -d '=' -f2`
   RMSE=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
   SD=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep SIGMA | cut -d '=' -f2`
+  # PERSISTENCE (RMSE only)
+#  cd $PERS_ROOT_DIR
+#  RMSE_PERS=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
   my_caption='Statistics for variables processed with AR (i.e. AFT)'
   cat $WRKDIR/temporary_tableAFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                     sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                     sed -e "s!${prefixUC}SD!$SD!"        | \
+#                                    sed -e "s!${prefixUC}PERSRMSE!$RMSE_PERS!"        | \
                                     sed -e "s!TABCAPTION!$my_caption!"   \
                                     > $WRKDIR/temporary_table${PROG}AFT.tex
   mv $WRKDIR/temporary_table${PROG}AFT.tex $WRKDIR/temporary_tableAFT.tex
