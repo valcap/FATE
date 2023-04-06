@@ -38,74 +38,23 @@ notice "Start of "`basename $0`
 # CENTRAL BODY OF THE DOCUMENT
 
 # Loop over variables
-for prefix in ws #wd rh pwv see tau glf
+for prefix in ws rh pwv see tau glf
 do
-  case "$prefix" in
-  ws)
-    prefixUC='WS'
-    descri='Wind speed'
-    unitof='$m s^{-1}$'
-    suffix='stan'
-    ;;
-  wd)
-    prefixUC='WD'
-    descri='Wind direction'
-    unitof='degree'
-    suffix='stan_0_90'
-    ;;
-  rh)
-    prefixUC='RH'
-    descri='Relative humidity'
-    unitof='\%'
-    suffix='stan'
-    ;;
-  pwv)
-    prefixUC='PWV'
-    descri='Precipitable water vapor'
-    unitof='mm'
-    suffix='stan'
-    ;;
-  see)
-    prefixUC='SEE'
-    descri='Total seeing'
-    unitof='arcsec'
-    suffix='os18_1000'
-    ;;
-  tau)
-    prefixUC='TAU'
-    descri='Coeherence time'
-    unitof='ms'
-    suffix='os18_1000'
-    ;;
-  glf)
-    prefixUC='GLF'
-    descri='Ground layer fraction'
-    unitof='\textit{no unit of measure}'
-    suffix='stan'
-    ;;
-  *) echo "Lo sai chi ti saluta?"
-     exit 1
-     ;;
-  esac	
+  get_var_attr $prefix
   
   #################################################################
   # Now ingest the outputs of the program by Elena
   # into the latex file (both figures and statistics)
 
-  cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableBEF.tex
-  cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableAFT.tex
+  cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableBEF${prefix}.tex
+  cp $WRKDIR/TMPL_LATEX/contingency_tmpl.tex $WRKDIR/contingency_tableAFT${prefix}.tex
 
-  ## Statistics
-  #
   cd $PROG_ROOT_DIR
   PROG=1
+
   # BEFORE STUFF
-  if [[ ${prefix} = 'ws' || ${prefix} = 'see' || ${prefix} = 'tau' ]]; then
-  ## Contingency
-  #
-  # BEFORE STUFF
-  PERC1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW0 | awk '{print $6}'`
-  PERC2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW0 | awk '{print $9}'`
+  PERC1=`cat tmpfile_${prefix} | grep LOGINFO | grep PERCENTILES | grep X33_ | awk '{print $4}'`
+  PERC2=`cat tmpfile_${prefix} | grep LOGINFO | grep PERCENTILES | grep X66_ | awk '{print $4}'`
   SAMPLESIZE=`cat tmpfile_${prefix} | grep LOGINFO | grep BEF | grep NbLines_TOT | cut -d '=' -f2`
   VAL1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $5}'`
   VAL2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $6}'`
@@ -121,7 +70,8 @@ do
   POD3=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD3 | awk '{print $5}'`
   PC=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep PC | awk '{print $5}'`
   EBD=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep EBD | awk '{print $5}'`
-  cat $WRKDIR/contingency_tableBEF.tex | sed -e "s/PERC1/$PERC1/g"    | \
+  my_nice_caption='Contingency table for variable '$descri' ('$unitof') in standard configuration (i.e. BEF)'
+  cat $WRKDIR/contingency_tableBEF${prefix}.tex | sed -e "s/PERC1/$PERC1/g"    | \
                                     sed -e "s/PERC2/$PERC2/g"    | \
                                     sed -e "s/UNITVAR/$unitof/g"    | \
                                     sed -e "s!VAL1!$VAL1!"    | \
@@ -140,20 +90,22 @@ do
                                     sed -e "s!PCIS!$PC!"           | \
                                     sed -e "s!EBDIS!$EBD!"         | \
                                     sed -e "s/SHORTVAR/$prefix/g"  | \
-                                    sed -e "s!LONGVAR!$descri!"      \
-                                    > $WRKDIR/contingency_table${PROG}BEF.tex
-  mv $WRKDIR/contingency_table${PROG}BEF.tex $WRKDIR/contingency_tableBEF.tex
+                                    sed -e "s!LONGVAR!$descri!"    |  \
+                                    sed -e "s!MYNICECAPTION!$my_nice_caption!" \
+                                    > $WRKDIR/contingency_tableBEF${PROG}.tex
+  mv $WRKDIR/contingency_tableBEF${PROG}.tex $WRKDIR/contingency_tableBEF${prefix}.tex
   if [ $? != 0 ]; then
     echo  "+++ "`date +%c`" Problem in creating table file"; exit 1;
   fi
-  if [ ! -f "$WRKDIR/contingency_tableBEF.tex" ]; then
+  if [ ! -f "$WRKDIR/contingency_tableBEF${prefix}.tex" ]; then
     echo "Ops..big problem"
-    echo "Cannot create contingency_tableBEF.tex. Exiting..."
+    echo "Cannot create contingency_tableBEF${prefix}.tex. Exiting..."
     exit 1;
   fi
+
   # AFTER STUFF
-  PERC1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW0 | awk '{print $6}'`
-  PERC2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW0 | awk '{print $9}'`
+  PERC1=`cat tmpfile_${prefix} | grep LOGINFO | grep PERCENTILES | grep X33_ | awk '{print $4}'`
+  PERC2=`cat tmpfile_${prefix} | grep LOGINFO | grep PERCENTILES | grep X66_ | awk '{print $4}'`
   SAMPLESIZE=`cat tmpfile_${prefix} | grep LOGINFO | grep AFT | grep NbLines_TOT | cut -d '=' -f2`
   VAL1=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $5}'`
   VAL2=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $6}'`
@@ -169,7 +121,8 @@ do
   POD3=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD3 | awk '{print $5}'`
   PC=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep PC | awk '{print $5}'`
   EBD=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep EBD | awk '{print $5}'`
-  cat $WRKDIR/contingency_tableAFT.tex | sed -e "s/PERC1/$PERC1/g"    | \
+  my_nice_caption='Contingency table for variable '$descri' ('$unitof') processed with AR (i.e. AFT)'
+  cat $WRKDIR/contingency_tableAFT${prefix}.tex | sed -e "s/PERC1/$PERC1/g"    | \
                                     sed -e "s/PERC2/$PERC2/g"    | \
                                     sed -e "s/UNITVAR/$unitof/g"    | \
                                     sed -e "s!VAL1!$VAL1!"    | \
@@ -188,19 +141,22 @@ do
                                     sed -e "s!PCIS!$PC!"           | \
                                     sed -e "s!EBDIS!$EBD!"         | \
                                     sed -e "s/SHORTVAR/$prefix/g"  | \
-                                    sed -e "s!LONGVAR!$descri!"      \
-                                    > $WRKDIR/contingency_table${PROG}AFT.tex
-  mv $WRKDIR/contingency_table${PROG}AFT.tex $WRKDIR/contingency_tableAFT.tex
+                                    sed -e "s!LONGVAR!$descri!"    | \
+                                    sed -e "s!MYNICECAPTION!$my_nice_caption!" \
+                                    > $WRKDIR/contingency_tableAFT${PROG}.tex
+  mv $WRKDIR/contingency_tableAFT${PROG}.tex $WRKDIR/contingency_tableAFT${prefix}.tex
   if [ $? != 0 ]; then
     echo  "+++ "`date +%c`" Problem in creating table file"; exit 1;
   fi
-  if [ ! -f "$WRKDIR/contingency_tableAFT.tex" ]; then
+  if [ ! -f "$WRKDIR/contingency_tableAFT${prefix}.tex" ]; then
     echo "Ops..big problem"
-    echo "Cannot create contingency_tableAFT.tex. Exiting..."
+    echo "Cannot create contingency_tableAFT${prefix}.tex. Exiting..."
     exit 1;
   fi
-
-  fi
+  cat $WRKDIR/contingency_tableBEF${prefix}.tex >> $WRKDIR/contingency_tableBEF.tex
+  cat $WRKDIR/contingency_tableAFT${prefix}.tex >> $WRKDIR/contingency_tableAFT.tex
+  rm -f $WRKDIR/contingency_tableBEF${prefix}.tex
+  rm -f $WRKDIR/contingency_tableAFT${prefix}.tex
 done
 
 #################################################################

@@ -60,42 +60,18 @@ fi
 
 #################################################################
 # NAME OF SECTION - FIGURES
-#cat << EOF > $WRKDIR/body.tex
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#learpage
-#ection{Figures for ${GG}-${HH}}
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#F
 sh $SCRDIR/3a_compile_report_FIGS.sh
 
 #################################################################
 # NAME OF SECTION - STATISTICS
-#t << EOF >> $WRKDIR/body.tex
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#learpage
-#ection{Statistics for ${GG}-${HH}}
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#F
 sh $SCRDIR/3b_compile_report_STATS.sh
 
 #################################################################
 # NAME OF SECTION - CONTINGENCY TABLE
-#t << EOF >> $WRKDIR/body.tex
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#learpage
-#ection{Contingency tables ${GG}-${HH}}
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#F
 sh $SCRDIR/3c_compile_report_CONTTAB.sh
 
 #################################################################
 # NAME OF SECTION - PODs TABLE
-#t << EOF >> $WRKDIR/body.tex
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#learpage
-#ection{PODs table ${GG}-${HH}}
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#F
 sh $SCRDIR/3d_compile_report_PODs.sh
 
 #################################################################

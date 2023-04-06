@@ -36,8 +36,10 @@ notice "Start of "`basename $0`
 rm -f $PROG_ROOT_DIR/tmpfile_*
 
 # Loop over variables
-for prefix in ws wd #rh pwv see tau glf
+for prefix in ws wd rh pwv see tau glf
 do
+  get_var_attr "$prefix"
+
   cd $PROG_ROOT_DIR
   if [ ! -e ./lancia_atmo.sh ]; then
     error "lancia_atmo.sh does not exist in $PROG_ROOT_DIR"
@@ -45,60 +47,14 @@ do
   if [ ! -e ./lancia_astro.sh ]; then
     error "lancia_astro.sh does not exist in $PROG_ROOT_DIR"
   fi
-  case "$prefix" in
-  ws)  
-    prefixUC='WS'
-    descri='Wind speed'
-    unitof='$m s^{-1}$'
-    suffix='stan'
+
+  if [[ ${prefix} = 'ws' || ${prefix} = 'rh' || ${prefix} = 'wd' || ${prefix} = 'pwv' ]]; then
     sh ./lancia_atmo.sh $prefix
-    ;;
-  wd) 
-    prefixUC='WD'
-    descri='Wind direction'
-    unitof='degree'
-    suffix='stan_0_90'
-    sh ./lancia_atmo.sh $prefix
-    ;;
-  rh)
-    prefixUC='RH'
-    descri='Relative humidity'
-    unitof='\%'
-    suffix='stan'
-    sh ./lancia_atmo.sh $prefix
-    ;;
-  pwv) 
-    prefixUC='PWV'
-    descri='Precipitable water vapor'
-    unitof='mm'
-    suffix='stan'
-    sh ./lancia_atmo.sh $prefix
-    ;;
-  see) 
-    prefixUC='SEE'
-    descri='Total Seeing'
-    unitof='arcsec'
-    suffix='os18_1000'
+  elif [[ ${prefix} = 'see' || ${prefix} = 'tau' || ${prefix} = 'glf' ]]; then
     sh ./lancia_astro.sh $prefix
-    ;;
-  tau) 
-    prefixUC='TAU'
-    descri='Coeherence time'
-    unitof='ms'
-    suffix='os18_1000'
-    sh ./lancia_astro.sh $prefix
-    ;;
-  glf) 
-    prefixUC='GLF'
-    descri='Ground layer fraction'
-    unitof='\textit{no unit of measure}'
-    suffix='stan'
-    sh ./lancia_astro.sh $prefix
-    ;;
-  *) echo "Lo sai chi ti saluta?"
-     exit 1
-     ;;
-  esac  
+  else
+    error 'ops cannot run lancia_a* with '$prefix
+  fi
 
   # check tmpfile file
   # a file named tmpfile_NAME-OF-THE-VARIABLE is expected in $PROG_ROOT_DIR

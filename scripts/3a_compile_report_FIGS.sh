@@ -47,53 +47,7 @@ EOF
 # Loop over variables
 for prefix in ws wd rh pwv see tau glf
 do
-  case "$prefix" in
-  ws)
-    prefixUC='WS'
-    descri='Wind speed'
-    unitof='$m s^{-1}$'
-    suffix='stan'
-    ;;
-  wd)
-    prefixUC='WD'
-    descri='Wind direction'
-    unitof='degree'
-    suffix='stan_0_90'
-    ;;
-  rh)
-    prefixUC='RH'
-    descri='Relative humidity'
-    unitof='\%'
-    suffix='stan'
-    ;;
-  pwv)
-    prefixUC='PWV'
-    descri='Precipitable water vapor'
-    unitof='mm'
-    suffix='stan'
-    ;;
-  see)
-    prefixUC='SEE'
-    descri='Total seeing'
-    unitof='arcsec'
-    suffix='os18_1000'
-    ;;
-  tau)
-    prefixUC='TAU'
-    descri='Coeherence time'
-    unitof='ms'
-    suffix='os18_1000'
-    ;;
-  glf)
-    prefixUC='GLF'
-    descri='Ground layer fraction'
-    unitof='\textit{no unit of measure}'
-    suffix='stan'
-    ;;
-  *) echo "Lo sai chi ti saluta?"
-     exit 1
-     ;;
-  esac	
+  get_var_attr $prefix
   
   #################################################################
   # Now ingest the outputs of the program by Elena
@@ -122,7 +76,7 @@ cat << EOF >> $WRKDIR/body.tex
 \end{minipage}\par\medskip
 \centering
 \subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{$EPSPER}}
-\caption{$descri ($unitof): (a) STANDARD, (b) WITH AR, (c) PERSISTENCE.}
+\caption{$descri ($unitof): (a) STANDARD CONFIGURATION, (b) WITH AR, (c) PERSISTENCE.}
 \label{fig:$prefix}
 \end{figure}
 EOF

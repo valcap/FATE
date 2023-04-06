@@ -35,58 +35,16 @@ notice "Start of "`basename $0`
 # HOUSEKEEPING
 
 #################################################################
-# CENTRAL BODY OF THE DOCUMENT
+# PREPARE THE SECTION
+cat << EOF > $WRKDIR/temporary_tablePODs.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+EOF
 
 # Loop over variables
-for prefix in ws #wd rh pwv see tau glf
+for prefix in ws rh pwv see tau glf
 do
-  case "$prefix" in
-  ws)
-    prefixUC='WS'
-    descri='Wind speed'
-    unitof='$m s^{-1}$'
-    suffix='stan'
-    ;;
-  wd)
-    prefixUC='WD'
-    descri='Wind direction'
-    unitof='degree'
-    suffix='stan_0_90'
-    ;;
-  rh)
-    prefixUC='RH'
-    descri='Relative humidity'
-    unitof='\%'
-    suffix='stan'
-    ;;
-  pwv)
-    prefixUC='PWV'
-    descri='Precipitable water vapor'
-    unitof='mm'
-    suffix='stan'
-    ;;
-  see)
-    prefixUC='SEE'
-    descri='Total seeing'
-    unitof='arcsec'
-    suffix='os18_1000'
-    ;;
-  tau)
-    prefixUC='TAU'
-    descri='Coeherence time'
-    unitof='ms'
-    suffix='os18_1000'
-    ;;
-  glf)
-    prefixUC='GLF'
-    descri='Ground layer fraction'
-    unitof='no unit of measure'
-    suffix='stan'
-    ;;
-  *) echo "Lo sai chi ti saluta?"
-     exit 1
-     ;;
-  esac	
+  get_var_attr $prefix
   
   #################################################################
   # Now ingest the outputs of the program by Elena
@@ -110,20 +68,19 @@ do
   EBDAFT=`cat tmpfile_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep EBD | awk '{print $5}'`
 
   my_caption='PODs for '$descri' ('$unitof')'
-cat << EOF > $WRKDIR/temporary_tablePODs.tex
+cat << EOF > $WRKDIR/temporary_tablePODs${prefixUC}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 \begin{table}[]
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline
-\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{PERSISTENCE}} \\\\
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR}} \\\\
 \hline
-\cellcolor[HTML]{C0C0C0}POD1  & $POD1BEF                                & $POD1AFT                                & $POD1PER                                \\\\
-\cellcolor[HTML]{C0C0C0}POD2  & $POD2BEF                                & $POD2AFT                                & $POD2PER                                \\\\
-\cellcolor[HTML]{C0C0C0}POD3  & $POD3BEF                                & $POD3AFT                                & $POD3PER                                \\\\
-\cellcolor[HTML]{C0C0C0}PC    & $PCBEF                                  & $PCAFT                                  & $PCPER                               \\\\
-\cellcolor[HTML]{C0C0C0}EBD   & $EBDBEF                                 & $EBDAFT                                 & $EBDPER                               \\\\
+\cellcolor[HTML]{C0C0C0}POD1  & $POD1BEF                                & $POD1AFT         \\\\
+\cellcolor[HTML]{C0C0C0}POD2  & $POD2BEF                                & $POD2AFT         \\\\
+\cellcolor[HTML]{C0C0C0}POD3  & $POD3BEF                                & $POD3AFT         \\\\
+\cellcolor[HTML]{C0C0C0}PC    & $PCBEF                                  & $PCAFT           \\\\
+\cellcolor[HTML]{C0C0C0}EBD   & $EBDBEF                                 & $EBDAFT          \\\\
 \hline
 \end{tabular}
 \caption{$my_caption}
@@ -131,15 +88,16 @@ cat << EOF > $WRKDIR/temporary_tablePODs.tex
 \end{table}
 EOF
 
-#  mv $WRKDIR/temporary_table${PROG}BEF.tex $WRKDIR/temporary_tableBEF.tex
+  cat $WRKDIR/temporary_tablePODs${prefixUC}.tex >> $WRKDIR/temporary_tablePODs.tex
   if [ $? != 0 ]; then
     echo  "+++ "`date +%c`" Problem in creating table file"; exit 1;
   fi
-  if [ ! -f "$WRKDIR/temporary_tableBEF.tex" ]; then
+  if [ ! -f "$WRKDIR/temporary_tablePODs.tex" ]; then
     echo "Ops..big problem"
-    echo "Cannot create temporary_tableBEF.tex. Exiting..."
+    echo "Cannot create $WRKDIR/temporary_tablePODs.tex. Exiting..."
     exit 1;
   fi
+  rm -f $WRKDIR/temporary_tablePODs${prefixUC}.tex
 done
 
 #################################################################
