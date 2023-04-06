@@ -430,15 +430,15 @@ PRINT*,'##########################################'
 POD(:)=NOVAL
 TAB_HR=NOVAL
 CALL HIT_RATE(GLF_OBS_1D_FIT,GLF_MOD_AFT_1D_FIT,NbFit,X33_GLF,X66_GLF,NOVAL,TAB_HR,POD,PC,EBD,.false.)
-write (*,5000) 'LOGINFO CONTTABLE BEF ROW0 X<',X33_GLF,X33_GLF,'<X<',X66_GLF,'X>',X66_GLF
-write (*,3001) 'LOGINFO CONTTABLE BEF ROW1 ',int(tab_hr(1,1)),int(tab_hr(1,2)),int(tab_hr(1,3))
-write (*,3001) 'LOGINFO CONTTABLE BEF ROW2 ',int(tab_hr(2,1)),int(tab_hr(2,2)),int(tab_hr(2,3))
-write (*,3001) 'LOGINFO CONTTABLE BEF ROW3 ',int(tab_hr(3,1)),int(tab_hr(3,2)),int(tab_hr(3,3))
-write (*,1001) 'LOGINFO CONTTABLE BEF POD1 ',POD(1)
-write (*,1001) 'LOGINFO CONTTABLE BEF POD2 ',POD(2)
-write (*,1001) 'LOGINFO CONTTABLE BEF POD3 ',POD(3)
-write (*,1001) 'LOGINFO CONTTABLE BEF PC ',PC
-write (*,1001) 'LOGINFO CONTTABLE BEF EBD ',EBD
+write (*,5000) 'LOGINFO CONTTABLE AFT ROW0 X<',X33_GLF,X33_GLF,'<X<',X66_GLF,'X>',X66_GLF
+write (*,3001) 'LOGINFO CONTTABLE AFT ROW1 ',int(tab_hr(1,1)),int(tab_hr(1,2)),int(tab_hr(1,3))
+write (*,3001) 'LOGINFO CONTTABLE AFT ROW2 ',int(tab_hr(2,1)),int(tab_hr(2,2)),int(tab_hr(2,3))
+write (*,3001) 'LOGINFO CONTTABLE AFT ROW3 ',int(tab_hr(3,1)),int(tab_hr(3,2)),int(tab_hr(3,3))
+write (*,1001) 'LOGINFO CONTTABLE AFT POD1 ',POD(1)
+write (*,1001) 'LOGINFO CONTTABLE AFT POD2 ',POD(2)
+write (*,1001) 'LOGINFO CONTTABLE AFT POD3 ',POD(3)
+write (*,1001) 'LOGINFO CONTTABLE AFT PC ',PC
+write (*,1001) 'LOGINFO CONTTABLE AFT EBD ',EBD
 
 !
 PRINT*,'**************************************************'

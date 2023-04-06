@@ -37,14 +37,6 @@ esac
 ## End of input arguments
 #########################################
 
-# Source of functions
-funcfile='/home/report/scripts/functions.sh'
-if [ -e $funcfile ]; then
-  source $funcfile
-else
-  echo "ops $funcfile does not exist in "`pwd`; exit 1
-fi
-
 # Source of env file
 envfile='/home/report/scripts/fate-report.env'
 if [ -e $envfile ]; then
@@ -53,6 +45,12 @@ else
   echo "ops $envfile does not exist in "`pwd`; exit 1
 fi
 
+# Source of functions
+if [ -e $funcfile ]; then
+  source $funcfile
+else
+  echo "ops $funcfile does not exist in "`pwd`; exit 1
+fi
 
 #########################################
 ## Check directories 
