@@ -64,18 +64,21 @@ do
 cat << EOF >> $WRKDIR/body.tex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
+%\clearpage
+%\begin{figure}
+%\begin{minipage}{.5\linewidth}
+%\centering
+%\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{$EPSBEF}}
+%\end{minipage}%
+%\begin{minipage}{.5\linewidth}
+%\centering
+%\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{$EPSAFT}}
+%\end{minipage}\par\medskip
 \begin{figure}
-\begin{minipage}{.5\linewidth}
 \centering
-\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{$EPSBEF}}
-\end{minipage}%
-\begin{minipage}{.5\linewidth}
-\centering
-\subfloat[]{\includegraphics[width=.99\linewidth,angle=-90]{$EPSAFT}}
-\end{minipage}\par\medskip
-\centering
-\subfloat[]{\includegraphics[width=.5\linewidth,angle=-90]{$EPSPER}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{$EPSBEF}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{$EPSAFT}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{$EPSPER}}
 \caption{$descri ($unitof): (a) STANDARD CONFIGURATION, (b) WITH AR, (c) PERSISTENCE.}
 \label{fig:$prefix}
 \end{figure}
