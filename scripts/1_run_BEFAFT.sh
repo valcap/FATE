@@ -32,6 +32,11 @@ fi
 # Run the program by Elena to produce graphics and statistics
 # for [[BEF & AFT]]
 # to be included in the central body of the report
+# ATT: astro-climatic variables have an input parameter, that is the accuracy changing
+#      on the basis of the variable:
+#      SEEING -> 0.0, 0.1, 0.24
+#      TAU0   -> 0.0, 1.22
+#      GLF    -> 0.0, 0.14
 notice "Start of "`basename $0`
 rm -f $PROG_ROOT_DIR/tmpfile_*
 
@@ -56,13 +61,16 @@ do
     error 'ops cannot run lancia_a* with '$prefix
   fi
 
+###################
   # check tmpfile file
   # a file named tmpfile_NAME-OF-THE-VARIABLE is expected in $PROG_ROOT_DIR
   if [ ! -e $PROG_ROOT_DIR/tmpfile_${prefix} ]; then
     notice "$PROG_ROOT_DIR/tmpfile_${prefix} not produced"
     error "ops $PROG_ROOT_DIR/lancia_atmo.sh ${prefix} didnt work"
   fi
+###################
 
+###################
   # check .ps files
   # .ps files (see naming below) are also expected in $FIGS_ROOT_DIR
   if [ ! -e $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps ]; then
@@ -79,6 +87,7 @@ do
     cp $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.eps
     rm -f $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps
   fi
+###################
 done
 
 # End of program

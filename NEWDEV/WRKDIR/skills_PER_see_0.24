@@ -1,0 +1,116 @@
+ GG=5GG
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=         348
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ MAXSEE=   999.000000    
+ ACC=  0.239999995    
+ ROOT=/home/report/DATA/PERSIST_TREATED_ROLLING10m_365_20180801_20190731/5GG/1H/SEE_TREATED/
+ TAIL=.dat
+ STARTIN=SEE_PERSIST_
+ CFILE_LIST_NIGHTS=list_SEE_5GG.txt                                                                                                        
+ /home/report/FIGS/5GG/1H/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000_per.ps/cps                                           
+ /home/report/FIGS/5GG/1H/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.ps/cps                                           
+ SEE_PERSIST_1H_
+ NbLines_TOT=         660
+ MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
+ End of OBS data treatement
+ NbLines_TOT_Pix=       37584
+ MAXVAL_SEE_OBS_1D=   4.57343578    
+                                                                                                                                                                               LOGINFO BIAS_SEE_MOD_BEF=   -0.072
+                                                                                                                                                                               LOGINFO RMSE_SEE_MOD_BEF=    0.333
+                                                                                                                                                                              LOGINFO SIGMA_SEE_MOD_BEF=    0.325
+ INC_SEE_MOD_BEF=       19338
+ NbLines_TOT=       37584
+                                                                                                                                                                               LOGINFO BIAS_SEE_MOD_AFT=   -0.003
+                                                                                                                                                                               LOGINFO RMSE_SEE_MOD_AFT=    0.155
+                                                                                                                                                                              LOGINFO SIGMA_SEE_MOD_AFT=    0.155
+ INC_SEE_MOD_AFT=       19338
+ NbLines_TOT=       37584
+ NbFit=       19338 NbLines_TOT=         660 NbPix=         108
+ K=           0
+ #### FIT BEF ####
+ ENTERING fit routine
+ ARRAYS SIZE:        19338       19338
+ ndata=        19338
+ sx=   15834.6416    
+ invx=   3.98826083E-09
+ q=   0.00000000     ndata=       19338 size(x)=       19338 chi2=   1727.82983     sigb=   2.62521394E-03
+ B_TOT(slope)=  0.912434280    
+ #### FIT AFT #####
+ ENTERING fit routine
+ ARRAYS SIZE:        19338       19338
+ ndata=        19338
+ sx=   15834.6416    
+ invx=   3.98826083E-09
+ q=   0.00000000     ndata=       19338 size(x)=       19338 chi2=   460.759430     sigb=   1.35566178E-03
+ B_TOT(slope)=  0.996168911    
+ ***************
+ XMED_SEE=  0.706261873    
+ X33_SEE=  0.606227696    
+ X66_SEE=  0.842149258    
+ ***************
+ ***************
+ XMED_MOD_BEF=  0.668376207    
+ ***************
+ ##########################################
+ ######## HIT_RATE for BEF ###########
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on       19338 points.
+ X<  0.606227696      0.606227696     <X<  0.842149258     X>  0.842149258    
+   4092.00000       2546.00000       768.000000    
+   1933.00000       2549.00000       1966.00000    
+   421.000000       1351.00000       3712.00000    
+ POD(event1)=   63.4812279    
+ POD(event2)=   39.5439034    
+ POD(event3)=   57.5860977    
+ PC=   53.5370750    
+ ebd=   6.14851618    
+ **************************************************
+ ****** HIT_RATE FOR BEF WITH RMSE=SD_instr *******
+ **************************************************
+ Contingency table filled with numbers.
+ Hit rate computed on       19338 points.
+ X<  0.606227696      0.606227696     <X<  0.842149258     X>  0.842149258    
+   6037.00000       0.00000000       726.000000    
+   0.00000000       6105.00000       726.000000    
+   409.000000       341.000000       5720.00000    
+ POD(event1)=   93.6549759    
+ POD(event2)=   94.7098999    
+ POD(event3)=   79.7546005    
+ PC=   92.3673553    
+ ebd=   5.86927319    
+ ***************
+ XMED_MOD_AFT=  0.708139956    
+ ***************
+ ##########################################
+ ############ HIT_RATE for AFT #############
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on       19338 points.
+ X<  0.606227696      0.606227696     <X<  0.842149258     X>  0.842149258    
+   5312.00000       1329.00000       84.0000000    
+   1089.00000       4096.00000       962.000000    
+   45.0000000       1021.00000       5400.00000    
+ POD(event1)=   82.4076920    
+ POD(event2)=   63.5432854    
+ POD(event3)=   83.7728806    
+ PC=   76.5746155    
+ ebd=  0.667080402    
+ **************************************************
+ ****** HIT_RATE for AFT WITH RMSE=SD_instr *******
+ **************************************************
+ Contingency table filled with numbers.
+ Hit rate computed on       19338 points.
+ X<  0.606227696      0.606227696     <X<  0.842149258     X>  0.842149258    
+   6402.00000       3.00000000       78.0000000    
+   0.00000000       6350.00000       78.0000000    
+   44.0000000       93.0000000       6368.00000    
+ POD(event1)=   99.3174057    
+ POD(event2)=   98.5107040    
+ POD(event3)=   97.6088257    
+ PC=   98.8726883    
+ ebd=  0.630882204    

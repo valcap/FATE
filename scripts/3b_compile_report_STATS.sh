@@ -51,6 +51,14 @@ do
   cd $PROG_ROOT_DIR
   PROG=1
 
+  #TODO
+#############################################################
+  # nel caso di variabili astroclimaticheva messo il grep anche 
+  # con l'accuracy, quindi qui ci va un loop che varia a seconda 
+  # della variabile astroclimatica, quindi prima if se atmo o astro
+  # poi if se seeing allora loop con accuracy 0.0, 0.1 e 0.24
+  # se tau0 allora etcetcetc...(IDEM ANCHE CON AFTER STUFF, PERSISTENZA e TABELLE DI CONTINGENZA)
+  # quanto lavoro inutile!!!!!!!!!!!!!!!!!!!!!!!!!!
   # BEFORE STUFF
   BIAS=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep BIAS | cut -d '=' -f2`
   RMSE=`cat tmpfile_${prefix} | grep LOGINFO | grep ${prefixUC} | grep BEF | grep RMSE | cut -d '=' -f2`
