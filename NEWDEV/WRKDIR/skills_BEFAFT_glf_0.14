@@ -37,7 +37,7 @@
  ndata=        17270
  sx=   10778.5498    
  invx=   8.60754490E-09
- q=   9.42020749E+20 ndata=       17270 size(x)=       17270 chi2=   671.426331     sigb=   2.40416336E-03
+ q=  -8.16027981E+16 ndata=       17270 size(x)=       17270 chi2=   671.426331     sigb=   2.40416336E-03
  B_TOT(slope)=  0.764894724    
  #### FIT AFT #####
  ENTERING fit routine
@@ -45,7 +45,7 @@
  ndata=        17270
  sx=   10778.5498    
  invx=   8.60754490E-09
- q=   4.57650065E-41 ndata=       17270 size(x)=       17270 chi2=   76.5440063     sigb=   8.11746460E-04
+ q=   4.58855182E-41 ndata=       17270 size(x)=       17270 chi2=   76.5440063     sigb=   8.11746460E-04
  B_TOT(slope)=  0.989219606    
  ***************
                                                                                                                                                                            LOGINFO PERCENTILES XMED_GLF=      0.6

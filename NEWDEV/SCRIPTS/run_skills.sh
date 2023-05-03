@@ -77,6 +77,9 @@ do
   BIAS=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep BIAS | cut -d '=' -f2`
   RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep RMSE | cut -d '=' -f2`
   SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep SIGMA | cut -d '=' -f2`
+  # PERSISTENCE DATA
+  FILE_SKILLS_PER=`echo $FILE_SKILLS | sed -e "s/_BEFAFT_/_PER_/g"`
+  RMSE_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
   cat $WRKDIR/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
@@ -116,6 +119,7 @@ done
 # Astro-climatic variable
 for prefix in see tau glf
 do
+############ ATT PER LA PERSISTENZA 
   get_var_attr "$prefix"
   case "$prefix" in
   see)
@@ -134,6 +138,9 @@ do
   BIAS=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep BIAS | cut -d '=' -f2`
   RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
   SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep SIGMA | cut -d '=' -f2`
+  # PERSISTENCE DATA
+  FILE_SKILLS_PER=`echo $FILE_SKILLS | sed -e "s/_BEFAFT_/_PER_/g"`
+  RMSE_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   cat $WRKDIR/table_skills_AFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
