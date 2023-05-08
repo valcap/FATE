@@ -21,6 +21,7 @@
                                                                                                                                                                                 LOGINFO RMSE_RH_MOD_BEF=    6.638
                                                                                                                                                                                LOGINFO SIGMA_RH_MOD_BEF=    6.597
  INC_RH_MOD_BEF=       23487
+ LOGINFO NbLines_TOT=       38232
  NbLines_TOT=       38232
                                                                                                                                                                                 LOGINFO BIAS_RH_MOD_AFT=   -0.012
                                                                                                                                                                                 LOGINFO RMSE_RH_MOD_AFT=    1.368

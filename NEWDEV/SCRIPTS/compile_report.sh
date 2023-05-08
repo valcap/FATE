@@ -46,6 +46,9 @@ cat << EOF > $WRKDIR/newpage.tex
 
 EOF
 
+#
+cp /home/report/NEWDEV/SCRIPTS/TMPL_LATEX/figure_empty.tex $WRKDIR/
+
 #################################################################
 # HEADER
 # Modify here the header by using the template $header_tmpl_file
@@ -71,6 +74,7 @@ fi
 cd $WRKDIR
 cat header.tex \
     figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex figures_see.tex figures_tau.tex figures_glf.tex \
+    figure_empty.tex figure_empty.tex figure_empty.tex figure_empty.tex \
     newpage.tex \
     $clearpage_file \
     table_skills_BEF.tex table_skills_AFT.tex \
@@ -99,13 +103,18 @@ cat header.tex \
 #################################################################
 # COMPILING THE LATEX FILE
 cd /home/report/REPORT
-notice "Compiling the Latex file then dvi2ps then ps2pdf"
-latex $report_tex_file #> /dev/null 2>&1
-latex $report_tex_file #> /dev/null 2>&1
+notice "Compiling the Latex file"
+latex $report_tex_file > /dev/null 2>&1
+latex $report_tex_file > /dev/null 2>&1
+notice "dvi2ps and ps2pdf"
 # then dvi2ps
 dvips `basename $report_tex_file .tex`.dvi > /dev/null 2>&1
 # then ps2pdf
 ps2pdf14 `basename $report_tex_file .tex`.ps > /dev/null 2>&1
+for e in out ps aux log dvi 
+do
+  rm -f `basename $report_tex_file .tex`.$e
+done
 notice "byebye"
 
 exit 1

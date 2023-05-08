@@ -60,7 +60,7 @@ notice "Creating figures and calculating skills for BEFAFT $prefix ($descri)"
 cd $PROG_ROOT_DIR
 rm -f $WRKDIR/${skills_file}_BEFAFT_${prefix}
 
-JOB=$prefix'_mnh_ar_hit_def_stan_0_90'
+JOB=$prefix'_mnh_ar_hit_def_stan_45_45'
 if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
@@ -81,8 +81,7 @@ fi
 STARTIN="${prefixUC}_ARevol_"
 STARTIN_WS="WS_ARevol_"
 TAIL=".dat"
-LIMIT=3.     # limite inferiore da usarsi quando si vuole studiare lo scattering plot di WS sopra una certa soglia.
-             # Se si vuole considerare tutto il sample mettere LIMIT=0.
+LIMIT=3.
 
 rm -f ${JOB}.exe
 test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat

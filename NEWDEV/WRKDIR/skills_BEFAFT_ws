@@ -21,7 +21,7 @@
                                                                                                                                                                                 LOGINFO RMSE_WS_MOD_BEF=    2.487
                                                                                                                                                                                LOGINFO SIGMA_WS_MOD_BEF=    2.485
  INC_WS_MOD_BEF=       24056
- LOGINFO BEF NbLines_TOT=       38880
+ LOGINFO NbLines_TOT=       38880
                                                                                                                                                                                 LOGINFO BIAS_WS_MOD_AFT=   -0.010
                                                                                                                                                                                 LOGINFO RMSE_WS_MOD_AFT=    0.659
                                                                                                                                                                                LOGINFO SIGMA_WS_MOD_AFT=    0.659

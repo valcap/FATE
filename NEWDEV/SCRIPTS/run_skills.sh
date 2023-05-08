@@ -46,7 +46,7 @@ do
   # PERSISTENCE DATA
   FILE_SKILLS=$WRKDIR/${skills_file}_PER_${prefix}
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
-  my_caption='Statistics for variables in standard configuration (i.e. BEF)'
+  my_caption='Statistics for variables in standard configuration'
   cat $WRKDIR/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
@@ -106,7 +106,7 @@ do
   # PERSISTENCE DATA
   FILE_SKILLS=$WRKDIR/${skills_file}_PER_${prefix}
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
-  my_caption='Statistics for variables processed with AR (i.e. AFT)'
+  my_caption='Statistics for variables processed with AR (1H)'
   cat $WRKDIR/table_skills_AFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \

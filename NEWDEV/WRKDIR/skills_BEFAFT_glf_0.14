@@ -22,8 +22,8 @@
                                                                                                                                                                                LOGINFO BIAS_GLF_MOD_BEF=   -0.147
                                                                                                                                                                                LOGINFO RMSE_GLF_MOD_BEF=    0.264
                                                                                                                                                                               LOGINFO SIGMA_GLF_MOD_BEF=    0.219
- LOGINFO BEF INC_GLF_MOD_BEF=       17271
- NbLines_TOT=       37476
+ INC_GLF_MOD_BEF=       17271
+ LOGINFO NbLines_TOT=       37476
                                                                                                                                                                                LOGINFO BIAS_GLF_MOD_AFT=   -0.007
                                                                                                                                                                                LOGINFO RMSE_GLF_MOD_AFT=    0.067
                                                                                                                                                                               LOGINFO SIGMA_GLF_MOD_AFT=    0.067
@@ -37,7 +37,7 @@
  ndata=        17270
  sx=   10778.5498    
  invx=   8.60754490E-09
- q=  -8.16027981E+16 ndata=       17270 size(x)=       17270 chi2=   671.426331     sigb=   2.40416336E-03
+ q=   0.00000000     ndata=       17270 size(x)=       17270 chi2=   671.426331     sigb=   2.40416336E-03
  B_TOT(slope)=  0.764894724    
  #### FIT AFT #####
  ENTERING fit routine
@@ -45,7 +45,7 @@
  ndata=        17270
  sx=   10778.5498    
  invx=   8.60754490E-09
- q=   4.58855182E-41 ndata=       17270 size(x)=       17270 chi2=   76.5440063     sigb=   8.11746460E-04
+ q=   0.00000000     ndata=       17270 size(x)=       17270 chi2=   76.5440063     sigb=   8.11746460E-04
  B_TOT(slope)=  0.989219606    
  ***************
                                                                                                                                                                            LOGINFO PERCENTILES XMED_GLF=      0.6
@@ -69,15 +69,6 @@
  POD(event3)=   16.8519802    
  PC=   38.3439484    
  ebd=   21.2043991    
-                                                                                                                                                                           LOGINFO CONTTABLE BEF ROW0 X<   0.6   0.6<X<   0.7X> 0.7
-                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW1    4369   3882   3308
-                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW2    1034   1283   1478
-                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW3     354    592    970
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD1      75.9
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD2      22.3
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD3      16.9
-                                                                                                                                                                               LOGINFO CONTTABLE BEF PC      38.3
-                                                                                                                                                                              LOGINFO CONTTABLE BEF EBD      21.2
  **************************************************
  ****** HIT_RATE for BEF WITH RMSE=SD_instr *******
  **************************************************
@@ -92,6 +83,15 @@
  POD(event3)=   32.7169075    
  PC=   63.2831497    
  ebd=   21.7544861    
+                                                                                                                                                                           LOGINFO CONTTABLE BEF ROW0 X<   0.6   0.6<X<   0.7X> 0.7
+                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW1    5353   2517   3403
+                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW2      50   3223   1436
+                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW3     354     17   2353
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD1      93.0
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD2      56.0
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD3      32.7
+                                                                                                                                                                               LOGINFO CONTTABLE BEF PC      63.3
+                                                                                                                                                                              LOGINFO CONTTABLE BEF EBD      21.8
  ***************
  XMED_MOD_AFT=  0.636936843    
  ***************
@@ -109,15 +109,6 @@
  POD(event3)=   83.5476074    
  PC=   81.0075302    
  ebd=  0.480602205    
-                                                                                                                                                                           LOGINFO CONTTABLE AFT ROW0 X<   0.6   0.6<X<   0.7X> 0.7
-                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW1    5041    935     43
-                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW2     676   4140    904
-                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW3      40    682   4809
-                                                                                                                                                                             LOGINFO CONTTABLE AFT POD1      87.6
-                                                                                                                                                                             LOGINFO CONTTABLE AFT POD2      71.9
-                                                                                                                                                                             LOGINFO CONTTABLE AFT POD3      83.5
-                                                                                                                                                                               LOGINFO CONTTABLE AFT PC      81.0
-                                                                                                                                                                              LOGINFO CONTTABLE AFT EBD       0.5
  **************************************************
  ****** HIT_RATE for AFT WITH RMSE=SD_instr *******
  **************************************************
@@ -132,3 +123,12 @@
  POD(event3)=   98.1239243    
  PC=   98.8477097    
  ebd=  0.550086856    
+                                                                                                                                                                           LOGINFO CONTTABLE AFT ROW0 X<   0.6   0.6<X<   0.7X> 0.7
+                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW1    5712     74     55
+                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW2       5   5658     54
+                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW3      40     25   5701
+                                                                                                                                                                             LOGINFO CONTTABLE AFT POD1      99.2
+                                                                                                                                                                             LOGINFO CONTTABLE AFT POD2      98.3
+                                                                                                                                                                             LOGINFO CONTTABLE AFT POD3      98.1
+                                                                                                                                                                               LOGINFO CONTTABLE AFT PC      98.8
+                                                                                                                                                                              LOGINFO CONTTABLE AFT EBD       0.6

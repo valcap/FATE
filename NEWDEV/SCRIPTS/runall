@@ -1,5 +1,7 @@
 #!bin/bash
 
+export LC_TIME="en_US.UTF-8"
+
 rm -f $HOME/NEWDEV/WRKDIR/*.tex 
 
 ./run_ws.sh

@@ -31,44 +31,44 @@ function get_var_attr ()
   case "$1" in
   ws)
     export prefixUC='WS'
-    export descri='Wind speed'
+    export descri='wind speed'
     export unitof='$m s^{-1}$'
     export suffix='stan'
     ;;
   wd)
     export prefixUC='WD'
-    export descri='Wind direction'
+    export descri='wind direction'
     export unitof='degree'
 #    export suffix='stan_0_90'
     export suffix='stan'
     ;;
   rh)
     export prefixUC='RH'
-    export descri='Relative humidity'
+    export descri='relative humidity'
     export unitof='percent'
     export suffix='stan'
     ;;
   pwv)
     export prefixUC='PWV'
-    export descri='Precipitable water vapor'
+    export descri='precipitable water vapor'
     export unitof='mm'
     export suffix='stan'
     ;;
   see)
     export prefixUC='SEE'
-    export descri='Total seeing'
+    export descri='total seeing'
     export unitof='arcsec'
     export suffix='os18_1000'
    ;;
   tau)
     export prefixUC='TAU'
-    export descri='Coeherence time'
+    export descri='coeherence time'
     export unitof='ms'
     export suffix='os18_1000'
     ;;
   glf)
     export prefixUC='GLF'
-    export descri='Ground layer fraction'
+    export descri='ground layer fraction'
     export unitof='dimensionless'
     export suffix='os18'
     ;;
