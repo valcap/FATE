@@ -273,7 +273,7 @@ WRITE (*,1003) 'LOGINFO BIAS_TAU_MOD_BEF=',BIAS_TAU_MOD_BEF
 WRITE (*,1003) 'LOGINFO RMSE_TAU_MOD_BEF=',RMSE_TAU_MOD_BEF
 WRITE (*,1003) 'LOGINFO SIGMA_TAU_MOD_BEF=',SIGMA_TAU_MOD_BEF
 PRINT*,'INC_TAU_MOD_BEF=',INC_TAU_MOD_BEF
-PRINT*,'LOGINFO BEF NbLines_TOT=',NbLines_TOT_Pix
+PRINT*,'LOGINFO NbLines_TOT=',NbLines_TOT_Pix
 WRITE(BIAS_MOD_BEFc,'(f5.2)')BIAS_TAU_MOD_BEF
 WRITE(RMSE_MOD_BEFc,'(f5.2)')RMSE_TAU_MOD_BEF
 WRITE(SIGMA_MOD_BEFc,'(f5.2)')SIGMA_TAU_MOD_BEF
@@ -380,6 +380,13 @@ PRINT*,'##########################################'
 POD=NOVAL
 TAB_HR=NOVAL
 CALL HIT_RATE(TAU_OBS_1D_FIT,TAU_MOD_BEF_1D_FIT,NbFit,X33_TAU,X66_TAU,NOVAL,TAB_HR,POD,PC,EBD,.false.)
+
+!
+PRINT*,'**************************************************'
+PRINT*,'****** HIT_RATE for BEF WITH RMSE=SD_instr *******'
+PRINT*,'**************************************************'
+!
+CALL HIT_RATE_MOD(TAU_OBS_1D_FIT,TAU_MOD_BEF_1D_FIT,NbFit,X33_TAU,X66_TAU,NOVAL,TAB_HR,POD,PC,EBD,ACC,.false.)
 write (*,5000) 'LOGINFO CONTTABLE BEF ROW0 X<',X33_TAU,X33_TAU,'<X<',X66_TAU,'X>',X66_TAU
 write (*,3001) 'LOGINFO CONTTABLE BEF ROW1 ',int(tab_hr(1,1)),int(tab_hr(1,2)),int(tab_hr(1,3))
 write (*,3001) 'LOGINFO CONTTABLE BEF ROW2 ',int(tab_hr(2,1)),int(tab_hr(2,2)),int(tab_hr(2,3))
@@ -389,13 +396,6 @@ write (*,1001) 'LOGINFO CONTTABLE BEF POD2 ',POD(2)
 write (*,1001) 'LOGINFO CONTTABLE BEF POD3 ',POD(3)
 write (*,1001) 'LOGINFO CONTTABLE BEF PC ',PC
 write (*,1001) 'LOGINFO CONTTABLE BEF EBD ',EBD
-
-!
-PRINT*,'**************************************************'
-PRINT*,'****** HIT_RATE for BEF WITH RMSE=SD_instr *******'
-PRINT*,'**************************************************'
-!
-CALL HIT_RATE_MOD(TAU_OBS_1D_FIT,TAU_MOD_BEF_1D_FIT,NbFit,X33_TAU,X66_TAU,NOVAL,TAB_HR,POD,PC,EBD,ACC,.false.)
 !
 ALLOCATE(CDX_MOD_AFT(NbFit))
 ALLOCATE(CDY_MOD_AFT(NbFit))
@@ -415,6 +415,13 @@ PRINT*,'##########################################'
 POD(:)=NOVAL
 TAB_HR=NOVAL
 CALL HIT_RATE(TAU_OBS_1D_FIT,TAU_MOD_AFT_1D_FIT,NbFit,X33_TAU,X66_TAU,NOVAL,TAB_HR,POD,PC,EBD,.false.)
+
+!
+PRINT*,'**************************************************'
+PRINT*,'****** HIT_RATE for AFT WITH RMSE=SD_instr *******'
+PRINT*,'**************************************************'
+!
+CALL HIT_RATE_MOD(TAU_OBS_1D_FIT,TAU_MOD_AFT_1D_FIT,NbFit,X33_TAU,X66_TAU,NOVAL,TAB_HR,POD,PC,EBD,ACC,.false.)
 write (*,5000) 'LOGINFO CONTTABLE AFT ROW0 X<',X33_TAU,X33_TAU,'<X<',X66_TAU,'X>',X66_TAU
 write (*,3001) 'LOGINFO CONTTABLE AFT ROW1 ',int(tab_hr(1,1)),int(tab_hr(1,2)),int(tab_hr(1,3))
 write (*,3001) 'LOGINFO CONTTABLE AFT ROW2 ',int(tab_hr(2,1)),int(tab_hr(2,2)),int(tab_hr(2,3))
@@ -424,13 +431,6 @@ write (*,1001) 'LOGINFO CONTTABLE AFT POD2 ',POD(2)
 write (*,1001) 'LOGINFO CONTTABLE AFT POD3 ',POD(3)
 write (*,1001) 'LOGINFO CONTTABLE AFT PC ',PC
 write (*,1001) 'LOGINFO CONTTABLE AFT EBD ',EBD
-
-!
-PRINT*,'**************************************************'
-PRINT*,'****** HIT_RATE for AFT WITH RMSE=SD_instr *******'
-PRINT*,'**************************************************'
-!
-CALL HIT_RATE_MOD(TAU_OBS_1D_FIT,TAU_MOD_AFT_1D_FIT,NbFit,X33_TAU,X66_TAU,NOVAL,TAB_HR,POD,PC,EBD,ACC,.false.)
 
 ! OUTPUT FORMATS
 1001 format (a200,2x,f7.1)

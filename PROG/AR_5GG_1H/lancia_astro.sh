@@ -104,8 +104,14 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 
+# mettere qui un loop sull'accuracy
+# ATT.: il plot da mostrare e' solo quello relativo all'accuracy=0.24
+#       quindi il nome del file non dev'essere cambiato
+rm -f tmpfile_${VARIN}
+for ACC in 0.0 0.1 0.24
+do
 # Run f90 file
-./${JOB}.exe<<EOF > tmpfile_${VARIN}
+./${JOB}.exe<<EOF >> tmpfile_${VARIN}
 ${GG}
 ${HH}
 ${IDELTA}
@@ -121,8 +127,9 @@ ${ACC}
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_os18_1000.ps/cps'
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_os18_1000.ps/cps'
 EOF
+  rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+done
 rm -f ${JOB}.exe
-rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
 #
 ## End of procedure for ws
 fi
@@ -170,6 +177,12 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 
+# mettere qui un loop sull'accuracy
+# ATT.: il plot da mostrare e' solo quello relativo all'accuracy=0.24
+#       quindi il nome del file non dev'essere cambiato
+rm -f tmpfile_${VARIN}
+for ACC in 0.0 1.22
+do
 # Run f90 file
 ./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
@@ -187,8 +200,9 @@ ${ACC}
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_os18_1000.ps/cps'
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_os18_1000.ps/cps'
 EOF
+  rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+done
 rm -f ${JOB}.exe
-rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
 #
 ## End of procedure for wd
 fi
@@ -232,6 +246,12 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 
+# mettere qui un loop sull'accuracy
+# ATT.: il plot da mostrare e' solo quello relativo all'accuracy=0.24
+#       quindi il nome del file non dev'essere cambiato
+rm -f tmpfile_${VARIN}
+for ACC in 0.0 0.14
+do
 # Run .exe file
 ./${JOB}.exe<<EOF > tmpfile_${VARIN}
 ${GG}
@@ -249,8 +269,10 @@ ${ACC}
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_stan.ps/cps'
 '$FIGS_ROOT_DIR/${prefix_lc}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_stan.ps/cps'
 EOF
+  rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+done
 rm -f ${JOB}.exe
-rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+
 #
 ## End of procedure for rh
 fi
