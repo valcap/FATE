@@ -1,0 +1,20 @@
+#!bin/bash
+
+export LC_TIME="en_US.UTF-8"
+envfile=$HOME'/SCRIPTS/fate-report.env'
+
+rm -f $HOME/WRKDIR/*.tex 
+
+./run_ws.sh $envfile
+./run_wd.sh  $envfile
+./run_rh.sh $envfile 
+./run_pwv.sh $envfile
+./run_see.sh   $envfile
+./run_tau.sh   $envfile
+./run_glf.sh  $envfile
+./run_skills.sh $envfile
+
+./compile_report.sh $envfile
+
+exit 0
+
