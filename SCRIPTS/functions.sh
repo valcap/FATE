@@ -71,6 +71,7 @@ function get_var_attr ()
     export descri='ground layer fraction'
     export unitof='dimensionless'
     export suffix='os18'
+    export DATA_ROOT_DIR=$HOME"/DATA/AR_TREATED_365N_20180801_20190731_OS18/$GG/$HH" # this sucks...
     ;;
   *) echo "Lo sai chi ti saluta?"
      exit 1
@@ -78,6 +79,9 @@ function get_var_attr ()
   esac
 }
 
+
+#########################################################################
+# OLD STUFF BELOW HERE
 #########################################################################
 function email_alert ()
 {

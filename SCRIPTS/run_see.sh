@@ -89,8 +89,8 @@ if [ ! -d $ROOT ]; then
 fi
 STARTIN="${prefixUC}_ARevol_"
 TAIL=".dat"
-MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
-             # ATT: use the option 999 if you wish to calculate the contingency tables
+#MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
+#             # ATT: use the option 999 if you wish to calculate the contingency tables
 
 rm -f ${JOB}.exe
 test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
@@ -101,7 +101,7 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 
-# Loop over accuracy
+# Loop over accuracy and MAXSEE=1.5 for BEF DATA ONLY (i.e. standard configuration)
 for ACC in 0.0 0.10 0.24
 do
   subnotice "Running F90 program for ACC $ACC"
@@ -113,18 +113,44 @@ ${IDELTA}
 ${NbNights}
 ${STARTMINUTE}
 ${ENDMINUTE}
-${MAXSEE}
+1.5
 ${ACC}
 "${ROOT}"
 "${TAIL}"
 "${STARTIN}"
 '$FILE_LIST'
 '$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps/cps'
+'$FIGS_ROOT_DIR/stoca1.ps/cps'
+EOF
+  rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+done
+
+# Loop over accuracy and MAXSEE=999. for AFT DATA ONLY (i.e. with AR (1H))
+for ACC in 0.0 0.10 0.24
+do
+  subnotice "Running F90 program for ACC $ACC"
+  # Run f90 filei (here we append the output file because we're running
+  #                the ${JOB}.exe for MAXSEE=1.5 (for BEF) and MAXSEE=999. (for (AFT))
+./${JOB}.exe<<EOF >> $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC}
+${GG}
+${HH}
+${IDELTA}
+${NbNights}
+${STARTMINUTE}
+${ENDMINUTE}
+999.
+${ACC}
+"${ROOT}"
+"${TAIL}"
+"${STARTIN}"
+'$FILE_LIST'
+'$FIGS_ROOT_DIR/stoca2.ps/cps'
 '$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps/cps'
 EOF
   rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
 done
 rm -f ${JOB}.exe
+rm -f $FIGS_ROOT_DIR/stoca*
 
 #
 ## End of computing graphics and statistics for BEFORE and AFTER data
@@ -278,7 +304,7 @@ cat << EOF > $WRKDIR/figures_${prefix}.tex
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{$EPSBEF}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{$EPSAFT}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{$EPSPER}}
-\caption{$descri ($unitof): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE.}
+\caption{$descri ($unitof): (a) STANDARD CONFIGURATION ($<$ 1.5''), (b) WITH AR (1H), (c) PERSISTENCE.}
 \label{fig:$prefix}
 \end{figure}
 EOF
@@ -294,11 +320,11 @@ notice "Extracting skills and creating contingency tables for each accuray"
 
 cd $WRKDIR
 
-for ACC in 0.0 0.10 0.24
+for ACC in 0.0 0.24
 do
 # BEFORE STUFF
-PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep PERCENTILES | grep X33_ | awk '{print $4}'`
-PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep PERCENTILES | grep X66_ | awk '{print $4}'`
+PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep PERCENTILES | grep X33_ | head -n1 | awk '{print $4}'`
+PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep PERCENTILES | grep X66_ | head -n1 | awk '{print $4}'`
 VAL1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $5}'`
 VAL2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $6}'`
 VAL3=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $7}'`
@@ -381,7 +407,7 @@ done
 
 notice "Extracting skills and creating PODs table for each accuray"
 
-for ACC in 0.0 0.10 0.24
+for ACC in 0.0 0.24
 do
 ## PODs for BEF and AFT
 #

@@ -1,20 +1,21 @@
 #!bin/bash
 
 export LC_TIME="en_US.UTF-8"
-envfile=$HOME'/SCRIPTS/fate-report.env'
+envfile_atmo=$HOME'/SCRIPTS/fate-report-atmo.env'
+envfile_astro=$HOME'/SCRIPTS/fate-report-astro.env'
 
 rm -f $HOME/WRKDIR/*.tex 
 
-./run_ws.sh $envfile
-./run_wd.sh  $envfile
-./run_rh.sh $envfile 
-./run_pwv.sh $envfile
-./run_see.sh   $envfile
-./run_tau.sh   $envfile
-./run_glf.sh  $envfile
-./run_skills.sh $envfile
+./run_ws.sh     $envfile_atmo
+./run_wd.sh     $envfile_atmo
+./run_rh.sh     $envfile_atmo
+./run_pwv.sh    $envfile_atmo
+./run_see.sh    $envfile_astro
+./run_tau.sh    $envfile_astro
+./run_glf.sh    $envfile_astro
+./run_skills.sh $envfile_atmo
 
-./compile_report.sh $envfile
+./compile_report.sh $envfile_atmo
 
 exit 0
 

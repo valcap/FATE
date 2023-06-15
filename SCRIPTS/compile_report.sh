@@ -82,31 +82,40 @@ fi
 #    $clearpage_file \
 #    $clearpage_file \
 #    $clearpage_file \
+#    figure_empty.tex figure_empty.tex figure_empty.tex figure_empty.tex \
 # CATTING HEADER + BODY + TAIL
 cd $WRKDIR
 cat header.tex \
     figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex figures_see.tex figures_tau.tex figures_glf.tex \
-    figure_empty.tex figure_empty.tex figure_empty.tex figure_empty.tex \
     newpage.tex \
     $clearpage_file \
     table_skills_BEF.tex table_skills_AFT.tex \
     newpage.tex \
     $clearpage_file \
     contingency_tableBEFws.tex contingency_tableAFTws.tex \
-    contingency_tableBEFrh.tex contingency_tableAFTrh.tex \
-    contingency_tableBEFpwv.tex contingency_tableAFTpwv.tex \
-    $clearpage_file \
-    contingency_tableBEFsee_0.0.tex contingency_tableBEFsee_0.10.tex contingency_tableBEFsee_0.24.tex \
-    contingency_tableAFTsee_0.0.tex contingency_tableAFTsee_0.10.tex contingency_tableAFTsee_0.24.tex \
-    contingency_tableBEFtau_0.0.tex contingency_tableBEFtau_1.22.tex  \
-    contingency_tableAFTtau_0.0.tex contingency_tableAFTtau_1.22.tex  \
-    contingency_tableBEFglf_0.0.tex contingency_tableBEFglf_0.14.tex  \
-    contingency_tableAFTglf_0.0.tex contingency_tableAFTglf_0.14.tex  \
-    $clearpage_file \
+    contingency_tableBEFwd.tex contingency_tableAFTwd.tex \
     newpage.tex \
     $clearpage_file \
-    tablePODsws.tex tablePODsrh.tex tablePODspwv.tex \
-    tablePODssee_0.0.tex tablePODssee_0.10.tex tablePODssee_0.24.tex \
+    contingency_tableBEFrh.tex contingency_tableAFTrh.tex \
+    contingency_tableBEFpwv.tex contingency_tableAFTpwv.tex \
+    newpage.tex \
+    $clearpage_file \
+    contingency_tableBEFsee_0.0.tex contingency_tableBEFsee_0.24.tex \
+    contingency_tableAFTsee_0.0.tex contingency_tableAFTsee_0.24.tex \
+    newpage.tex \
+    $clearpage_file \
+    contingency_tableBEFtau_0.0.tex contingency_tableBEFtau_1.22.tex  \
+    contingency_tableAFTtau_0.0.tex contingency_tableAFTtau_1.22.tex  \
+    newpage.tex \
+    $clearpage_file \
+    contingency_tableBEFglf_0.0.tex contingency_tableBEFglf_0.14.tex  \
+    contingency_tableAFTglf_0.0.tex contingency_tableAFTglf_0.14.tex  \
+    newpage.tex \
+    $clearpage_file \
+    tablePODsws.tex tablePODswd.tex tablePODsrh.tex tablePODspwv.tex \
+    newpage.tex \
+    $clearpage_file \
+    tablePODssee_0.0.tex tablePODssee_0.24.tex \
     tablePODstau_0.0.tex tablePODstau_1.22.tex \
     tablePODsglf_0.0.tex tablePODsglf_0.14.tex \
     $tail_tmpl_file \
