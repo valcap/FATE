@@ -89,7 +89,7 @@ if [ ! -d $ROOT ]; then
 fi
 STARTIN="${prefixUC}_ARevol_"
 TAIL=".dat"
-MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
+MAXTAU=999.   # put 999. if one wants to consider the whole values without filtering
              # ATT: use the option 999 if you wish to calculate the contingency tables
 
 rm -f ${JOB}.exe
@@ -113,7 +113,7 @@ ${IDELTA}
 ${NbNights}
 ${STARTMINUTE}
 ${ENDMINUTE}
-${MAXSEE}
+${MAXTAU}
 ${ACC}
 "${ROOT}"
 "${TAIL}"
@@ -161,7 +161,77 @@ fi
 ##
 #########################################
 
-##################################################################################
+#########################################
+## Compute statistics
+## FOR LAST MONTH ONLY !!!!!!!!!!!!!!!!!
+#
+notice "Creating figures and calculating skills for BEFAFT $prefix ($descri) FOR LAST MONTH ONLY"
+cd $PROG_ROOT_DIR
+rm -f $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
+
+JOB=$prefix'0_mnh_ar_hit_def_'${suffix}
+if [ ! -e ${JOB}.f90 ]; then
+  echo "ops ${JOB}.f90 is missing"; exit 1
+fi
+IDELTA=10
+FILE_LIST="list_"$prefixUC"_${GG}.txt"
+if [ ! -e $FILE_LIST ]; then
+  echo "ops $FILE_LIST is missing in the current directory"; exit 1
+fi
+NbNights=`wc -l $FILE_LIST | cut -d ' ' -f 1`
+ACC=1.22        
+ROOT=$DATA_ROOT_DIR"/${prefixUC}_TREATED/"
+if [ ! -d $ROOT ]; then
+  echo "ops $ROOT is missing or is not a directory"; exit 1
+fi
+STARTIN="${prefixUC}_ARevol_"
+TAIL=".dat"
+MAXTAU=999.   
+#             
+
+rm -f ${JOB}.exe
+test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
+test -f out_scatter_for_python_aft.dat && rm -f out_scatter_for_python_aft.dat
+# Compile f90 file
+gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I$NUMREC_DIR -I$LIBPERSO_DIR/mod -L$LIBPERSO_DIR -L$NUMREC_DIR -J$NUMREC_DIR -lpgplot -lpng -lz -lpers -lnumrec > /dev/null 2>&1
+if [ ! -e ${JOB}.exe ]; then
+  echo "ops problem in compiling ${JOB}.f90"; exit 1
+fi
+
+# Run f90 file
+./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
+${GG}
+${HH}
+${IDELTA}
+${NbNights}
+${STARTMINUTE}
+${ENDMINUTE}
+${MAXTAU}
+${ACC}
+"${ROOT}"
+"${TAIL}"
+"${STARTIN}"
+'$FILE_LIST'
+'$FIGS_ROOT_DIR/temp1.ps/cps'
+'$FIGS_ROOT_DIR/temp2.ps/cps'
+EOF
+rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+rm -f $FIGS_ROOT_DIR/temp*.ps
+
+#
+## End of computing graphics and statistics for BEFORE and AFTER data
+#########################################
+
+#########################################
+## check a file named tmpfile_NAME-OF-THE-VARIABLE, which is expected in $PROG_ROOT_DIR
+#
+if [ ! -e $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth} ]; then
+  error "$WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth} not produced"
+fi
+#
+##
+#########################################
+
 ##################################################################################
 #                                   PERSISTENCE data 
 ##################################################################################
@@ -179,7 +249,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}.txt"
+FILE_LIST="list_"$prefixUC"_${GG}_${skills_file_lastmonth}.txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in "`pwd`; exit 1
 fi
@@ -190,7 +260,7 @@ if [ ! -d $ROOT ]; then
 fi
 STARTIN="${prefixUC}_PERSIST_"
 TAIL=".dat"
-MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
+MAXTAU=999.   # put 999. if one wants to consider the whole values without filtering
              # ATT: use the option 999 if you wish to calculate the contingency tables
 
 rm -f ${JOB}.exe
@@ -214,7 +284,7 @@ ${IDELTA}
 ${NbNights}
 ${STARTMINUTE}
 ${ENDMINUTE}
-${MAXSEE}
+${MAXTAU}
 ${ACC}
 "${ROOT}"
 "${TAIL}"

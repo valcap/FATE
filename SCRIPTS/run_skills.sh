@@ -93,13 +93,17 @@ do
   BIAS=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep BIAS | cut -d '=' -f2`
   RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep RMSE | cut -d '=' -f2`
   SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep SIGMA | cut -d '=' -f2`
-  # PERSISTENCE DATA
-  FILE_SKILLS_PER=`echo $FILE_SKILLS | sed -e "s/_BEFAFT_/_PER_/g"`
-  RMSE_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
+  # LAST MONTH DATA
+  FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
+  BIAS_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep BIAS | cut -d '=' -f2`
+  RMSE_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
+  SD_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep SIGMA | cut -d '=' -f2`
   cat $WRKDIR/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
-#                                     sed -e "s!${prefixUC}PERSRMSE!$RMSE_PERS!"        | \
+                                     sed -e "s!${prefixUC}biasLM!$BIAS_LAST!"        | \
+                                     sed -e "s!${prefixUC}rmseLM!$RMSE_LAST!"        | \
+                                     sed -e "s!${prefixUC}sdLM!$SD_LAST!"        | \
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/table_tmpl_TEMP.tex
   mv $WRKDIR/table_tmpl_TEMP.tex $WRKDIR/table_skills_BEF.tex

@@ -1,0 +1,797 @@
+\documentclass[11pt,english]{article}
+\pagestyle{plain}
+\pagenumbering{arabic}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subfig}
+%\usepackage{auto-pst-pdf}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage[hmargin={0.8cm,1.2cm},vmargin=1.2cm]{geometry}
+\usepackage{lscape}
+\usepackage{pdflscape}
+\renewcommand*\familydefault{\sfdefault}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% packages for headers and footers
+\usepackage{fancyhdr}
+%\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyfoot[C]{Page\ \thepage\ of \pageref{LastPage}}
+
+\begin{document}
+
+\begin{figure}
+\begin{center}
+\hspace{1.5cm}
+\parbox{5.5cm}{\includegraphics[width=2.2cm]{/home/report/SCRIPTS/LOGOS/logoLaMMA}}
+\hspace{.3cm}
+\parbox{5.5cm}{\includegraphics[width=2.2cm]{/home/report/SCRIPTS/LOGOS/fate_logo_11def}}
+\hspace{.3cm}
+\parbox{5.5cm}{\includegraphics[width=2.2cm]{/home/report/SCRIPTS/LOGOS/INAF_Arcetri_colore}}
+\hspace{.1cm}
+\vspace{1.2cm}
+\end{center}
+\end{figure}
+
+\begin{center}
+\HRule \\[0.4cm]
+%\Huge{\textbf{Progetto FATE LaMMA-OAA per ESO @ Cerro Paranal etcetcetc\ldots}}
+\Huge{\textbf{Forecast system for the turbulence and meteorology at the Paranal Observatory}}
+\\[0.4cm]
+\LARGE{\textbf{Performance assessment - monthly report}}
+\HRule \\[0.4cm]
+\end{center}
+
+\begin{center}
+\vspace{2cm}\Huge{Issued: Wed, 21-06-2023\\ 10:48 Paranal local time}
+\HRule \\[0.1cm]
+\end{center}
+
+%\begin{center}
+%\HRule \\[0.1cm]
+%\tableofcontents
+%\HRule \\[0.1cm]
+%\end{center}
+%\newpage
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.eps}}
+\caption{{wind speed} ($m s^{-1}$): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE.}
+\label{fig:ws}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.eps}}
+\caption{wind direction (degree): (a) STANDARD CONFIGURATION, (b) WITH AR, (c) PERSISTENCE.}
+\label{fig:wd}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.eps}}
+\caption{relative humidity (percent): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE.}
+\label{fig:rh}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.eps}}
+\caption{precipitable water vapor (mm): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE.}
+\label{fig:pwv}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.eps}}
+\caption{total seeing (arcsec): (a) STANDARD CONFIGURATION ($<$ 1.5''), (b) WITH AR (1H), (c) PERSISTENCE.}
+\label{fig:see}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_BEF_os18_1000.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.eps}}
+\caption{coeherence time (ms): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE.}
+\label{fig:tau}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_BEF_os18.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18.eps}}
+\subfloat[]{\includegraphics[width=.33\linewidth,angle=-90]{/home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.eps}}
+\caption{ground layer fraction (dimensionless): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE.}
+\label{fig:glf}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{VARIABLE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{BIAS}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{SD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{BIAS}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{SD}}\\
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(inc. month)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(inc. month)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(inc. month)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(last month)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(last month)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(last month)}\\\hline
+\cellcolor[HTML]{C0C0C0}WS (m$\cdot$s$^{-1}$) &      0.10  &      2.49  &      2.49  &     -0.61     &      2.60     &      2.53\\
+\cellcolor[HTML]{C0C0C0}WD (degree)           &     -0.97  &     35.22  &     35.21  &      1.64     &     33.85     &     33.81\\
+\cellcolor[HTML]{C0C0C0}RH (percent)          &      0.73  &      6.64  &      6.60  &      0.76     &      6.84     &      6.79\\
+\cellcolor[HTML]{C0C0C0}PWV (mm)              &     -0.20 &      1.00 &      0.99 &     -0.35    &      1.00    &      0.94\\
+\cellcolor[HTML]{C0C0C0}SEE (arcsec)          &     -0.02 &      0.23 &      0.23 &     -0.02    &      0.23    &      0.23\\
+\cellcolor[HTML]{C0C0C0}TAU (ms)              &     -0.06 &      2.19 &      2.19 &     &     & \\
+\cellcolor[HTML]{C0C0C0}GLF (dimensionless)   &     -0.03 &      0.19 &      0.18 &     &     & \\
+\hline
+\end{tabular}
+\caption{Statistics for variables in standard configuration}
+\end{center}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{VARIABLE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{BIAS}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{SD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{BIAS}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{RMSE}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{SD}}\\
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(inc. month)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(inc. month)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(inc. month)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(persistence)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(persistence)} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}(persistence)}\\\hline
+\cellcolor[HTML]{C0C0C0}WS (m$\cdot$s$^{-1}$) &     -0.01  &      0.66  &      0.66  &     -0.02  &      0.92  &      0.92\\
+\cellcolor[HTML]{C0C0C0}WD (degree)           &      0.30  &      6.65  &      6.64  &      1.90  &     12.47  &     12.33\\
+\cellcolor[HTML]{C0C0C0}RH (percent)          &     -0.01  &      1.37  &      1.37  &     -0.05  &      2.18  &      2.18\\
+\cellcolor[HTML]{C0C0C0}PWV (mm)              &     -0.01 &      0.13 &      0.13 &      0.04 &      0.25 &      0.25\\
+\cellcolor[HTML]{C0C0C0}SEE (arcsec)          &     -0.00 &      0.10 &      0.10 &     -0.00 &      0.15 &      0.15\\
+\cellcolor[HTML]{C0C0C0}TAU (ms)              &     -0.01 &      0.58 &      0.58 &     -0.03 &      1.06 &      1.06\\
+\cellcolor[HTML]{C0C0C0}GLF (dimensionless)   &     -0.00 &      0.06 &      0.06 &     -0.01 &      0.09 &      0.09\\
+\hline
+\end{tabular}
+\caption{Statistics for variables processed with AR (1H)}
+\end{center}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{$m s^{-1}$}                                       &                             & ws $<$ 4.2   & 4.2 $<$ ws $<$ 7.5 & ws $>$ 7.5 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 4.2             & 4541                & 2127                       & 249              \\
+                                                 & 4.2  $<$ ws $<$ 7.5 & 3034                & 3970                       & 1347              \\
+                                                 & ws $>$ 7.5             & 430                & 1908                       & 6408              \\
+\hline 
+\multicolumn{5}{l}{Sample size: 38880; PC=62.1\%; EBD=2.8\%; POD1=56.7\%; POD2=49.6\%; POD3=80.1\%}                 \\
+\end{tabular}
+\end{center}
+\caption{Contingency table for {wind speed} ($m s^{-1}$) in standard configuration}
+\label{tab:contingencywsBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{$m s^{-1}$}                                       &                             & ws $<$ 4.2   & 4.2 $<$ ws $<$ 7.5 & ws $>$ 7.5 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 4.2             & 7377                & 623                       & 1              \\
+                                                 & 4.2  $<$ ws $<$ 7.5 & 628                & 6950                       & 386              \\
+                                                 & ws $>$ 7.5             & 0                & 432                       & 7617              \\
+\hline 
+\multicolumn{5}{l}{Sample size: 38880; PC=91.4\%; EBD=0.0\%; POD1=92.2\%; POD2=86.8\%; POD3=95.2\%}                 \\
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable wind speed ($m s^{-1}$) processed with AR (1H)}
+\label{tab:contingencywsAFT}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llcccc}
+\hline
+{wind direction}                                       &                             &    \multicolumn{4}{c}{Observations}                 \\
+{degree}                                       &                             & {North}   & {East} & {South} & {West} \\
+\hline
+\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}                    & 9401   & 1028    & 107     & 229\\
+                                                 & {East}                     & 1002   & 1832    & 560     & 0\\
+                                                 & {South}                    & 99   & 508   & 3567    & 195\\
+                                                 & {West}                     & 202  & 89   & 63    & 199\\
+\hline 
+\multicolumn{6}{l}{Sample size: 38880; PC=78.6\%; EBD=1.5\%; POD1=87.8\%; POD2=53.0\%; POD3=83.0\%; POD4=31.9\%}                 \\
+\end{tabular}
+\end{center}
+\caption{Contingency table for {wind direction} (degree) in standard configuration}
+\label{tab:contingencywdBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llcccc}
+\hline
+{wind direction}                                       &                                                    & \multicolumn{4}{c}{Observations}                 \\
+{degree}                                       &                             & {North}   & {East} & {South} & {West} \\
+\hline
+\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}              & 10453                & 222                       & 0              & 36\\
+                                                 & {East}               & 217                & 3151                       & 40              & 0\\
+                                                 & {South}              & 0                & 84                      & 4236             & 29\\
+                                                 & {West}               & 34               & 0                      & 21             & 558\\
+\hline 
+\multicolumn{6}{l}{Sample size: 38880; PC=96.4\%; EBD=0.0\%; POD1=97.7\%; POD2=91.1\%; POD3=98.6\%; POD4=89.6\%}                 \\
+\end{tabular}
+\end{center}
+\caption{Contingency table for {wind direction} (degree) in standard configuration}
+\label{tab:contingencywdAFT}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{relative humidity}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{percent}                                       &                             & rh $<$ 7.1   & 7.1 $<$ rh $<$ 15.3 & rh $>$ 15.3 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.1             & 4755                & 1095                       & 27              \\
+                                                 & 7.1  $<$ rh $<$ 15.3 & 2696                & 5193                       & 1357              \\
+                                                 & rh $>$ 15.3             & 379                & 1539                       & 6443              \\
+\hline
+\multicolumn{5}{l}{Sample size: 38232; PC=69.8\%; EBD=1.7\%; POD1=60.7\%; POD2=66.3\%; POD3=82.3\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable relative humidity (percent) in standard configuration}
+\label{tab:contingencyrhBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{relative humidity}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{percent}                                       &                             & rh $<$ 7.1   & 7.1 $<$ rh $<$ 15.3 & rh $>$ 15.3 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.1             & 7408                & 328                       & 1              \\
+                                                 & 7.1  $<$ rh $<$ 15.3 & 422                & 7294                       & 248              \\
+                                                 & rh $>$ 15.3             & 0                & 205                       & 7578              \\
+\hline
+\multicolumn{5}{l}{Sample size: 38232; PC=94.9\%; EBD=0.0\%; POD1=94.6\%; POD2=93.2\%; POD3=96.8\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable relative humidity (percent) processed with AR (1H)}
+\label{tab:contingencyrhAFT}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{precipitable water vapor}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{mm}                                       &                             & pwv $<$ 1.9   & 1.9 $<$ pwv $<$ 3.5 & pwv $>$ 3.5 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 3402                & 854                       & 2              \\
+                                                 & 1.9  $<$ pwv $<$ 3.5 & 443                & 2596                       & 576              \\
+                                                 & pwv $>$ 3.5             & 5                & 400                       & 3271              \\
+\hline
+\multicolumn{5}{l}{Sample size: 18900; PC=80.3\%; EBD=0.1\%; POD1=88.4\%; POD2=67.4\%; POD3=85.0\%}                 \\
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable precipitable water vapor (mm) in standard configuration}
+\label{tab:contingencypwvBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{precipitable water vapor}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{mm}                                       &                             & pwv $<$ 1.9   & 1.9 $<$ pwv $<$ 3.5 & pwv $>$ 3.5 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 3785                & 69                       & 0              \\
+                                                 & 1.9  $<$ pwv $<$ 3.5 & 65                & 3733                       & 39              \\
+                                                 & pwv $>$ 3.5             & 0                & 48                       & 3810              \\
+\hline 
+\multicolumn{5}{l}{Sample size: 18900; PC=98.1\%; EBD=0.0\%; POD1=98.3\%; POD2=97.0\%; POD3=99.0\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable precipitable water vapor (mm) processed with AR (1H)}
+\label{tab:contingencypwvAFT}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 3678                & 2340                       & 841              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 1828                & 2382                       & 1886              \\
+                                                 & see $>$ 0.8             & 520                & 1303                       & 3298              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37584; PC=51.8\%; EBD=7.5\%; POD1=61.0\%; POD2=39.5\%; POD3=54.7\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable total seeing (arcsec) in standard configuration and accuracy 0.0}
+\label{tab:contingencyseeBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 5603                & 0                       & 597              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 0                & 5649                       & 597              \\
+                                                 & see $>$ 0.8             & 423                & 376                       & 5428              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37584; PC=92.3\%; EBD=5.6\%; POD1=93.0\%; POD2=93.8\%; POD3=82.0\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable total seeing (arcsec) in standard configuration and accuracy 0.24}
+\label{tab:contingencyseeBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 5707                & 835                       & 23              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 725                & 4942                       & 546              \\
+                                                 & see $>$ 0.8             & 14                & 669                       & 5877              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37584; PC=85.5\%; EBD=0.2\%; POD1=88.5\%; POD2=76.7\%; POD3=91.2\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable total seeing (arcsec) processed with AR (1H) and accuracy 0.0}
+\label{tab:contingencyseeAFT}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 6433                & 11                       & 23              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 0                & 6404                       & 18              \\
+                                                 & see $>$ 0.8             & 13                & 31                       & 6423              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37584; PC=99.6\%; EBD=0.2\%; POD1=99.8\%; POD2=99.3\%; POD3=99.4\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable total seeing (arcsec) processed with AR (1H) and accuracy 0.24}
+\label{tab:contingencyseeAFT}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 4336                & 1463                       & 107              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 1221                & 3060                       & 1597              \\
+                                                 & tau $>$ 5.8             & 196                & 1230                       & 4049              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37476; PC=66.3\%; EBD=1.8\%; POD1=75.4\%; POD2=53.2\%; POD3=70.4\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable coeherence time (ms) in standard configuration and accuracy 0.0}
+\label{tab:contingencytauBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 5229                & 149                       & 639              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 328                & 4937                       & 635              \\
+                                                 & tau $>$ 5.8             & 196                & 667                       & 5114              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37476; PC=88.5\%; EBD=4.8\%; POD1=90.9\%; POD2=85.8\%; POD3=80.1\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable coeherence time (ms) in standard configuration and accuracy 1.22}
+\label{tab:contingencytauBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 5386                & 339                       & 2              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 366                & 5011                       & 400              \\
+                                                 & tau $>$ 5.8             & 1                & 403                       & 5351              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37476; PC=91.2\%; EBD=0.0\%; POD1=93.6\%; POD2=87.1\%; POD3=93.0\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable coeherence time (ms) processed with AR (1H) and accuracy 0.0}
+\label{tab:contingencytauAFT}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 5745                & 0                       & 33              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 7                & 5725                       & 33              \\
+                                                 & tau $>$ 5.8             & 1                & 28                       & 5720              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37476; PC=99.6\%; EBD=0.2\%; POD1=99.9\%; POD2=99.5\%; POD3=98.9\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable coeherence time (ms) processed with AR (1H) and accuracy 1.22}
+\label{tab:contingencytauAFT}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 3194                & 2361                       & 1636              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 1856                & 2275                       & 2456              \\
+                                                 & glf $>$ 0.7             & 707                & 1121                       & 1665              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37476; PC=41.3\%; EBD=13.6\%; POD1=55.5\%; POD2=39.5\%; POD3=28.9\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable ground layer fraction (dimensionless) in standard configuration and accuracy 0.0}
+\label{tab:contingencyglfBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 4964                & 566                       & 1758              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 86                & 5104                       & 1493              \\
+                                                 & glf $>$ 0.7             & 707                & 87                       & 3999              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37476; PC=81.4\%; EBD=14.3\%; POD1=86.2\%; POD2=88.7\%; POD3=55.2\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable ground layer fraction (dimensionless) in standard configuration and accuracy 0.14}
+\label{tab:contingencyglfBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 4991                & 837                       & 27              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 726                & 4180                       & 842              \\
+                                                 & glf $>$ 0.7             & 40                & 740                       & 4888              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37476; PC=81.4\%; EBD=0.4\%; POD1=86.7\%; POD2=72.6\%; POD3=84.9\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable ground layer fraction (dimensionless) processed with AR (1H) and accuracy 0.0}
+\label{tab:contingencyglfAFT}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 5707                & 42                       & 36              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 10                & 5694                       & 35              \\
+                                                 & glf $>$ 0.7             & 40                & 21                       & 5721              \\
+\hline
+\multicolumn{5}{l}{Sample size: 37476; PC=99.1\%; EBD=0.4\%; POD1=99.1\%; POD2=98.9\%; POD3=98.8\%}
+\end{tabular}
+\end{center}
+\caption{Contingency table for variable ground layer fraction (dimensionless) processed with AR (1H) and accuracy 0.14}
+\label{tab:contingencyglfAFT}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 56.7                                & 92.2         \\
+\cellcolor[HTML]{C0C0C0}POD2  & 49.6                                & 86.8         \\
+\cellcolor[HTML]{C0C0C0}POD3  & 80.1                                & 95.2         \\
+\cellcolor[HTML]{C0C0C0}PC    & 62.1                                  & 91.4           \\
+\cellcolor[HTML]{C0C0C0}EBD   & 2.8                                 & 0.0          \\
+\hline
+\end{tabular}
+\caption{PODs for wind speed ($m s^{-1}$)}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 87.8      & 97.7     \\
+\cellcolor[HTML]{C0C0C0}POD2  & 53.0      & 91.1     \\
+\cellcolor[HTML]{C0C0C0}POD3  & 83.0      & 98.6     \\
+\cellcolor[HTML]{C0C0C0}POD4  & 31.9      & 89.6     \\
+\cellcolor[HTML]{C0C0C0}PC    & 78.6        & 96.4       \\
+\cellcolor[HTML]{C0C0C0}EBD   & 1.5       & 0.0      \\
+\hline
+\end{tabular}
+\caption{PODs for wind direction (degree)}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 60.7                                & 94.6         \\
+\cellcolor[HTML]{C0C0C0}POD2  & 66.3                                & 93.2         \\
+\cellcolor[HTML]{C0C0C0}POD3  & 82.3                                & 96.8         \\
+\cellcolor[HTML]{C0C0C0}PC    & 69.8                                  & 94.9           \\
+\cellcolor[HTML]{C0C0C0}EBD   & 1.7                                 & 0.0          \\
+\hline
+\end{tabular}
+\caption{PODs for relative humidity (percent)}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 88.4                                & 98.3         \\
+\cellcolor[HTML]{C0C0C0}POD2  & 67.4                                & 97.0         \\
+\cellcolor[HTML]{C0C0C0}POD3  & 85.0                                & 99.0         \\
+\cellcolor[HTML]{C0C0C0}PC    & 80.3                                  & 98.1           \\
+\cellcolor[HTML]{C0C0C0}EBD   & 0.1                                 & 0.0          \\
+\hline
+\end{tabular}
+\caption{PODs for precipitable water vapor (mm)}
+\end{center}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 61.0                                & 88.5         \\
+\cellcolor[HTML]{C0C0C0}POD2  & 39.5                                & 76.7         \\
+\cellcolor[HTML]{C0C0C0}POD3  & 54.7                                & 91.2         \\
+\cellcolor[HTML]{C0C0C0}PC    & 51.8                                  & 85.5           \\
+\cellcolor[HTML]{C0C0C0}EBD   & 7.5                                 & 0.2          \\
+\hline
+\end{tabular}
+\caption{PODs for total seeing (arcsec) and accuray 0.0}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 93.0                                & 99.8         \\
+\cellcolor[HTML]{C0C0C0}POD2  & 93.8                                & 99.3         \\
+\cellcolor[HTML]{C0C0C0}POD3  & 82.0                                & 99.4         \\
+\cellcolor[HTML]{C0C0C0}PC    & 92.3                                  & 99.6           \\
+\cellcolor[HTML]{C0C0C0}EBD   & 5.6                                 & 0.2          \\
+\hline
+\end{tabular}
+\caption{PODs for total seeing (arcsec) and accuray 0.24}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 75.4                                & 93.6         \\
+\cellcolor[HTML]{C0C0C0}POD2  & 53.2                                & 87.1         \\
+\cellcolor[HTML]{C0C0C0}POD3  & 70.4                                & 93.0         \\
+\cellcolor[HTML]{C0C0C0}PC    & 66.3                                  & 91.2           \\
+\cellcolor[HTML]{C0C0C0}EBD   & 1.8                                 & 0.0          \\
+\hline
+\end{tabular}
+\caption{PODs for coeherence time (ms) and accuray 0.0}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 90.9                                & 99.9         \\
+\cellcolor[HTML]{C0C0C0}POD2  & 85.8                                & 99.5         \\
+\cellcolor[HTML]{C0C0C0}POD3  & 80.1                                & 98.9         \\
+\cellcolor[HTML]{C0C0C0}PC    & 88.5                                  & 99.6           \\
+\cellcolor[HTML]{C0C0C0}EBD   & 4.8                                 & 0.2          \\
+\hline
+\end{tabular}
+\caption{PODs for coeherence time (ms) and accuray 1.22}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 55.5                                & 86.7         \\
+\cellcolor[HTML]{C0C0C0}POD2  & 39.5                                & 72.6         \\
+\cellcolor[HTML]{C0C0C0}POD3  & 28.9                                & 84.9         \\
+\cellcolor[HTML]{C0C0C0}PC    & 41.3                                  & 81.4           \\
+\cellcolor[HTML]{C0C0C0}EBD   & 13.6                                 & 0.4          \\
+\hline
+\end{tabular}
+\caption{PODs for ground layer fraction (dimensionless) and accuray 0.0}
+\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{PARAMETER}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{STANDARD}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{WITH AR (1H)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}POD1  & 86.2                                & 99.1         \\
+\cellcolor[HTML]{C0C0C0}POD2  & 88.7                                & 98.9         \\
+\cellcolor[HTML]{C0C0C0}POD3  & 55.2                                & 98.8         \\
+\cellcolor[HTML]{C0C0C0}PC    & 81.4                                  & 99.1           \\
+\cellcolor[HTML]{C0C0C0}EBD   & 14.3                                 & 0.4          \\
+\hline
+\end{tabular}
+\caption{PODs for ground layer fraction (dimensionless) and accuray 0.14}
+\end{center}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%\begin{center}
+%\HRule \\[0.4cm]
+%\begin{figure}[htbp]
+%\centering
+%{\includegraphics[width=2.5cm]{/home/report/scripts/LOGOS/fate_logo_11def}}
+%\caption{Add some meaningfull logo or figure here}
+%\end{figure}
+%\HRule \\[0.4cm]
+%\end{center}
+
+%\section{Contacts}
+\vspace{1.5cm}
+\begin{flushleft}
+\HRule \\[0.4cm]
+{\includegraphics[width=2.5cm]{/home/report/SCRIPTS/LOGOS/fate_logo_11def}}
+\\
+\Large{For any further information or questions please contact:
+\\ WHO
+\\ ADDRESS1
+\\ ADDRESS2
+\\ EMAIL: \href{mailto:e.musk@lamma.toscana.it}{e.musk@lamma.toscana.it}
+\\ WEB: \href{www.lamma.toscana.com}{www.lamma.toscana.com}
+\\ PHONE: MY\_PHONE
+\\ FAX: MY\_FAX(???)
+\\ OTHER: \dots}
+\HRule \\[0.4cm]
+\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
