@@ -174,7 +174,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}.txt"
+FILE_LIST="list_"$prefixUC"_${GG}_${skills_file_lastmonth}.txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in the current directory"; exit 1
 fi
@@ -249,7 +249,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}_${skills_file_lastmonth}.txt"
+FILE_LIST="list_"$prefixUC"_${GG}.txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in "`pwd`; exit 1
 fi

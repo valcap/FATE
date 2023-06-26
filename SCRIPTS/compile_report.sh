@@ -118,9 +118,15 @@ cat header.tex \
     tablePODssee_0.0.tex tablePODssee_0.24.tex \
     tablePODstau_0.0.tex tablePODstau_1.22.tex \
     tablePODsglf_0.0.tex tablePODsglf_0.14.tex \
+    $clearpage_file \
+    $file_legend1 $file_legend2 $file_legend3 \
     $tail_tmpl_file \
     > $report_tex_file 
 
+
+#    $clearpage_file \
+#    $file_legend1 $file_legend2 $file_legend3 \
+#    $clearpage_file \
 #################################################################
 # COMPILING THE LATEX FILE
 cd /home/report/REPORT
