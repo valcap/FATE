@@ -119,11 +119,12 @@ cat header.tex \
     tablePODstau_0.0.tex tablePODstau_1.22.tex \
     tablePODsglf_0.0.tex tablePODsglf_0.14.tex \
     $clearpage_file \
-    $file_legend1 $file_legend2 $file_legend3 \
+    tableLOGs.tex \
     $tail_tmpl_file \
     > $report_tex_file 
 
 
+#   $file_legend1 $file_legend2 $file_legend3 \
 #    $clearpage_file \
 #    $file_legend1 $file_legend2 $file_legend3 \
 #    $clearpage_file \
