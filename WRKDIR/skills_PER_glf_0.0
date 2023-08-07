@@ -11,8 +11,8 @@
  TAIL=.dat
  STARTIN=GLF_PERSIST_
  CFILE_LIST_NIGHTS=list_GLF_5GG.txt                                                                                                        
- /home/report/FIGS/5GG/1H/glf_sim_mnh_ar_dimm_300_960_BEF_os18_per.ps/cps                                                
- /home/report/FIGS/5GG/1H/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.ps/cps                                                
+ /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_BEF_os18_per.ps/cps                                                       
+ /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.ps/cps                                                       
  F
  GLF_PERSIST_1H_
  NbLines_TOT=         660
@@ -20,14 +20,14 @@
  End of OBS data treatement
  NbLines_TOT_Pix=       37476
  MAXVAL_GLF_OBS_1D=  0.954956472    
-                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_BEF=   -0.107
-                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_BEF=    0.233
-                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_BEF=    0.207
+                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_BEF=    -0.11
+                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_BEF=     0.23
+                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_BEF=     0.21
  INC_GLF_MOD_BEF=       17271
  LOGINFO BEF NbLines_TOT=       37476
-                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_AFT=   -0.007
-                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_AFT=    0.093
-                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_AFT=    0.093
+                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_AFT=    -0.01
+                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_AFT=     0.09
+                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_AFT=     0.09
  INC_GLF_MOD_AFT=       17271
  NbLines_TOT=       37476
  NbFit=       17271 NbLines_TOT=         660 NbPix=         108

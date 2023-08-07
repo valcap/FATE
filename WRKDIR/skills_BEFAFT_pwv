@@ -10,22 +10,22 @@
  TAIL=.dat
  STARTIN=PWV_ARevol_
  CFILE_LIST_NIGHTS=list_PWV_5GG.txt                                                                                                        
- /home/report/FIGS/5GG/1H/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.ps/cps                                                    
- /home/report/FIGS/5GG/1H/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.ps/cps                                                    
+ /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.ps/cps                                                           
+ /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.ps/cps                                                           
  PWV_ARevol_1H_5GG_
  NbLines_TOT=        1020
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
  NbLines_TOT_Pix=       18900
  MAXVAL_PWV_OBS_1D=   14.9990864    
-                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_BEF=   -0.195
-                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_BEF=    1.005
-                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_BEF=    0.986
+                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_BEF=    -0.20
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_BEF=     1.00
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_BEF=     0.99
  INC_PWV_MOD_BEF=       11549
  LOGINFO NbLines_TOT=       18900
-                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_AFT=   -0.007
-                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_AFT=    0.125
-                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_AFT=    0.125
+                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_AFT=    -0.01
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_AFT=     0.13
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_AFT=     0.13
  INC_PWV_MOD_AFT=       11549
  NbLines_TOT=       18900
  NbFit=       11549 NbLines_TOT=        1020 NbPix=          54
@@ -36,7 +36,7 @@
  ndata=        11549
  sx=   40631.6367    
  invx=   6.05719197E-10
- q=   3.57881501E-20 ndata=       11549 size(x)=       11549 chi2=   10484.6465     sigb=   2.52028788E-03
+ q=   2.66344108E+26 ndata=       11549 size(x)=       11549 chi2=   10484.6465     sigb=   2.52028788E-03
  B_TOT(slope)=  0.944570422    
  #### FIT AFT #####
  ENTERING fit routine
@@ -44,7 +44,7 @@
  ndata=        11549
  sx=   40631.6367    
  invx=   6.05719197E-10
- q=   4.56416923E-41 ndata=       11549 size(x)=       11549 chi2=   180.692917     sigb=   3.30859679E-04
+ q=   4.57944338E-41 ndata=       11549 size(x)=       11549 chi2=   180.692917     sigb=   3.30859679E-04
  B_TOT(slope)=  0.997943044    
  ***************
                                                                                                                                                                            LOGINFO PERCENTILES XMED_PWV=      2.5

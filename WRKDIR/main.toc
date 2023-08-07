@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Night 1}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Figures}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Statistics}{7}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Contingency tables}{8}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}PODs tables}{14}{subsection.1.4}

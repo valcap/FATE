@@ -1,0 +1,905 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2022.3.2)  7 AUG 2023 17:07
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./fate.sty
+ten point
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
+))
+(/usr/share/texlive/texmf-dist/tex/generic/misc/texnames.sty
+This is texnames.sty, Version 1.10 <02 March 1998>
+) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen105
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip52
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks15
+\ex@=\dimen106
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen107
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen108
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks16
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks17
+\eqnshift@=\dimen109
+\alignsep@=\dimen110
+\tagshift@=\dimen111
+\tagwidth@=\dimen112
+\totwidth@=\dimen113
+\lineht@=\dimen114
+\@envbody=\toks18
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/rotating/rotating.sty
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count100
+\rotFPtop=\skip55
+\rotFPbot=\skip56
+\rot@float@box=\box28
+\rot@mess@toks=\toks20
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eurosym/eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen115
+\Hy@linkcounter=\count101
+\Hy@pagecounter=\count102
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count103
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count104
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen116
+\Fld@menulength=\count105
+\Field@Width=\dimen117
+\Fld@charsize=\dimen118
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count106
+\c@Item=\count107
+\c@Hfootnote=\count108
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count109
+\c@bookmark@seq@number=\count110
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip57
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/02/03 v3.3-65 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/02/03 v1.5-62 caption3 kernel (AR)
+\captionmargin=\dimen119
+\captionmargin@=\dimen120
+\captionwidth=\dimen121
+\caption@tempdima=\dimen122
+\caption@indent=\dimen123
+\caption@parindent=\dimen124
+\caption@hangindent=\dimen125
+)
+\c@ContinuedFloat=\count111
+Package caption Info: hyperref package is loaded.
+Package caption Info: rotating package is loaded.
+)
+\c@KVtest=\count112
+\sf@farskip=\skip58
+\sf@captopadj=\dimen126
+\sf@capskip=\skip59
+\sf@nearskip=\skip60
+\c@subfigure=\count113
+\c@subfigure@save=\count114
+\c@lofdepth=\count115
+\c@subtable=\count116
+\c@subtable@save=\count117
+\c@lotdepth=\count118
+\sf@top=\skip61
+\sf@bottom=\skip62
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen127
+\extrarowheight=\dimen128
+\NC@list=\toks21
+\extratabsurround=\skip63
+\backup@length=\skip64
+)
+\everycr=\toks22
+\minrowclearance=\skip65
+)
+\rownum=\count119
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+) (./main.aux
+(./night1.aux) (./night1_figures.aux) (./night1_statistics.aux)
+(./night1_contingency.aux
+
+LaTeX Warning: Label `tab:contingencyseeBEF' multiply defined.
+
+
+LaTeX Warning: Label `tab:contingencyseeAFT' multiply defined.
+
+
+LaTeX Warning: Label `tab:contingencytauBEF' multiply defined.
+
+
+LaTeX Warning: Label `tab:contingencytauAFT' multiply defined.
+
+
+LaTeX Warning: Label `tab:contingencyglfBEF' multiply defined.
+
+
+LaTeX Warning: Label `tab:contingencyglfAFT' multiply defined.
+
+) (./night1_PODs.aux))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count120
+\scratchdimen=\dimen129
+\scratchbox=\box30
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen130
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks24
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring OFF on input line 78.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count126
+)
+LaTeX Info: Redefining \ref on input line 78.
+LaTeX Info: Redefining \pageref on input line 78.
+LaTeX Info: Redefining \nameref on input line 78.
+
+(./main.out) (./main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+</home/report/SCRIPTS/LOGOS/INAF_Arcetri_colore.png, id=24, 925.056pt x 520.344
+pt>
+File: /home/report/SCRIPTS/LOGOS/INAF_Arcetri_colore.png Graphic file (type png
+)
+ <use /home/report/SCRIPTS/LOGOS/INAF_Arcetri_colore.png>
+Package pdftex.def Info: /home/report/SCRIPTS/LOGOS/INAF_Arcetri_colore.png use
+d on input line 81.
+(pdftex.def)             Requested size: 128.02486pt x 76.81755pt.
+
+</home/report/SCRIPTS/LOGOS/logoLaMMA.png, id=26, 569.12625pt x 223.83624pt>
+File: /home/report/SCRIPTS/LOGOS/logoLaMMA.png Graphic file (type png)
+
+<use /home/report/SCRIPTS/LOGOS/logoLaMMA.png>
+Package pdftex.def Info: /home/report/SCRIPTS/LOGOS/logoLaMMA.png used on input
+ line 81.
+(pdftex.def)             Requested size: 108.11774pt x 39.8311pt.
+
+Overfull \hbox (14.99747pt too wide) in paragraph at lines 81--81
+[][] 
+ []
+
+
+</home/report/SCRIPTS/LOGOS/fate_logo_11def.png, id=27, 404.2302pt x 388.3308pt
+>
+File: /home/report/SCRIPTS/LOGOS/fate_logo_11def.png Graphic file (type png)
+ <use /home/report/SCRIPTS/LOGOS/fate_logo_11def.png>
+Package pdftex.def Info: /home/report/SCRIPTS/LOGOS/fate_logo_11def.png used on
+ input line 81.
+(pdftex.def)             Requested size: 99.58464pt x 95.66628pt.
+ [1
+
+{/usr/share/texlive/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/report/SCR
+IPTS/LOGOS/INAF_Arcetri_colore.png> </home/report/SCRIPTS/LOGOS/logoLaMMA.png> 
+</home/report/SCRIPTS/LOGOS/fate_logo_11def.png>] (./main.toc)
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.101 \include{night1}
+                       [1]
+\openout2 = `night1.aux'.
+
+ (./night1.tex) [2
+
+]
+\openout2 = `night1_figures.aux'.
+
+ (./night1_figures.tex
+</home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=57, 219.82124pt 
+x 259.97125pt>
+File: /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic file (t
+ype pdf)
+ <use /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf>
+Package pdftex.def Info: /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_BEF_stan.
+pdf used on input line 6.
+(pdftex.def)             Requested size: 159.62083pt x 188.78175pt.
+
+</home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=58, 219.82124pt 
+x 259.97125pt>
+File: /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic file (t
+ype pdf)
+ <use /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf>
+Package pdftex.def Info: /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan.
+pdf used on input line 7.
+(pdftex.def)             Requested size: 159.62083pt x 188.78175pt.
+
+</home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=59, 219.8212
+4pt x 259.97125pt>
+File: /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Graphic fil
+e (type pdf)
+
+<use /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf>
+Package pdftex.def Info: /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan_
+per.pdf used on input line 8.
+(pdftex.def)             Requested size: 159.62083pt x 188.78175pt.
+
+</home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=60, 230.8625pt x
+ 263.98625pt>
+File: /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic file (t
+ype pdf)
+ <use /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_BEF_stan.pdf>
+Package pdftex.def Info: /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_BEF_stan.
+pdf used on input line 15.
+(pdftex.def)             Requested size: 159.62083pt x 182.52129pt.
+
+</home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=61, 230.8625pt x
+ 263.98625pt>
+File: /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic file (t
+ype pdf)
+ <use /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf>
+Package pdftex.def Info: /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan.
+pdf used on input line 16.
+(pdftex.def)             Requested size: 159.62083pt x 182.52129pt.
+
+</home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=62, 230.8625
+pt x 263.98625pt>
+File: /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Graphic fil
+e (type pdf)
+
+<use /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf>
+Package pdftex.def Info: /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan_
+per.pdf used on input line 17.
+(pdftex.def)             Requested size: 159.62083pt x 182.52129pt.
+
+</home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=63, 229.85875pt 
+x 259.97125pt>
+File: /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic file (t
+ype pdf)
+ <use /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf>
+Package pdftex.def Info: /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_BEF_stan.
+pdf used on input line 24.
+(pdftex.def)             Requested size: 159.62083pt x 180.54263pt.
+
+</home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=64, 229.85875pt 
+x 259.97125pt>
+File: /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic file (t
+ype pdf)
+ <use /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf>
+Package pdftex.def Info: /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan.
+pdf used on input line 25.
+(pdftex.def)             Requested size: 159.62083pt x 180.54263pt.
+
+</home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=65, 229.8587
+5pt x 259.97125pt>
+File: /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Graphic fil
+e (type pdf)
+
+<use /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf>
+Package pdftex.def Info: /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan_
+per.pdf used on input line 26.
+(pdftex.def)             Requested size: 159.62083pt x 180.54263pt.
+
+</home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=66, 225.84375pt
+ x 259.97125pt>
+File: /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic file (
+type pdf)
+
+<use /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf>
+Package pdftex.def Info: /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_BEF_stan
+.pdf used on input line 33.
+(pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
+
+</home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=67, 225.84375pt
+ x 259.97125pt>
+File: /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic file (
+type pdf)
+
+<use /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf>
+Package pdftex.def Info: /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan
+.pdf used on input line 34.
+(pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
+
+</home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=68, 225.843
+75pt x 259.97125pt>
+File: /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Graphic fi
+le (type pdf)
+
+<use /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf>
+Package pdftex.def Info: /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan
+_per.pdf used on input line 35.
+(pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
+
+</home/report/FIGS/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf, id=69, 227.85
+126pt x 259.97125pt>
+File: /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf Graphic f
+ile (type pdf)
+
+<use /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf>
+Package pdftex.def Info: /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_BEF_os18
+_1000.pdf used on input line 42.
+(pdftex.def)             Requested size: 159.62083pt x 182.1254pt.
+
+</home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf, id=70, 227.85
+126pt x 259.97125pt>
+File: /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf Graphic f
+ile (type pdf)
+
+<use /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf>
+Package pdftex.def Info: /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18
+_1000.pdf used on input line 43.
+(pdftex.def)             Requested size: 159.62083pt x 182.1254pt.
+
+</home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf, id=71, 22
+7.85126pt x 259.97125pt>
+File: /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf Graph
+ic file (type pdf)
+
+<use /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf>
+Package pdftex.def Info: /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18
+_1000_per.pdf used on input line 44.
+(pdftex.def)             Requested size: 159.62083pt x 182.1254pt.
+
+</home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf, id=72, 225.84
+375pt x 259.97125pt>
+File: /home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf Graphic f
+ile (type pdf)
+
+<use /home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf>
+Package pdftex.def Info: /home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_BEF_os18
+_1000.pdf used on input line 51.
+(pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
+
+</home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf, id=73, 225.84
+375pt x 259.97125pt>
+File: /home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf Graphic f
+ile (type pdf)
+
+<use /home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf>
+Package pdftex.def Info: /home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18
+_1000.pdf used on input line 52.
+(pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
+
+</home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf, id=74, 22
+5.84375pt x 259.97125pt>
+File: /home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf Graph
+ic file (type pdf)
+
+<use /home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf>
+Package pdftex.def Info: /home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18
+_1000_per.pdf used on input line 53.
+(pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
+
+</home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_BEF_os18.pdf, id=75, 218.8175pt 
+x 256.96pt>
+File: /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_BEF_os18.pdf Graphic file (
+type pdf)
+ <use /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_BEF_os18.pdf>
+Package pdftex.def Info: /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_BEF_os18
+.pdf used on input line 60.
+(pdftex.def)             Requested size: 159.62083pt x 187.44592pt.
+
+</home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18.pdf, id=76, 218.8175pt 
+x 256.96pt>
+File: /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18.pdf Graphic file (
+type pdf)
+ <use /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18.pdf>
+Package pdftex.def Info: /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18
+.pdf used on input line 61.
+(pdftex.def)             Requested size: 159.62083pt x 187.44592pt.
+
+</home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.pdf, id=77, 218.817
+5pt x 256.96pt>
+File: /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.pdf Graphic fi
+le (type pdf)
+
+<use /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.pdf>
+Package pdftex.def Info: /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18
+_per.pdf used on input line 62.
+(pdftex.def)             Requested size: 159.62083pt x 187.44592pt.
+ [3
+
+
+ </home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf> </home/report/FIGS
+/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf> </home/report/FIGS/ws_sim_mnh_ar_dimm
+_300_960_AFT_stan_per.pdf> </home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_BEF_st
+an.pdf> </home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf> </home/repo
+rt/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf>] [4 </home/report/FIGS/rh_
+sim_mnh_ar_dimm_300_960_BEF_stan.pdf> </home/report/FIGS/rh_sim_mnh_ar_dimm_300
+_960_AFT_stan.pdf> </home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.p
+df> </home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf> </home/report/
+FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf> </home/report/FIGS/pwv_sim_mnh_a
+r_dimm_300_960_AFT_stan_per.pdf>] [5 </home/report/FIGS/see_sim_mnh_ar_dimm_300
+_960_BEF_os18_1000.pdf> </home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18
+_1000.pdf> </home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf
+> </home/report/FIGS/tau_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf> </home/repo
+rt/FIGS/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf> </home/report/FIGS/tau_s
+im_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf>] [6 </home/report/FIGS/glf_sim_mn
+h_ar_dimm_300_960_BEF_os18.pdf> </home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_
+AFT_os18.pdf> </home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.pdf>]
+)
+\openout2 = `night1_statistics.aux'.
+
+
+(./night1_statistics.tex
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 5.
+
+
+Overfull \hbox (26.12907pt too wide) in paragraph at lines 7--20
+ [] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 26.
+
+
+Overfull \hbox (28.0456pt too wide) in paragraph at lines 28--41
+ [] 
+ []
+
+[7
+
+
+
+])
+\openout2 = `night1_contingency.aux'.
+
+ (./night1_contingency.tex
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 4.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 22.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 40.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 59.
+
+[8
+
+
+
+] [9]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 79.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 97.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 115.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 133.
+
+[10]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 152.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 170.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 188.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 206.
+
+[11]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 225.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 243.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 261.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 279.
+
+[12]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 298.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 316.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 334.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 352.
+
+) [13]
+\openout2 = `night1_PODs.aux'.
+
+ (./night1_PODs.tex
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 4.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 21.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 39.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 56.
+
+[14
+
+
+
+
+
+
+] [15]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 74.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 91.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 108.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 125.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 142.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 159.
+
+) [16] [17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
+ (./main.aux (./night1.aux) (./night1_figures.aux)
+(./night1_statistics.aux) (./night1_contingency.aux) (./night1_PODs.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 122.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 46C63C4F4352280A3EEA25B25D13F453;284.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 122.
+ ) 
+Here is how much of TeX's memory you used:
+ 7977 strings out of 495063
+ 122542 string characters out of 3182202
+ 219731 words of memory out of 3000000
+ 10924 multiletter control sequences out of 15000+200000
+ 11528 words of font info for 43 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 44i,26n,47p,482b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+>
+Output written on main.pdf (18 pages, 3804449 bytes).
+PDF statistics:
+ 349 PDF objects out of 1000 (max. 8388607)
+ 266 compressed objects within 3 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+

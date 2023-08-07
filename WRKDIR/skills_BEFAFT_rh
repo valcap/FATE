@@ -9,23 +9,23 @@
  TAIL=.dat
  STARTIN=RH_ARevol_
  CFILE_LIST_NIGHTS=list_RH_5GG.txt                                                                                                         
- /home/report/FIGS/5GG/1H/rh_sim_mnh_ar_dimm_300_960_BEF_stan.ps/cps                                                     
- /home/report/FIGS/5GG/1H/rh_sim_mnh_ar_dimm_300_960_AFT_stan.ps/cps                                                     
+ /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_BEF_stan.ps/cps                                                            
+ /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan.ps/cps                                                            
  RH_ARevol_1H_5GG_
  NbLines_TOT=        1020
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
  NbLines_TOT_Pix=       38232
  MAXVAL_RH_OBS_1D=   94.0000000    
-                                                                                                                                                                                LOGINFO BIAS_RH_MOD_BEF=    0.735
-                                                                                                                                                                                LOGINFO RMSE_RH_MOD_BEF=    6.638
-                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_BEF=    6.597
+                                                                                                                                                                                LOGINFO BIAS_RH_MOD_BEF=     0.73
+                                                                                                                                                                                LOGINFO RMSE_RH_MOD_BEF=     6.64
+                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_BEF=     6.60
  INC_RH_MOD_BEF=       23487
  LOGINFO NbLines_TOT=       38232
  NbLines_TOT=       38232
-                                                                                                                                                                                LOGINFO BIAS_RH_MOD_AFT=   -0.012
-                                                                                                                                                                                LOGINFO RMSE_RH_MOD_AFT=    1.368
-                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_AFT=    1.368
+                                                                                                                                                                                LOGINFO BIAS_RH_MOD_AFT=    -0.01
+                                                                                                                                                                                LOGINFO RMSE_RH_MOD_AFT=     1.37
+                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_AFT=     1.37
  INC_RH_MOD_AFT=       23484
  NbLines_TOT=       38232
  NbFit=       23484 NbLines_TOT=        1020 NbPix=         108

@@ -11,22 +11,22 @@
  TAIL=.dat
  STARTIN=SEE_PERSIST_
  CFILE_LIST_NIGHTS=list_SEE_5GG.txt                                                                                                        
- /home/report/FIGS/5GG/1H/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000_per.ps/cps                                           
- /home/report/FIGS/5GG/1H/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.ps/cps                                           
+ /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000_per.ps/cps                                                  
+ /home/report/FIGS/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.ps/cps                                                  
  SEE_PERSIST_1H_
  NbLines_TOT=         660
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
  NbLines_TOT_Pix=       37584
  MAXVAL_SEE_OBS_1D=   4.57343578    
-                                                                                                                                                                               LOGINFO BIAS_SEE_MOD_BEF=   -0.072
-                                                                                                                                                                               LOGINFO RMSE_SEE_MOD_BEF=    0.333
-                                                                                                                                                                              LOGINFO SIGMA_SEE_MOD_BEF=    0.325
+                                                                                                                                                                               LOGINFO BIAS_SEE_MOD_BEF=    -0.07
+                                                                                                                                                                               LOGINFO RMSE_SEE_MOD_BEF=     0.33
+                                                                                                                                                                              LOGINFO SIGMA_SEE_MOD_BEF=     0.32
  INC_SEE_MOD_BEF=       19338
  NbLines_TOT=       37584
-                                                                                                                                                                               LOGINFO BIAS_SEE_MOD_AFT=   -0.003
-                                                                                                                                                                               LOGINFO RMSE_SEE_MOD_AFT=    0.155
-                                                                                                                                                                              LOGINFO SIGMA_SEE_MOD_AFT=    0.155
+                                                                                                                                                                               LOGINFO BIAS_SEE_MOD_AFT=    -0.00
+                                                                                                                                                                               LOGINFO RMSE_SEE_MOD_AFT=     0.15
+                                                                                                                                                                              LOGINFO SIGMA_SEE_MOD_AFT=     0.15
  INC_SEE_MOD_AFT=       19338
  NbLines_TOT=       37584
  NbFit=       19338 NbLines_TOT=         660 NbPix=         108

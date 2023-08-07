@@ -11,8 +11,8 @@
  TAIL=.dat
  STARTIN=GLF_PERSIST_
  CFILE_LIST_NIGHTS=list_GLF_5GG.txt                                                                                                        
- /home/report/FIGS/5GG/1H/glf_sim_mnh_ar_dimm_300_960_BEF_os18_per.ps/cps                                                
- /home/report/FIGS/5GG/1H/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.ps/cps                                                
+ /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_BEF_os18_per.ps/cps                                                       
+ /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.ps/cps                                                       
  F
  GLF_PERSIST_1H_
  NbLines_TOT=         660
@@ -20,14 +20,14 @@
  End of OBS data treatement
  NbLines_TOT_Pix=       37476
  MAXVAL_GLF_OBS_1D=  0.954956472    
-                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_BEF=   -0.107
-                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_BEF=    0.233
-                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_BEF=    0.207
+                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_BEF=    -0.11
+                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_BEF=     0.23
+                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_BEF=     0.21
  INC_GLF_MOD_BEF=       17271
  LOGINFO BEF NbLines_TOT=       37476
-                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_AFT=   -0.007
-                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_AFT=    0.093
-                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_AFT=    0.093
+                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_AFT=    -0.01
+                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_AFT=     0.09
+                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_AFT=     0.09
  INC_GLF_MOD_AFT=       17271
  NbLines_TOT=       37476
  NbFit=       17271 NbLines_TOT=         660 NbPix=         108
@@ -38,7 +38,7 @@
  ndata=        17271
  sx=   10778.7227    
  invx=   8.60726956E-09
- q=   1.24895199E-37 ndata=       17271 size(x)=       17271 chi2=   636.363953     sigb=   2.34051072E-03
+ q=  -5.40966357E-06 ndata=       17271 size(x)=       17271 chi2=   636.363953     sigb=   2.34051072E-03
  B_TOT(slope)=  0.829041004    
  #### FIT AFT #####
  ENTERING fit routine
@@ -46,7 +46,7 @@
  ndata=        17271
  sx=   10778.7227    
  invx=   8.60726956E-09
- q=   0.00000000     ndata=       17271 size(x)=       17271 chi2=   149.277222     sigb=   1.13358640E-03
+ q=   4.57565988E-41 ndata=       17271 size(x)=       17271 chi2=   149.277222     sigb=   1.13358640E-03
  B_TOT(slope)=  0.989234984    
  ***************
                                                                                                                                                                            LOGINFO PERCENTILES XMED_GLF=      0.6

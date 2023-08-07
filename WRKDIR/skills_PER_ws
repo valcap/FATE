@@ -10,8 +10,8 @@
  TAIL=.dat
  STARTIN=WS_PERSIST_
  CFILE_LIST_NIGHTS=list_WS_5GG.txt                                                                                                         
- /home/report/FIGS/5GG/1H/ws_sim_mnh_ar_dimm_300_960_BEF_stan_per.ps/cps                                                 
- /home/report/FIGS/5GG/1H/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.ps/cps                                                 
+ /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_BEF_stan_per.ps/cps                                                        
+ /home/report/FIGS/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.ps/cps                                                        
  F
  WS_PERSIST_1H_
  NbLines_TOT=        1020
@@ -19,14 +19,14 @@
  End of OBS data treatement
  NbLines_TOT_Pix=       38880
  MAXVAL_WS_OBS_1D=   22.0212631    
-                                                                                                                                                                                LOGINFO BIAS_WS_MOD_BEF=    0.104
-                                                                                                                                                                                LOGINFO RMSE_WS_MOD_BEF=    2.487
-                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_BEF=    2.485
+                                                                                                                                                                                LOGINFO BIAS_WS_MOD_BEF=     0.10
+                                                                                                                                                                                LOGINFO RMSE_WS_MOD_BEF=     2.49
+                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_BEF=     2.49
  INC_WS_MOD_BEF=       24056
  LOGINFO NbLines_TOT=       38880
-                                                                                                                                                                                LOGINFO BIAS_WS_MOD_AFT=   -0.018
-                                                                                                                                                                                LOGINFO RMSE_WS_MOD_AFT=    0.918
-                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_AFT=    0.918
+                                                                                                                                                                                LOGINFO BIAS_WS_MOD_AFT=    -0.02
+                                                                                                                                                                                LOGINFO RMSE_WS_MOD_AFT=     0.92
+                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_AFT=     0.92
  INC_WS_MOD_AFT=       24048
  NbLines_TOT=       38880
  NbFit=       24048 NbLines_TOT=        1020 NbPix=         108
