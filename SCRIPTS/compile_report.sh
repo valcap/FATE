@@ -45,16 +45,18 @@ echo '\section{Night 1}' >> night1.tex
 # FIGURES
 echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night1_figures.tex
 echo '\subsection{Figures}' >> night1_figures.tex
+echo '\clearpage' >> night1_figures.tex 
 cat figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex figures_see.tex figures_tau.tex figures_glf.tex >> night1_figures.tex 
 echo '\clearpage' >> night1_figures.tex
 # STATISTICS
 echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night1_statistics.tex
 echo '\subsection{Statistics}' >> night1_statistics.tex
-cat table_skills_BEF.tex table_skills_AFT.tex >> night1_statistics.tex
 echo '\clearpage' >> night1_statistics.tex
+cat table_skills_BEF.tex table_skills_AFT-LASTM.tex table_skills_AFT.tex >> night1_statistics.tex
 # CONTINGENCY TABLES
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night1_contingency.tex
 echo '\subsection{Contingency tables}' >> night1_contingency.tex
+echo '\clearpage' >> night1_contingency.tex 
 cat contingency_tableBEFws.tex contingency_tableAFTws.tex >> night1_contingency.tex
 cat contingency_tableBEFwd.tex contingency_tableAFTwd.tex >> night1_contingency.tex
 echo '\clearpage' >> night1_contingency.tex 
@@ -72,6 +74,7 @@ cat contingency_tableBEFglf_0.0.tex contingency_tableAFTglf_0.0.tex \
 # PODs TABLES
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night1_PODs.tex
 echo '\subsection{PODs tables}' >> night1_PODs.tex
+echo '\clearpage' >> night1_PODs.tex
 cat tablePODsws.tex tablePODswd.tex \
     tablePODsrh.tex tablePODspwv.tex >> night1_PODs.tex
 echo '\clearpage' >> night1_PODs.tex
@@ -103,7 +106,6 @@ cd $WRKDIR
 notice "Compiling the Latex file"
 pdflatex main.tex > /dev/null 2>&1
 pdflatex main.tex > /dev/null 2>&1
-#pdflatex main.tex > /dev/null 2>&1
 if [ $? != 0 ]; then
   error "Problem in compiling $WRKDIR/main.tex file"
 else
