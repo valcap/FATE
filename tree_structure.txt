@@ -1,0 +1,155 @@
+#########################################################################################
+STRUTTURA DELLA CARTELLA /home/report di 192.168.170.53
+#########################################################################################
+├── bin
+│   ├── compila_f90.sh -->script per compilare i sorgenti f90 utilizzando le librerie<--
+                       -->contenute in LIBPERSO e NUMREC<--
+│   ├── LIBPERSO -->cartella contenente alcuni sorgenti f90<--
+                 -->utilizzati per elaborare i dati contenuti in DATA<--
+                 -->i cui output sono copiati in WRKDIR<-- 
+│   ├── NUMREC -->cartella contenente alcune librerie da Numerical Recipes<--
+│   ├── pdfcrop -> ../src/pdfcrop/pdfcrop.pl -->libreria pdfcrop<--
+                                             -->probabilmente il file può essere<--
+                                             -->cancellato perchè simone è riuscito a metterlo nel PATH<--
+├── DATA --> cartella contenente i dati <--
+│   ├── AR_TREATED_365N_20180801_20190731_mixed_OS18_1000
+│   ├── AR_TREATED_365N_20180801_20190731_OS18
+│   ├── AR_TREATED_365N_20180801_20190731_STANDARD
+│   ├── DA_TRATTARE
+│   ├── PERSIST_TREATED_365_20180801_20190731.tar.gz
+│   └── PERSIST_TREATED_ROLLING10m_365_20180801_20190731
+├── FIGS -->contiene le immagini che sono create<--
+         -->dai programmi presenti<--
+         -->nelle sottocartelle di PROG.<--
+         -->Esempi:<--
+│   ├── glf_sim_mnh_ar_dimm_300_960_AFT_os18.pdf -->manca descrizione<--
+│   ├── ...
+├── OLD -->vecchi programmi/scripts. Directory da eliminare<--
+│   ├── ...
+├── PROG
+│   ├── AR_5GG_1H      -->contiene i sorgenti f90 che servono per elaborare i<--
+                       -->dati presenti in DATA/PERSIST_TREATED_ROLLING10m_365_20180801_20190731<--
+                       -->e i cui output sono copiati in WRKDIR<--
+│   ├── PERSISTENCE    -->contiene i sorgenti f90 che servono per elaborare i<--
+                       -->dati presenti in DATA/AR* e i cui output sono copiati<--
+                       -->in WRKDIR<--
+│   └── read_and_treat -->programmi che mi sono stati passati da Alessio<--
+                       -->vedi email del 29/maggio/2023<--
+├── REPORT -->contiene i report finali in formato .pdf e .tex<--
+           -->Esempi:<--
+│   ├── FATE-REPORT_10-08-2023.pdf -->report prodotto in 10-08-2023 in formato pdf<--
+│   ├── FATE-REPORT_10-08-2023.tex -->report prodotto in 10-08-2023 in formato tex<--
+│   ├── ...
+├── SCRIPTS --> contiene i sorgenti del software che produce il report <--
+            --> si veda sotto per descrizione più dettagliata <--
+│   └── ... 
+├── scripts_old -->vecchi programmi/scripts. Directory da eliminare<--
+│   ├── ...
+├── src
+│   ├── LIBRERIE_ELENA_DA_USARE.tgz -->librerie passate da Elena; si trovano in bin/LIBPERSO e bin/NUMREC<--
+│   ├── pdfcrop -->sorgente pdfcrop, può essere eliminata se simone è riuscito a metterlo nel PATH<--
+│   ├── pdfcrop.zip -->sorgente pdfcrop, può essere eliminata se simone è riuscito a metterlo nel PATH<--
+│   └── refloating_script_20140710.tgz -->vecchia libreria, può essere eliminata<--
+└── WRKDIR -->contiene gli output dei programmi di ELENA (i.e., PROG/)<--
+           -->cosi come i file tex che vengono compilati per generare il report<--
+           -->Esempi:<--
+    ├── contingency_tableAFTglf_0.0.tex -->manca descrizione<--
+    ├── day1_figures.tex -->manca descrizione<--
+    ├── day1_statistics.tex -->manca descrizione<--
+    ├── day1.tex -->manca descrizione<--
+    ├── fate_logo_11def.png -->manca descrizione<--
+    ├── fate.sty -->manca descrizione<--
+    ├── figures_pwv.tex -->manca descrizione<--
+    ├── logo_lamma.png -->manca descrizione<--
+    ├── skills_BEFAFT_glf_0.0 -->manca descrizione<--
+    ├── skills_BEFAFT_glf_0.14 -->manca descrizione<--
+    ├── skills_BEFAFT_glf_LastMonth -->manca descrizione<--
+    ├── skills_PER_rh_LastMonth -->manca descrizione<--
+    ├── tablePODsglf_0.14.tex -->manca descrizione<--
+    └── ...
+
+#########################################################################################
+├── SCRIPTS -->cartella che contiene gli script per la generazione del report mensile<--
+│   ├── check_logs.sh -->script per elaborare i log prodotti da Pasi e archiviati in /DATAPRE/data/MESONH_inp/LOG
+│   ├── compile_report.sh 
+│   ├── compile_report.sh.OLD -->non piu' in uso<--
+│   ├── fate-report-astro.env -->file contenente parametri a comune agli script run_see.sh run_tau.sh run_glf.sh (vedi sotto)<--
+│   ├── fate-report-atmo.env -->file contenente parametri a comune agli script run_ws.sh run_wd.sh run_rh.sh run_pwv.sh (vedi sotto)<--
+│   ├── functions.sh -->file contenente alcune funzioni richiamate negli scripts run_*.sh (vedi sotto)<--
+│   ├── LOGOS -->cartella che contiene i loghi utilizzati nel report (molti files da cancellare? controllare)<--
+│   │   ├── fate_logo_11def.eps -->non piu' in uso? controllare<--
+│   │   ├── fate_logo_11def.png
+│   │   ├── INAF_Arcetri_colore.eps -->non piu' in uso? controllare<--
+│   │   ├── INAF_Arcetri_colore.png
+│   │   ├── logoCNR.eps -->non piu' in uso? controllare<--
+│   │   ├── logoCNR.png
+│   │   ├── LogoFATE.eps -->non piu' in uso? controllare<--
+│   │   ├── LogoFATE.png
+│   │   ├── logoINAFBIS.eps -->non piu' in uso? controllare<--
+│   │   ├── logoINAFBIS.png
+│   │   ├── logoINAF.eps -->non piu' in uso? controllare<--
+│   │   ├── logoINAF.png
+│   │   ├── logoLaMMA.eps -->non piu' in uso? controllare<--
+│   │   ├── logoLaMMAmare.eps -->non piu' in uso? controllare<--
+│   │   ├── logoLaMMAmare.png
+│   │   ├── logo_lamma.png
+│   │   └── logoLaMMA.png
+│   ├── runall -->bottone della procedura; il suo contenuto descrive anche la sua funzione (vedi sotto). Oss.: può essere migliorato...<--
+│   ├── run_glf.sh -->script che estrae dagli output di PROG/AR_5GG_1H e PROG/PERSISTENCE gli skills e le figure. Prepare i Latex per la variabile glf<--
+│   ├── run_pwv.sh -->script che estrae dagli output di PROG/AR_5GG_1H e PROG/PERSISTENCE gli skills e le figure. Prepare i Latex per la variabile precipitable water vapor<--
+│   ├── run_rh.sh -->script che estrae dagli output di PROG/AR_5GG_1H e PROG/PERSISTENCE gli skills e le figure. Prepare i Latex per la variabile  relative humidity<--
+│   ├── run_see.sh -->script che estrae dagli output di PROG/AR_5GG_1H e PROG/PERSISTENCE gli skills e le figure. Prepare i Latex per la variabile seeing<--
+│   ├── run_skills.sh -->script che estrae dagli output di PROG/AR_5GG_1H e PROG/PERSISTENCE gli skills e prepara i Latex per la tabella 1, 2, e 3 per ogni variabile (ws, wd,...,glf)<--
+│   ├── run_tau.sh -->script che estrae dagli output di PROG/AR_5GG_1H e PROG/PERSISTENCE gli skills e le figure. Prepare i Latex per la variabile tau<--
+│   ├── run_wd.sh -->script che estrae dagli output di PROG/AR_5GG_1H e PROG/PERSISTENCE gli skills e le figure. Prepare i Latex per la variabile wind dir<--
+│   ├── run_ws.sh -->script che estrae dagli output di PROG/AR_5GG_1H e PROG/PERSISTENCE gli skills e le figure. Prepare i Latex per la variabile wind speed<--
+│   └── TMPL_LATEX -->cartella che contiene alcune template in Latex utilizzati dai programmi run_*.sh della parent directory<--
+│       ├── acro.tex -->non piu' in uso<--
+│       ├── clearpage.tex -->non piu' in uso<--
+│       ├── contingency_tmpl.tex -->non piu' in uso<--
+│       ├── FATE_report_template_ELENA.tex -->autosplicativo, file non utilizzato<--
+│       ├── FATE_report_template.tex  -->modifica del file precedente effettivamente utilizzato<--
+│       ├── fate.sty -->sty per report ESO passato da Elena, viene richiamato in FATE_report_template.tex<--
+│       ├── figure_empty.tex -->non piu' in uso<--
+│       ├── header_tmpl.tex -->non piu' in uso<--
+│       ├── header_tmpl.tex.OK_20230719 -->non piu' in uso<--
+│       ├── header_tmpl.tex.ORIGINAL -->non piu' in uso<--
+│       ├── legend1.tex -->non piu' in uso<--
+│       ├── legend2.tex -->non piu' in uso<--
+│       ├── legend3.tex -->non piu' in uso<--
+│       ├── newpage.tex -->non piu' in uso<--
+│       ├── sec_contingency_table.tex -->non piu' in uso<--
+│       ├── sec_figures.tex -->non piu' in uso<--
+│       ├── sec_tablePODs.tex -->non piu' in uso<--
+│       ├── sec_table_skills.tex -->non piu' in uso<--
+│       ├── table_tmpl_AFT-LASTM.tex
+│       ├── table_tmpl_AFT.tex
+│       ├── table_tmpl_BEF.tex
+│       ├── table_tmpl.tex -->non piu' in uso<--
+│       ├── table_tmpl.tex.OLD -->non piu' in uso<--
+│       └── tail_tmpl.tex -->non piu' in uso<--
+
+#########################################################################################
+-->contenuto di runall<--
+#!bin/bash
+
+export LC_TIME="en_US.UTF-8"
+envfile_atmo=$HOME'/SCRIPTS/fate-report-atmo.env'
+envfile_astro=$HOME'/SCRIPTS/fate-report-astro.env'
+
+rm -f $HOME/WRKDIR/*.tex 
+
+./run_ws.sh     $envfile_atmo
+./run_wd.sh     $envfile_atmo
+./run_rh.sh     $envfile_atmo
+./run_pwv.sh    $envfile_atmo
+./run_see.sh    $envfile_astro
+./run_tau.sh    $envfile_astro
+./run_glf.sh    $envfile_astro
+./run_skills.sh $envfile_atmo
+./check_logs.sh $envfile_atmo
+
+./compile_report.sh $envfile_atmo
+
+exit 0
+
