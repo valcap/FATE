@@ -1,0 +1,88 @@
+ GG=5GG
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=          31
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ LIMIT=   0.00000000    
+ ROOT=/home/report/DATA/PERSIST_TREATED_ROLLING10m_365_20180801_20190731/5GG/1H/WS_TREATED/
+ TAIL=.dat
+ STARTIN=WS_PERSIST_
+ CFILE_LIST_NIGHTS=list_WS_5GG_LastMonth.txt                                                                                               
+ /home/report/FIGS/pippo1.ps/cps                                                                                         
+ /home/report/FIGS/pippo2.ps/cps                                                                                         
+ F
+ WS_PERSIST_1H_
+ NbLines_TOT=         960
+ MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
+ End of OBS data treatement
+ NbLines_TOT_Pix=        3348
+ MAXVAL_WS_OBS_1D=   17.4730816    
+                                                                                                                                                                                LOGINFO BIAS_WS_MOD_BEF=    -0.61
+                                                                                                                                                                                LOGINFO RMSE_WS_MOD_BEF=     2.60
+                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_BEF=     2.53
+ INC_WS_MOD_BEF=        2013
+ LOGINFO NbLines_TOT=        3348
+                                                                                                                                                                                LOGINFO BIAS_WS_MOD_AFT=    -0.01
+                                                                                                                                                                                LOGINFO RMSE_WS_MOD_AFT=     0.82
+                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_AFT=     0.82
+ INC_WS_MOD_AFT=        2011
+ NbLines_TOT=        3348
+ NbFit=        2011 NbLines_TOT=         960 NbPix=         108
+ K=           0
+ #### FIT BEF ####
+ ENTERING fit routine
+ ARRAYS SIZE:         2011        2011
+ ndata=         2011
+ sx=   14895.0537    
+ invx=   4.50729365E-09
+ q=   0.00000000     ndata=        2011 size(x)=        2011 chi2=   11027.8174     sigb=   7.05372915E-03
+ B_TOT(slope)=  0.916057587    
+ #### FIT AFT #####
+ ENTERING fit routine
+ ARRAYS SIZE:         2011        2011
+ ndata=         2011
+ sx=   14895.0537    
+ invx=   4.50729365E-09
+ q=   0.00000000     ndata=        2011 size(x)=        2011 chi2=   1342.84460     sigb=   2.46142643E-03
+ B_TOT(slope)=  0.998505175    
+ ***************
+                                                                                                                                                                                        LOGINFO XMED_WS=      6.4
+                                                                                                                                                                                         LOGINFO X33_WS=      4.7
+                                                                                                                                                                                         LOGINFO X66_WS=      9.0
+ ***************
+ ***************
+ XMED_MOD_BEF=   5.81998825    
+ ***************
+ ##########################################
+ ######## HIT_RATE for BEF ###########
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on        2011 points.
+ X<   12.0000000       12.0000000     <X<   18.0000000     X>   18.0000000    
+   1574.00000       204.000000       0.00000000    
+   43.0000000       190.000000       0.00000000    
+   0.00000000       0.00000000       0.00000000    
+ POD(event1)=   97.3407593    
+ POD(event2)=   48.2233505    
+ POD(event3)=              NaN
+ PC=   87.7175522    
+ ebd=   0.00000000    
+ ***************
+ XMED_MOD_AFT=   6.25600004    
+ ***************
+ ##########################################
+ ############ HIT_RATE for AFT #############
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on        2011 points.
+ X<   4.73313141       4.73313141     <X<   8.99509716     X>   8.99509716    
+   581.000000       52.0000000       0.00000000    
+   90.0000000       588.000000       32.0000000    
+   0.00000000       30.0000000       638.000000    
+ POD(event1)=   86.5871811    
+ POD(event2)=   87.7611923    
+ POD(event3)=   95.2238770    
+ PC=   89.8557968    
+ ebd=   0.00000000    

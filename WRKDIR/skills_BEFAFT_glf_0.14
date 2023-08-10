@@ -37,7 +37,7 @@
  ndata=        17271
  sx=   10778.7227    
  invx=   8.60726956E-09
- q=   2.29988951E-38 ndata=       17271 size(x)=       17271 chi2=   541.375366     sigb=   2.15877360E-03
+ q=   0.00000000     ndata=       17271 size(x)=       17271 chi2=   541.375366     sigb=   2.15877360E-03
  B_TOT(slope)=  0.950642943    
  #### FIT AFT #####
  ENTERING fit routine

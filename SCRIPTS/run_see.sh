@@ -123,13 +123,14 @@ ${ACC}
 '$FIGS_ROOT_DIR/stoca1.ps/cps'
 EOF
   rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+  rm -f $FIGS_ROOT_DIR/stoca1.ps
 done
 
 # Loop over accuracy and MAXSEE=999. for AFT DATA ONLY (i.e. with AR (1H))
 for ACC in 0.0 0.10 0.24
 do
   subnotice "Running F90 program for ACC $ACC for AFT DATA ONLY (i.e. with AR (1H)"
-  # Run f90 filei (here we append the output file because we're running
+  # Run f90 file (here we append the output file because we're running
   #                the ${JOB}.exe for MAXSEE=1.5 (for BEF) and MAXSEE=999. (for (AFT))
 ./${JOB}.exe<<EOF >> $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC}
 ${GG}
@@ -148,10 +149,10 @@ ${ACC}
 '$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps/cps'
 EOF
   rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+  rm -f $FIGS_ROOT_DIR/stoca2.ps
 done
 rm -f ${JOB}.exe
 rm -f $FIGS_ROOT_DIR/stoca*
-
 #
 ## End of computing graphics and statistics for BEFORE and AFTER data
 #########################################
@@ -178,12 +179,14 @@ if [ ! -e $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_B
 else
   ps2pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps $FIGS_ROOT_DIR/pippo.pdf
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.pdf > /dev/null 2>&1
+  rm -f $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps
 fi
 if [ ! -e $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps ]; then
   error "ops $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps not produced"
 else
   ps2pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps $FIGS_ROOT_DIR/pippo.pdf
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.pdf > /dev/null 2>&1
+  rm -f $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps
 fi
 #
 ##
@@ -227,7 +230,8 @@ if [ ! -e ${JOB}.exe ]; then
 fi
 
 subnotice "Running F90 program for ACC $ACC"
-# Run f90 file
+# Run f90 file (for the Last month we're interested in AFT data only,
+#               thus MAXSEE=999. (as above)
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
 ${GG}
 ${HH}
@@ -247,6 +251,27 @@ EOF
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
 rm -f $FIGS_ROOT_DIR/temp*.ps
 
+subnotice "Running F90 program for ACC $ACC"
+# Run f90 file (for the Last month we're interested in AFT data only,
+#               thus MAXSEE=999. (as above)
+./${JOB}.exe<<EOF >> $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
+${GG}
+${HH}
+${IDELTA}
+${NbNights}
+${STARTMINUTE}
+${ENDMINUTE}
+999.
+${ACC}
+"${ROOT}"
+"${TAIL}"
+"${STARTIN}"
+'$FILE_LIST'
+'$FIGS_ROOT_DIR/temp1.ps/cps'
+'$FIGS_ROOT_DIR/temp2.ps/cps'
+EOF
+rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+rm -f $FIGS_ROOT_DIR/temp*.ps
 #
 ## End of computing graphics and statistics for BEFORE and AFTER data
 #########################################
@@ -356,6 +381,82 @@ else
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf > /dev/null 2>&1
 fi
 
+#########################################
+## Compute statistics
+## FOR LAST MONTH ONLY !!!!!!!!!!!!!!!!!
+#
+#########################################
+## Compute graphics and statistics
+#
+notice "Creating figures and calculating skills for PERSISTENCE $prefix ($descri) FOR LAST MONTH ONLY !!!!!!"
+cd $PERS_ROOT_DIR
+rm -f $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}*
+
+JOB=$prefix'_mnh_ar_hit_def_'${suffix}
+if [ ! -e ${JOB}.f90 ]; then
+  echo "ops ${JOB}.f90 is missing"; exit 1
+fi
+IDELTA=10
+FILE_LIST="list_"$prefixUC"_${GG}_${skills_file_lastmonth}.txt"
+if [ ! -e $FILE_LIST ]; then
+  echo "ops $FILE_LIST is missing in "`pwd`; exit 1
+fi
+NbNights=`wc -l $FILE_LIST | cut -d ' ' -f 1`
+ROOT=$DATA_PERS_DIR"/${prefixUC}_TREATED/"
+if [ ! -d $ROOT ]; then
+  echo "ops $ROOT is missing or is not a directory"; exit 1
+fi
+STARTIN="${prefixUC}_PERSIST_"
+TAIL=".dat"
+MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
+             # ATT: use the option 999 if you wish to calculate the contingency tables
+
+rm -f ${JOB}.exe
+test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
+test -f out_scatter_for_python_aft.dat && rm -f out_scatter_for_python_aft.dat
+# Compile f90 file
+gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I$NUMREC_DIR -I$LIBPERSO_DIR/mod -L$LIBPERSO_DIR -L$NUMREC_DIR -J$NUMREC_DIR -lpgplot -lpng -lz -lpers -lnumrec > /dev/null 2>&1
+if [ ! -e ${JOB}.exe ]; then
+  echo "ops problem in compiling ${JOB}.f90"; exit 1
+fi
+
+# Loop over accuracy
+for ACC in 0.24
+do
+subnotice "Running F90 program for ACC $ACC"
+# Run f90 file
+./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}
+${GG}
+${HH}
+${IDELTA}
+${NbNights}
+${STARTMINUTE}
+${ENDMINUTE}
+${MAXSEE}
+${ACC}
+"${ROOT}"
+"${TAIL}"
+"${STARTIN}"
+'$FILE_LIST'
+'$FIGS_ROOT_DIR/pippo1.ps/cps'
+'$FIGS_ROOT_DIR/pippo2.ps/cps'
+FALSE
+EOF
+rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+rm -f $FIGS_ROOT_DIR/pippo1.ps $FIGS_ROOT_DIR/pippo2.ps
+done
+rm -f ${JOB}.exe
+#
+## End of computing graphics and statistics for PERSISTENCE data
+#########################################
+
+# check tmpfile file
+# a file named tmpfile_NAME-OF-THE-VARIABLE is expected in $PROG_ROOT_DIR
+# Loop over accuracy
+if [ ! -e $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth} ]; then
+  error "$WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}} not produced"
+fi
+
 ##################################################################################
 ##################################################################################
 #                                CREATE LATEX AND PDF FILES
@@ -380,7 +481,7 @@ cat << EOF > $WRKDIR/figures_${prefix}.tex
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSBEF}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSAFT}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSPER}}
-\caption{$descri ($unitof): (a) STANDARD CONFIGURATION ($<$ 1.5''), (b) WITH AR (1H), (c) PERSISTENCE.}
+\caption{$descri ($unitof): (a) STANDARD CONFIGURATION ($<$ 1.5''), (b) WITH AR (1H), (c) PERSISTENCE (1H).}
 \label{fig:$prefix}
 \end{figure}
 EOF

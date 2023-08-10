@@ -319,14 +319,93 @@ if [ ! -e $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_B
   error "ops $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}_per.ps not produced"
 else
   ps2pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}_per.ps $FIGS_ROOT_DIR/pippo.pdf
-  pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}_per.pdf
+  pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}_per.pdf > /dev/null 2>&1
 fi
   if [ ! -e $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.ps ]; then
   error "ops $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.ps not produced"
 else
   ps2pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.ps $FIGS_ROOT_DIR/pippo.pdf
-  pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf
+  pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf > /dev/null 2>&1
 fi
+
+#########################################
+## Compute statistics
+## FOR LAST MONTH ONLY !!!!!!!!!!!!!!!!!
+#
+#########################################
+## Compute graphics and statistics
+#
+notice "Creating figures and calculating skills for PERSISTENCE $prefix ($descri) FOR LAST MONTH ONLY !!!!!!!!!!!!!"
+cd $PERS_ROOT_DIR
+rm -f $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}*
+
+JOB=$prefix'0_mnh_ar_hit_def_'${suffix}
+if [ ! -e ${JOB}.f90 ]; then
+  echo "ops ${JOB}.f90 is missing"; exit 1
+fi
+IDELTA=10
+FILE_LIST="list_"$prefixUC"_${GG}_${skills_file_lastmonth}.txt"
+if [ ! -e $FILE_LIST ]; then
+  echo "ops $FILE_LIST is missing in "`pwd`; exit 1
+fi
+NbNights=`wc -l $FILE_LIST | cut -d ' ' -f 1`
+ROOT=$DATA_PERS_DIR"/${prefixUC}_TREATED/"
+if [ ! -d $ROOT ]; then
+  echo "ops $ROOT is missing or is not a directory"; exit 1
+fi
+STARTIN="${prefixUC}_PERSIST_"
+TAIL=".dat"
+MAXTAU=999.   # put 999. if one wants to consider the whole values without filtering
+             # ATT: use the option 999 if you wish to calculate the contingency tables
+
+rm -f ${JOB}.exe
+test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
+test -f out_scatter_for_python_aft.dat && rm -f out_scatter_for_python_aft.dat
+# Compile f90 file
+gfortran -Wall -fbounds-check -o ${JOB}.exe ${JOB}.f90 -I$NUMREC_DIR -I$LIBPERSO_DIR/mod -L$LIBPERSO_DIR -L$NUMREC_DIR -J$NUMREC_DIR -lpgplot -lpng -lz -lpers -lnumrec > /dev/null 2>&1
+if [ ! -e ${JOB}.exe ]; then
+  echo "ops problem in compiling ${JOB}.f90"; exit 1
+fi
+
+# Loop over accuracy
+for ACC in 1.22
+do
+subnotice "Running F90 program for ACC $ACC"
+# Run f90 file
+./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}
+${GG}
+${HH}
+${IDELTA}
+${NbNights}
+${STARTMINUTE}
+${ENDMINUTE}
+${MAXTAU}
+${ACC}
+"${ROOT}"
+"${TAIL}"
+"${STARTIN}"
+'$FILE_LIST'
+'$FIGS_ROOT_DIR/pippo1.ps/cps'
+'$FIGS_ROOT_DIR/pippo2.ps/cps'
+FALSE
+EOF
+rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
+rm -f $FIGS_ROOT_DIR/pippo1.ps $FIGS_ROOT_DIR/pippo2.ps
+done
+rm -f ${JOB}.exe
+#
+## End of computing graphics and statistics for PERSISTENCE data
+#########################################
+
+# check tmpfile file
+# a file named tmpfile_NAME-OF-THE-VARIABLE is expected in $PROG_ROOT_DIR
+# Loop over accuracy
+for ACC in 1.22
+do
+  if [ ! -e $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth} ]; then
+    error "$WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth} not produced"
+  fi
+done
 
 ##################################################################################
 ##################################################################################
@@ -352,7 +431,7 @@ cat << EOF > $WRKDIR/figures_${prefix}.tex
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSBEF}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSAFT}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSPER}}
-\caption{$descri ($unitof): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE.}
+\caption{$descri ($unitof): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE (1H).}
 \label{fig:$prefix}
 \end{figure}
 EOF

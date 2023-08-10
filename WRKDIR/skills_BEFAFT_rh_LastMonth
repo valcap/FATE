@@ -9,8 +9,8 @@
  TAIL=.dat
  STARTIN=RH_ARevol_
  CFILE_LIST_NIGHTS=list_RH_5GG_LastMonth.txt                                                                                               
- /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_BEF_stan.ps/cps                                                            
- /home/report/FIGS/rh_sim_mnh_ar_dimm_300_960_AFT_stan.ps/cps                                                            
+ /home/report/FIGS/temp1.ps/cps                                                                                          
+ /home/report/FIGS/temp2.ps/cps                                                                                          
  RH_ARevol_1H_5GG_
  NbLines_TOT=         960
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869

@@ -45,6 +45,7 @@ fi
 #################################################################
 #                     BEFORE DATA (i.e. standard))
 #                     GREP SKILLS FOR EACH VARIABLE
+#                     TABLE 1 (as August 2023)
 #################################################################
 
 # Loop over the climatic variables
@@ -61,7 +62,7 @@ do
   BIAS_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep BIAS | cut -d '=' -f2`
   RMSE_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
   SD_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep SIGMA | cut -d '=' -f2`
-  my_caption='Statistics for variables in standard configuration'
+  my_caption='Statistics for variables in standard configuration: incremental month (i.e., since the begining of service) \\textit\{vs\} last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING')'
   cat $WRKDIR/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
@@ -114,6 +115,7 @@ done
 #                     AFTER DATA (i.e. processed with AR)
 #                     GREP SKILLS FOR EACH VARIABLE
 #                     >>>>>>>>INCREMENTAL MONTH<<<<<<<<
+#                     TABLE 3 (as August 2023)
 #################################################################
 
 # Loop over the climatic variables
@@ -130,7 +132,7 @@ do
   BIAS_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep BIAS | cut -d '=' -f2`
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
-  my_caption='Statistics for variables processed with AR (1H)'
+  my_caption='Incremental month (i.e., since the beginning of service): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
   cat $WRKDIR/table_skills_AFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
@@ -150,12 +152,15 @@ do
   case "$prefix" in
   see)
     FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_0.24
+    FILE_SKILLS_PER=$WRKDIR/${skills_file}_PER_${prefix}_0.24
    ;;
   tau)
     FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_1.22
+    FILE_SKILLS_PER=$WRKDIR/${skills_file}_PER_${prefix}_1.22
     ;;
   glf)
     FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_0.14
+    FILE_SKILLS_PER=$WRKDIR/${skills_file}_PER_${prefix}_0.14
     ;;
   *) echo "Lo sai chi ti saluta?"
      exit 1
@@ -165,7 +170,6 @@ do
   RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
   SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep SIGMA | cut -d '=' -f2`
   # PERSISTENCE DATA
-  FILE_SKILLS_PER=`echo $FILE_SKILLS | sed -e "s/_BEFAFT_/_PER_/g"`
   BIAS_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep BIAS | cut -d '=' -f2`
   RMSE_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
@@ -184,6 +188,7 @@ done
 #                     AFTER DATA (i.e. processed with AR)
 #                     GREP SKILLS FOR EACH VARIABLE
 #                     >>>>>>>>LAST MONTH<<<<<<<<
+#                     TABLE 2 (as of August 2023)
 #################################################################
 
 # Loop over the climatic variables
@@ -196,11 +201,11 @@ do
   RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
   SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep SIGMA | cut -d '=' -f2`
   # PERSISTENCE DATA
-  FILE_SKILLS=$WRKDIR/${skills_file}_PER_${prefix}
+  FILE_SKILLS=$WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}
   BIAS_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep BIAS | cut -d '=' -f2`
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
-  my_caption='Statistics for variables processed with AR (1H)'
+  my_caption='Last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING'): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
   cat $WRKDIR/table_skills_AFT-LASTM.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
@@ -219,13 +224,16 @@ do
   get_var_attr "$prefix"
   case "$prefix" in
   see)
-    FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_0.24
+    FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
+    FILE_SKILLS_PER=$WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}
    ;;
   tau)
-    FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_1.22
+    FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
+    FILE_SKILLS_PER=$WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}
     ;;
   glf)
-    FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_0.14
+    FILE_SKILLS=$WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
+    FILE_SKILLS_PER=$WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}
     ;;
   *) echo "Lo sai chi ti saluta?"
      exit 1
@@ -235,7 +243,6 @@ do
   RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
   SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep SIGMA | cut -d '=' -f2`
   # PERSISTENCE DATA
-  FILE_SKILLS_PER=`echo $FILE_SKILLS | sed -e "s/_BEFAFT_/_PER_/g"`
   BIAS_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep BIAS | cut -d '=' -f2`
   RMSE_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
