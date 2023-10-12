@@ -12,7 +12,7 @@ REAL,PARAMETER                       :: THRES3=225.
 CHARACTER(180),ALLOCATABLE,DIMENSION(:)   :: CFILE_DATE,CFILE_DATE_WS
 CHARACTER(8),ALLOCATABLE,DIMENSION(:)     :: DATE
 CHARACTER(120)                       :: PUBEL,PGPLOT1,PGPLOT2,CFILE_LIST_NIGHTS
-CHARACTER(3)                         :: GG
+CHARACTER(4)                         :: GG
 CHARACTER(2)                         :: HH
 INTEGER                              :: IDELTA,NbPix,K,J,I,IERR,NbLines_TOT,NbLines_TOT_Pix,ICOUNT
 INTEGER                              :: NbFit,NB_UNITY_X,NB_UNITY_Y
@@ -603,7 +603,7 @@ CALL PGBEGIN(0,PGPLOT1,2,2)
 CALL PGSCH(1.5)
 CALL PGSLW(3)  ! paper
 CALL PGENV(xmin,xmax,xhmin,xhmax,1,0)
-CALL PGLABEL('OBS: WD (deg)','MNH: WD (deg)','CLASSIC')
+CALL PGLABEL('OBS: WD (deg)','MNH: WD (deg)','STANDARD CONFIGURATION')
 DO I=1,NbNights
  DO J=1,NbPix
     IF( (WD_OBS_PIX_LIM(I,J).NE.0).AND.(WD_MOD_BEF_PIX_LIM(I,J).NE.0))THEN

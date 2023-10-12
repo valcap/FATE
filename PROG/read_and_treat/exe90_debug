@@ -1,0 +1,21 @@
+#!/bin/bash
+
+extension="${1##*.}"
+filename="${1%.*}"
+echo  "${extension}" "${filename}"
+if [ "${extension}" != "${filename}" ]; then
+  echo "ERRORE: IL PARAMETRO PASSATO HA ESTENSIONE ${extension}"
+  exit 1
+fi
+
+DIR_NUMREC=$HOME'/bin/NUMREC'
+DIR_LIBPERSO=$HOME'/bin/LIBPERSO'
+
+gfortran -Wall -fbounds-check -o ${1} ${1}.f90 -I${DIR_NUMREC} -I${DIR_LIBPERSO}/mod -L${DIR_LIBPERSO} -L${DIR_NUMREC} -J${DIR_NUMREC} -lpgplot -lpng -lz -lpers -lnumrec
+
+#gfortran -c mod_read_ar.f90
+#gfortran -Wall -fbounds-check -c ${1}.f90 -I${DIR_NUMREC} -I${DIR_LIBPERSO}/mod -L${DIR_LIBPERSO} -L${DIR_NUMREC} -J${DIR_NUMREC} -lpgplot -lpng -lz -lpers -lnumrec
+#gfortran mod_read_ar.o ${1}.o 
+
+exit 0
+

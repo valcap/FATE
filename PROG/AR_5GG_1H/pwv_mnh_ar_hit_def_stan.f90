@@ -9,7 +9,7 @@ REAL,PARAMETER                       :: NOVAL=0.
 CHARACTER(180),ALLOCATABLE,DIMENSION(:)   :: CFILE_DATE
 CHARACTER(8),ALLOCATABLE,DIMENSION(:)     :: DATE
 CHARACTER(120)                       :: PUBEL,PGPLOT1,PGPLOT2,CFILE_LIST_NIGHTS
-CHARACTER(3)                         :: GG
+CHARACTER(4)                         :: GG
 CHARACTER(2)                         :: HH
 INTEGER                              :: IDELTA,NbPix,K,J,I,IERR,NbLines_TOT,NbLines_TOT_Pix,ICOUNT
 INTEGER                              :: NbFit,INC_PWV_MOD_AFT,INC_PWV_MOD_BEF,NB_UNITY_X,NB_UNITY_Y
