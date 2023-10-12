@@ -59,6 +59,8 @@ fi
 ## End of check directories
 #########################################
 
+WRKDIR=$WRKDIR'/'${FCST_DAY}${FCST_LEN}
+
 ##################################################################################
 ##################################################################################
 #                                   BEFORE and AFTER data 
@@ -77,7 +79,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}.txt"
+FILE_LIST="list_"$prefixUC".txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in the current directory"; exit 1
 fi
@@ -107,7 +109,7 @@ do
   subnotice "Running F90 program for ACC $ACC for BEF DATA ONLY (i.e. standard configuration)"
   # Run f90 file
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -133,7 +135,7 @@ do
   # Run f90 file (here we append the output file because we're running
   #                the ${JOB}.exe for MAXSEE=1.5 (for BEF) and MAXSEE=999. (for (AFT))
 ./${JOB}.exe<<EOF >> $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -188,6 +190,9 @@ else
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.pdf > /dev/null 2>&1
   rm -f $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps
 fi
+rm -f $FIGS_ROOT_DIR/pippo.pdf
+mv $FIGS_ROOT_DIR/*.pdf $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
+
 #
 ##
 #########################################
@@ -205,7 +210,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}_${skills_file_lastmonth}.txt"
+FILE_LIST="list_"$prefixUC"_${skills_file_lastmonth}.txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in the current directory"; exit 1
 fi
@@ -233,7 +238,7 @@ subnotice "Running F90 program for ACC $ACC"
 # Run f90 file (for the Last month we're interested in AFT data only,
 #               thus MAXSEE=999. (as above)
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -255,7 +260,7 @@ subnotice "Running F90 program for ACC $ACC"
 # Run f90 file (for the Last month we're interested in AFT data only,
 #               thus MAXSEE=999. (as above)
 ./${JOB}.exe<<EOF >> $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -272,6 +277,7 @@ ${ACC}
 EOF
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
 rm -f $FIGS_ROOT_DIR/temp*.ps
+rm -f ${JOB}.exe
 #
 ## End of computing graphics and statistics for BEFORE and AFTER data
 #########################################
@@ -304,7 +310,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}.txt"
+FILE_LIST="list_"$prefixUC".txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in "`pwd`; exit 1
 fi
@@ -333,7 +339,7 @@ do
 subnotice "Running F90 program for ACC $ACC"
 # Run f90 file
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_PER_${prefix}_${ACC}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -380,6 +386,9 @@ else
   ps2pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.ps $FIGS_ROOT_DIR/pippo.pdf
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf > /dev/null 2>&1
 fi
+rm -f $FIGS_ROOT_DIR/pippo.pdf
+mv $FIGS_ROOT_DIR/*.pdf $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
+
 
 #########################################
 ## Compute statistics
@@ -397,7 +406,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}_${skills_file_lastmonth}.txt"
+FILE_LIST="list_"$prefixUC"_${skills_file_lastmonth}.txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in "`pwd`; exit 1
 fi
@@ -426,7 +435,7 @@ do
 subnotice "Running F90 program for ACC $ACC"
 # Run f90 file
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -471,9 +480,9 @@ fi
 ## Start of figures 
 #
 notice "Creating latex file with figures"
-EPSBEF=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.pdf
-EPSAFT=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.pdf
-EPSPER=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf
+EPSBEF=$FIGS_ROOT_DIR/${FCST_DAY}${FCST_LEN}/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.pdf
+EPSAFT=$FIGS_ROOT_DIR/${FCST_DAY}${FCST_LEN}/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.pdf
+EPSPER=$FIGS_ROOT_DIR/${FCST_DAY}${FCST_LEN}/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf
 cat << EOF > $WRKDIR/figures_${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
@@ -622,6 +631,8 @@ cat << EOF > $WRKDIR/tablePODs${prefix}_${ACC}.tex
 \end{table}
 EOF
 done
+
+#mv $WRKDIR/*.tex $WRKDIR/$FCST_DAY$FCST_LEN/
 
 ####################################################
 notice "End of "`basename $0`

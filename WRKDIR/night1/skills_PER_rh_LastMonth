@@ -1,0 +1,87 @@
+ GG=5GG
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=          30
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ ROOT=/home/report/DATA/TREATED/nig_PERSIST/RH_TREATED/
+ TAIL=.dat
+ STARTIN=RH_PERSIST_
+ CFILE_LIST_NIGHTS=list_RH_LastMonth.txt                                                                                                   
+ /home/report/FIGS/temp1.ps/cps                                                                                          
+ /home/report/FIGS/temp2.ps/cps                                                                                          
+ FIX_THRES= F
+ RH_PERSIST_
+ NbLines_TOT=        1020
+ MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
+ End of OBS data treatement
+ NbLines_TOT_Pix=        3240
+ MAXVAL_RH_OBS_1D=   30.9741402    
+                                                                                                                                                                                LOGINFO BIAS_RH_MOD_BEF=     0.82
+                                                                                                                                                                                LOGINFO RMSE_RH_MOD_BEF=     4.94
+                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_BEF=     4.87
+ INC_RH_MOD_BEF=        1967
+ NbLines_TOT=        3240
+                                                                                                                                                                                LOGINFO BIAS_RH_MOD_AFT=     0.02
+                                                                                                                                                                                LOGINFO RMSE_RH_MOD_AFT=     1.54
+                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_AFT=     1.54
+ INC_RH_MOD_AFT=        1967
+ NbLines_TOT=        3240
+ NbFit=        1967 NbLines_TOT=        1020 NbPix=         108
+ K=           0
+ #### FIT BEF ####
+ ENTERING fit routine
+ ARRAYS SIZE:         1967        1967
+ ndata=         1967
+ sx=   19932.0527    
+ invx=   2.51707388E-09
+ q=   0.00000000     ndata=        1967 size(x)=        1967 chi2=   47233.4180     sigb=   1.09092174E-02
+ B_TOT(slope)=   1.08081639    
+ #### FIT AFT #####
+ ENTERING fit routine
+ ARRAYS SIZE:         1967        1967
+ ndata=         1967
+ sx=   19932.0527    
+ invx=   2.51707388E-09
+ q=   0.00000000     ndata=        1967 size(x)=        1967 chi2=   4691.68848     sigb=   3.43821873E-03
+ B_TOT(slope)=   1.00162196    
+ ***************
+ XMED_RH=   9.43770599    
+ X33_RH=   8.03442574    
+ X66_RH=   11.0409832    
+ ***************
+ ***************
+ XMED_MOD_BEF=   9.17003155    
+ ***************
+ ##########################################
+ ######## HIT_RATE for BEF ###########
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on        1967 points.
+ X<   8.03442574       8.03442574     <X<   11.0409832     X>   11.0409832    
+   374.000000       279.000000       61.0000000    
+   137.000000       264.000000       179.000000    
+   146.000000       112.000000       415.000000    
+ POD(event1)=   56.9254150    
+ POD(event2)=   40.3053436    
+ POD(event3)=   63.3587761    
+ PC=   53.5332985    
+ ebd=   10.5236406    
+ ***************
+ XMED_MOD_AFT=   9.42999935    
+ ***************
+ ##########################################
+ ############ HIT_RATE for AFT #############
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on        1967 points.
+ X<   8.03442574       8.03442574     <X<   11.0409832     X>   11.0409832    
+   577.000000       80.0000000       7.00000000    
+   77.0000000       541.000000       96.0000000    
+   3.00000000       34.0000000       552.000000    
+ POD(event1)=   87.8234406    
+ POD(event2)=   82.5954208    
+ POD(event3)=   84.2748108    
+ PC=   84.9008636    
+ ebd=  0.508388400    

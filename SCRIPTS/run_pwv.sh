@@ -59,6 +59,8 @@ fi
 ## End of check directories
 #########################################
 
+WRKDIR=$WRKDIR'/'${FCST_DAY}${FCST_LEN}
+
 ##################################################################################
 ##################################################################################
 #                                   BEFORE and AFTER data 
@@ -77,7 +79,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=20
-FILE_LIST="list_"$prefixUC"_${GG}.txt"
+FILE_LIST="list_"$prefixUC".txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in the current directory"; exit 1
 fi
@@ -102,7 +104,7 @@ fi
 subnotice "Running F90 program"
 # Run f90 file
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_BEFAFT_${prefix}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -148,6 +150,9 @@ else
   ps2pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps $FIGS_ROOT_DIR/pippo.pdf
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.pdf > /dev/null 2>&1
 fi
+rm -f $FIGS_ROOT_DIR/pippo.pdf
+mv $FIGS_ROOT_DIR/*.pdf $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
+
 #
 ##
 #########################################
@@ -165,7 +170,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}_${skills_file_lastmonth}.txt"
+FILE_LIST="list_"$prefixUC"_${skills_file_lastmonth}.txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in the current directory"; exit 1
 fi
@@ -193,7 +198,7 @@ fi
 subnotice "Running F90 program"
 # Run f90 file
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -244,7 +249,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}.txt"
+FILE_LIST="list_"$prefixUC".txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in "`pwd`; exit 1
 fi
@@ -269,7 +274,7 @@ fi
 subnotice "Running F90 program"
 # Run f90 file
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_PER_${prefix}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -309,6 +314,9 @@ else
   ps2pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.ps $FIGS_ROOT_DIR/pippo.pdf
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf > /dev/null 2>&1
 fi
+rm -f $FIGS_ROOT_DIR/pippo.pdf
+mv $FIGS_ROOT_DIR/*.pdf $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
+
 
 #########################################
 ## Compute statistics
@@ -323,7 +331,7 @@ if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
 IDELTA=10
-FILE_LIST="list_"$prefixUC"_${GG}_${skills_file_lastmonth}.txt"
+FILE_LIST="list_"$prefixUC"_${skills_file_lastmonth}.txt"
 if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in "`pwd`; exit 1
 fi
@@ -348,7 +356,7 @@ fi
 subnotice "Running F90 program"
 # Run f90 file
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}
-${GG}
+${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
 ${IDELTA}
 ${NbNights}
@@ -392,9 +400,9 @@ fi
 ## Start of figures 
 #
 notice "Creating latex file with figures"
-EPSBEF=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.pdf
-EPSAFT=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.pdf
-EPSPER=$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf
+EPSBEF=$FIGS_ROOT_DIR/${FCST_DAY}${FCST_LEN}/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.pdf
+EPSAFT=$FIGS_ROOT_DIR/${FCST_DAY}${FCST_LEN}/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.pdf
+EPSPER=$FIGS_ROOT_DIR/${FCST_DAY}${FCST_LEN}/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf
 cat << EOF > $WRKDIR/figures_${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
@@ -539,6 +547,8 @@ cat << EOF > $WRKDIR/tablePODs${prefix}.tex
 \end{center}
 \end{table}
 EOF
+
+#mv $WRKDIR/*.tex $WRKDIR/$FCST_DAY$FCST_LEN/
 
 ####################################################
 notice "End of "`basename $0`

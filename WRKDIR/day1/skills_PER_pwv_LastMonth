@@ -1,0 +1,86 @@
+ GG=day
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=          30
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ MAXPWV=   15.0000000    
+ ROOT=/home/report/DATA/TREATED/day_PERSIST/PWV_TREATED/
+ TAIL=.dat
+ STARTIN=PWV_PERSIST_
+ CFILE_LIST_NIGHTS=list_PWV_LastMonth.txt                                                                                                  
+ /home/report/FIGS/pippo1.ps/cps                                                                                         
+ /home/report/FIGS/pippo2.ps/cps                                                                                         
+ NbLines_TOT=        1020
+ MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
+ End of OBS data treatement
+ NbLines_TOT_Pix=        3240
+ MAXVAL_PWV_OBS_1D=   6.70055628    
+                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_BEF=    -0.17
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_BEF=     0.62
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_BEF=     0.60
+ INC_PWV_MOD_BEF=        1847
+ NbLines_TOT=        3240
+                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_AFT=    -0.03
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_AFT=     0.19
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_AFT=     0.19
+ INC_PWV_MOD_AFT=        1847
+ NbLines_TOT=        3240
+ NbFit=        1847 NbLines_TOT=        1020 NbPix=         108
+ K=           0
+ #### FIT BEF ####
+ ENTERING fit routine
+ ARRAYS SIZE:         1847        1847
+ ndata=         1847
+ sx=   5214.87695    
+ invx=   3.67715458E-08
+ q=  -1.99322326E-36 ndata=        1847 size(x)=        1847 chi2=   569.628479     sigb=   4.57917340E-03
+ B_TOT(slope)=  0.940390527    
+ #### FIT AFT #####
+ ENTERING fit routine
+ ARRAYS SIZE:         1847        1847
+ ndata=         1847
+ sx=   5214.87695    
+ invx=   3.67715458E-08
+ q=   4.58925247E-41 ndata=        1847 size(x)=        1847 chi2=   67.0095444     sigb=   1.57057820E-03
+ B_TOT(slope)=  0.991089642    
+ ***************
+ XMED_PWV=   2.55231047    
+ X33_PWV=   2.10160208    
+ X66_PWV=   3.04637146    
+ ***************
+ ***************
+ XMED_MOD_BEF=   2.47821903    
+ ***************
+ ##########################################
+ ######## HIT_RATE for BEF ###########
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on        1847 points.
+ X<   2.10160208       2.10160208     <X<   3.04637146     X>   3.04637146    
+   540.000000       120.000000       7.00000000    
+   76.0000000       436.000000       133.000000    
+   0.00000000       60.0000000       475.000000    
+ POD(event1)=   87.6623383    
+ POD(event2)=   70.7792206    
+ POD(event3)=   77.2357712    
+ PC=   78.5598297    
+ ebd=  0.378992975    
+ ***************
+ XMED_MOD_AFT=   2.49390006    
+ ***************
+ ##########################################
+ ############ HIT_RATE for AFT #############
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on        1847 points.
+ X<   2.10160208       2.10160208     <X<   3.04637146     X>   3.04637146    
+   589.000000       45.0000000       0.00000000    
+   27.0000000       550.000000       32.0000000    
+   0.00000000       21.0000000       583.000000    
+ POD(event1)=   95.6168823    
+ POD(event2)=   89.2857132    
+ POD(event3)=   94.7967453    
+ PC=   93.2322693    
+ ebd=   0.00000000    

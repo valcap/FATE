@@ -1,0 +1,115 @@
+ GG=nig
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=          30
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ MAXTAU=   999.000000    
+ ACC=   1.22000003    
+ ROOT=/home/report/DATA/TREATED/nig_PERSIST/TAU_TREATED/
+ TAIL=.dat
+ STARTIN=TAU_PERSIST_
+ CFILE_LIST_NIGHTS=list_TAU_LastMonth.txt                                                                                                  
+ /home/report/FIGS/pippo1.ps/cps                                                                                         
+ /home/report/FIGS/pippo2.ps/cps                                                                                         
+ NbLines_TOT=         540
+ MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
+ End of OBS data treatement
+ NbLines_TOT_Pix=        3240
+ MAXVAL_TAU_OBS_1D=   9.64904308    
+                                                                                                                                                                               LOGINFO BIAS_TAU_MOD_BEF=     0.53
+                                                                                                                                                                               LOGINFO RMSE_TAU_MOD_BEF=     1.68
+                                                                                                                                                                              LOGINFO SIGMA_TAU_MOD_BEF=     1.60
+ INC_TAU_MOD_BEF=        1367
+ LOGINFO BEF NbLines_TOT=        3240
+                                                                                                                                                                               LOGINFO BIAS_TAU_MOD_AFT=    -0.02
+                                                                                                                                                                               LOGINFO RMSE_TAU_MOD_AFT=     0.63
+                                                                                                                                                                              LOGINFO SIGMA_TAU_MOD_AFT=     0.63
+ INC_TAU_MOD_AFT=        1367
+ NbLines_TOT=        3240
+ NbFit=        1367 NbLines_TOT=         540 NbPix=         108
+ K=           0
+ #### FIT BEF ####
+ ENTERING fit routine
+ ARRAYS SIZE:         1367        1367
+ ndata=         1367
+ sx=   4468.14014    
+ invx=   5.00894686E-08
+ q=   0.00000000     ndata=        1367 size(x)=        1367 chi2=   4093.97925     sigb=   1.43305864E-02
+ B_TOT(slope)=   1.16355908    
+ #### FIT AFT #####
+ ENTERING fit routine
+ ARRAYS SIZE:         1367        1367
+ ndata=         1367
+ sx=   4468.14014    
+ invx=   5.00894686E-08
+ q=   0.00000000     ndata=        1367 size(x)=        1367 chi2=   539.022827     sigb=   5.19989710E-03
+ B_TOT(slope)=  0.995041847    
+ ***************
+                                                                                                                                                                           LOGINFO PERCENTILES XMED_TAU=      3.0
+                                                                                                                                                                            LOGINFO PERCENTILES X33_TAU=      2.5
+                                                                                                                                                                            LOGINFO PERCENTILES X66_TAU=      3.5
+ ***************
+ ***************
+ XMED_MOD_BEF=   3.42799902    
+ ***************
+ ##########################################
+ ######## HIT_RATE for BEF ###########
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on        1367 points.
+ X<   2.54022527       2.54022527     <X<   3.47204328     X>   3.47204328    
+   231.000000       22.0000000       8.00000000    
+   131.000000       196.000000       125.000000    
+   94.0000000       238.000000       322.000000    
+ POD(event1)=   50.6578903    
+ POD(event2)=   42.9824562    
+ POD(event3)=   70.7692337    
+ PC=   54.7915154    
+ ebd=   7.46159458    
+ **************************************************
+ ****** HIT_RATE for BEF WITH RMSE=SD_instr *******
+ **************************************************
+ Contingency table filled with numbers.
+ Hit rate computed on        1367 points.
+ X<   2.54022527       2.54022527     <X<   3.47204328     X>   3.47204328    
+   380.000000       0.00000000       8.00000000    
+   0.00000000       355.000000       8.00000000    
+   76.0000000       101.000000       447.000000    
+ POD(event1)=   83.3333282    
+ POD(event2)=   77.8508759    
+ POD(event3)=   96.5442810    
+ PC=   86.4667206    
+ ebd=   6.14484310    
+ ***************
+ XMED_MOD_AFT=   2.90869594    
+ ***************
+ ##########################################
+ ############ HIT_RATE for AFT #############
+ ##########################################
+ Contingency table filled with numbers.
+ Hit rate computed on        1367 points.
+ X<   2.54022527       2.54022527     <X<   3.47204328     X>   3.47204328    
+   412.000000       86.0000000       0.00000000    
+   37.0000000       309.000000       63.0000000    
+   7.00000000       61.0000000       392.000000    
+ POD(event1)=   90.3508759    
+ POD(event2)=   67.7631531    
+ POD(event3)=   86.1538467    
+ PC=   81.4191666    
+ ebd=  0.512070179    
+ **************************************************
+ ****** HIT_RATE for AFT WITH RMSE=SD_instr *******
+ **************************************************
+ Contingency table filled with numbers.
+ Hit rate computed on        1367 points.
+ X<   2.54022527       2.54022527     <X<   3.47204328     X>   3.47204328    
+   454.000000       0.00000000       0.00000000    
+   0.00000000       454.000000       0.00000000    
+   2.00000000       2.00000000       455.000000    
+ POD(event1)=   99.5614014    
+ POD(event2)=   99.5614014    
+ POD(event3)=   100.000000    
+ PC=   99.7073898    
+ ebd=  0.146305785    
