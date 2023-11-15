@@ -36,7 +36,7 @@ notice "Start of "`basename $0`
 # HOUSEKEEPING
 if [ -e "$SCRDIR/TMPL_LATEX/table_tmpl.tex" ]; then
   cp $SCRDIR/TMPL_LATEX/table_tmpl_BEF.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex
-  if [ ${FCST_DAY} == "night" ]; then
+  if [ ${FCST_LEN} -eq 1 ]; then
     cp $SCRDIR/TMPL_LATEX/table_tmpl_AFT.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex
     cp $SCRDIR/TMPL_LATEX/table_tmpl_AFT-LASTM.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex
   fi
@@ -47,7 +47,6 @@ fi
 #################################################################
 #                     BEFORE DATA (i.e. standard))
 #                     GREP SKILLS FOR EACH VARIABLE
-#                     TABLE 1 (as August 2023)
 #################################################################
 
 # Loop over the climatic variables
@@ -65,7 +64,23 @@ do
   RMSE_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
   SD_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep SIGMA | cut -d '=' -f2`
   my_caption='Statistics for variables in standard configuration: incremental month (i.e., since the begining of service) \\textit\{vs\} last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING')'
-  cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
+  if [ ${FCST_DAY} == "day" ]; then
+    cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
+                                     sed -e "s!${prefixUC}RMSE!$RMSE!"            | \
+                                     sed -e "s!${prefixUC}SD!$SD!"                | \
+                                     sed -e "s!${prefixUC}biasLM!$BIAS_LAST!"     | \
+                                     sed -e "s!${prefixUC}rmseLM!$RMSE_LAST!"     | \
+                                     sed -e "s!${prefixUC}sdLM!$SD_LAST!"         | \
+                                     sed -e "s!SEEBIAS!-!"|sed -e "s!SEERMSE!-!"|sed -e "s!SEESD!-!"|
+                                     sed -e "s!TAUBIAS!-!"|sed -e "s!TAURMSE!-!"|sed -e "s!TAUSD!-!"|
+                                     sed -e "s!GLFBIAS!-!"|sed -e "s!GLFRMSE!-!"|sed -e "s!GLFSD!-!"|
+                                     sed -e "s!SEEbiasLM!-!"|sed -e "s!SEErmseLM!-!"|sed -e "s!SEEsdLM!-!"|
+                                     sed -e "s!TAUbiasLM!-!"|sed -e "s!TAUrmseLM!-!"|sed -e "s!TAUsdLM!-!"|
+                                     sed -e "s!GLFbiasLM!-!"|sed -e "s!GLFrmseLM!-!"|sed -e "s!GLFsdLM!-!"|
+                                     sed -e "s!TABCAPTION!$my_caption!"   \
+                                     > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
+  else
+    cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
                                      sed -e "s!${prefixUC}biasLM!$BIAS_LAST!"        | \
@@ -73,56 +88,56 @@ do
                                      sed -e "s!${prefixUC}sdLM!$SD_LAST!"        | \
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
+  fi
   mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex 
 done
 
-if [ ${FCST_DAY} == "night" ]; then
 # Astro-climatic variable
-for prefix in see tau glf
-do
-  get_var_attr "$prefix"
-  case "$prefix" in
-  see)
-    FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_0.24
-   ;;
-  tau)
-    FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_1.22
-    ;;
-  glf)
-    FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_0.14
-    ;;
-  *) echo "Lo sai chi ti saluta?"
-     exit 1
+if [ ${FCST_DAY} == "night" ]; then
+  for prefix in see tau glf
+  do
+    get_var_attr "$prefix"
+    case "$prefix" in
+    see)
+      FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_0.24
      ;;
-  esac
-  BIAS=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep BIAS | cut -d '=' -f2`
-  RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep RMSE | cut -d '=' -f2`
-  SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep SIGMA | cut -d '=' -f2`
-  # LAST MONTH DATA
-  FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
-  BIAS_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep BIAS | cut -d '=' -f2`
-  RMSE_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
-  SD_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep SIGMA | cut -d '=' -f2`
-  cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
-                                     sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
-                                     sed -e "s!${prefixUC}SD!$SD!"        | \
-                                     sed -e "s!${prefixUC}biasLM!$BIAS_LAST!"        | \
-                                     sed -e "s!${prefixUC}rmseLM!$RMSE_LAST!"        | \
-                                     sed -e "s!${prefixUC}sdLM!$SD_LAST!"        | \
-                                     sed -e "s!TABCAPTION!$my_caption!"   \
-                                     > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
-  mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex
-done
+    tau)
+      FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_1.22
+      ;;
+    glf)
+      FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_0.14
+      ;;
+    *) echo "Lo sai chi ti saluta?"
+       exit 1
+       ;;
+    esac
+    BIAS=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep BIAS | cut -d '=' -f2`
+    RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep RMSE | cut -d '=' -f2`
+    SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep BEF | grep SIGMA | cut -d '=' -f2`
+    # LAST MONTH DATA
+    FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
+    BIAS_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep BIAS | cut -d '=' -f2`
+    RMSE_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
+    SD_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep SIGMA | cut -d '=' -f2`
+    cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
+                                       sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
+                                       sed -e "s!${prefixUC}SD!$SD!"        | \
+                                       sed -e "s!${prefixUC}biasLM!$BIAS_LAST!"        | \
+                                       sed -e "s!${prefixUC}rmseLM!$RMSE_LAST!"        | \
+                                       sed -e "s!${prefixUC}sdLM!$SD_LAST!"        | \
+                                       sed -e "s!TABCAPTION!$my_caption!"   \
+                                       > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
+    mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex
+  done
 fi
 
-if [ ${FCST_DAY} == "night" ]; then
 #################################################################
 #                     AFTER DATA (i.e. processed with AR)
 #                     GREP SKILLS FOR EACH VARIABLE
 #                     >>>>>>>>INCREMENTAL MONTH<<<<<<<<
-#                     TABLE 3 (as August 2023)
 #################################################################
 
+if [ ${FCST_LEN} -eq "1" ]; then
 # Loop over the climatic variables
 for prefix in ws wd rh pwv
 do
@@ -138,6 +153,22 @@ do
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
   my_caption='Incremental month (i.e., since the beginning of service): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
+  if [ ${FCST_DAY} == "day" ]; then
+  cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
+                                     sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
+                                     sed -e "s!${prefixUC}SD!$SD!"        | \
+                                     sed -e "s!${prefixUC}BIASPER!$BIAS_PERS!"        | \
+                                     sed -e "s!${prefixUC}RMSEPER!$RMSE_PERS!"        | \
+                                     sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
+                                     sed -e "s!SEEBIAS!-!"|sed -e "s!SEERMSE!-!"|sed -e "s!SEESD!-!"|
+                                     sed -e "s!TAUBIAS!-!"|sed -e "s!TAURMSE!-!"|sed -e "s!TAUSD!-!"|
+                                     sed -e "s!GLFBIAS!-!"|sed -e "s!GLFRMSE!-!"|sed -e "s!GLFSD!-!"|
+                                     sed -e "s!SEERMSEPER!-!"|sed -e "s!SEESDPER!-!"|
+                                     sed -e "s!TAURMSEPER!-!"|sed -e "s!TAUSDPER!-!"|
+                                     sed -e "s!GLFRMSEPER!-!"|sed -e "s!GLFSDPER!-!"|
+                                     sed -e "s!TABCAPTION!$my_caption!"   \
+                                     > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
+  else
   cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
@@ -146,48 +177,50 @@ do
                                      sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
+  fi
   mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex
 done
 
 # Loop over Astro-climatic variables
-for prefix in see tau glf
-do
-############ ATT PER LA PERSISTENZA 
-  get_var_attr "$prefix"
-  case "$prefix" in
-  see)
-    FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_0.24
-    FILE_SKILLS_PER=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_PER_${prefix}_0.24
-   ;;
-  tau)
-    FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_1.22
-    FILE_SKILLS_PER=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_PER_${prefix}_1.22
-    ;;
-  glf)
-    FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_0.14
-    FILE_SKILLS_PER=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_PER_${prefix}_0.14
-    ;;
-  *) echo "Lo sai chi ti saluta?"
-     exit 1
+if [ ${FCST_DAY} == "night" ]; then
+  for prefix in see tau glf
+  do
+  ############ ATT PER LA PERSISTENZA 
+    get_var_attr "$prefix"
+    case "$prefix" in
+    see)
+      FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_0.24
+      FILE_SKILLS_PER=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_PER_${prefix}_0.24
      ;;
-  esac
-  BIAS=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep BIAS | cut -d '=' -f2`
-  RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
-  SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep SIGMA | cut -d '=' -f2`
-  # PERSISTENCE DATA
-  BIAS_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep BIAS | cut -d '=' -f2`
-  RMSE_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
-  SD_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
-  cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
-                                     sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
-                                     sed -e "s!${prefixUC}SD!$SD!"        | \
-#                                     sed -e "s!${prefixUC}BIASPER!$BIAS_PERS!"        | \
-                                     sed -e "s!${prefixUC}RMSEPER!$RMSE_PERS!"        | \
-                                     sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
-                                     sed -e "s!TABCAPTION!$my_caption!"   \
-                                     > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
-  mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex
-done
+    tau)
+      FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_1.22
+      FILE_SKILLS_PER=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_PER_${prefix}_1.22
+      ;;
+    glf)
+      FILE_SKILLS=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_BEFAFT_${prefix}_0.14
+      FILE_SKILLS_PER=$WRKDIR/${FCST_DAY}${FCST_LEN}/${skills_file}_PER_${prefix}_0.14
+      ;;
+    *) echo "Lo sai chi ti saluta?"
+       exit 1
+       ;;
+    esac
+    BIAS=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep BIAS | cut -d '=' -f2`
+    RMSE=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep RMSE | cut -d '=' -f2`
+    SD=`cat $FILE_SKILLS | grep LOGINFO | grep ${prefixUC} | grep AFT | grep SIGMA | cut -d '=' -f2`
+    # PERSISTENCE DATA
+    BIAS_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep BIAS | cut -d '=' -f2`
+    RMSE_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
+    SD_PERS=`cat $FILE_SKILLS_PER | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
+    cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
+                                       sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
+                                       sed -e "s!${prefixUC}SD!$SD!"        | \
+                                       sed -e "s!${prefixUC}RMSEPER!$RMSE_PERS!"        | \
+                                       sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
+                                       sed -e "s!TABCAPTION!$my_caption!"   \
+                                       > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
+    mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex
+  done
+fi
 
 #################################################################
 #                     AFTER DATA (i.e. processed with AR)
@@ -211,6 +244,22 @@ do
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
   my_caption='Last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING'): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
+  if [ ${FCST_DAY} == "day" ]; then
+  cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
+                                     sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
+                                     sed -e "s!${prefixUC}SD!$SD!"        | \
+                                     sed -e "s!${prefixUC}BIASPER!$BIAS_PERS!"        | \
+                                     sed -e "s!${prefixUC}RMSEPER!$RMSE_PERS!"        | \
+                                     sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
+                                     sed -e "s!SEEBIAS!-!"|sed -e "s!SEERMSE!-!"|sed -e "s!SEESD!-!"|
+                                     sed -e "s!TAUBIAS!-!"|sed -e "s!TAURMSE!-!"|sed -e "s!TAUSD!-!"|
+                                     sed -e "s!GLFBIAS!-!"|sed -e "s!GLFRMSE!-!"|sed -e "s!GLFSD!-!"|
+                                     sed -e "s!SEERMSEPER!-!"|sed -e "s!SEESDPER!-!"|
+                                     sed -e "s!TAURMSEPER!-!"|sed -e "s!TAUSDPER!-!"|
+                                     sed -e "s!GLFRMSEPER!-!"|sed -e "s!GLFSDPER!-!"|
+                                     sed -e "s!TABCAPTION!$my_caption!"   \
+                                     > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
+  else
   cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
@@ -219,10 +268,12 @@ do
                                      sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
+  fi
   mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex
 done
 
 # Loop over Astro-climatic variables
+if [ ${FCST_DAY} == "night" ]; then
 for prefix in see tau glf
 do
 ############ ATT PER LA PERSISTENZA 
@@ -254,13 +305,13 @@ do
   cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
-#                                     sed -e "s!${prefixUC}BIASPER!$BIAS_PERS!"        | \
                                      sed -e "s!${prefixUC}RMSEPER!$RMSE_PERS!"        | \
                                      sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
   mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex
 done
+fi
 fi
 
 #################################################################

@@ -39,22 +39,10 @@ notice "Start of "`basename $0`
 #                     CURRENT MONTH
 #################################################################
 PREV_MONTH_MM=`date +%m --date "today - 1 month"`
-CURR_MONTH_MM=`date +%m --date "today"`
+CURR_MONTH_MM=`date +%m`
 PREV_MONTH_YY=`date +%Y --date "today - 1 month"`
-CURR_MONTH_YY=`date +%Y --date "today"`
-DAYS_PREV_MON=`date +%d --date "${CURR_MONTH_YY}-${CURR_MONTH_MM}-01 -1 day"`
+DAYS_PREV_MON=`date +%d --date "${PREV_MONTH_YY}-${CURR_MONTH_MM}-01 -1 day"`
 TOTAL_MONTHLY_RUN=$(($DAYS_PREV_MON*2))
-
-
-VAL1=`grep 'FATE: ECMWF_DATA_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWGARR.download_ecmwf_data.log | wc -l`
-echo $VAL1
-
-#exit 1
-#TODO DA QUI...I DATI STANNO IN /DATAPRE/data/MESONH_inp/LOG/
-
-
-
-
 
 #ECMW: ECMWF initialisation data transmission
 VAL0=$NODATA_STR
