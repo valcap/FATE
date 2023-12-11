@@ -252,7 +252,7 @@ EOF
     LISTA="$OUTPUTDIR/list_WD.txt"
     ls WD_ARevol_${hiter}_${NEWGG}$fcst_lenght*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
 
-# _LastMonth
+# _LastMonth TODO DA CAMBIARE OGNI MESE...........
     if [ $daygg == "night" ]; then
         LISTA="$OUTPUTDIR/list_SEE_LastMonth.txt"
         ls SEE_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202310*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}

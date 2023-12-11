@@ -85,7 +85,7 @@ for daygg in $LISTGG; do
           sed -e 's/NAN/9999.0/g' -i AAATMP
           rm -f ${JOB}
           ./exe90_debug ${JOB}
-          ./${JOB}<<EOF
+          ./${JOB}<<EOF > /dev/null 2>&1
 "${datenow}"
 "${FILEPATH}/${datenow}_see_evol_time_Height_5_20000_AR_${GG}_PERSIST.dat"
 "${FILEPATH}/${datenow}_see_evol_time_Height_5_20000_MNH_${GG}_PERSIST.dat"
@@ -103,7 +103,7 @@ EOF
           sed -e 's/NAN/9999.0/g' -i AAATMP
           rm -f ${JOB}
           ./exe90_debug ${JOB}
-          ./${JOB}<<EOF
+          ./${JOB}<<EOF > /dev/null 2>&1
 "${datenow}"
 "${FILEPATH}/${datenow}_tau_evol_time_Height_5_20000_AR_${GG}_PERSIST.dat"
 "${FILEPATH}/${datenow}_tau_evol_time_Height_5_20000_MNH_${GG}_PERSIST.dat"
@@ -121,7 +121,7 @@ EOF
           sed -e 's/NAN/9999.0/g' -i AAATMP
           rm -f ${JOB}
           ./exe90_debug ${JOB}
-          ./${JOB}<<EOF
+          ./${JOB}<<EOF > /dev/null 2>&1
 "${datenow}"
 "${FILEPATH}/${datenow}_glf_evol_time_Height_5_20000_AR_${GG}_PERSIST.dat"
 "${FILEPATH}/${datenow}_glf_evol_time_Height_5_20000_MNH_${GG}_PERSIST.dat"
@@ -141,7 +141,7 @@ EOF
           sed -e 's/NAN/9999.0/g' -i AAATMP
           rm -f ${JOB}
           ./exe90_debug ${JOB}
-          ./${JOB}<<EOF
+          ./${JOB}<<EOF > /dev/null 2>&1
 "${datenow}"
 "${FILEPATH}/${datenow}_wapor_evol_time_Height_5_20000_AR_${GG}_PERSIST.dat"
 "${FILEPATH}/${datenow}_wapor_evol_time_Height_5_20000_MNH_${GG}_PERSIST.dat"
@@ -161,7 +161,7 @@ EOF
           sed -e 's/NAN/9999.0/g' -i AAATMP
           rm -f ${JOB}
           ./exe90_debug ${JOB}
-          ./${JOB}<<EOF
+          ./${JOB}<<EOF > /dev/null 2>&1
 "${datenow}"
 "${FILEPATH}/${datenow}_rh_k6_evol_time_AR_${GG}_PERSIST.dat"
 "${FILEPATH}/${datenow}_rh_k6_evol_time_MNH_${GG}_PERSIST.dat"
@@ -181,7 +181,7 @@ EOF
           sed -e 's/NAN/9999.0/g' -i AAATMP
           rm -f ${JOB}
           ./exe90_debug ${JOB}
-          ./${JOB}<<EOF
+          ./${JOB}<<EOF > /dev/null 2>&1
 "${datenow}"
 "${FILEPATH}/${datenow}_wind_k6_evol_time_AR_${GG}_PERSIST.dat"
 "${FILEPATH}/${datenow}_wind_k6_evol_time_MNH_${GG}_PERSIST.dat"
@@ -201,7 +201,7 @@ EOF
           sed -e 's/NAN/9999.0/g' -i AAATMP
           rm -f ${JOBWD}
           ./exe90_debug ${JOBWD}
-          ./${JOBWD}<<EOF
+          ./${JOBWD}<<EOF > /dev/null 2>&1
 "${datenow}"
 "${FILEPATH}/${datenow}_winddir_k6_evol_time_AR_${GG}_PERSIST.dat"
 "${FILEPATH}/${datenow}_winddir_k6_evol_time_MNH_${GG}_PERSIST.dat"
@@ -239,7 +239,7 @@ EOF
     LISTA="list_WD.txt"
     ls WD_PERSIST_*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
     
-# _LastMonth
+# _LastMonth TODO DA CAMBIARE OGNI MESE--------
     if [ $daygg == "night" ]; then
         LISTA="list_SEE_LastMonth.txt"
         ls SEE_PERSIST_202310*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}

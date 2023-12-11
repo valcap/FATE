@@ -550,6 +550,8 @@ do i=1,size_array
 enddo
 
 print *, 'LOGINFO Hit rate computed on',icount,'points.'
+print *, 'Number of points ',icount,';'
+!print *, 'LOGINFO Number of points ',icount
 
 
 !  Expressed in percent
@@ -664,6 +666,7 @@ do i=1,size_array
 enddo
 
 print *, 'Hit rate computed on',icount,'points.'
+!print *, 'Number of points ',icount,';'
 
 !  Expressed in percent
 if ( (present(lflag).and.(lflag.eqv..True.)).or.(.not.present(lflag)) ) then
@@ -788,6 +791,7 @@ do i=1,size_array
 enddo
 
 print *, 'Hit rate computed on',icount,'points.'
+!print *, 'Number of points ',icount
 
 !  Expressed in percent
 if ( (present(lflag).and.(lflag.eqv..True.)).or.(.not.present(lflag)) ) then
@@ -910,6 +914,7 @@ do i=1,size_array
 enddo
 
 print *, 'Hit rate computed on',icount,'points.'
+!print *, 'Number of points ',icount
 
 if ( (present(lflag).and.(lflag.eqv..True.)).or.(.not.present(lflag)) ) then
 tab_hr = (tab_hr / icount)*100. !in %
@@ -1048,7 +1053,8 @@ do i=1,size_array
  endif
 enddo
 
-print *, 'Hit rate computed on',icount,'points.'
+!print *, 'Hit rate computed on',icount,'points.'
+print *, 'Number of points ',icount,';'
 
 if ( (present(lflag).and.(lflag.eqv..True.)).or.(.not.present(lflag)) ) then
 tab_hr = (tab_hr / icount)*100. !in %
@@ -1183,6 +1189,7 @@ do i=1,size_array
 enddo
 
 print *, 'Hit rate computed on',icount,'points.'
+!print *, 'Number of points ',icount
 
 a = tab_hr(1,1)
 b = tab_hr(1,2)
@@ -1618,7 +1625,7 @@ if ( (size_rs_array*np).ne.size_array ) then
   print *, 'It should be', int(size_array / np),'.'
   print *, 'Input array dimension  = ',size_array
   print *, 'Output array dimension = ',size_rs_array
-  print *, 'Number of points used in the computation of the average = ', np
+  print *, 'Number of point used in the computation of the average = ', np
   print *, 'Input array dimension / number of points used for the average = ',size_array/np
   stop
  endif
@@ -1670,7 +1677,7 @@ if ( (size_rs_wd*np).ne.size_array ) then
   print *, 'It should be', int(size_array / np),'.'
   print *, 'Input array dimension  = ',size_array
   print *, 'Output array dimension = ',size_rs_wd  
-  print *, 'Number of points used in the computation of the average = ', np
+  print *, 'Number of point used in the computation of the average = ', np
   print *, 'Input array dimension / number of points used for the average = ',size_array/np
   stop
  endif

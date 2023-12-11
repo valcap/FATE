@@ -2,7 +2,7 @@
  HH=1H
  IDELTA=          10
  NbPix=         108
- NbNights=          37
+ NbNights=          61
  STARTMINUTE=       18000
  ENDMINUTE=       57600
  ROOT=/home/report/DATA/TREATED/day_PERSIST/RH_TREATED/
@@ -16,72 +16,74 @@
  NbLines_TOT=        1020
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
- NbLines_TOT_Pix=        3996
+ NbLines_TOT_Pix=        6588
  MAXVAL_RH_OBS_1D=   48.5114746    
-                                                                                                                                                                                LOGINFO BIAS_RH_MOD_BEF=     0.68
-                                                                                                                                                                                LOGINFO RMSE_RH_MOD_BEF=     4.41
-                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_BEF=     4.36
- INC_RH_MOD_BEF=        2462
- NbLines_TOT=        3996
-                                                                                                                                                                                LOGINFO BIAS_RH_MOD_AFT=    -0.06
-                                                                                                                                                                                LOGINFO RMSE_RH_MOD_AFT=     1.65
-                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_AFT=     1.65
- INC_RH_MOD_AFT=        2462
- NbLines_TOT=        3996
- NbFit=        2462 NbLines_TOT=        1020 NbPix=         108
+                                                                                                                                                                                LOGINFO BIAS_RH_MOD_BEF=     0.36
+                                                                                                                                                                                LOGINFO RMSE_RH_MOD_BEF=     4.93
+                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_BEF=     4.91
+ INC_RH_MOD_BEF=        4048
+ NbLines_TOT=        6588
+                                                                                                                                                                                LOGINFO BIAS_RH_MOD_AFT=    -0.03
+                                                                                                                                                                                LOGINFO RMSE_RH_MOD_AFT=     1.80
+                                                                                                                                                                               LOGINFO SIGMA_RH_MOD_AFT=     1.80
+ INC_RH_MOD_AFT=        4048
+ NbLines_TOT=        6588
+ NbFit=        4048 NbLines_TOT=        1020 NbPix=         108
  K=           0
  #### FIT BEF ####
  ENTERING fit routine
- ARRAYS SIZE:         2462        2462
- ndata=         2462
- sx=   28632.1738    
- invx=   1.21980770E-09
- q=   0.00000000     ndata=        2462 size(x)=        2462 chi2=   47505.6680     sigb=   7.61543773E-03
- B_TOT(slope)=   1.05871820    
+ ARRAYS SIZE:         4048        4048
+ ndata=         4048
+ sx=   51904.8164    
+ invx=   3.71180114E-10
+ q=   0.00000000     ndata=        4048 size(x)=        4048 chi2=   101532.625     sigb=   6.14048261E-03
+ B_TOT(slope)=   1.02839041    
  #### FIT AFT #####
  ENTERING fit routine
- ARRAYS SIZE:         2462        2462
- ndata=         2462
- sx=   28632.1738    
- invx=   1.21980770E-09
- q=   0.00000000     ndata=        2462 size(x)=        2462 chi2=   6685.23096     sigb=   2.85680359E-03
- B_TOT(slope)=  0.994961262    
+ ARRAYS SIZE:         4048        4048
+ ndata=         4048
+ sx=   51904.8164    
+ invx=   3.71180114E-10
+ q=   0.00000000     ndata=        4048 size(x)=        4048 chi2=   13064.5498     sigb=   2.20265705E-03
+ B_TOT(slope)=  0.997745216    
  ***************
- XMED_RH=   10.3917351    
- X33_RH=   8.78360653    
- X66_RH=   11.9032793    
+ XMED_RH=   10.9180326    
+ X33_RH=   8.97049141    
+ X66_RH=   13.3089294    
  ***************
  ***************
- XMED_MOD_BEF=   10.7789459    
+ XMED_MOD_BEF=   11.6368198    
  ***************
  ##########################################
  ######## HIT_RATE for BEF ###########
  ##########################################
  Contingency table filled with numbers.
- Hit rate computed on        2462 points.
- X<   8.78360653       8.78360653     <X<   11.9032793     X>   11.9032793    
-   464.000000       243.000000       17.0000000    
-   262.000000       359.000000       176.000000    
-   95.0000000       219.000000       627.000000    
- POD(event1)=   56.5164452    
- POD(event2)=   43.7271614    
- POD(event3)=   76.4634094    
- PC=   58.8952065    
- ebd=   4.54914713    
+ LOGINFO Hit rate computed on        4048 points.
+ Number of points         4048 ;
+ LOGINFO X<   7.09000015       7.09000015     <X<   15.3199997     X>   15.3199997    
+ LOGINFO    326.000000       194.000000       0.00000000    
+ LOGINFO    318.000000       1816.00000       184.000000    
+ LOGINFO    45.0000000       337.000000       828.000000    
+ LOGINFO POD(event1)=   47.3149490    
+ LOGINFO POD(event2)=   77.3753738    
+ LOGINFO POD(event3)=   81.8181839    
+ LOGINFO PC=   73.3695602    
+ LOGINFO ebd=   1.11166000    
  ***************
- XMED_MOD_AFT=   10.3000011    
+ XMED_MOD_AFT=   11.0000000    
  ***************
  ##########################################
  ############ HIT_RATE for AFT #############
  ##########################################
  Contingency table filled with numbers.
- Hit rate computed on        2462 points.
- X<   8.78360653       8.78360653     <X<   11.9032793     X>   11.9032793    
-   724.000000       71.0000000       1.00000000    
-   93.0000000       686.000000       56.0000000    
-   4.00000000       64.0000000       763.000000    
- POD(event1)=   88.1851349    
- POD(event2)=   83.5566406    
- POD(event3)=   93.0487823    
- PC=   88.2615738    
- ebd=  0.203086928    
+ LOGINFO Hit rate computed on        4048 points.
+ Number of points         4048 ;
+ LOGINFO X<   7.09000015       7.09000015     <X<   15.3199997     X>   15.3199997    
+ LOGINFO    619.000000       106.000000       0.00000000    
+ LOGINFO    70.0000000       2172.00000       73.0000000    
+ LOGINFO    0.00000000       69.0000000       939.000000    
+ LOGINFO POD(event1)=   89.8403473    
+ LOGINFO POD(event2)=   92.5436707    
+ LOGINFO POD(event3)=   92.7865601    
+ LOGINFO PC=   92.1442719    
+ LOGINFO ebd=   0.00000000    

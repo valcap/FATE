@@ -64,41 +64,34 @@ cp night1_statistics.tex $WRKDIR/
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night1_contingency.tex
 echo '\subsection{Title for Contingency tables of Night 1}' >> night1_contingency.tex
 echo '\Blindtext[3] ' >> night1_contingency.tex 
-cat contingency_tableBEFws.tex contingency_tableAFTws.tex >> night1_contingency.tex
+cat contingency_tableBEFws.tex contingency_tableAFTws.tex contingency_tableAFTws_FT.tex >> night1_contingency.tex
 echo '\clearpage' >> night1_contingency.tex
-echo '\Blindtext[3] ' >> night1_contingency.tex 
 cat contingency_tableBEFwd.tex contingency_tableAFTwd.tex >> night1_contingency.tex
 echo '\clearpage' >> night1_contingency.tex
-echo '\Blindtext[3] ' >> night1_contingency.tex 
-cat contingency_tableBEFrh.tex contingency_tableAFTrh.tex >> night1_contingency.tex
+cat contingency_tableBEFrh.tex contingency_tableAFTrh.tex contingency_tableAFTrh_FT.tex >> night1_contingency.tex
 echo '\clearpage' >> night1_contingency.tex
-echo '\Blindtext[3] ' >> night1_contingency.tex 
 cat contingency_tableBEFpwv.tex contingency_tableAFTpwv.tex >> night1_contingency.tex
 echo '\clearpage' >> night1_contingency.tex
-echo '\Blindtext[3] ' >> night1_contingency.tex 
-# DOPO QUI LATEX NON COMPILA PIU CAUSA TROPPI FLOATING (TABELLE)
-#cat contingency_tableBEFsee_0.0.tex contingency_tableAFTsee_0.0.tex >> night1_contingency.tex 
-#echo '\clearpage' >> night1_contingency.tex
-#echo '\Blindtext[3] ' >> night1_contingency.tex 
-#cat contingency_tableBEFsee_0.24.tex contingency_tableAFTsee_0.24.tex >> night1_contingency.tex
-#echo '\Blindtext[3] ' >> night1_contingency.tex 
-#cat contingency_tableBEFtau_0.0.tex contingency_tableAFTtau_0.0.tex >> night1_contingency.tex
-#echo '\Blindtext[3] ' >> night1_contingency.tex 
-#cat   contingency_tableBEFtau_1.22.tex contingency_tableAFTtau_1.22.tex >> night1_contingency.tex
-#echo '\Blindtext[3] ' >> night1_contingency.tex 
-#cat contingency_tableBEFglf_0.0.tex contingency_tableAFTglf_0.0.tex >> night1_contingency.tex 
-#echo '\Blindtext[3] ' >> night1_contingency.tex 
-#cat   contingency_tableBEFglf_0.14.tex contingency_tableAFTglf_0.14.tex >> night1_contingency.tex
-#echo '\Blindtext[3] ' >> night1_contingency.tex 
-#echo '\clearpage' >> night1_contingency.tex
+cat contingency_tableBEFsee_0.0.tex contingency_tableAFTsee_0.0.tex >> night1_contingency.tex 
+echo '\clearpage' >> night1_contingency.tex
+cat contingency_tableBEFsee_0.24.tex contingency_tableAFTsee_0.24.tex >> night1_contingency.tex
+echo '\clearpage' >> night1_contingency.tex
+cat contingency_tableBEFtau_0.0.tex contingency_tableAFTtau_0.0.tex >> night1_contingency.tex
+echo '\clearpage' >> night1_contingency.tex
+cat   contingency_tableBEFtau_1.22.tex contingency_tableAFTtau_1.22.tex >> night1_contingency.tex
+echo '\clearpage' >> night1_contingency.tex
+cat contingency_tableBEFglf_0.0.tex contingency_tableAFTglf_0.0.tex >> night1_contingency.tex 
+echo '\clearpage' >> night1_contingency.tex
+cat   contingency_tableBEFglf_0.14.tex contingency_tableAFTglf_0.14.tex >> night1_contingency.tex
+echo '\clearpage' >> night1_contingency.tex
 cp night1_contingency.tex $WRKDIR/
 # PODs TABLES
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night1_PODs.tex
 echo '\subsection{Title for PODs tables of Night 1}' >> night1_PODs.tex
 echo '\Blindtext[3] ' >> night1_PODs.tex
-cat tablePODsws.tex tablePODswd.tex >> night1_PODs.tex
+cat tablePODsws.tex tablePODsws_FT.tex tablePODswd.tex >> night1_PODs.tex
 echo '\clearpage' >> night1_PODs.tex
-cat tablePODsrh.tex tablePODspwv.tex >> night1_PODs.tex
+cat tablePODsrh.tex tablePODsrh_FT.tex tablePODspwv.tex >> night1_PODs.tex
 echo '\clearpage' >> night1_PODs.tex
 cat tablePODssee_0.0.tex tablePODssee_0.24.tex >> night1_PODs.tex
 echo '\clearpage' >> night1_PODs.tex
@@ -135,11 +128,11 @@ cp day1_statistics.tex $WRKDIR/
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day1_contingency.tex
 echo '\subsection{Title for Contingency tables of Day 1}' >> day1_contingency.tex
 echo '\Blindtext[3] ' >> day1_contingency.tex
-cat contingency_tableBEFws.tex contingency_tableAFTws.tex >> day1_contingency.tex
+cat contingency_tableBEFws.tex contingency_tableAFTws.tex contingency_tableAFTws_FT.tex >> day1_contingency.tex
 echo '\clearpage' >> day1_contingency.tex
 cat contingency_tableBEFwd.tex contingency_tableAFTwd.tex >> day1_contingency.tex
 echo '\clearpage' >> day1_contingency.tex
-cat contingency_tableBEFrh.tex contingency_tableAFTrh.tex >> day1_contingency.tex
+cat contingency_tableBEFrh.tex contingency_tableAFTrh.tex contingency_tableAFTrh_FT.tex >> day1_contingency.tex
 echo '\clearpage' >> day1_contingency.tex
 cat contingency_tableBEFpwv.tex contingency_tableAFTpwv.tex >> day1_contingency.tex
 echo '\clearpage' >> day1_contingency.tex
@@ -149,8 +142,8 @@ echo '\clearpage' >> day1_contingency.tex
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day1_PODs.tex
 echo '\subsection{Title for PODs tables of Day 1}' >> day1_PODs.tex
 echo '\Blindtext[3] ' >> day1_PODs.tex
-cat tablePODsws.tex tablePODswd.tex \
-    tablePODsrh.tex tablePODspwv.tex >> day1_PODs.tex
+cat tablePODsws.tex tablePODsws_FT.tex tablePODswd.tex \
+    tablePODsrh.tex tablePODsrh_FT.tex tablePODspwv.tex >> day1_PODs.tex
 cp day1_PODs.tex $WRKDIR/
 
 ######################
@@ -280,7 +273,13 @@ cp day1_PODs.tex $WRKDIR/
 ##################################################################################
 ##################################################################################
 
+
+##################################################################################
+##################################################################################
+##################################################################################
+##################################################################################
 #################################################################
+cp $textLOGs_file $WRKDIR
 # TEMPLATE
 # Check and modify the template Latex file
 if [ ! -e $main_tmpl_file ]; then
@@ -299,10 +298,27 @@ if [ ! -f "$WRKDIR/main.tex" ]; then
   error "Cannot create $WRKDIR/main.tex. Exiting..."
 fi
 
+#Annex
+if [ ! -e $annex_tmpl_file ]; then
+  error "$annex_tmpl_file doe not exist"
+fi
+export LC_TIME="en_US.UTF-8"
+cat $annex_tmpl_file | sed -e "s!TODAYDATESTRING!$TODAYDATESTRING!"    | \
+                      sed -e "s!TODAYMONTHSTRING!$TODAYMONTHSTRING!"  | \
+                      sed -e "s!TODAYYEARSTRING!$TODAYYEARSTRING!"    | \
+                      sed -e "s!LASTMONTHSTRING!$LASTMONTHSTRING!"    | \
+                      sed -e "s!LASTYEARSTRING!$LASTYEARSTRING!"    > $WRKDIR/annex.tex
+if [ $? != 0 ]; then
+  error "Problem in creating $WRKDIR/annex.tex file"
+fi
+if [ ! -f "$WRKDIR/annex.tex" ]; then
+  error "Cannot create $WRKDIR/annex.tex. Exiting..."
+fi
+
 #################################################################
 # COMPILING THE LATEX FILE
 cd $WRKDIR
-notice "Compiling the Latex file"
+notice "Compiling the MAIN REPORT file"
 pdflatex main.tex > /dev/null 2>&1
 pdflatex main.tex > /dev/null 2>&1
 if [ $? != 0 ]; then
@@ -313,6 +329,19 @@ else
     notice "OK $report_pdf_file"
   else
     error "Generic error in cp -v main.pdf $report_pdf_file"
+  fi
+fi
+notice "Compiling the ANNEX file"
+pdflatex annex.tex > /dev/null 2>&1
+pdflatex annex.tex > /dev/null 2>&1
+if [ $? != 0 ]; then
+  error "Problem in compiling $WRKDIR/annex.tex file"
+else
+  cp annex.pdf $annex_pdf_file
+  if [ $? == 0 ]; then
+    notice "OK $annex_pdf_file"
+  else
+    error "Generic error in cp -v main.pdf $annex_pdf_file"
   fi
 fi
 

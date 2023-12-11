@@ -4,9 +4,36 @@ export LC_TIME="en_US.UTF-8"
 envfile_atmo=$HOME'/SCRIPTS/fate-report-atmo.env'
 envfile_astro=$HOME'/SCRIPTS/fate-report-astro.env'
 
-rm -f $HOME/WRKDIR/*.tex 
+# Source of env file
+if [ ! -e $envfile_atmo ]; then
+  echo "ops $envfile_atmo does not exist in "`pwd`; exit 1
+else 
+  source $envfile_atmo
+fi
+if [ ! -e $envfile_astro ]; then
+  echo "ops $envfile_astro does not exist in "`pwd`; exit 1
+else
+  source $envfile_astro
+fi
 
+##############
+# HOUSEKEEPING
+##############
+rm -f $WRKDIR/*.{tex,aux,toc,sty,out,log}
+rm -f $WRKDIR/main.{tex,aux,toc,sty,out,log,pdf}
+rm -f $WRKDIR/*.png
+for dd in night1 day1
+do
+  if [ -d $WRKDIR/$dd ]; then
+    rm -fr $WRKDIR/$dd/*
+  else
+    mkdir -p $WRKDIR/$dd
+  fi
+done
+
+########
 # NIGHT1
+########
 ./run_ws.sh     $envfile_astro
 ./run_wd.sh     $envfile_astro
 ./run_rh.sh     $envfile_astro
@@ -23,8 +50,11 @@ rm -f $HOME/WRKDIR/*.tex
 ./run_pwv.sh    $envfile_atmo
 ./run_skills.sh $envfile_atmo
 
-#./check_logs.sh $envfile_atmo
+# TABLE WITH OBSERVATIONS
+./check_logs_obs.sh $envfile_atmo
+./check_logs.sh $envfile_atmo
 
+# COMPILE LATEX FILE
 ./compile_report.sh $envfile_atmo
 
 exit 0

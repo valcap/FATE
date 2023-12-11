@@ -2,476 +2,410 @@
 \subsection{Title for Contingency tables of Night 1}
 \Blindtext[3] 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[h!]
+\begin{table}[t!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{$m s^{-1}$}                                       &                             & ws $<$ 5.3   & 5.3 $<$ ws $<$ 10.1 & ws $>$ 10.1 \\
+{$m s^{-1}$}                                       &                             & ws $<$ 4.2   & 4.2 $<$ ws $<$ 7.6 & ws $>$ 7.6 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 5.3             & 501                & 80                       & 0              \\
-                                                 & 5.3  $<$ ws $<$ 10.1 & 319                & 617                       & 214              \\
-                                                 & ws $>$ 10.1             & 6                & 129                       & 611              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 4.2             & 693                & 215                       & 3              \\
+                                                 & 4.2  $<$ ws $<$ 7.6 & 411                & 597                       & 224              \\
+                                                 & ws $>$ 7.6             & 50                & 274                       & 1618              \\
 \hline 
-\multicolumn{5}{l}{Sample size: 3996; PC=69.8\%; EBD=0.2\%; POD1=60.7\%; POD2=74.7\%; POD3=74.1\%}                 \\
+\multicolumn{5}{l}{ Number of points         4085 ; PC=71.2\%; EBD=1.3\%; POD1=60.1\%; POD2=55.0\%; POD3=87.7\%}                 \\
 \end{tabular}
 \end{center}
-\caption{Contingency table for {wind speed} ($m s^{-1}$) in standard configuration}
+\caption{night1 - Contingency table for {wind speed} ($m s^{-1}$) in standard configuration}
 \label{tab:contingencywsBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[h!]
+\begin{table}[t!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{$m s^{-1}$}                                       &                             & ws $<$ 5.3   & 5.3 $<$ ws $<$ 10.1 & ws $>$ 10.1 \\
+{$m s^{-1}$}                                       &                             & ws $<$ 4.2   & 4.2 $<$ ws $<$ 7.6 & ws $>$ 7.6 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 5.3             & 778                & 45                       & 0              \\
-                                                 & 5.3  $<$ ws $<$ 10.1 & 48                & 743                       & 50              \\
-                                                 & ws $>$ 10.1             & 0                & 38                       & 775              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 4.2             & 1087                & 82                       & 0              \\
+                                                 & 4.2  $<$ ws $<$ 7.6 & 67                & 944                       & 29              \\
+                                                 & ws $>$ 7.6             & 0                & 60                       & 1816              \\
 \hline 
-\multicolumn{5}{l}{Sample size: 3996; PC=92.7\%; EBD=0.0\%; POD1=94.2\%; POD2=90.0\%; POD3=93.9\%}                 \\
+\multicolumn{5}{l}{ Number of points         4085 ; PC=94.2\%; EBD=0.0\%; POD1=94.2\%; POD2=86.9\%; POD3=98.4\%}                 \\
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable wind speed ($m s^{-1}$) processed with AR (1H)}
+\caption{night1 - Contingency table for  wind speed ($m s^{-1}$) processed with AR (1H)}
 \label{tab:contingencywsAFT}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[t!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{$m s^{-1}$}                                       &                             & ws $<$ 12.0   & 12.0 $<$ ws $<$ 18.0 & ws $>$ 18.0 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 12.0             & 3259                & 61                       & 0              \\
+                                                 & 12.0  $<$ ws $<$ 18.0 & 42                & 612                       & 12              \\
+                                                 & ws $>$ 18.0             & 0                & 6                       & 93              \\
+\hline 
+\multicolumn{5}{l}{ Number of points         4085 ; PC=97.0\%; EBD=0.0\%; POD1=98.7\%; POD2=90.1\%; POD3=88.6\%}                 \\
+\end{tabular}
+\end{center}
+\caption{night1 - Contingency table for  wind speed ($m s^{-1}$) processed with AR (1H) and thresholds (12.0,18.0) $m s^{-1}$}
+\label{tab:contingencywsAFT}
+\end{table}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llcccc}
 \hline
 {wind direction}                                       &                             &    \multicolumn{4}{c}{Observations}                 \\
 {degree}                                       &                             & {North}   & {East} & {South} & {West} \\
 \hline
-\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}                    & 1371   & 35    & 14     & 45\\
-                                                 & {East}                     & 25   & 90    & 34     & 0\\
-                                                 & {South}                    & 5   & 15   & 345    & 0\\
-                                                 & {West}                     & 45  & 2   & 1    & 60\\
+\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}                    & 2318   & 101    & 14     & 62\\
+                                                 & {East}                     & 49   & 133    & 38     & 0\\
+                                                 & {South}                    & 5   & 36   & 374    & 32\\
+                                                 & {West}                     & 99  & 17   & 1    & 75\\
 \hline 
-\multicolumn{6}{l}{Sample size: 3996; PC=89.4\%; EBD=1.0\%; POD1=94.8\%; POD2=63.4\%; POD3=87.6\%; POD4=57.1\%}                 \\
+\multicolumn{6}{l}{ Number of points         3354 ; PC=86.5\%; EBD=1.1\%; POD1=93.8\%; POD2=46.3\%; POD3=87.6\%; POD4=44.4\%}                 \\
 \end{tabular}
 \end{center}
-\caption{Contingency table for {wind direction} (degree) in standard configuration}
+\caption{night1 - Contingency table for {wind direction} (degree) in standard configuration}
 \label{tab:contingencywdBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llcccc}
 \hline
 {wind direction}                                       &                                                    & \multicolumn{4}{c}{Observations}                 \\
 {degree}                                       &                             & {North}   & {East} & {South} & {West} \\
 \hline
-\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}              & 1437                & 17                       & 0              & 3\\
-                                                 & {East}               & 5                & 116                       & 3              & 0\\
-                                                 & {South}              & 0                & 9                      & 389             & 0\\
-                                                 & {West}               & 4               & 0                      & 2             & 102\\
+\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}              & 2452                & 30                       & 0              & 5\\
+                                                 & {East}               & 14                & 243                       & 5              & 0\\
+                                                 & {South}              & 0                & 14                      & 418             & 0\\
+                                                 & {West}               & 5               & 0                      & 4             & 164\\
 \hline 
-\multicolumn{6}{l}{Sample size: 3996; PC=97.9\%; EBD=0.0\%; POD1=99.4\%; POD2=81.7\%; POD3=98.7\%; POD4=97.1\%}                 \\
+\multicolumn{6}{l}{ Number of points         3354 ; PC=97.7\%; EBD=0.0\%; POD1=99.2\%; POD2=84.7\%; POD3=97.9\%; POD4=97.0\%}                 \\
 \end{tabular}
 \end{center}
-\caption{Contingency table for {wind direction} (degree) in standard configuration}
+\caption{night1 - Contingency table for {wind direction} (degree) processed with AR (1H)}
 \label{tab:contingencywdAFT}
 \end{table}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {relative humidity}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{percent}                                       &                             & rh $<$ 7.9   & 7.9 $<$ rh $<$ 11.2 & rh $>$ 11.2 \\
+{percent}                                       &                             & rh $<$ 7.1   & 7.1 $<$ rh $<$ 15.3 & rh $>$ 15.3 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.9             & 466                & 286                       & 49              \\
-                                                 & 7.9  $<$ rh $<$ 11.2 & 198                & 330                       & 171              \\
-                                                 & rh $>$ 11.2             & 148                & 196                       & 592              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.1             & 581                & 350                       & 11              \\
+                                                 & 7.1  $<$ rh $<$ 15.3 & 538                & 1359                       & 149              \\
+                                                 & rh $>$ 15.3             & 50                & 261                       & 666              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3996; PC=57.0\%; EBD=8.1\%; POD1=57.4\%; POD2=40.6\%; POD3=72.9\%}
+\multicolumn{5}{l}{ Number of points         3965 ; PC=65.7\%; EBD=1.5\%; POD1=49.7\%; POD2=69.0\%; POD3=80.6\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable relative humidity (percent) in standard configuration}
+\caption{night1 - Contingency table for  relative humidity (percent) in standard configuration}
 \label{tab:contingencyrhBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {relative humidity}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{percent}                                       &                             & rh $<$ 7.9   & 7.9 $<$ rh $<$ 11.2 & rh $>$ 11.2 \\
+{percent}                                       &                             & rh $<$ 7.1   & 7.1 $<$ rh $<$ 15.3 & rh $>$ 15.3 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.9             & 774                & 40                       & 2              \\
-                                                 & 7.9  $<$ rh $<$ 11.2 & 38                & 728                       & 43              \\
-                                                 & rh $>$ 11.2             & 0                & 44                       & 767              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.1             & 1083                & 74                       & 2              \\
+                                                 & 7.1  $<$ rh $<$ 15.3 & 85                & 1857                       & 48              \\
+                                                 & rh $>$ 15.3             & 1                & 39                       & 776              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3996; PC=93.1\%; EBD=0.1\%; POD1=95.3\%; POD2=89.7\%; POD3=94.5\%}
+\multicolumn{5}{l}{ Number of points         3965 ; PC=93.7\%; EBD=0.1\%; POD1=92.6\%; POD2=94.3\%; POD3=93.9\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable relative humidity (percent) processed with AR (1H)}
+\caption{night1 - Contingency table for  relative humidity (percent) processed with AR (1H)}
 \label{tab:contingencyrhAFT}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{relative humidity}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{percent}                                       &                             & rh $<$ 50.0   & 50.0 $<$ rh $<$ 70.0 & rh $>$ 70.0 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 50.0             & 3964                & 0                       & 0              \\
+                                                 & 50.0  $<$ rh $<$ 70.0 & 1                & 0                       & 0              \\
+                                                 & rh $>$ 70.0             & 0                & 0                       & 0              \\
+\hline
+\multicolumn{5}{l}{ Number of points         3965 ; PC=100.0\%; EBD=0.0\%; POD1=100.0\%; POD2=NaN\%; POD3=NaN\%}
+\end{tabular}
+\end{center}
+\caption{night1 - Contingency table for  relative humidity (percent) processed with AR (1H) and thresholds (50,70) percent}
+\label{tab:contingencyrhAFT}
+\end{table}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {precipitable water vapor}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{mm}                                       &                             & pwv $<$ 1.9   & 1.9 $<$ pwv $<$ 3.1 & pwv $>$ 3.1 \\
+{mm}                                       &                             & pwv $<$ 1.9   & 1.9 $<$ pwv $<$ 3.5 & pwv $>$ 3.5 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 379                & 66                       & 0              \\
-                                                 & 1.9  $<$ pwv $<$ 3.1 & 10                & 306                       & 141              \\
-                                                 & pwv $>$ 3.1             & 0                & 17                       & 248              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 1168                & 230                       & 0              \\
+                                                 & 1.9  $<$ pwv $<$ 3.5 & 51                & 1143                       & 325              \\
+                                                 & pwv $>$ 3.5             & 0                & 76                       & 867              \\
 \hline
-\multicolumn{5}{l}{Sample size: 1998; PC=79.9\%; EBD=0.0\%; POD1=97.4\%; POD2=78.7\%; POD3=63.8\%}                 \\
+\multicolumn{5}{l}{ Number of points         3860 ; PC=82.3\%; EBD=0.0\%; POD1=95.8\%; POD2=78.9\%; POD3=72.7\%}                 \\
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable precipitable water vapor (mm) in standard configuration}
+\caption{night1 - Contingency table for  precipitable water vapor (mm) in standard configuration  }
 \label{tab:contingencypwvBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {precipitable water vapor}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{mm}                                       &                             & pwv $<$ 1.9   & 1.9 $<$ pwv $<$ 3.1 & pwv $>$ 3.1 \\
+{mm}                                       &                             & pwv $<$ 1.9   & 1.9 $<$ pwv $<$ 3.5 & pwv $>$ 3.5 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 386                & 11                       & 0              \\
-                                                 & 1.9  $<$ pwv $<$ 3.1 & 3                & 371                       & 14              \\
-                                                 & pwv $>$ 3.1             & 0                & 7                       & 375              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 1198                & 30                       & 0              \\
+                                                 & 1.9  $<$ pwv $<$ 3.5 & 21                & 1410                       & 22              \\
+                                                 & pwv $>$ 3.5             & 0                & 9                       & 1170              \\
 \hline 
-\multicolumn{5}{l}{Sample size: 1998; PC=97.0\%; EBD=0.0\%; POD1=99.2\%; POD2=95.4\%; POD3=96.4\%}
+\multicolumn{5}{l}{ Number of points         3860 ; PC=97.9\%; EBD=0.0\%; POD1=98.3\%; POD2=97.3\%; POD3=98.2\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable precipitable water vapor (mm) processed with AR (1H)}
+\caption{night1 - Contingency table for  precipitable water vapor (mm) processed with AR (1H)  }
 \label{tab:contingencypwvAFT}
 \end{table}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{arcsec}                                       &                             & see $<$ 0.7   & 0.7 $<$ see $<$ 1.0 & see $>$ 1.0 \\
+{arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.7             & 221                & 203                       & 98              \\
-                                                 & 0.7  $<$ see $<$ 1.0 & 137                & 141                       & 151              \\
-                                                 & see $>$ 1.0             & 42                & 56                       & 151              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 277                & 228                       & 77              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 159                & 274                       & 363              \\
+                                                 & see $>$ 0.8             & 36                & 153                       & 403              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3024; PC=42.8\%; EBD=11.7\%; POD1=55.2\%; POD2=35.2\%; POD3=37.8\%}
+\multicolumn{5}{l}{ Number of points         1970 ; PC=48.4\%; EBD=5.7\%; POD1=58.7\%; POD2=41.8\%; POD3=47.8\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable total seeing (arcsec) in standard configuration and accuracy 0.0}
+\caption{night1 - Contingency table for  total seeing (arcsec) in standard configuration and accuracy 0.0}
 \label{tab:contingencyseeBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{arcsec}                                       &                             & see $<$ 0.7   & 0.7 $<$ see $<$ 1.0 & see $>$ 1.0 \\
+{arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.7             & 425                & 44                       & 1              \\
-                                                 & 0.7  $<$ see $<$ 1.0 & 35                & 374                       & 37              \\
-                                                 & see $>$ 1.0             & 1                & 43                       & 422              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 487                & 99                       & 0              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 64                & 508                       & 51              \\
+                                                 & see $>$ 0.8             & 0                & 61                       & 1010              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3024; PC=88.4\%; EBD=0.1\%; POD1=92.2\%; POD2=81.1\%; POD3=91.7\%}
+\multicolumn{5}{l}{ Number of points         1970 ; PC=87.9\%; EBD=0.0\%; POD1=88.4\%; POD2=76.0\%; POD3=95.2\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable total seeing (arcsec) processed with AR (1H) and accuracy 0.0}
-\label{tab:contingencyseeAFT}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{arcsec}                                       &                             & see $<$ 0.7   & 0.7 $<$ see $<$ 1.0 & see $>$ 1.0 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.7             & 425                & 44                       & 1              \\
-                                                 & 0.7  $<$ see $<$ 1.0 & 35                & 374                       & 37              \\
-                                                 & see $>$ 1.0             & 1                & 43                       & 422              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=88.4\%; EBD=0.1\%; POD1=92.2\%; POD2=81.1\%; POD3=91.7\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable total seeing (arcsec) processed with AR (1H) and accuracy 0.0}
-\label{tab:contingencyseeAFT}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{arcsec}                                       &                             & see $<$ 0.7   & 0.7 $<$ see $<$ 1.0 & see $>$ 1.0 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.7             & 362                & 0                       & 92              \\
-                                                 & 0.7  $<$ see $<$ 1.0 & 0                & 391                       & 92              \\
-                                                 & see $>$ 1.0             & 38                & 9                       & 308              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=88.4\%; EBD=10.8\%; POD1=90.5\%; POD2=97.8\%; POD3=62.6\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable total seeing (arcsec) in standard configuration and accuracy 0.24}
-\label{tab:contingencyseeBEF}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{arcsec}                                       &                             & see $<$ 0.7   & 0.7 $<$ see $<$ 1.0 & see $>$ 1.0 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.7             & 459                & 0                       & 3              \\
-                                                 & 0.7  $<$ see $<$ 1.0 & 1                & 456                       & 3              \\
-                                                 & see $>$ 1.0             & 1                & 5                       & 457              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=99.3\%; EBD=0.3\%; POD1=99.6\%; POD2=98.9\%; POD3=98.7\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable total seeing (arcsec) processed with AR (1H) and accuracy 0.24}
-\label{tab:contingencyseeAFT}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{arcsec}                                       &                             & see $<$ 0.7   & 0.7 $<$ see $<$ 1.0 & see $>$ 1.0 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.7             & 459                & 0                       & 3              \\
-                                                 & 0.7  $<$ see $<$ 1.0 & 1                & 456                       & 3              \\
-                                                 & see $>$ 1.0             & 1                & 5                       & 457              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=99.3\%; EBD=0.3\%; POD1=99.6\%; POD2=98.9\%; POD3=98.7\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable total seeing (arcsec) processed with AR (1H) and accuracy 0.24}
+\caption{night1 - Contingency table for  total seeing (arcsec) processed with AR (1H) and accuracy 0.0}
 \label{tab:contingencyseeAFT}
 \end{table}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 440                & 0                       & 58              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 0                & 627                       & 58              \\
+                                                 & see $>$ 0.8             & 32                & 28                       & 785              \\
+\hline
+\multicolumn{5}{l}{ Number of points         1970 ; PC=94.0\%; EBD=4.6\%; POD1=93.2\%; POD2=95.7\%; POD3=87.1\%}
+\end{tabular}
+\end{center}
+\caption{night1 - Contingency table for  total seeing (arcsec) in standard configuration and accuracy 0.24}
+\label{tab:contingencyseeBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 551                & 0                       & 0              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 0                & 666                       & 0              \\
+                                                 & see $>$ 0.8             & 0                & 2                       & 1061              \\
+\hline
+\multicolumn{5}{l}{ Number of points         1970 ; PC=99.9\%; EBD=0.0\%; POD1=100.0\%; POD2=99.7\%; POD3=100.0\%}
+\end{tabular}
+\end{center}
+\caption{night1 - Contingency table for  total seeing (arcsec) processed with AR (1H) and accuracy 0.24}
+\label{tab:contingencyseeAFT}
+\end{table}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{ms}                                       &                             & tau $<$ 2.4   & 2.4 $<$ tau $<$ 3.5 & tau $>$ 3.5 \\
+{ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 2.4             & 266                & 88                       & 12              \\
-                                                 & 2.4  $<$ tau $<$ 3.5 & 94                & 185                       & 132              \\
-                                                 & tau $>$ 3.5             & 66                & 153                       & 282              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 760                & 164                       & 0              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 249                & 405                       & 106              \\
+                                                 & tau $>$ 5.8             & 28                & 113                       & 197              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3024; PC=57.4\%; EBD=6.1\%; POD1=62.4\%; POD2=43.4\%; POD3=66.2\%}
+\multicolumn{5}{l}{ Number of points         2022 ; PC=67.4\%; EBD=1.4\%; POD1=73.3\%; POD2=59.4\%; POD3=65.0\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable coeherence time (ms) in standard configuration and accuracy 0.0}
+\caption{night1 - Contingency table for  coeherence time (ms) in standard configuration and accuracy 0.0}
 \label{tab:contingencytauBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{ms}                                       &                             & tau $<$ 2.4   & 2.4 $<$ tau $<$ 3.5 & tau $>$ 3.5 \\
+{ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 2.4             & 392                & 28                       & 0              \\
-                                                 & 2.4  $<$ tau $<$ 3.5 & 33                & 375                       & 28              \\
-                                                 & tau $>$ 3.5             & 1                & 23                       & 398              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 1003                & 53                       & 0              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 34                & 592                       & 29              \\
+                                                 & tau $>$ 5.8             & 0                & 37                       & 274              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3024; PC=91.2\%; EBD=0.1\%; POD1=92.0\%; POD2=88.0\%; POD3=93.4\%}
+\multicolumn{5}{l}{ Number of points         2022 ; PC=92.4\%; EBD=0.0\%; POD1=96.7\%; POD2=86.8\%; POD3=90.4\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable coeherence time (ms) processed with AR (1H) and accuracy 0.0}
-\label{tab:contingencytauAFT}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{ms}                                       &                             & tau $<$ 2.4   & 2.4 $<$ tau $<$ 3.5 & tau $>$ 3.5 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 2.4             & 392                & 28                       & 0              \\
-                                                 & 2.4  $<$ tau $<$ 3.5 & 33                & 375                       & 28              \\
-                                                 & tau $>$ 3.5             & 1                & 23                       & 398              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=91.2\%; EBD=0.1\%; POD1=92.0\%; POD2=88.0\%; POD3=93.4\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable coeherence time (ms) processed with AR (1H) and accuracy 0.0}
-\label{tab:contingencytauAFT}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{ms}                                       &                             & tau $<$ 2.4   & 2.4 $<$ tau $<$ 3.5 & tau $>$ 3.5 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 2.4             & 370                & 0                       & 12              \\
-                                                 & 2.4  $<$ tau $<$ 3.5 & 0                & 378                       & 12              \\
-                                                 & tau $>$ 3.5             & 56                & 48                       & 414              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=90.9\%; EBD=5.3\%; POD1=86.9\%; POD2=88.7\%; POD3=94.5\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable coeherence time (ms) in standard configuration and accuracy 1.22}
-\label{tab:contingencytauBEF}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{ms}                                       &                             & tau $<$ 2.4   & 2.4 $<$ tau $<$ 3.5 & tau $>$ 3.5 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 2.4             & 425                & 0                       & 0              \\
-                                                 & 2.4  $<$ tau $<$ 3.5 & 0                & 426                       & 0              \\
-                                                 & tau $>$ 3.5             & 1                & 0                       & 426              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=99.9\%; EBD=0.1\%; POD1=99.8\%; POD2=100.0\%; POD3=100.0\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable coeherence time (ms) processed with AR (1H) and accuracy 1.22}
-\label{tab:contingencytauAFT}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{ms}                                       &                             & tau $<$ 2.4   & 2.4 $<$ tau $<$ 3.5 & tau $>$ 3.5 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 2.4             & 425                & 0                       & 0              \\
-                                                 & 2.4  $<$ tau $<$ 3.5 & 0                & 426                       & 0              \\
-                                                 & tau $>$ 3.5             & 1                & 0                       & 426              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=99.9\%; EBD=0.1\%; POD1=99.8\%; POD2=100.0\%; POD3=100.0\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable coeherence time (ms) processed with AR (1H) and accuracy 1.22}
+\caption{night1 - Contingency table for  coeherence time (ms) processed with AR (1H) and accuracy 0.0}
 \label{tab:contingencytauAFT}
 \end{table}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 975                & 12                       & 66              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 34                & 605                       & 66              \\
+                                                 & tau $>$ 5.8             & 28                & 65                       & 237              \\
+\hline
+\multicolumn{5}{l}{ Number of points         2022 ; PC=89.9\%; EBD=4.6\%; POD1=94.0\%; POD2=88.7\%; POD3=64.2\%}
+\end{tabular}
+\end{center}
+\caption{night1 - Contingency table for  coeherence time (ms) in standard configuration and accuracy 1.22}
+\label{tab:contingencytauBEF}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{coeherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 1037                & 0                       & 2              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 0                & 681                       & 2              \\
+                                                 & tau $>$ 5.8             & 0                & 1                       & 301              \\
+\hline
+\multicolumn{5}{l}{ Number of points         2022 ; PC=99.9\%; EBD=0.1\%; POD1=100.0\%; POD2=99.9\%; POD3=98.7\%}
+\end{tabular}
+\end{center}
+\caption{night1 - Contingency table for  coeherence time (ms) processed with AR (1H) and accuracy 1.22}
+\label{tab:contingencytauAFT}
+\end{table}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{dimensionless}                                       &                             & glf $<$ 0.5   & 0.5 $<$ glf $<$ 0.6 & glf $>$ 0.6 \\
+{dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.5             & 182                & 76                       & 48              \\
-                                                 & 0.5  $<$ glf $<$ 0.6 & 157                & 209                       & 234              \\
-                                                 & glf $>$ 0.6             & 92                & 146                       & 149              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 540                & 316                       & 171              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 247                & 357                       & 239              \\
+                                                 & glf $>$ 0.7             & 101                & 62                       & 79              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3024; PC=41.8\%; EBD=10.8\%; POD1=42.2\%; POD2=48.5\%; POD3=34.6\%}
+\multicolumn{5}{l}{ Number of points         2112 ; PC=46.2\%; EBD=12.9\%; POD1=60.8\%; POD2=48.6\%; POD3=16.2\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable ground layer fraction (dimensionless) in standard configuration and accuracy 0.0}
+\caption{night1 - Contingency table for  ground layer fraction (dimensionless) in standard configuration and accuracy 0.0}
 \label{tab:contingencyglfBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{dimensionless}                                       &                             & glf $<$ 0.5   & 0.5 $<$ glf $<$ 0.6 & glf $>$ 0.6 \\
+{dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.5             & 375                & 55                       & 3              \\
-                                                 & 0.5  $<$ glf $<$ 0.6 & 55                & 309                       & 69              \\
-                                                 & glf $>$ 0.6             & 1                & 67                       & 359              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 808                & 117                       & 1              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 79                & 530                       & 82              \\
+                                                 & glf $>$ 0.7             & 1                & 88                       & 406              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3024; PC=80.7\%; EBD=0.3\%; POD1=87.0\%; POD2=71.7\%; POD3=83.3\%}
+\multicolumn{5}{l}{ Number of points         2112 ; PC=82.6\%; EBD=0.1\%; POD1=91.0\%; POD2=72.1\%; POD3=83.0\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable ground layer fraction (dimensionless) processed with AR (1H) and accuracy 0.0}
+\caption{night1 - Contingency table for  ground layer fraction (dimensionless) processed with AR (1H) and accuracy 0.0}
 \label{tab:contingencyglfAFT}
 \end{table}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{dimensionless}                                       &                             & glf $<$ 0.5   & 0.5 $<$ glf $<$ 0.6 & glf $>$ 0.6 \\
+{dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.5             & 375                & 55                       & 3              \\
-                                                 & 0.5  $<$ glf $<$ 0.6 & 55                & 309                       & 69              \\
-                                                 & glf $>$ 0.6             & 1                & 67                       & 359              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 779                & 76                       & 188              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 8                & 648                       & 134              \\
+                                                 & glf $>$ 0.7             & 101                & 11                       & 301              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3024; PC=80.7\%; EBD=0.3\%; POD1=87.0\%; POD2=71.7\%; POD3=83.3\%}
+\multicolumn{5}{l}{ Number of points         2112 ; PC=81.8\%; EBD=13.7\%; POD1=87.7\%; POD2=88.2\%; POD3=48.3\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable ground layer fraction (dimensionless) processed with AR (1H) and accuracy 0.0}
-\label{tab:contingencyglfAFT}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{dimensionless}                                       &                             & glf $<$ 0.5   & 0.5 $<$ glf $<$ 0.6 & glf $>$ 0.6 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.5             & 319                & 17                       & 67              \\
-                                                 & 0.5  $<$ glf $<$ 0.6 & 20                & 393                       & 54              \\
-                                                 & glf $>$ 0.6             & 92                & 21                       & 364              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=83.2\%; EBD=12.3\%; POD1=74.0\%; POD2=91.2\%; POD3=75.1\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable ground layer fraction (dimensionless) in standard configuration and accuracy 0.14}
+\caption{night1 - Contingency table for  ground layer fraction (dimensionless) in standard configuration and accuracy 0.14}
 \label{tab:contingencyglfBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{dimensionless}                                       &                             & glf $<$ 0.5   & 0.5 $<$ glf $<$ 0.6 & glf $>$ 0.6 \\
+{dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.5             & 427                & 3                       & 5              \\
-                                                 & 0.5  $<$ glf $<$ 0.6 & 3                & 427                       & 3              \\
-                                                 & glf $>$ 0.6             & 1                & 1                       & 426              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 887                & 6                       & 2              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 0                & 728                       & 2              \\
+                                                 & glf $>$ 0.7             & 1                & 1                       & 487              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3024; PC=99.0\%; EBD=0.5\%; POD1=99.1\%; POD2=99.1\%; POD3=98.2\%}
+\multicolumn{5}{l}{ Number of points         2112 ; PC=99.5\%; EBD=0.1\%; POD1=99.9\%; POD2=99.0\%; POD3=99.2\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable ground layer fraction (dimensionless) processed with AR (1H) and accuracy 0.14}
+\caption{night1 - Contingency table for  ground layer fraction (dimensionless) processed with AR (1H) and accuracy 0.14}
 \label{tab:contingencyglfAFT}
 \end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
-\begin{center}
-\begin{tabular}{llccc}
-\hline
-{ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{dimensionless}                                       &                             & glf $<$ 0.5   & 0.5 $<$ glf $<$ 0.6 & glf $>$ 0.6 \\
-\hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.5             & 427                & 3                       & 5              \\
-                                                 & 0.5  $<$ glf $<$ 0.6 & 3                & 427                       & 3              \\
-                                                 & glf $>$ 0.6             & 1                & 1                       & 426              \\
-\hline
-\multicolumn{5}{l}{Sample size: 3024; PC=99.0\%; EBD=0.5\%; POD1=99.1\%; POD2=99.1\%; POD3=98.2\%}
-\end{tabular}
-\end{center}
-\caption{Contingency table for variable ground layer fraction (dimensionless) processed with AR (1H) and accuracy 0.14}
-\label{tab:contingencyglfAFT}
-\end{table}
+\clearpage

@@ -2,75 +2,188 @@
 \subsection{Title for Contingency tables of Day 1}
 \Blindtext[3] 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[h!]
+\begin{table}[t!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{$m s^{-1}$}                                       &                             & ws $<$ 5.7   & 5.7 $<$ ws $<$ 10.5 & ws $>$ 10.5 \\
+{$m s^{-1}$}                                       &                             & ws $<$ 4.2   & 4.2 $<$ ws $<$ 7.6 & ws $>$ 7.6 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 5.7             & 430                & 63                       & 8              \\
-                                                 & 5.7  $<$ ws $<$ 10.5 & 370                & 638                       & 169              \\
-                                                 & ws $>$ 10.5             & 0                & 98                       & 622              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 4.2             & 221                & 67                       & 1              \\
+                                                 & 4.2  $<$ ws $<$ 7.6 & 424                & 979                       & 357              \\
+                                                 & ws $>$ 7.6             & 34                & 236                       & 1687              \\
 \hline 
-\multicolumn{5}{l}{Sample size: 3996; PC=70.5\%; EBD=0.3\%; POD1=53.8\%; POD2=79.8\%; POD3=77.8\%}                 \\
+\multicolumn{5}{l}{ Number of points         4006 ; PC=72.1\%; EBD=0.9\%; POD1=32.5\%; POD2=76.4\%; POD3=82.5\%}                 \\
 \end{tabular}
 \end{center}
-\caption{Contingency table for {wind speed} ($m s^{-1}$) in standard configuration}
+\caption{day1 - Contingency table for {wind speed} ($m s^{-1}$) in standard configuration}
 \label{tab:contingencywsBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[t!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{$m s^{-1}$}                                       &                             & ws $<$ 4.2   & 4.2 $<$ ws $<$ 7.6 & ws $>$ 7.6 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 4.2             & 593                & 90                       & 0              \\
+                                                 & 4.2  $<$ ws $<$ 7.6 & 86                & 1129                       & 89              \\
+                                                 & ws $>$ 7.6             & 0                & 63                       & 1956              \\
+\hline 
+\multicolumn{5}{l}{ Number of points         4006 ; PC=91.8\%; EBD=0.0\%; POD1=87.3\%; POD2=88.1\%; POD3=95.6\%}                 \\
+\end{tabular}
+\end{center}
+\caption{day1 - Contingency table for  wind speed ($m s^{-1}$) processed with AR (1H)}
+\label{tab:contingencywsAFT}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[t!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{$m s^{-1}$}                                       &                             & ws $<$ 12.0   & 12.0 $<$ ws $<$ 18.0 & ws $>$ 18.0 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 12.0             & 2982                & 66                       & 0              \\
+                                                 & 12.0  $<$ ws $<$ 18.0 & 50                & 643                       & 32              \\
+                                                 & ws $>$ 18.0             & 0                & 19                       & 214              \\
+\hline 
+\multicolumn{5}{l}{ Number of points         4006 ; PC=95.8\%; EBD=0.0\%; POD1=98.4\%; POD2=88.3\%; POD3=87.0\%}                 \\
+\end{tabular}
+\end{center}
+\caption{day1 - Contingency table for  wind speed ($m s^{-1}$) processed with AR (1H) and thresholds (12.0,18.0) $m s^{-1}$}
+\label{tab:contingencywsAFT}
+\end{table}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llcccc}
 \hline
 {wind direction}                                       &                             &    \multicolumn{4}{c}{Observations}                 \\
 {degree}                                       &                             & {North}   & {East} & {South} & {West} \\
 \hline
-\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}                    & 1202   & 38    & 0     & 45\\
-                                                 & {East}                     & 1   & 42    & 8     & 0\\
-                                                 & {South}                    & 0   & 0   & 251    & 73\\
-                                                 & {West}                     & 196  & 0   & 10    & 365\\
+\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}                    & 1922   & 96    & 0     & 57\\
+                                                 & {East}                     & 23   & 77    & 8     & 0\\
+                                                 & {South}                    & 0   & 0   & 254    & 83\\
+                                                 & {West}                     & 582  & 0   & 10    & 584\\
 \hline 
-\multicolumn{6}{l}{Sample size: 3996; PC=83.4\%; EBD=0.0\%; POD1=85.9\%; POD2=52.5\%; POD3=93.3\%; POD4=75.6\%}                 \\
+\multicolumn{6}{l}{ Number of points         3696 ; PC=76.8\%; EBD=0.0\%; POD1=76.1\%; POD2=44.5\%; POD3=93.4\%; POD4=80.7\%}                 \\
 \end{tabular}
 \end{center}
-\caption{Contingency table for {wind direction} (degree) in standard configuration}
+\caption{day1 - Contingency table for {wind direction} (degree) in standard configuration}
 \label{tab:contingencywdBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
+\begin{center}
+\begin{tabular}{llcccc}
+\hline
+{wind direction}                                       &                                                    & \multicolumn{4}{c}{Observations}                 \\
+{degree}                                       &                             & {North}   & {East} & {South} & {West} \\
+\hline
+\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}              & 2438                & 25                       & 0              & 53\\
+                                                 & {East}               & 15                & 148                       & 0              & 0\\
+                                                 & {South}              & 0                & 0                      & 265             & 8\\
+                                                 & {West}               & 74               & 0                      & 7             & 663\\
+\hline 
+\multicolumn{6}{l}{ Number of points         3696 ; PC=95.1\%; EBD=0.0\%; POD1=96.5\%; POD2=85.5\%; POD3=97.4\%; POD4=91.6\%}                 \\
+\end{tabular}
+\end{center}
+\caption{day1 - Contingency table for {wind direction} (degree) processed with AR (1H)}
+\label{tab:contingencywdAFT}
+\end{table}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {relative humidity}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{percent}                                       &                             & rh $<$ 8.9   & 8.9 $<$ rh $<$ 12.0 & rh $>$ 12.0 \\
+{percent}                                       &                             & rh $<$ 7.1   & 7.1 $<$ rh $<$ 15.3 & rh $>$ 15.3 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 8.9             & 479                & 255                       & 11              \\
-                                                 & 8.9  $<$ rh $<$ 12.0 & 223                & 333                       & 183              \\
-                                                 & rh $>$ 12.0             & 97                & 210                       & 604              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.1             & 326                & 194                       & 0              \\
+                                                 & 7.1  $<$ rh $<$ 15.3 & 318                & 1749                       & 184              \\
+                                                 & rh $>$ 15.3             & 45                & 337                       & 828              \\
 \hline
-\multicolumn{5}{l}{Sample size: 3996; PC=59.1\%; EBD=4.5\%; POD1=59.9\%; POD2=41.7\%; POD3=75.7\%}
+\multicolumn{5}{l}{ Number of points         3981 ; PC=72.9\%; EBD=1.1\%; POD1=47.3\%; POD2=76.7\%; POD3=81.8\%}
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable relative humidity (percent) in standard configuration}
+\caption{day1 - Contingency table for  relative humidity (percent) in standard configuration}
 \label{tab:contingencyrhBEF}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{relative humidity}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{percent}                                       &                             & rh $<$ 7.1   & 7.1 $<$ rh $<$ 15.3 & rh $>$ 15.3 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.1             & 617                & 63                       & 0              \\
+                                                 & 7.1  $<$ rh $<$ 15.3 & 72                & 2147                       & 41              \\
+                                                 & rh $>$ 15.3             & 0                & 70                       & 971              \\
+\hline
+\multicolumn{5}{l}{ Number of points         3981 ; PC=93.8\%; EBD=0.0\%; POD1=89.6\%; POD2=94.2\%; POD3=95.9\%}
+\end{tabular}
+\end{center}
+\caption{day1 - Contingency table for  relative humidity (percent) processed with AR (1H)}
+\label{tab:contingencyrhAFT}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{relative humidity}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{percent}                                       &                             & rh $<$ 50.0   & 50.0 $<$ rh $<$ 70.0 & rh $>$ 70.0 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 50.0             & 3975                & 0                       & 0              \\
+                                                 & 50.0  $<$ rh $<$ 70.0 & 6                & 0                       & 0              \\
+                                                 & rh $>$ 70.0             & 0                & 0                       & 0              \\
+\hline
+\multicolumn{5}{l}{ Number of points         3981 ; PC=99.8\%; EBD=0.0\%; POD1=99.8\%; POD2=NaN\%; POD3=NaN\%}
+\end{tabular}
+\end{center}
+\caption{day1 - Contingency table for  relative humidity (percent) processed with AR (1H) and thresholds (50,70) percent}
+\label{tab:contingencyrhAFT}
+\end{table}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {precipitable water vapor}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
-{mm}                                       &                             & pwv $<$ 2.1   & 2.1 $<$ pwv $<$ 3.2 & pwv $>$ 3.2 \\
+{mm}                                       &                             & pwv $<$ 1.9   & 1.9 $<$ pwv $<$ 3.5 & pwv $>$ 3.5 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 2.1             & 330                & 61                       & 8              \\
-                                                 & 2.1  $<$ pwv $<$ 3.2 & 51                & 278                       & 108              \\
-                                                 & pwv $>$ 3.2             & 0                & 42                       & 264              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 747                & 184                       & 3              \\
+                                                 & 1.9  $<$ pwv $<$ 3.5 & 185                & 1256                       & 355              \\
+                                                 & pwv $>$ 3.5             & 0                & 125                       & 1002              \\
 \hline
-\multicolumn{5}{l}{Sample size: 1998; PC=76.4\%; EBD=0.7\%; POD1=86.6\%; POD2=73.0\%; POD3=69.5\%}                 \\
+\multicolumn{5}{l}{ Number of points         3857 ; PC=77.9\%; EBD=0.1\%; POD1=80.2\%; POD2=80.3\%; POD3=73.7\%}                 \\
 \end{tabular}
 \end{center}
-\caption{Contingency table for variable precipitable water vapor (mm) in standard configuration}
+\caption{day1 - Contingency table for  precipitable water vapor (mm) in standard configuration  }
 \label{tab:contingencypwvBEF}
 \end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[p!]
+\begin{center}
+\begin{tabular}{llccc}
+\hline
+{precipitable water vapor}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
+{mm}                                       &                             & pwv $<$ 1.9   & 1.9 $<$ pwv $<$ 3.5 & pwv $>$ 3.5 \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 898                & 22                       & 0              \\
+                                                 & 1.9  $<$ pwv $<$ 3.5 & 34                & 1530                       & 31              \\
+                                                 & pwv $>$ 3.5             & 0                & 13                       & 1329              \\
+\hline 
+\multicolumn{5}{l}{ Number of points         3857 ; PC=97.4\%; EBD=0.0\%; POD1=96.4\%; POD2=97.8\%; POD3=97.7\%}
+\end{tabular}
+\end{center}
+\caption{day1 - Contingency table for  precipitable water vapor (mm) processed with AR (1H)  }
+\label{tab:contingencypwvAFT}
+\end{table}
+\clearpage

@@ -384,6 +384,8 @@ PRINT*,'##########################################'
 !
 POD=NOVAL
 TAB_HR=NOVAL
+X33_SEE=0.59
+X66_SEE=0.80
 CALL HIT_RATE(SEE_OBS_1D_FIT,SEE_MOD_BEF_1D_FIT,NbFit,X33_SEE,X66_SEE,NOVAL,TAB_HR,POD,PC,EBD,.false.)
 !
 PRINT*,'**************************************************'
@@ -409,6 +411,8 @@ PRINT*,'##########################################'
 !
 POD(:)=NOVAL
 TAB_HR=NOVAL
+X33_SEE=0.61
+X66_SEE=0.84
 CALL HIT_RATE(SEE_OBS_1D_FIT,SEE_MOD_AFT_1D_FIT,NbFit,X33_SEE,X66_SEE,NOVAL,TAB_HR,POD,PC,EBD,.false.)
 
 !

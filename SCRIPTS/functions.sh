@@ -78,3 +78,17 @@ function get_var_attr ()
   esac
 }
 
+# Funzione per convertire una data in timestamp
+function converti_in_timestamp() {
+    local data=$1
+    local timestamp=$(date -d "$data" +%s)
+    echo $timestamp
+}
+
+# Funzione per calcolare la differenza in giorni tra due timestamp
+function differenza_in_giorni() {
+    local timestamp1=$1
+    local timestamp2=$2
+    local differenza=$(( ($timestamp2 - $timestamp1) / 86400 )) # 86400 secondi in un giorno
+    echo $differenza
+}

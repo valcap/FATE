@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2022.3.2)  12 OCT 2023 21:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2022.3.2)  11 DEC 2023 16:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -355,44 +355,7 @@ Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 \c@blind@pangrammax=\count137
 ) (./main.aux
 (./night1.aux) (./night1_figures.aux) (./night1_statistics.aux)
-(./night1_contingency.aux
-
-LaTeX Warning: Label `tab:contingencyseeAFT' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencyseeBEF' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencyseeAFT' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencyseeAFT' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencytauAFT' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencytauBEF' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencytauAFT' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencytauAFT' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencyglfAFT' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencyglfBEF' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencyglfAFT' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencyglfAFT' multiply defined.
-
-) (./night1_PODs.aux) (./day1.aux) (./day1_figures.aux
+(./night1_PODs.aux) (./day1.aux) (./day1_figures.aux
 
 LaTeX Warning: Label `fig:ws' multiply defined.
 
@@ -405,20 +368,8 @@ LaTeX Warning: Label `fig:rh' multiply defined.
 
 LaTeX Warning: Label `fig:pwv' multiply defined.
 
-) (./day1_statistics.aux) (./day1_contingency.aux
-
-LaTeX Warning: Label `tab:contingencywsBEF' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencywdBEF' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencyrhBEF' multiply defined.
-
-
-LaTeX Warning: Label `tab:contingencypwvBEF' multiply defined.
-
-) (./day1_PODs.aux))
+) (./day1_statistics.aux) (./day1_PODs.aux) (./tableLOGs.aux)
+(./tableLOGs_ObsNight.aux) (./tableLOGs_ObsDay.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
@@ -487,7 +438,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-</home/report/SCRIPTS/LOGOS/INAF_Arcetri_colore.png, id=44, 925.056pt x 520.344
+</home/report/SCRIPTS/LOGOS/INAF_Arcetri_colore.png, id=36, 925.056pt x 520.344
 pt>
 File: /home/report/SCRIPTS/LOGOS/INAF_Arcetri_colore.png Graphic file (type png
 )
@@ -496,7 +447,7 @@ Package pdftex.def Info: /home/report/SCRIPTS/LOGOS/INAF_Arcetri_colore.png use
 d on input line 82.
 (pdftex.def)             Requested size: 128.02486pt x 76.81755pt.
 
-</home/report/SCRIPTS/LOGOS/logoLaMMA.png, id=46, 569.12625pt x 223.83624pt>
+</home/report/SCRIPTS/LOGOS/logoLaMMA.png, id=38, 569.12625pt x 223.83624pt>
 File: /home/report/SCRIPTS/LOGOS/logoLaMMA.png Graphic file (type png)
 
 <use /home/report/SCRIPTS/LOGOS/logoLaMMA.png>
@@ -509,7 +460,7 @@ Overfull \hbox (14.99747pt too wide) in paragraph at lines 82--82
  []
 
 
-</home/report/SCRIPTS/LOGOS/fate_logo_11def.png, id=47, 404.2302pt x 388.3308pt
+</home/report/SCRIPTS/LOGOS/fate_logo_11def.png, id=39, 404.2302pt x 388.3308pt
 >
 File: /home/report/SCRIPTS/LOGOS/fate_logo_11def.png Graphic file (type png)
  <use /home/report/SCRIPTS/LOGOS/fate_logo_11def.png>
@@ -538,7 +489,7 @@ l.102 \include{night1}
 \openout2 = `night1_figures.aux'.
 
  (./night1_figures.tex
-</home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=82, 219.8
+</home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=72, 219.8
 2124pt x 259.97125pt>
 File: /home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic 
 file (type pdf)
@@ -548,7 +499,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_BE
 F_stan.pdf used on input line 7.
 (pdftex.def)             Requested size: 159.62083pt x 188.78175pt.
 
-</home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=83, 219.8
+</home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=73, 219.8
 2124pt x 259.97125pt>
 File: /home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic 
 file (type pdf)
@@ -558,7 +509,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_AF
 T_stan.pdf used on input line 8.
 (pdftex.def)             Requested size: 159.62083pt x 188.78175pt.
 
-</home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=84, 2
+</home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=74, 2
 19.82124pt x 259.97125pt>
 File: /home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Grap
 hic file (type pdf)
@@ -568,7 +519,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/ws_sim_mnh_ar_dimm_300_960_AF
 T_stan_per.pdf used on input line 9.
 (pdftex.def)             Requested size: 159.62083pt x 188.78175pt.
 
-</home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=85, 230.8
+</home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=75, 230.8
 625pt x 263.98625pt>
 File: /home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic 
 file (type pdf)
@@ -578,7 +529,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_BE
 F_stan.pdf used on input line 16.
 (pdftex.def)             Requested size: 159.62083pt x 182.52129pt.
 
-</home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=86, 231.8
+</home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=76, 231.8
 6626pt x 263.98625pt>
 File: /home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic 
 file (type pdf)
@@ -588,7 +539,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_AF
 T_stan.pdf used on input line 17.
 (pdftex.def)             Requested size: 159.62083pt x 181.73581pt.
 
-</home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=87, 2
+</home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=77, 2
 31.86626pt x 263.98625pt>
 File: /home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Grap
 hic file (type pdf)
@@ -598,7 +549,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/wd_sim_mnh_ar_dimm_300_960_AF
 T_stan_per.pdf used on input line 18.
 (pdftex.def)             Requested size: 159.62083pt x 181.73581pt.
 
-</home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=88, 229.8
+</home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=78, 229.8
 5875pt x 259.97125pt>
 File: /home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic 
 file (type pdf)
@@ -608,7 +559,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_BE
 F_stan.pdf used on input line 25.
 (pdftex.def)             Requested size: 159.62083pt x 180.54263pt.
 
-</home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=89, 229.8
+</home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=79, 229.8
 5875pt x 259.97125pt>
 File: /home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic 
 file (type pdf)
@@ -618,7 +569,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_AF
 T_stan.pdf used on input line 26.
 (pdftex.def)             Requested size: 159.62083pt x 180.54263pt.
 
-</home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=90, 2
+</home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=80, 2
 29.85875pt x 259.97125pt>
 File: /home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Grap
 hic file (type pdf)
@@ -628,7 +579,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/rh_sim_mnh_ar_dimm_300_960_AF
 T_stan_per.pdf used on input line 27.
 (pdftex.def)             Requested size: 159.62083pt x 180.54263pt.
 
-</home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=91, 225.
+</home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=81, 225.
 84375pt x 259.97125pt>
 File: /home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic
  file (type pdf)
@@ -638,7 +589,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_B
 EF_stan.pdf used on input line 34.
 (pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
 
-</home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=92, 225.
+</home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=82, 225.
 84375pt x 259.97125pt>
 File: /home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic
  file (type pdf)
@@ -648,7 +599,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_A
 FT_stan.pdf used on input line 35.
 (pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
 
-</home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=93, 
+</home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=83, 
 225.84375pt x 259.97125pt>
 File: /home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Gra
 phic file (type pdf)
@@ -658,7 +609,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/pwv_sim_mnh_ar_dimm_300_960_A
 FT_stan_per.pdf used on input line 36.
 (pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
 
-</home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf, id=94,
+</home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf, id=84,
  227.85126pt x 259.97125pt>
 File: /home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf Gr
 aphic file (type pdf)
@@ -668,7 +619,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_B
 EF_os18_1000.pdf used on input line 43.
 (pdftex.def)             Requested size: 159.62083pt x 182.1254pt.
 
-</home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf, id=95,
+</home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf, id=85,
  227.85126pt x 259.97125pt>
 File: /home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf Gr
 aphic file (type pdf)
@@ -679,7 +630,7 @@ FT_os18_1000.pdf used on input line 44.
 (pdftex.def)             Requested size: 159.62083pt x 182.1254pt.
 
 </home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf, id
-=96, 227.85126pt x 259.97125pt>
+=86, 227.85126pt x 259.97125pt>
 File: /home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pd
 f Graphic file (type pdf)
 
@@ -689,7 +640,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/see_sim_mnh_ar_dimm_300_960_A
 FT_os18_1000_per.pdf used on input line 45.
 (pdftex.def)             Requested size: 159.62083pt x 182.1254pt.
 
-</home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf, id=97,
+</home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf, id=87,
  225.84375pt x 259.97125pt>
 File: /home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_BEF_os18_1000.pdf Gr
 aphic file (type pdf)
@@ -699,7 +650,7 @@ Package pdftex.def Info: /home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_B
 EF_os18_1000.pdf used on input line 52.
 (pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
 
-</home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf, id=98,
+</home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf, id=88,
  225.84375pt x 259.97125pt>
 File: /home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000.pdf Gr
 aphic file (type pdf)
@@ -710,7 +661,7 @@ FT_os18_1000.pdf used on input line 53.
 (pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
 
 </home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pdf, id
-=99, 225.84375pt x 259.97125pt>
+=89, 225.84375pt x 259.97125pt>
 File: /home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_AFT_os18_1000_per.pd
 f Graphic file (type pdf)
 
@@ -720,8 +671,8 @@ Package pdftex.def Info: /home/report/FIGS/night1/tau_sim_mnh_ar_dimm_300_960_A
 FT_os18_1000_per.pdf used on input line 54.
 (pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
 
-</home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_BEF_os18.pdf, id=100, 218
-.8175pt x 256.96pt>
+</home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_BEF_os18.pdf, id=90, 218.
+8175pt x 256.96pt>
 File: /home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_BEF_os18.pdf Graphic
  file (type pdf)
 
@@ -730,8 +681,8 @@ Package pdftex.def Info: /home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_B
 EF_os18.pdf used on input line 61.
 (pdftex.def)             Requested size: 159.62083pt x 187.44592pt.
 
-</home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_AFT_os18.pdf, id=101, 218
-.8175pt x 256.96pt>
+</home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_AFT_os18.pdf, id=91, 218.
+8175pt x 256.96pt>
 File: /home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_AFT_os18.pdf Graphic
  file (type pdf)
 
@@ -740,8 +691,8 @@ Package pdftex.def Info: /home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_A
 FT_os18.pdf used on input line 62.
 (pdftex.def)             Requested size: 159.62083pt x 187.44592pt.
 
-</home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.pdf, id=102,
- 218.8175pt x 256.96pt>
+</home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.pdf, id=92, 
+218.8175pt x 256.96pt>
 File: /home/report/FIGS/night1/glf_sim_mnh_ar_dimm_300_960_AFT_os18_per.pdf Gra
 phic file (type pdf)
 
@@ -788,174 +739,32 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 48.
 
-) [7
+[7
 
 
-] [8]
-\openout2 = `night1_contingency.aux'.
-
- (./night1_contingency.tex
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 41.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 60.
-
-[9
-
-
-] [10]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 80.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 98.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 116.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 134.
-
-[11]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 153.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 171.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 189.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 207.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 225.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 243.
-
-[12] [13]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 262.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 280.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 298.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 316.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 334.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 352.
-
-[14] [15]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 371.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 389.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 407.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 425.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 443.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 461.
-
-) [16] [17]
+] [8])
 \openout2 = `night1_PODs.aux'.
 
- (./night1_PODs.tex
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 22.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 40.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 57.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 74.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 91.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 108.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 125.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 142.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 159.
-
-) [18
+ (./night1_PODs.tex [9
 
 
 
-
-
-
-] [19] [20]
+] [10] [11] [12] [13]) [14]
 \openout2 = `day1.aux'.
 
- (./day1.tex) [21
+ (./day1.tex) [15
+
+
+
+
 
 
 ]
 \openout2 = `day1_figures.aux'.
 
- (./day1_figures.tex
-</home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=340, 219.82
+
+(./day1_figures.tex
+</home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=280, 219.82
 124pt x 259.97125pt>
 File: /home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic fi
 le (type pdf)
@@ -965,7 +774,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_BEF_
 stan.pdf used on input line 7.
 (pdftex.def)             Requested size: 159.62083pt x 188.78175pt.
 
-</home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=341, 219.82
+</home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=281, 219.82
 124pt x 259.97125pt>
 File: /home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic fi
 le (type pdf)
@@ -975,7 +784,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_AFT_
 stan.pdf used on input line 8.
 (pdftex.def)             Requested size: 159.62083pt x 188.78175pt.
 
-</home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=342, 21
+</home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=282, 21
 9.82124pt x 259.97125pt>
 File: /home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Graphi
 c file (type pdf)
@@ -985,7 +794,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_AFT_
 stan_per.pdf used on input line 9.
 (pdftex.def)             Requested size: 159.62083pt x 188.78175pt.
 
-</home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=343, 230.86
+</home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=283, 230.86
 25pt x 263.98625pt>
 File: /home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic fi
 le (type pdf)
@@ -995,7 +804,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_BEF_
 stan.pdf used on input line 16.
 (pdftex.def)             Requested size: 159.62083pt x 182.52129pt.
 
-</home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=344, 230.86
+</home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=284, 230.86
 25pt x 263.98625pt>
 File: /home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic fi
 le (type pdf)
@@ -1005,7 +814,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_AFT_
 stan.pdf used on input line 17.
 (pdftex.def)             Requested size: 159.62083pt x 182.52129pt.
 
-</home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=345, 23
+</home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=285, 23
 0.8625pt x 263.98625pt>
 File: /home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Graphi
 c file (type pdf)
@@ -1015,7 +824,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_AFT_
 stan_per.pdf used on input line 18.
 (pdftex.def)             Requested size: 159.62083pt x 182.52129pt.
 
-</home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=346, 229.85
+</home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=286, 229.85
 875pt x 259.97125pt>
 File: /home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic fi
 le (type pdf)
@@ -1025,7 +834,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_BEF_
 stan.pdf used on input line 25.
 (pdftex.def)             Requested size: 159.62083pt x 180.54263pt.
 
-</home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=347, 229.85
+</home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=287, 229.85
 875pt x 259.97125pt>
 File: /home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic fi
 le (type pdf)
@@ -1035,7 +844,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_AFT_
 stan.pdf used on input line 26.
 (pdftex.def)             Requested size: 159.62083pt x 180.54263pt.
 
-</home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=348, 22
+</home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=288, 22
 9.85875pt x 259.97125pt>
 File: /home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Graphi
 c file (type pdf)
@@ -1045,7 +854,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_AFT_
 stan_per.pdf used on input line 27.
 (pdftex.def)             Requested size: 159.62083pt x 180.54263pt.
 
-</home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=349, 225.8
+</home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf, id=289, 225.8
 4375pt x 259.97125pt>
 File: /home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf Graphic f
 ile (type pdf)
@@ -1055,7 +864,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_BEF
 _stan.pdf used on input line 34.
 (pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
 
-</home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=350, 225.8
+</home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf, id=290, 225.8
 4375pt x 259.97125pt>
 File: /home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan.pdf Graphic f
 ile (type pdf)
@@ -1065,7 +874,7 @@ Package pdftex.def Info: /home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_AFT
 _stan.pdf used on input line 35.
 (pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
 
-</home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=351, 2
+</home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf, id=291, 2
 25.84375pt x 259.97125pt>
 File: /home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf Graph
 ic file (type pdf)
@@ -1075,90 +884,90 @@ Package pdftex.def Info: /home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_960_AFT
 _stan_per.pdf used on input line 36.
 (pdftex.def)             Requested size: 159.62083pt x 183.7518pt.
 )
-[22
+[16
 
 
  </home/report/FIGS/day1/ws_sim_mnh_ar_dimm_300_960_BEF_stan.pdf> </home/report
 /FIGS/day1/ws_sim_mnh_ar_dimm_300_960_AFT_stan.pdf> </home/report/FIGS/day1/ws_
-sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf>] [23 </home/report/FIGS/day1/wd_sim_m
+sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf>] [17 </home/report/FIGS/day1/wd_sim_m
 nh_ar_dimm_300_960_BEF_stan.pdf> </home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300
 _960_AFT_stan.pdf> </home/report/FIGS/day1/wd_sim_mnh_ar_dimm_300_960_AFT_stan_
 per.pdf> </home/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_BEF_stan.pdf> </hom
 e/report/FIGS/day1/rh_sim_mnh_ar_dimm_300_960_AFT_stan.pdf> </home/report/FIGS/
-day1/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf>] [24 </home/report/FIGS/day1/
+day1/rh_sim_mnh_ar_dimm_300_960_AFT_stan_per.pdf>] [18 </home/report/FIGS/day1/
 pwv_sim_mnh_ar_dimm_300_960_BEF_stan.pdf> </home/report/FIGS/day1/pwv_sim_mnh_a
 r_dimm_300_960_AFT_stan.pdf> </home/report/FIGS/day1/pwv_sim_mnh_ar_dimm_300_96
 0_AFT_stan_per.pdf>]
 \openout2 = `day1_statistics.aux'.
 
  (./day1_statistics.tex
-Overfull \hbox (28.51791pt too wide) in paragraph at lines 8--21
+Overfull \hbox (26.12907pt too wide) in paragraph at lines 8--21
  [] 
  []
 
-) [25
-
-
-]
-\openout2 = `day1_contingency.aux'.
-
- (./day1_contingency.tex
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 23.
+               Default added (so using `tbp') on input line 27.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 42.
+               Default added (so using `tbp') on input line 48.
+
+) [19
 
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 60.
-
-) [26
-
-
-] [27]
+] [20]
 \openout2 = `day1_PODs.aux'.
 
- (./day1_PODs.tex
+ (./day1_PODs.tex) [21
+
+
+] [22]
+\openout2 = `tableLOGs.aux'.
+
+ (./tableLOGs.tex
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 22.
+               Default added (so using `tbp') on input line 2.
 
+) [23]
+\openout2 = `tableLOGs_ObsNight.aux'.
+
+ (./tableLOGs_ObsNight.tex
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 40.
+               Default added (so using `tbp') on input line 2.
 
+) [24]
+\openout2 = `tableLOGs_ObsDay.aux'.
+
+ (./tableLOGs_ObsDay.tex
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 57.
+               Default added (so using `tbp') on input line 2.
 
-) [28
-
-
-] [29]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 159.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 159.
+) [25]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
  (./main.aux (./night1.aux) (./night1_figures.aux)
-(./night1_statistics.aux) (./night1_contingency.aux) (./night1_PODs.aux)
-(./day1.aux) (./day1_figures.aux) (./day1_statistics.aux)
-(./day1_contingency.aux) (./day1_PODs.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 159.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 159.
+(./night1_statistics.aux) (./night1_PODs.aux) (./day1.aux) (./day1_figures.aux)
+(./day1_statistics.aux) (./day1_PODs.aux) (./tableLOGs.aux)
+(./tableLOGs_ObsNight.aux) (./tableLOGs_ObsDay.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 163.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 163.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B90C3FDE3EA181FA442EB82814F40472;747.
+(rerunfilecheck)             Checksum: DF5AFC3DE246F881AF97DC723507135A;572.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 159.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
  ) 
 Here is how much of TeX's memory you used:
- 8303 strings out of 495063
- 130857 string characters out of 3182202
- 238766 words of memory out of 3000000
- 11158 multiletter control sequences out of 15000+200000
+ 8269 strings out of 495063
+ 130232 string characters out of 3182202
+ 234960 words of memory out of 3000000
+ 11144 multiletter control sequences out of 15000+200000
  11874 words of font info for 44 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  44i,26n,47p,482b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1174,10 +983,10 @@ onts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (30 pages, 1946468 bytes).
+Output written on main.pdf (26 pages, 2276565 bytes).
 PDF statistics:
- 532 PDF objects out of 1000 (max. 8388607)
- 410 compressed objects within 5 object streams
- 133 named destinations out of 1000 (max. 500000)
- 261 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 478 PDF objects out of 1000 (max. 8388607)
+ 361 compressed objects within 4 object streams
+ 106 named destinations out of 1000 (max. 500000)
+ 245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

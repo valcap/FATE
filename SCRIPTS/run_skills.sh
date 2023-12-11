@@ -63,7 +63,7 @@ do
   BIAS_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep BIAS | cut -d '=' -f2`
   RMSE_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
   SD_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep SIGMA | cut -d '=' -f2`
-  my_caption='Statistics for variables in standard configuration: incremental month (i.e., since the begining of service) \\textit\{vs\} last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING')'
+  my_caption=${FCST_DAY}${FCST_LEN}' - Statistics for variables in standard configuration: incremental month (i.e., since the begining of service) \\textit\{vs\} last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING')'
   if [ ${FCST_DAY} == "day" ]; then
     cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"            | \
@@ -152,7 +152,7 @@ do
   BIAS_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep BIAS | cut -d '=' -f2`
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
-  my_caption='Incremental month (i.e., since the beginning of service): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
+  my_caption=${FCST_DAY}${FCST_LEN}' - Incremental month (i.e., since the beginning of service): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
   if [ ${FCST_DAY} == "day" ]; then
   cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
@@ -243,7 +243,7 @@ do
   BIAS_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep BIAS | cut -d '=' -f2`
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
-  my_caption='Last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING'): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
+  my_caption=${FCST_DAY}${FCST_LEN}' - Last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING'): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
   if [ ${FCST_DAY} == "day" ]; then
   cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \

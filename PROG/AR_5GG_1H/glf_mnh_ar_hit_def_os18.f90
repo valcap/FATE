@@ -370,9 +370,9 @@ CDY_GLF=NOVAL
 
 PRINT*,'***************'
 CALL CUMDIST_TERTILES(NbFit,GLF_OBS_1D_FIT,CDX_GLF,CDY_GLF,XMED_GLF,X33_GLF,X66_GLF)
-write (*,1001) 'LOGINFO PERCENTILES XMED_GLF=',XMED_GLF
-write (*,1001) 'LOGINFO PERCENTILES X33_GLF=',X33_GLF
-write (*,1001) 'LOGINFO PERCENTILES X66_GLF=',X66_GLF
+!write (*,1001) 'LOGINFO PERCENTILES XMED_GLF=',XMED_GLF
+!write (*,1001) 'LOGINFO PERCENTILES X33_GLF=',X33_GLF
+!write (*,1001) 'LOGINFO PERCENTILES X66_GLF=',X66_GLF
 PRINT*,'***************'
 !
 ALLOCATE(CDX_MOD_BEF(NbFit))
@@ -400,6 +400,10 @@ PRINT*,'**************************************************'
 PRINT*,'****** HIT_RATE for BEF WITH RMSE=SD_instr *******'
 PRINT*,'**************************************************'
 !
+! START OF EDITS BY VALCAP74 @ 27-November-2023
+  X33_GLF=0.56
+  X66_GLF=0.71
+! END OF EDITS BY VALCAP74 @ 27-November-2023
 CALL HIT_RATE_MOD(GLF_OBS_1D_FIT,GLF_MOD_BEF_1D_FIT,NbFit,X33_GLF,X66_GLF,NOVAL,TAB_HR,POD,PC,EBD,ACC,.false.)
 write (*,5000) 'LOGINFO CONTTABLE BEF ROW0 X<',X33_GLF,X33_GLF,'<X<',X66_GLF,'X>',X66_GLF
 write (*,3001) 'LOGINFO CONTTABLE BEF ROW1 ',int(tab_hr(1,1)),int(tab_hr(1,2)),int(tab_hr(1,3))
@@ -435,6 +439,12 @@ PRINT*,'**************************************************'
 PRINT*,'****** HIT_RATE for AFT WITH RMSE=SD_instr *******'
 PRINT*,'**************************************************'
 !
+! START OF EDITS BY VALCAP74 @ 27-November-2023
+  X33_GLF=0.56
+  X66_GLF=0.71
+! END OF EDITS BY VALCAP74 @ 27-November-2023
+write (*,1001) 'LOGINFO PERCENTILES X33_GLF=',X33_GLF
+write (*,1001) 'LOGINFO PERCENTILES X66_GLF=',X66_GLF
 CALL HIT_RATE_MOD(GLF_OBS_1D_FIT,GLF_MOD_AFT_1D_FIT,NbFit,X33_GLF,X66_GLF,NOVAL,TAB_HR,POD,PC,EBD,ACC,.false.)
 write (*,5000) 'LOGINFO CONTTABLE AFT ROW0 X<',X33_GLF,X33_GLF,'<X<',X66_GLF,'X>',X66_GLF
 write (*,3001) 'LOGINFO CONTTABLE AFT ROW1 ',int(tab_hr(1,1)),int(tab_hr(1,2)),int(tab_hr(1,3))

@@ -436,7 +436,7 @@ cat << EOF > $WRKDIR/figures_${prefix}.tex
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSBEF}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSAFT}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSPER}}
-\caption{$descri ($unitof): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE (1H).}
+\caption{${FCST_DAY}${FCST_LEN} - $descri ($unitof): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE (1H)}
 \label{fig:$prefix}
 \end{figure}
 EOF
@@ -474,38 +474,20 @@ VAL13=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTAB
 VAL14=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW4 | awk '{print $6}'`
 VAL15=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW4 | awk '{print $7}'`
 VAL16=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW4 | awk '{print $8}'`
-SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep NbLines_TOT | awk '{print $3}'`
+#SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep NbLines_TOT | awk '{print $3}'`
+#SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep 'Hit rate computed on' | head -n 1`
+SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep 'Number of points' | head -n 1`
+echo AAA $SAMPSIZ 
 POD1BEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD1 | awk '{print $5}'`
 POD2BEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD2 | awk '{print $5}'`
 POD3BEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD3 | awk '{print $5}'`
 POD4BEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD4 | awk '{print $5}'`
 PCBEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep PC | awk '{print $5}'`
 EBDBEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep EBD | awk '{print $5}'`
-my_nice_caption='Contingency table for {'$descri'} ('$unitof') in standard configuration'
-#cat << EOF >> $WRKDIR/contingency_tableBEF${prefix}.tex
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#\begin{table}[]
-#\begin{center}
-#\begin{tabular}{llcccc}
-#\hline
-#{$descri}                                       &                                                    & \multicolumn{4}{c}{Observations}                 \\\\
-#{$unitof}                                       &                             & $prefix $<$ $THRES1   & $THRES1 $<$ $prefix $<$ $THRES2 & $THRES2 $<$ $prefix $<$ $THRES3 & $prefix $>$ $THRES3 \\\\
-#\hline
-#\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & $prefix $<$ $THRES1              & $VAL1   & $VAL2    & $VAL3     & $VAL4\\\\
-#                                                 & $THRES1 $<$ $prefix $<$ $THRES2  & $VAL5   & $VAL6    & $VAL7     & $VAL8\\\\
-#                                                 & $THRES2 $<$ $prefix $<$ $THRES3  & $VAL9   & $VAL10   & $VAL11    & $VAL12\\\\
-#                                                 & $prefix $>$ $THRES3              & $VAL13  & $VAL14   & $VAL15    & $VAL16\\\\
-#\hline 
-#\multicolumn{6}{l}{Sample size: $SAMPSIZ; PC=$PCBEF\\%; EBD=$EBDBEF\\%; POD1=$POD1BEF\\%; POD2=$POD2BEF\\%; POD3=$POD3BEF\\%; POD4=$POD4BEF\\%}                 \\\\
-#\end{tabular}
-#\end{center}
-#\caption{$my_nice_caption}
-#\label{tab:contingency${prefix}BEF}
-#\end{table}
-#EOF
+my_nice_caption=${FCST_DAY}${FCST_LEN}' - Contingency table for {'$descri'} ('$unitof') in standard configuration'
 cat << EOF >> $WRKDIR/contingency_tableBEF${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llcccc}
 \hline
@@ -517,7 +499,7 @@ cat << EOF >> $WRKDIR/contingency_tableBEF${prefix}.tex
                                                  & {South}                    & $VAL9   & $VAL10   & $VAL11    & $VAL12\\\\
                                                  & {West}                     & $VAL13  & $VAL14   & $VAL15    & $VAL16\\\\
 \hline 
-\multicolumn{6}{l}{Sample size: $SAMPSIZ; PC=$PCBEF\\%; EBD=$EBDBEF\\%; POD1=$POD1BEF\\%; POD2=$POD2BEF\\%; POD3=$POD3BEF\\%; POD4=$POD4BEF\\%}                 \\\\
+\multicolumn{6}{l}{$SAMPSIZ PC=$PCBEF\\%; EBD=$EBDBEF\\%; POD1=$POD1BEF\\%; POD2=$POD2BEF\\%; POD3=$POD3BEF\\%; POD4=$POD4BEF\\%}                 \\\\
 \end{tabular}
 \end{center}
 \caption{$my_nice_caption}
@@ -542,38 +524,21 @@ VAL13=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTAB
 VAL14=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW4 | awk '{print $6}'`
 VAL15=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW4 | awk '{print $7}'`
 VAL16=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW4 | awk '{print $8}'`
-SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep NbLines_TOT | awk '{print $3}'`
+#SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep NbLines_TOT | awk '{print $3}'`
+SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep 'Hit rate computed on' | head -n 1`
+SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep 'Number of points ' | head -n 1`
+echo BBB $SAMPSIZ
+echo $WRKDIR/${skills_file}_BEFAFT_${prefix}
 POD1AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD1 | awk '{print $5}'`
 POD2AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD2 | awk '{print $5}'`
 POD3AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD3 | awk '{print $5}'`
 POD4AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD4 | awk '{print $5}'`
 PCAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep PC | awk '{print $5}'`
 EBDAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep EBD | awk '{print $5}'`
-my_nice_caption='Contingency table for {'$descri'} ('$unitof') in standard configuration'
-#cat << EOF >> $WRKDIR/contingency_tableAFT${prefix}.tex
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#\begin{table}[]
-#\begin{center}
-#\begin{tabular}{llcccc}
-#\hline
-#{$descri}                                       &                                                    & \multicolumn{4}{c}{Observations}                 \\\\
-#{$unitof}                                       &                             & $prefix $<$ $THRES1   & $THRES1 $<$ $prefix $<$ $THRES2 & $THRES2 $<$ $prefix $<$ $THRES3 & $prefix $>$ $THRES3 \\\\
-#\hline
-#\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & $prefix $<$ $THRES1              & $VAL1                & $VAL2                       & $VAL3              & $VAL4\\\\
-#                                                 & $THRES1  $<$ $prefix $<$ $THRES2 & $VAL5                & $VAL6                       & $VAL7              & $VAL8\\\\
-#                                                 & $THRES2  $<$ $prefix $<$ $THRES3 & $VAL9                & $VAL10                      & $VAL11             & $VAL12\\\\
-#                                                 & $prefix $>$ $THRES3               & $VAL13               & $VAL14                      & $VAL15             & $VAL16\\\\
-#\hline 
-#\multicolumn{6}{l}{Sample size: $SAMPSIZ; PC=$PCAFT\\%; EBD=$EBDAFT\\%; POD1=$POD1AFT\\%; POD2=$POD2AFT\\%; POD3=$POD3AFT\\%; POD4=$POD4AFT\\%}                 \\\\
-#\end{tabular}
-#\end{center}
-#\caption{$my_nice_caption}
-#\label{tab:contingency${prefix}AFT}
-#\end{table}
-#EOF
+my_nice_caption=${FCST_DAY}${FCST_LEN}' - Contingency table for {'$descri'} ('$unitof') processed with AR (1H)'
 cat << EOF >> $WRKDIR/contingency_tableAFT${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{llcccc}
 \hline
@@ -585,7 +550,7 @@ cat << EOF >> $WRKDIR/contingency_tableAFT${prefix}.tex
                                                  & {South}              & $VAL9                & $VAL10                      & $VAL11             & $VAL12\\\\
                                                  & {West}               & $VAL13               & $VAL14                      & $VAL15             & $VAL16\\\\
 \hline 
-\multicolumn{6}{l}{Sample size: $SAMPSIZ; PC=$PCAFT\\%; EBD=$EBDAFT\\%; POD1=$POD1AFT\\%; POD2=$POD2AFT\\%; POD3=$POD3AFT\\%; POD4=$POD4AFT\\%}                 \\\\
+\multicolumn{6}{l}{$SAMPSIZ PC=$PCAFT\\%; EBD=$EBDAFT\\%; POD1=$POD1AFT\\%; POD2=$POD2AFT\\%; POD3=$POD3AFT\\%; POD4=$POD4AFT\\%}                 \\\\
 \end{tabular}
 \end{center}
 \caption{$my_nice_caption}
@@ -615,10 +580,10 @@ POD4AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTT
 PCAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep PC | awk '{print $5}'`
 EBDAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep EBD | awk '{print $5}'`
 
-my_caption='PODs for '$descri' ('$unitof')'
+my_caption=${FCST_DAY}${FCST_LEN}' - PODs for '$descri' ('$unitof')'
 cat << EOF > $WRKDIR/tablePODs${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[]
+\begin{table}[p!]
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline

@@ -1,8 +1,8 @@
  GG=day1
  HH=1H
- IDELTA=          20
- NbPix=          54
- NbNights=          37
+ IDELTA=          10
+ NbPix=         108
+ NbNights=          61
  STARTMINUTE=       18000
  ENDMINUTE=       57600
  MAXPWV=   15.0000000    
@@ -16,90 +16,91 @@
  NbLines_TOT=        1020
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
- NbLines_TOT_Pix=        1998
- MAXVAL_PWV_OBS_1D=   6.68984985    
-                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_BEF=    -0.23
-                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_BEF=     0.78
-                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_BEF=     0.74
- INC_PWV_MOD_BEF=        1142
- LOGINFO NbLines_TOT=        1998
+ NbLines_TOT_Pix=        6588
+ MAXVAL_PWV_OBS_1D=   14.5544071    
+                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_BEF=    -0.41
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_BEF=     1.09
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_BEF=     1.01
+ INC_PWV_MOD_BEF=        3857
+ LOGINFO NbLines_TOT=        6588
                                                                                                                                                                                LOGINFO BIAS_PWV_MOD_AFT=    -0.00
-                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_AFT=     0.10
-                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_AFT=     0.10
- INC_PWV_MOD_AFT=        1142
- NbLines_TOT=        1998
- NbFit=        1142 NbLines_TOT=        1020 NbPix=          54
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_AFT=     0.13
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_AFT=     0.13
+ INC_PWV_MOD_AFT=        3857
+ NbLines_TOT=        6588
+ NbFit=        3857 NbLines_TOT=        1020 NbPix=         108
  K=           0
  #### FIT BEF ####
  ENTERING fit routine
- ARRAYS SIZE:         1142        1142
- ndata=         1142
- sx=   3350.31396    
- invx=   8.90900012E-08
- q=   0.00000000     ndata=        1142 size(x)=        1142 chi2=   525.822144     sigb=   6.85037859E-03
- B_TOT(slope)=  0.922347069    
+ ARRAYS SIZE:         3857        3857
+ ndata=         3857
+ sx=   13845.8564    
+ invx=   5.21627364E-09
+ q=   0.00000000     ndata=        3857 size(x)=        3857 chi2=   2778.18652     sigb=   3.80779454E-03
+ B_TOT(slope)=  0.885460377    
  #### FIT AFT #####
  ENTERING fit routine
- ARRAYS SIZE:         1142        1142
- ndata=         1142
- sx=   3350.31396    
- invx=   8.90900012E-08
- q=   0.00000000     ndata=        1142 size(x)=        1142 chi2=   12.4117060     sigb=   1.05247274E-03
- B_TOT(slope)=  0.998610854    
- ***************
-                                                                                                                                                                           LOGINFO PERCENTILES XMED_PWV=      2.6
-                                                                                                                                                                            LOGINFO PERCENTILES X33_PWV=      2.1
-                                                                                                                                                                            LOGINFO PERCENTILES X66_PWV=      3.2
+ ARRAYS SIZE:         3857        3857
+ ndata=         3857
+ sx=   13845.8564    
+ invx=   5.21627364E-09
+ q=   0.00000000     ndata=        3857 size(x)=        3857 chi2=   65.2087936     sigb=   5.83372370E-04
+ B_TOT(slope)=  0.999119639    
  ***************
  ***************
- XMED_MOD_BEF=   2.52185488    
+ ***************
+ XMED_MOD_BEF=   2.63124323    
  ***************
  ##########################################
  ######## HIT_RATE for BEF ###########
  ##########################################
  Contingency table filled with numbers.
- Hit rate computed on        1142 points.
- X<   2.11614585       2.11614585     <X<   3.16618228     X>   3.16618228    
-   330.000000       61.0000000       8.00000000    
-   51.0000000       278.000000       108.000000    
-   0.00000000       42.0000000       264.000000    
- POD(event1)=   86.6141739    
- POD(event2)=   72.9658813    
- POD(event3)=   69.4736862    
- PC=   76.3572693    
- ebd=  0.700525403    
-                                                                                                                                                                           LOGINFO CONTTABLE BEF ROW0 X<   2.1   2.1<X<   3.2X> 3.2
-                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW1     330     61      8
-                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW2      51    278    108
-                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW3       0     42    264
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD1      86.6
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD2      73.0
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD3      69.5
-                                                                                                                                                                               LOGINFO CONTTABLE BEF PC      76.4
-                                                                                                                                                                              LOGINFO CONTTABLE BEF EBD       0.7
+ LOGINFO Hit rate computed on        3857 points.
+ Number of points         3857 ;
+ LOGINFO X<   1.89999998       1.89999998     <X<   3.46000004     X>   3.46000004    
+ LOGINFO    747.000000       184.000000       3.00000000    
+ LOGINFO    185.000000       1256.00000       355.000000    
+ LOGINFO    0.00000000       125.000000       1002.00000    
+ LOGINFO POD(event1)=   80.1502151    
+ LOGINFO POD(event2)=   80.2555923    
+ LOGINFO POD(event3)=   73.6764755    
+ LOGINFO PC=   77.9102936    
+ LOGINFO ebd=   7.77806565E-02
+                                                                                                                                                                           LOGINFO CONTTABLE BEF ROW0 X<   1.9   1.9<X<   3.5X> 3.5
+                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW1     747    184      3
+                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW2     185   1256    355
+                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW3       0    125   1002
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD1      80.2
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD2      80.3
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD3      73.7
+                                                                                                                                                                               LOGINFO CONTTABLE BEF PC      77.9
+                                                                                                                                                                              LOGINFO CONTTABLE BEF EBD       0.1
  ***************
- XMED_MOD_AFT=   2.63214517    
+ XMED_MOD_AFT=   2.83798695    
  ***************
  ##########################################
  ############ HIT_RATE for AFT #############
  ##########################################
+                                                                                                                                                                            LOGINFO PERCENTILES X33_PWV=      1.9
+                                                                                                                                                                            LOGINFO PERCENTILES X66_PWV=      3.5
  Contingency table filled with numbers.
- Hit rate computed on        1142 points.
- X<   2.11614585       2.11614585     <X<   3.16618228     X>   3.16618228    
-   367.000000       8.00000000       0.00000000    
-   14.0000000       363.000000       13.0000000    
-   0.00000000       10.0000000       367.000000    
- POD(event1)=   96.3254547    
- POD(event2)=   95.2755890    
- POD(event3)=   96.5789490    
- PC=   96.0595398    
- ebd=   0.00000000    
-                                                                                                                                                                           LOGINFO CONTTABLE AFT ROW0 X<   2.1   2.1<X<   3.2X> 3.2
-                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW1     367      8      0
-                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW2      14    363     13
-                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW3       0     10    367
-                                                                                                                                                                             LOGINFO CONTTABLE AFT POD1      96.3
-                                                                                                                                                                             LOGINFO CONTTABLE AFT POD2      95.3
-                                                                                                                                                                             LOGINFO CONTTABLE AFT POD3      96.6
-                                                                                                                                                                               LOGINFO CONTTABLE AFT PC      96.1
+ LOGINFO Hit rate computed on        3857 points.
+ Number of points         3857 ;
+ LOGINFO X<   1.89999998       1.89999998     <X<   3.46000004     X>   3.46000004    
+ LOGINFO    898.000000       22.0000000       0.00000000    
+ LOGINFO    34.0000000       1530.00000       31.0000000    
+ LOGINFO    0.00000000       13.0000000       1329.00000    
+ LOGINFO POD(event1)=   96.3519363    
+ LOGINFO POD(event2)=   97.7635803    
+ LOGINFO POD(event3)=   97.7205887    
+ LOGINFO PC=   97.4073105    
+ LOGINFO ebd=   0.00000000    
+                                                                                                                                                                           LOGINFO CONTTABLE AFT ROW0 X<   1.9   1.9<X<   3.5X> 3.5
+                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW1     898     22      0
+                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW2      34   1530     31
+                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW3       0     13   1329
+                                                                                                                                                                             LOGINFO CONTTABLE AFT POD1      96.4
+                                                                                                                                                                             LOGINFO CONTTABLE AFT POD2      97.8
+                                                                                                                                                                             LOGINFO CONTTABLE AFT POD3      97.7
+                                                                                                                                                                               LOGINFO CONTTABLE AFT PC      97.4
                                                                                                                                                                               LOGINFO CONTTABLE AFT EBD       0.0
