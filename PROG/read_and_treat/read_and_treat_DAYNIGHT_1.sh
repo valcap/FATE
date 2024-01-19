@@ -255,20 +255,20 @@ EOF
 # _LastMonth TODO DA CAMBIARE OGNI MESE...........
     if [ $daygg == "night" ]; then
         LISTA="$OUTPUTDIR/list_SEE_LastMonth.txt"
-        ls SEE_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202310*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
+        ls SEE_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202312*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
         LISTA="$OUTPUTDIR/list_TAU_LastMonth.txt"
-        ls TAU_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202310*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
+        ls TAU_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202312*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
         LISTA="$OUTPUTDIR/list_GLF_LastMonth.txt"
-        ls GLF_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202310*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
+        ls GLF_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202312*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
     fi
     LISTA="$OUTPUTDIR/list_PWV_LastMonth.txt"
-    ls PWV_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202310*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
+    ls PWV_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202312*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
     LISTA="$OUTPUTDIR/list_RH_LastMonth.txt"
-    ls RH_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202310*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
+    ls RH_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202312*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
     LISTA="$OUTPUTDIR/list_WS_LastMonth.txt"
-    ls WS_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202310*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
+    ls WS_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202312*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
     LISTA="$OUTPUTDIR/list_WD_LastMonth.txt"
-    ls WD_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202310*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
+    ls WD_ARevol_${hiter}_${NEWGG}${fcst_lenght}_202312*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
 
 #
     if [ $daygg == "night" ]; then
@@ -303,3 +303,4 @@ done
 
 # Exit
 exit 0;
+

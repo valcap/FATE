@@ -34,28 +34,53 @@ done
 ########
 # NIGHT1
 ########
-./run_ws.sh     $envfile_astro
-./run_wd.sh     $envfile_astro
-./run_rh.sh     $envfile_astro
-./run_pwv.sh    $envfile_astro
-./run_see.sh    $envfile_astro
-./run_tau.sh    $envfile_astro
-./run_glf.sh    $envfile_astro
-./run_skills.sh $envfile_astro
+echo "+++++++++++++++++++++++"
+echo "RUNNING NIGHT1"
+echo "+++++++++++++++++++++++"
+for var in WS WD RH PWV SEE TAU GLF
+do
+  ln -sf /home/report/DATA/TREATED/nig1/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
+  ln -sf /home/report/DATA/TREATED/nig1/list_${var}*.txt /home/report/PROG/PERSISTENCE/
+done
+./run_ws.sh     $envfile_astro night 1
+./run_wd.sh     $envfile_astro night 1
+./run_rh.sh     $envfile_astro night 1
+./run_pwv.sh    $envfile_astro night 1
+./run_see.sh    $envfile_astro night 1
+./run_tau.sh    $envfile_astro night 1
+./run_glf.sh    $envfile_astro night 1
+./run_skills.sh $envfile_astro night 1
 
+########
 # DAY1
-./run_ws.sh     $envfile_atmo
-./run_wd.sh     $envfile_atmo
-./run_rh.sh     $envfile_atmo
-./run_pwv.sh    $envfile_atmo
-./run_skills.sh $envfile_atmo
+########
+echo "+++++++++++++++++++++++"
+echo "RUNNING DAY1"
+echo "+++++++++++++++++++++++"
+for var in WS WD RH PWV
+do
+  ln -sf /home/report/DATA/TREATED/day1/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
+  ln -sf /home/report/DATA/TREATED/day1/list_${var}*.txt /home/report/PROG/PERSISTENCE/
+done
+./run_ws.sh     $envfile_atmo night 1
+./run_wd.sh     $envfile_atmo night 1
+./run_rh.sh     $envfile_atmo night 1
+./run_pwv.sh    $envfile_atmo night 1
+./run_skills.sh $envfile_atmo night 1
 
+########
 # TABLE WITH OBSERVATIONS
-./check_logs_obs.sh $envfile_atmo
-./check_logs.sh $envfile_atmo
+########
+./check_logs_obs.sh $envfile_atmo night 1
+./check_logs.sh $envfile_atmo night 1
 
+########
 # COMPILE LATEX FILE
-./compile_report.sh $envfile_atmo
+########
+./compile_report.sh $envfile_atmo night 1
 
+########
+# EXIT
+########
 exit 0
 

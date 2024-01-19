@@ -62,7 +62,7 @@ function get_var_attr ()
    ;;
   tau)
     export prefixUC='TAU'
-    export descri='coeherence time'
+    export descri='wavefront coherence time'
     export unitof='ms'
     export suffix='os18_1000'
     ;;

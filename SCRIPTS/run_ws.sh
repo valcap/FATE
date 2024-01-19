@@ -3,15 +3,19 @@
 ############################################################################
 # Usage
 ############################################################################
-if [ $# -ne 1 ]; then
+if [ $# -ne 3 ]; then
   echo 'Not enough/too many arguments'
-  echo "Usage: $0 env_file"
-  echo "Example: $0 $HOME/SCRIPTS/fate-report.env"
+  echo "Usage: $0 env_file FCST_DAY FCST_LEN"
+  echo "Example: $0 $HOME/SCRIPTS/fate-report.env [night || day] [1 || 2 || 3]"
   echo ""
   exit 1
 else
   envfile=$1
+  FCST_DAY=$2
+  FCST_DAY_SHORT=`echo $FCST_DAY | cut -c1-3`
+  FCST_LEN=$3
 fi
+#echo $envfile $FCST_DAY $FCST_DAY_SHORT $FCST_LEN
 
 # Source of env file
 if [ -e $envfile ]; then
@@ -61,6 +65,9 @@ fi
 #########################################
 
 WRKDIR=$WRKDIR'/'${FCST_DAY}${FCST_LEN}
+if [ ! -d $WRKDIR ]; then
+  mkdir -p $WRKDIR
+fi
 
 ##################################################################################
 ##################################################################################
@@ -157,6 +164,9 @@ else
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.pdf > /dev/null 2>&1
 fi
 rm -f $FIGS_ROOT_DIR/pippo.pdf
+if [ ! -d $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN ]; then
+  mkdir -p $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
+fi
 mv $FIGS_ROOT_DIR/*.pdf $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
 #
 ##
@@ -397,6 +407,9 @@ else
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}_per.pdf  > /dev/null 2>&1
 fi
 rm -f $FIGS_ROOT_DIR/pippo.pdf
+if [ ! -d $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN ]; then
+  mkdir -p $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
+fi
 mv $FIGS_ROOT_DIR/*.pdf $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
 
 #########################################
@@ -723,9 +736,6 @@ cat << EOF > $WRKDIR/tablePODs${prefix}_FT.tex
 \end{center}
 \end{table}
 EOF
-
-#mv $WRKDIR/*.tex $WRKDIR/$FCST_DAY$FCST_LEN/
-#mv $WRKDIR/skills_*_${prefix}* $WRKDIR/$FCST_DAY$FCST_LEN/
 
 ####################################################
 notice "End of "`basename $0`

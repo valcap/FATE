@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#################################################################
+############################################################################
 # Usage
-#################################################################
+############################################################################
 if [ $# -ne 1 ]; then
   echo 'Not enough/too many arguments'
   echo "Usage: $0 env_file"
@@ -38,6 +38,8 @@ cp $LOGOSDIR/logo_lamma.png $WRKDIR/
 cp $LOGOSDIR/fate_logo_11def.png $WRKDIR/
 cp $fate_sty $WRKDIR/
 
+######################
+# NIGHT 1
 if [ ! -d $WRKDIR/night1 ]; then
   mkdir $WRKDIR/night1
 fi
@@ -100,6 +102,7 @@ echo '\clearpage' >> night1_PODs.tex
 cat tablePODsglf_0.0.tex tablePODsglf_0.14.tex >> night1_PODs.tex
 cp night1_PODs.tex $WRKDIR/
 
+######################
 # DAY 1
 if [ ! -d $WRKDIR/day1 ]; then
   mkdir $WRKDIR/day1
@@ -147,138 +150,179 @@ cat tablePODsws.tex tablePODsws_FT.tex tablePODswd.tex \
 cp day1_PODs.tex $WRKDIR/
 
 ######################
-# START OF DUMMY STUFF
 # NIGHT2
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night2.tex
-#echo '\section{Title for Night 2}' >> night2.tex
-#echo '\Blindtext[2] ' >> night2.tex
-#echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night2_figures.tex
-#echo '\subsection{Title for Figures of Night 2}' >> night2_figures.tex
-#echo '\Blindtext[3] ' >> night2_figures.tex
-#cat figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex figures_see.tex figures_tau.tex figures_glf.tex >> night2_figures.tex
-#echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night2_statistics.tex
-#echo '\subsection{Title for Statistics of Night 2}' >> night2_statistics.tex
-#echo '\Blindtext[4] ' >> night2_statistics.tex
-#cat table_skills_BEF.tex  >> night2_statistics.tex
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night2_contingency.tex
-#echo '\subsection{Title for Contingency tables of Night 2}' >> night2_contingency.tex
-#echo '\Blindtext[3] ' >> night2_contingency.tex
-#cat contingency_tableBEFws.tex >> night2_contingency.tex
-#cat contingency_tableBEFwd.tex >> night2_contingency.tex
-#cat contingency_tableBEFrh.tex >> night2_contingency.tex
-#cat contingency_tableBEFpwv.tex >> night2_contingency.tex
-#echo '\clearpage' >> night2_contingency.tex
-#cat contingency_tableBEFsee_0.0.tex >> night2_contingency.tex
-#cat contingency_tableBEFsee_0.24.tex >> night2_contingency.tex
-#cat contingency_tableBEFtau_0.0.tex >> night2_contingency.tex
-#cat contingency_tableBEFtau_1.22.tex >> night2_contingency.tex
-#echo '\clearpage' >> night2_contingency.tex
-#cat contingency_tableBEFglf_0.0.tex >> night2_contingency.tex
-#cat contingency_tableBEFglf_0.14.tex >> night2_contingency.tex
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night2_PODs.tex
-#echo '\subsection{Title for PODs tables of Night 2}' >> night2_PODs.tex
-#echo '\Blindtext[3] ' >> night2_PODs.tex
-#cat tablePODsws.tex tablePODswd.tex \
-#    tablePODsrh.tex tablePODspwv.tex >> night2_PODs.tex
-#cat tablePODssee_0.0.tex tablePODssee_0.24.tex \
-#    tablePODstau_0.0.tex tablePODstau_1.22.tex \
-#    tablePODsglf_0.0.tex tablePODsglf_0.14.tex >> night2_PODs.tex
+cd $WRKDIR/night2
+# TITLE
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night2.tex
+echo '\section{Title for Night 2}' >> night2.tex
+echo '\Blindtext[2] ' >> night2.tex
+cp night2.tex $WRKDIR/
+# FIGURES
+echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night2_figures.tex
+echo '\subsection{Title for Figures of Night 2}' >> night2_figures.tex
+echo '\Blindtext[3] ' >> night2_figures.tex
+cat figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex figures_see.tex figures_tau.tex figures_glf.tex >> night2_figures.tex
+cp night2_figures.tex $WRKDIR/
+# STATISTICS
+echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night2_statistics.tex
+echo '\subsection{Title for Statistics of Night 2}' >> night2_statistics.tex
+echo '\Blindtext[4] ' >> night2_statistics.tex
+cat table_skills_BEF.tex  >> night2_statistics.tex
+cp night2_statistics.tex $WRKDIR/
+# CONTINGENCY TABLES
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night2_contingency.tex
+echo '\subsection{Title for Contingency tables of Night 2}' >> night2_contingency.tex
+echo '\Blindtext[3] ' >> night2_contingency.tex
+cat contingency_tableBEFws.tex >> night2_contingency.tex
+cat contingency_tableBEFwd.tex >> night2_contingency.tex
+cat contingency_tableBEFrh.tex >> night2_contingency.tex
+cat contingency_tableBEFpwv.tex >> night2_contingency.tex
+echo '\clearpage' >> night2_contingency.tex
+cat contingency_tableBEFsee_0.0.tex >> night2_contingency.tex
+cat contingency_tableBEFsee_0.24.tex >> night2_contingency.tex
+cat contingency_tableBEFtau_0.0.tex >> night2_contingency.tex
+cat contingency_tableBEFtau_1.22.tex >> night2_contingency.tex
+echo '\clearpage' >> night2_contingency.tex
+cat contingency_tableBEFglf_0.0.tex >> night2_contingency.tex
+cat contingency_tableBEFglf_0.14.tex >> night2_contingency.tex
+cp night2_contingency.tex $WRKDIR/
+# PODs TABLES
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night2_PODs.tex
+echo '\subsection{Title for PODs tables of Night 2}' >> night2_PODs.tex
+echo '\Blindtext[3] ' >> night2_PODs.tex
+cat tablePODsws.tex tablePODswd.tex \
+    tablePODsrh.tex tablePODspwv.tex >> night2_PODs.tex
+cat tablePODssee_0.0.tex tablePODssee_0.24.tex \
+    tablePODstau_0.0.tex tablePODstau_1.22.tex \
+    tablePODsglf_0.0.tex tablePODsglf_0.14.tex >> night2_PODs.tex
+cp night2_PODs.tex $WRKDIR/
+
+######################
 # DAY 2
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day2.tex
-#echo '\section{Title for Day 2}' >> day2.tex
-#echo '\Blindtext[2] ' >> day2.tex
-#echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > day2_figures.tex
-#echo '\subsection{Title for Figures of Day 2}' >> day2_figures.tex
-#echo '\Blindtext[3] ' >> day2_figures.tex
-#cat figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex figures_see.tex figures_tau.tex figures_glf.tex >> day2_figures.tex
-#echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > day2_statistics.tex
-#echo '\subsection{Title for Statistics of Day 2}' >> day2_statistics.tex
-#echo '\Blindtext[4] ' >> day2_statistics.tex
-#cat table_skills_BEF.tex  >> day2_statistics.tex
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day2_contingency.tex
-#echo '\subsection{Title for Contingency tables of Day 2}' >> day2_contingency.tex
-#echo '\Blindtext[3] ' >> day2_contingency.tex
-#cat contingency_tableBEFws.tex >> day2_contingency.tex
-#cat contingency_tableBEFwd.tex >> day2_contingency.tex
-#cat contingency_tableBEFrh.tex >> day2_contingency.tex
-#cat contingency_tableBEFpwv.tex >> day2_contingency.tex
-#echo '\clearpage' >> day2_contingency.tex
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day2_PODs.tex
-#echo '\subsection{Title for PODs tables of Day 2}' >> day2_PODs.tex
-#echo '\Blindtext[3] ' >> day2_PODs.tex
-#cat tablePODsws.tex tablePODswd.tex \
-#    tablePODsrh.tex tablePODspwv.tex >> day2_PODs.tex
-## NIGHT3
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night3.tex
-#echo '\section{Title for Night 3}' >> night3.tex
-#echo '\Blindtext[2] ' >> night3.tex
-#echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night3_figures.tex
-#echo '\subsection{Title for Figures of Night 3}' >> night3_figures.tex
-#echo '\Blindtext[3] ' >> night3_figures.tex
-#cat figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex figures_see.tex figures_tau.tex figures_glf.tex >> night3_figures.tex
-#echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night3_statistics.tex
-#echo '\subsection{Title for Statistics of Night 3}' >> night3_statistics.tex
-#echo '\Blindtext[4] ' >> night3_statistics.tex
-#cat table_skills_BEF.tex  >> night3_statistics.tex
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night3_contingency.tex
-#echo '\subsection{Title for Contingency tables of Night 3}' >> night3_contingency.tex
-#echo '\Blindtext[3] ' >> night3_contingency.tex
-#cat contingency_tableBEFws.tex >> night3_contingency.tex
-#cat contingency_tableBEFwd.tex >> night3_contingency.tex
-#cat contingency_tableBEFrh.tex >> night3_contingency.tex
-#cat contingency_tableBEFpwv.tex >> night3_contingency.tex
-#echo '\clearpage' >> night3_contingency.tex
-#cat contingency_tableBEFsee_0.0.tex >> night3_contingency.tex
-#cat contingency_tableBEFsee_0.24.tex >> night3_contingency.tex
-#cat contingency_tableBEFtau_0.0.tex >> night3_contingency.tex
-#cat contingency_tableBEFtau_1.22.tex >> night3_contingency.tex
-#echo '\clearpage' >> night3_contingency.tex
-#cat contingency_tableBEFglf_0.0.tex >> night3_contingency.tex
-#cat contingency_tableBEFglf_0.14.tex >> night3_contingency.tex
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night3_PODs.tex
-#echo '\subsection{Title for PODs tables of Night 3}' >> night3_PODs.tex
-#echo '\Blindtext[3] ' >> night3_PODs.tex
-#cat tablePODsws.tex tablePODswd.tex \
-#    tablePODsrh.tex tablePODspwv.tex >> night3_PODs.tex
-#cat tablePODssee_0.0.tex tablePODssee_0.24.tex \
-#    tablePODstau_0.0.tex tablePODstau_1.22.tex \
-#    tablePODsglf_0.0.tex tablePODsglf_0.14.tex >> night3_PODs.tex
-## DAY 3
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day3.tex
-#echo '\section{Title for Day 3}' >> day3.tex
-#echo '\Blindtext[2] ' >> day3.tex
-#echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > day3_figures.tex
-#echo '\subsection{Title for Figures of Day 3}' >> day3_figures.tex
-#echo '\Blindtext[3] ' >> day3_figures.tex
-#cat figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex figures_see.tex figures_tau.tex figures_glf.tex >> day3_figures.tex
-#echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > day3_statistics.tex
-#echo '\subsection{Title for Statistics of Day 3}' >> day3_statistics.tex
-#echo '\Blindtext[4] ' >> day3_statistics.tex
-#cat table_skills_BEF.tex  >> day3_statistics.tex
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day3_contingency.tex
-#echo '\subsection{Title for Contingency tables of Day 3}' >> day3_contingency.tex
-#echo '\Blindtext[3] ' >> day3_contingency.tex
-#cat contingency_tableBEFws.tex >> day3_contingency.tex
-#cat contingency_tableBEFwd.tex >> day3_contingency.tex
-#cat contingency_tableBEFrh.tex >> day3_contingency.tex
-#cat contingency_tableBEFpwv.tex >> day3_contingency.tex
-#echo '\clearpage' >> day3_contingency.tex
-#echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day3_PODs.tex
-#echo '\subsection{Title for PODs tables of Day 3}' >> day3_PODs.tex
-#echo '\Blindtext[3] ' >> day3_PODs.tex
-#cat tablePODsws.tex tablePODswd.tex \
-#    tablePODsrh.tex tablePODspwv.tex >> day3_PODs.tex
-## END OF DUMMY STUFF
-##################################################################################
-##################################################################################
+cd $WRKDIR/day2
+# TITLE
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day2.tex
+echo '\section{Title for Day 2}' >> day2.tex
+echo '\Blindtext[2] ' >> day2.tex
+cp day2.tex $WRKDIR/
+# FIGURES
+echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > day2_figures.tex
+echo '\subsection{Title for Figures of Day 2}' >> day2_figures.tex
+echo '\Blindtext[3] ' >> day2_figures.tex
+cat figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex  >> day2_figures.tex
+cp day2_figures.tex $WRKDIR/
+# STATISTICS
+echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > day2_statistics.tex
+echo '\subsection{Title for Statistics of Day 2}' >> day2_statistics.tex
+echo '\Blindtext[4] ' >> day2_statistics.tex
+cat table_skills_BEF.tex  >> day2_statistics.tex
+cp day2_statistics.tex $WRKDIR/
+# CONTINGENCY TABLES
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day2_contingency.tex
+echo '\subsection{Title for Contingency tables of Day 2}' >> day2_contingency.tex
+echo '\Blindtext[3] ' >> day2_contingency.tex
+cat contingency_tableBEFws.tex >> day2_contingency.tex
+cat contingency_tableBEFwd.tex >> day2_contingency.tex
+cat contingency_tableBEFrh.tex >> day2_contingency.tex
+cat contingency_tableBEFpwv.tex >> day2_contingency.tex
+echo '\clearpage' >> day2_contingency.tex
+cp day2_contingency.tex $WRKDIR/
+# PODs TABLES
+cp day2_PODs.tex $WRKDIR/
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day2_PODs.tex
+echo '\subsection{Title for PODs tables of Day 2}' >> day2_PODs.tex
+echo '\Blindtext[3] ' >> day2_PODs.tex
+cat tablePODsws.tex tablePODswd.tex \
+    tablePODsrh.tex tablePODspwv.tex >> day2_PODs.tex
+
+######################
+# NIGHT3
+cd $WRKDIR/night3
+# TITLE
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night3.tex
+echo '\section{Title for Night 3}' >> night3.tex
+echo '\Blindtext[2] ' >> night3.tex
+cp night3.tex $WRKDIR/
+# FIGURES
+echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night3_figures.tex
+echo '\subsection{Title for Figures of Night 3}' >> night3_figures.tex
+echo '\Blindtext[3] ' >> night3_figures.tex
+cat figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex figures_see.tex figures_tau.tex figures_glf.tex >> night3_figures.tex
+cp night3_figures.tex $WRKDIR/
+# STATISTICS
+echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > night3_statistics.tex
+echo '\subsection{Title for Statistics of Night 3}' >> night3_statistics.tex
+echo '\Blindtext[4] ' >> night3_statistics.tex
+cat table_skills_BEF.tex  >> night3_statistics.tex
+cp night3_statistics.tex $WRKDIR/
+# CONTINGENCY TABLES
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night3_contingency.tex
+echo '\subsection{Title for Contingency tables of Night 3}' >> night3_contingency.tex
+echo '\Blindtext[3] ' >> night3_contingency.tex
+cat contingency_tableBEFws.tex >> night3_contingency.tex
+cat contingency_tableBEFwd.tex >> night3_contingency.tex
+cat contingency_tableBEFrh.tex >> night3_contingency.tex
+cat contingency_tableBEFpwv.tex >> night3_contingency.tex
+echo '\clearpage' >> night3_contingency.tex
+cat contingency_tableBEFsee_0.0.tex >> night3_contingency.tex
+cat contingency_tableBEFsee_0.24.tex >> night3_contingency.tex
+cat contingency_tableBEFtau_0.0.tex >> night3_contingency.tex
+cat contingency_tableBEFtau_1.22.tex >> night3_contingency.tex
+echo '\clearpage' >> night3_contingency.tex
+cat contingency_tableBEFglf_0.0.tex >> night3_contingency.tex
+cat contingency_tableBEFglf_0.14.tex >> night3_contingency.tex
+cp night3_contingency.tex $WRKDIR/
+# PODs TABLES
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night3_PODs.tex
+echo '\subsection{Title for PODs tables of Night 3}' >> night3_PODs.tex
+echo '\Blindtext[3] ' >> night3_PODs.tex
+cat tablePODsws.tex tablePODswd.tex \
+    tablePODsrh.tex tablePODspwv.tex >> night3_PODs.tex
+cat tablePODssee_0.0.tex tablePODssee_0.24.tex \
+    tablePODstau_0.0.tex tablePODstau_1.22.tex \
+    tablePODsglf_0.0.tex tablePODsglf_0.14.tex >> night3_PODs.tex
+cp night3_PODs.tex $WRKDIR/
+
+######################
+# DAY 3
+cd $WRKDIR/day3
+# TITLE
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day3.tex
+echo '\section{Title for Day 3}' >> day3.tex
+echo '\Blindtext[2] ' >> day3.tex
+cp day3.tex $WRKDIR/
+# FIGURES
+echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > day3_figures.tex
+echo '\subsection{Title for Figures of Day 3}' >> day3_figures.tex
+echo '\Blindtext[3] ' >> day3_figures.tex
+cat figures_ws.tex figures_wd.tex figures_rh.tex figures_pwv.tex  >> day3_figures.tex
+cp day3_figures.tex $WRKDIR/
+# STATISTICS
+echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > day3_statistics.tex
+echo '\subsection{Title for Statistics of Day 3}' >> day3_statistics.tex
+echo '\Blindtext[4] ' >> day3_statistics.tex
+cat table_skills_BEF.tex  >> day3_statistics.tex
+cp day3_statistics.tex $WRKDIR/
+# CONTINGENCY TABLES
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day3_contingency.tex
+echo '\subsection{Title for Contingency tables of Day 3}' >> day3_contingency.tex
+echo '\Blindtext[3] ' >> day3_contingency.tex
+cat contingency_tableBEFws.tex >> day3_contingency.tex
+cat contingency_tableBEFwd.tex >> day3_contingency.tex
+cat contingency_tableBEFrh.tex >> day3_contingency.tex
+cat contingency_tableBEFpwv.tex >> day3_contingency.tex
+echo '\clearpage' >> day3_contingency.tex
+cp day3_contingency.tex $WRKDIR/
+# PODs TABLES
+echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day3_PODs.tex
+echo '\subsection{Title for PODs tables of Day 3}' >> day3_PODs.tex
+echo '\Blindtext[3] ' >> day3_PODs.tex
+cat tablePODsws.tex tablePODswd.tex \
+    tablePODsrh.tex tablePODspwv.tex >> day3_PODs.tex
+cp day3_PODs.tex $WRKDIR/
 ##################################################################################
 
-
 ##################################################################################
-##################################################################################
-##################################################################################
-##################################################################################
-#################################################################
 cp $textLOGs_file $WRKDIR
 # TEMPLATE
 # Check and modify the template Latex file

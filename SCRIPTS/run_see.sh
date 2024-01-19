@@ -3,15 +3,19 @@
 ############################################################################
 # Usage
 ############################################################################
-if [ $# -ne 1 ]; then
+if [ $# -ne 3 ]; then
   echo 'Not enough/too many arguments'
-  echo "Usage: $0 env_file"
-  echo "Example: $0 $HOME/SCRIPTS/fate-report.env"
+  echo "Usage: $0 env_file FCST_DAY FCST_LEN"
+  echo "Example: $0 $HOME/SCRIPTS/fate-report.env [night || day] [1 || 2 || 3]"
   echo ""
   exit 1
 else
   envfile=$1
+  FCST_DAY=$2
+  FCST_DAY_SHORT=`echo $FCST_DAY | cut -c1-3`
+  FCST_LEN=$3
 fi
+#echo $envfile $FCST_DAY $FCST_DAY_SHORT $FCST_LEN
 
 # Source of env file
 if [ -e $envfile ]; then
