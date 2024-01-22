@@ -38,14 +38,16 @@ notice "Start of "`basename $0`
 
 #################################################################
 # HOUSEKEEPING
-if [ -e "$SCRDIR/TMPL_LATEX/table_tmpl.tex" ]; then
-  cp $SCRDIR/TMPL_LATEX/table_tmpl_BEF.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex
-  if [ ${FCST_LEN} -eq 1 ]; then
-    cp $SCRDIR/TMPL_LATEX/table_tmpl_AFT.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex
-    cp $SCRDIR/TMPL_LATEX/table_tmpl_AFT-LASTM.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex
+for fff in table_tmpl_BEF-${FCST_DAY}.tex table_tmpl_AFT-${FCST_DAY}.tex table_tmpl_AFT-LASTM-${FCST_DAY}.tex
+do
+  if [ ! -e $SCRDIR/TMPL_LATEX/$fff ]; then
+    echo "ops cannot find $fff"; exit 1;
   fi
-else
-  error "Cannot create temporary_tableBEF.tex. Exiting..."
+done
+cp $SCRDIR/TMPL_LATEX/table_tmpl_BEF-${FCST_DAY}.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex
+if [ ${FCST_LEN} -eq 1 ]; then
+  cp $SCRDIR/TMPL_LATEX/table_tmpl_AFT-${FCST_DAY}.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex
+  cp $SCRDIR/TMPL_LATEX/table_tmpl_AFT-LASTM-${FCST_DAY}.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex
 fi
 
 #################################################################

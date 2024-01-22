@@ -1,0 +1,45 @@
+
+#######################################################
+# mi sposto nella directory dove si trova l'archivio dei dati (night1)
+cd /TERASTARMET/FATE_BACKUPS_mesohp1/AUTOMATION_OUTPUTS/AUTOREGRESSION/postproc/DAT_ARCHIVE/
+# copio solo i mesi/giorni che mi interessano nella directory di lavoro
+cp 202309*.dat /home/report/DATA/DA_TRATTARE/test/night/
+cp 202310*.dat /home/report/DATA/DA_TRATTARE/test/night/
+cp 202311*.dat /home/report/DATA/DA_TRATTARE/test/night/
+cp 202312*.dat /home/report/DATA/DA_TRATTARE/test/night/
+#######################################################
+
+#######################################################
+# mi sposto nella directory dove si trova l'archivio dei dati (day1)
+cd /TERASTARMET/FATE_BACKUPS_mesohp2/AUTOMATION_OUTPUTS/AUTOREGRESSION/postproc/DAT_ARCHIVE/
+# copio solo i mesi/giorni che mi interessano nella directory di lavoro
+cp 202309*.dat /home/report/DATA/DA_TRATTARE/test/day/
+cp 202310*.dat /home/report/DATA/DA_TRATTARE/test/day/
+cp 202311*.dat /home/report/DATA/DA_TRATTARE/test/day/
+cp 202312*.dat /home/report/DATA/DA_TRATTARE/test/day/
+#######################################################
+
+#######################################################
+# NIGHT1 && DAY1
+# lancio la procedura di elaborazione dei dati in formato treated (sia operativi che persistence)
+# REM: ricordarsi di cambiare le righe di codice che creano i files list_*_LastMonth.txt che devono contenere solo l'ultimo mese
+cd /home/report/PROG/read_and_treat
+sh read_and_treat_DAYNIGHT_1.sh
+sh read_and_treat_PERSISTENCE.sh
+# REM: ricordarsi di cambiare le righe di codice che creano i files list_*_LastMonth.txt che devono contenere solo l'ultimo mese
+
+# i file di output vanno a finire in
+/home/report/DATA/TREATED # e sottocartelle day1, nig1, day_PERSIST, nig_PERSIST
+#######################################################
+
+#######################################################
+# NIGHT2,3 && DAY2,3
+cd /home/report/PROG/read_and_treat
+# vanno cambiati i parametri in entrata, segnatamente:
+# LISTGG= #EITHER "night" or "day"
+fcst_lenght= #EITHER "2" or "3"
+sh read_and_treat_DAYNIGHT_23.sh
+
+# i dati vanno a finire in 
+/home/report/DATA/TREATED # e sottocartelle day2,3 e nig2,3
+#######################################################

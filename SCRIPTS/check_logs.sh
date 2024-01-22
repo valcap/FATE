@@ -42,36 +42,36 @@ TOTAL_MONTHLY_RUN=$(($DAYS_PREV_MON*2))
 
 DUMMY_VAL='100.0'
 #ECMW: ECMWF initialisation data transmission
-VAL=`grep 'FATE: ECMWF_DATA_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | wc -l`
+VAL=`grep 'FATE: ECMWF_DATA_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | uniq | wc -l`
 VAL00=$(echo "scale=2; ($VAL/$TOTAL_MONTHLY_RUN)*100" | bc)
-VAL00=$DUMMY_VAL
+#VAL00=$DUMMY_VAL
 
 #ESO: ftp access ESO – INPUT
-VAL=`grep 'ESO: ESO_SERVER_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | wc -l`
-VAL01=$(echo "scale=2; ($VAL/$TOTAL_MONTHLY_RUN)*100" | bc)
-VAL01=$DUMMY_VAL
+VAL=`grep 'ESO: ESO_SERVER_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | uniq | wc -l`
+VAL01=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
+#VAL01=$DUMMY_VAL
 
 #ESO: ftp access ESO – OUPUT
 VAL02=$DUMMY_VAL
 
 #FATE: principal network
 VAL=`grep 'FATE: FATE_NETWORK_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | wc -l`
-VAL03=$(echo "scale=2; ($VAL/$TOTAL_MONTHLY_RUN)*100" | bc)
-VAL03=$DUMMY_VAL
+VAL03=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
+#VAL03=$DUMMY_VAL
 
 #ESO: server INPUT
 VAL04=$DUMMY_VAL
 
 #ESO: servers OUTPUT
-VAL5A=`grep 'CONNECTION_TO_ESO_SERVER_2A' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | grep SUCCESSFULL | wc -l`
-VAL5B=`grep 'CONNECTION_TO_ESO_SERVER_2B' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | grep SUCCESSFULL | wc -l`
+VAL5A=`grep 'ESO server input 1A' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | grep OK | wc -l`
+VAL5B=`grep 'ESO server input 1B' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | grep OK | wc -l`
 if [ $VAL5A -gt $VAL5B ]; then
   VAL=$VAL5A
 else
   VAL=$VAL5B
 fi
-VAL05=$(echo "scale=2; ($VAL/$TOTAL_MONTHLY_RUN)*100" | bc)
-VAL05=$DUMMY_VAL
+VAL05=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
+#VAL05=$DUMMY_VAL
 
 #FATE: model: explosion of simulations
 VAL_MNH_FAIL_NIGHT=`grep 'WARNING!!! SIMULATION' $LOGDIR_MNH_NIGHT/${PREV_MONTH_YY}/${PREV_MONTH_YY}${PREV_MONTH_MM}*_schedule.log | wc -l`
@@ -92,6 +92,31 @@ VAL08=$DUMMY_VAL; VAL09=$DUMMY_VAL;
 VAL10=$DUMMY_VAL; VAL11=$DUMMY_VAL; VAL12=$DUMMY_VAL;
 VAL13=$DUMMY_VAL; VAL15=$DUMMY_VAL;
 TOTAL_MONTHLY_RUN=`ls $LOGDIR_MNH_DAY/${PREV_MONTH_YY}/${PREV_MONTH_YY}*_schedule.log | wc -l`
+
+#ECMW: ECMWF initialisation data transmission
+VAL=`grep 'FATE: ECMWF_DATA_DOWNLOAD = OK' $LOGDIR/*.GRIB_RAWRT.download_ecmwf_data.log | uniq | wc -l`
+VAL08=$(echo "scale=2; ($VAL/$TOTAL_MONTHLY_RUN)*100" | bc)
+#VAL00=$DUMMY_VAL
+
+#ESO: ftp access ESO – INPUT
+VAL=`grep 'ESO: ESO_SERVER_DOWNLOAD = OK' $LOGDIR/*.GRIB_RAWRT.download_ecmwf_data.log | uniq | wc -l`
+VAL09=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
+#VAL01=$DUMMY_VAL
+
+#FATE: principal network
+VAL=`grep 'FATE: FATE_NETWORK_DOWNLOAD = OK' $LOGDIR/*.GRIB_RAWRT.download_ecmwf_data.log | wc -l`
+VAL11=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#ESO: servers OUTPUT
+VAL13A=`grep 'ESO server input 1A' $LOGDIR/*.GRIB_RAWRT.download_ecmwf_data.log | grep OK | wc -l`
+VAL13B=`grep 'ESO server input 1B' $LOGDIR/*.GRIB_RAWRT.download_ecmwf_data.log | grep OK | wc -l`
+if [ $VAL13A -gt $VAL13B ]; then
+  VAL=$VAL13A
+else
+  VAL=$VAL13B
+fi
+VAL13=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
+#VAL13=$DUMMY_VAL
 
 #FATE: model: explosion of simulations
 VAL_MNH_FAIL_NIGHT=`grep 'WARNING!!! SIMULATION' $LOGDIR_MNH_NIGHT/${PREV_MONTH_YY}/${PREV_MONTH_YY}*_schedule.log | wc -l`

@@ -22,7 +22,7 @@ fi
 rm -f $WRKDIR/*.{tex,aux,toc,sty,out,log}
 rm -f $WRKDIR/main.{tex,aux,toc,sty,out,log,pdf}
 rm -f $WRKDIR/*.png
-for dd in night1 day1
+for dd in night1 day1 night2 day2 night3 day3
 do
   if [ -d $WRKDIR/$dd ]; then
     rm -fr $WRKDIR/$dd/*
@@ -30,6 +30,80 @@ do
     mkdir -p $WRKDIR/$dd
   fi
 done
+
+########
+# DAY3
+########
+echo "+++++++++++++++++++++++"
+echo "RUNNING DAY3"
+echo "+++++++++++++++++++++++"
+for var in WS WD RH PWV
+do
+  ln -sf /home/report/DATA/TREATED/day3/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
+  ln -sf /home/report/DATA/TREATED/day3/list_${var}*.txt /home/report/PROG/PERSISTENCE/
+done
+./run_ws23.sh     $envfile_atmo day 3
+./run_wd23.sh     $envfile_atmo day 3
+./run_rh23.sh     $envfile_atmo day 3
+./run_pwv23.sh    $envfile_atmo day 3
+./run_skills.sh $envfile_atmo day 3
+
+########
+# NIGHT3
+########
+echo "+++++++++++++++++++++++"
+echo "RUNNING NIGHT3"
+echo "+++++++++++++++++++++++"
+for var in WS WD RH PWV SEE TAU GLF
+do
+  ln -sf /home/report/DATA/TREATED/nig3/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
+  ln -sf /home/report/DATA/TREATED/nig3/list_${var}*.txt /home/report/PROG/PERSISTENCE/
+done
+./run_ws23.sh     $envfile_astro night 3
+./run_wd23.sh     $envfile_astro night 3
+./run_rh23.sh     $envfile_astro night 3
+./run_pwv23.sh    $envfile_astro night 3
+./run_see23.sh    $envfile_astro night 3
+./run_tau23.sh    $envfile_astro night 3
+./run_glf23.sh    $envfile_astro night 3
+./run_skills.sh $envfile_astro night 3
+
+########
+# DAY2
+########
+echo "+++++++++++++++++++++++"
+echo "RUNNING DAY2"
+echo "+++++++++++++++++++++++"
+for var in WS WD RH PWV
+do
+  ln -sf /home/report/DATA/TREATED/day2/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
+  ln -sf /home/report/DATA/TREATED/day2/list_${var}*.txt /home/report/PROG/PERSISTENCE/
+done
+./run_ws23.sh     $envfile_atmo day 2
+./run_wd23.sh     $envfile_atmo day 2
+./run_rh23.sh     $envfile_atmo day 2
+./run_pwv23.sh    $envfile_atmo day 2
+./run_skills.sh $envfile_atmo day 2
+
+########
+# NIGHT2
+########
+echo "+++++++++++++++++++++++"
+echo "RUNNING NIGHT2"
+echo "+++++++++++++++++++++++"
+for var in WS WD RH PWV SEE TAU GLF
+do
+  ln -sf /home/report/DATA/TREATED/nig2/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
+  ln -sf /home/report/DATA/TREATED/nig2/list_${var}*.txt /home/report/PROG/PERSISTENCE/
+done
+./run_ws23.sh     $envfile_astro night 2
+./run_wd23.sh     $envfile_astro night 2
+./run_rh23.sh     $envfile_astro night 2
+./run_pwv23.sh    $envfile_astro night 2
+./run_see23.sh    $envfile_astro night 2
+./run_tau23.sh    $envfile_astro night 2
+./run_glf23.sh    $envfile_astro night 2
+./run_skills.sh $envfile_astro night 2
 
 ########
 # NIGHT1
@@ -62,22 +136,22 @@ do
   ln -sf /home/report/DATA/TREATED/day1/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
   ln -sf /home/report/DATA/TREATED/day1/list_${var}*.txt /home/report/PROG/PERSISTENCE/
 done
-./run_ws.sh     $envfile_atmo night 1
-./run_wd.sh     $envfile_atmo night 1
-./run_rh.sh     $envfile_atmo night 1
-./run_pwv.sh    $envfile_atmo night 1
-./run_skills.sh $envfile_atmo night 1
+./run_ws.sh     $envfile_atmo day 1
+./run_wd.sh     $envfile_atmo day 1
+./run_rh.sh     $envfile_atmo day 1
+./run_pwv.sh    $envfile_atmo day 1
+./run_skills.sh $envfile_atmo day 1
 
 ########
 # TABLE WITH OBSERVATIONS
 ########
-./check_logs_obs.sh $envfile_atmo night 1
-./check_logs.sh $envfile_atmo night 1
+./check_logs_obs.sh $envfile_atmo
+./check_logs.sh $envfile_atmo
 
 ########
 # COMPILE LATEX FILE
 ########
-./compile_report.sh $envfile_atmo night 1
+./compile_report.sh $envfile_atmo
 
 ########
 # EXIT
