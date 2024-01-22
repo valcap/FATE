@@ -3,15 +3,19 @@
 ############################################################################
 # Usage
 ############################################################################
-if [ $# -ne 1 ]; then
+if [ $# -ne 3 ]; then
   echo 'Not enough/too many arguments'
-  echo "Usage: $0 env_file"
-  echo "Example: $0 $HOME/SCRIPTS/fate-report.env"
+  echo "Usage: $0 env_file FCST_DAY FCST_LEN"
+  echo "Example: $0 $HOME/SCRIPTS/fate-report.env [night || day] [1 || 2 || 3]"
   echo ""
   exit 1
 else
   envfile=$1
+  FCST_DAY=$2
+  FCST_DAY_SHORT=`echo $FCST_DAY | cut -c1-3`
+  FCST_LEN=$3
 fi
+#echo $envfile $FCST_DAY $FCST_DAY_SHORT $FCST_LEN
 
 # Source of env file
 if [ -e $envfile ]; then
@@ -33,7 +37,7 @@ notice "Start of "`basename $0`
 #########################################
 ## Working on ws
 #
-prefix='see'
+prefix='glf'
 get_var_attr "$prefix"
 # prefixUC
 # descri
@@ -84,15 +88,14 @@ if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in the current directory"; exit 1
 fi
 NbNights=`wc -l $FILE_LIST | cut -d ' ' -f 1`
-ACC=0.24        # accuracy for the seeing insturments  (for seeing without filtering 1.5" we have accuacry =0.45")
 ROOT=$DATA_ROOT_DIR"/${prefixUC}_TREATED/"
 if [ ! -d $ROOT ]; then
   echo "ops $ROOT is missing or is not a directory"; exit 1
 fi
 STARTIN="${prefixUC}_ARevol_"
 TAIL=".dat"
-#MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
-#             # ATT: use the option 999 if you wish to calculate the contingency tables
+MAXGLF=999.   # put 999. if one wants to consider the whole values without filtering
+             # ATT: use the option 999 if you wish to calculate the contingency tables
 
 rm -f ${JOB}.exe
 test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
@@ -103,10 +106,10 @@ if [ ! -e ${JOB}.exe ]; then
   echo "ops problem in compiling ${JOB}.f90"; exit 1
 fi
 
-# Loop over accuracy and MAXSEE=1.5 for BEF DATA ONLY (i.e. standard configuration)
-for ACC in 0.0 0.24
+# Loop over accuracy
+for ACC in 0.0 0.14
 do
-  subnotice "Running F90 program for ACC $ACC for BEF DATA ONLY (i.e. standard configuration)"
+  subnotice "Running F90 program for ACC $ACC"
   # Run f90 file
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC}
 ${FCST_DAY_SHORT}${FCST_LEN}
@@ -115,46 +118,19 @@ ${IDELTA}
 ${NbNights}
 ${STARTMINUTE}
 ${ENDMINUTE}
-1.5
+${MAXGLF}
 ${ACC}
 "${ROOT}"
 "${TAIL}"
 "${STARTIN}"
 '$FILE_LIST'
 '$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps/cps'
-'$FIGS_ROOT_DIR/stoca1.ps/cps'
-EOF
-  rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
-  rm -f $FIGS_ROOT_DIR/stoca1.ps
-done
-
-# Loop over accuracy and MAXSEE=999. for AFT DATA ONLY (i.e. with AR (1H))
-for ACC in 0.0 0.24
-do
-  subnotice "Running F90 program for ACC $ACC for AFT DATA ONLY (i.e. with AR (1H)"
-  # Run f90 file (here we append the output file because we're running
-  #                the ${JOB}.exe for MAXSEE=1.5 (for BEF) and MAXSEE=999. (for (AFT))
-./${JOB}.exe<<EOF >> $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC}
-${FCST_DAY_SHORT}${FCST_LEN}
-${HH}
-${IDELTA}
-${NbNights}
-${STARTMINUTE}
-${ENDMINUTE}
-999.
-${ACC}
-"${ROOT}"
-"${TAIL}"
-"${STARTIN}"
-'$FILE_LIST'
-'$FIGS_ROOT_DIR/stoca2.ps/cps'
 '$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps/cps'
 EOF
   rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
-  rm -f $FIGS_ROOT_DIR/stoca2.ps
 done
-rm -f ${JOB}.exe
-rm -f $FIGS_ROOT_DIR/stoca*
+rm -f ${JOB}.exe test.dat
+
 #
 ## End of computing graphics and statistics for BEFORE and AFTER data
 #########################################
@@ -163,7 +139,7 @@ rm -f $FIGS_ROOT_DIR/stoca*
 ## check a file named tmpfile_NAME-OF-THE-VARIABLE, which is expected in $PROG_ROOT_DIR
 #
 # Loop over accuracy
-for ACC in 0.0 0.24
+for ACC in 0.0 0.14
 do
   if [ ! -e $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} ]; then
     error "$WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} not produced"
@@ -181,14 +157,12 @@ if [ ! -e $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_B
 else
   ps2pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps $FIGS_ROOT_DIR/pippo.pdf
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.pdf > /dev/null 2>&1
-  rm -f $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_${suffix}.ps
 fi
 if [ ! -e $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps ]; then
   error "ops $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps not produced"
 else
   ps2pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps $FIGS_ROOT_DIR/pippo.pdf
   pdfcrop $FIGS_ROOT_DIR/pippo.pdf $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.pdf > /dev/null 2>&1
-  rm -f $FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_${suffix}.ps
 fi
 rm -f $FIGS_ROOT_DIR/pippo.pdf
 mv $FIGS_ROOT_DIR/*.pdf $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
@@ -205,7 +179,7 @@ notice "Creating figures and calculating skills for BEFAFT $prefix ($descri) FOR
 cd $PROG_ROOT_DIR
 rm -f $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
 
-JOB=$prefix'_mnh_ar_hit_def_os18_1000'
+JOB=$prefix'_mnh_ar_hit_def_'${suffix}
 if [ ! -e ${JOB}.f90 ]; then
   echo "ops ${JOB}.f90 is missing"; exit 1
 fi
@@ -215,15 +189,15 @@ if [ ! -e $FILE_LIST ]; then
   echo "ops $FILE_LIST is missing in the current directory"; exit 1
 fi
 NbNights=`wc -l $FILE_LIST | cut -d ' ' -f 1`
-ACC=0.24        # accuracy for the seeing insturments  (for seeing without filtering 1.5" we have accuacry =0.45")
+ACC=0.14
 ROOT=$DATA_ROOT_DIR"/${prefixUC}_TREATED/"
 if [ ! -d $ROOT ]; then
   echo "ops $ROOT is missing or is not a directory"; exit 1
 fi
 STARTIN="${prefixUC}_ARevol_"
-TAIL=".dat"
-#MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
-#             # ATT: use the option 999 if you wish to calculate the contingency tables
+TAIL=".dat" 
+MAXGLF=999.   
+# 
 
 rm -f ${JOB}.exe
 test -f out_scatter_for_python_bef.dat && rm -f out_scatter_for_python_bef.dat
@@ -235,8 +209,7 @@ if [ ! -e ${JOB}.exe ]; then
 fi
 
 subnotice "Running F90 program for ACC $ACC"
-# Run f90 file (for the Last month we're interested in AFT data only,
-#               thus MAXSEE=999. (as above)
+# Run f90 file
 ./${JOB}.exe<<EOF > $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
 ${FCST_DAY_SHORT}${FCST_LEN}
 ${HH}
@@ -244,7 +217,7 @@ ${IDELTA}
 ${NbNights}
 ${STARTMINUTE}
 ${ENDMINUTE}
-1.5
+${MAXGLF}
 ${ACC}
 "${ROOT}"
 "${TAIL}"
@@ -255,32 +228,7 @@ ${ACC}
 EOF
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
 rm -f $FIGS_ROOT_DIR/temp*.ps
-
-subnotice "Running F90 program for ACC $ACC"
-# Run f90 file (for the Last month we're interested in AFT data only,
-#               thus MAXSEE=999. (as above)
-./${JOB}.exe<<EOF >> $WRKDIR/${skills_file}_BEFAFT_${prefix}_${skills_file_lastmonth}
-${FCST_DAY_SHORT}${FCST_LEN}
-${HH}
-${IDELTA}
-${NbNights}
-${STARTMINUTE}
-${ENDMINUTE}
-999.
-${ACC}
-"${ROOT}"
-"${TAIL}"
-"${STARTIN}"
-'$FILE_LIST'
-'$FIGS_ROOT_DIR/temp1.ps/cps'
-'$FIGS_ROOT_DIR/temp2.ps/cps'
-EOF
-rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
-rm -f $FIGS_ROOT_DIR/temp*.ps
-rm -f ${JOB}.exe
-#
-## End of computing graphics and statistics for BEFORE and AFTER data
-#########################################
+rm -f ${JOB}.exe test.dat
 
 #########################################
 ## check a file named tmpfile_NAME-OF-THE-VARIABLE, which is expected in $PROG_ROOT_DIR
@@ -321,7 +269,7 @@ if [ ! -d $ROOT ]; then
 fi
 STARTIN="${prefixUC}_PERSIST_"
 TAIL=".dat"
-MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
+MAXGLF=999.   # put 999. if one wants to consider the whole values without filtering
              # ATT: use the option 999 if you wish to calculate the contingency tables
 
 rm -f ${JOB}.exe
@@ -334,7 +282,7 @@ if [ ! -e ${JOB}.exe ]; then
 fi
 
 # Loop over accuracy
-for ACC in 0.0 0.24
+for ACC in 0.0 0.14
 do
 subnotice "Running F90 program for ACC $ACC"
 # Run f90 file
@@ -345,7 +293,7 @@ ${IDELTA}
 ${NbNights}
 ${STARTMINUTE}
 ${ENDMINUTE}
-${MAXSEE}
+${MAXGLF}
 ${ACC}
 "${ROOT}"
 "${TAIL}"
@@ -357,7 +305,7 @@ FALSE
 EOF
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
 done
-rm -f ${JOB}.exe
+rm -f ${JOB}.exe test.dat
 #
 ## End of computing graphics and statistics for PERSISTENCE data
 #########################################
@@ -365,7 +313,7 @@ rm -f ${JOB}.exe
 # check tmpfile file
 # a file named tmpfile_NAME-OF-THE-VARIABLE is expected in $PROG_ROOT_DIR
 # Loop over accuracy
-for ACC in 0.0 0.10 0.24
+for ACC in 0.0 0.14
 do
   if [ ! -e $WRKDIR/${skills_file}_PER_${prefix}_${ACC} ]; then
     error "$WRKDIR/${skills_file}_PER_${prefix}_${ACC} not produced"
@@ -397,7 +345,7 @@ mv $FIGS_ROOT_DIR/*.pdf $FIGS_ROOT_DIR/$FCST_DAY$FCST_LEN
 #########################################
 ## Compute graphics and statistics
 #
-notice "Creating figures and calculating skills for PERSISTENCE $prefix ($descri) FOR LAST MONTH ONLY !!!!!!"
+notice "Creating figures and calculating skills for PERSISTENCE $prefix ($descri) FOR LAST MONTH ONLY"
 cd $PERS_ROOT_DIR
 rm -f $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}*
 
@@ -417,7 +365,7 @@ if [ ! -d $ROOT ]; then
 fi
 STARTIN="${prefixUC}_PERSIST_"
 TAIL=".dat"
-MAXSEE=999.   # put 999. if one wants to consider the whole values without filtering
+MAXGLF=999.   # put 999. if one wants to consider the whole values without filtering
              # ATT: use the option 999 if you wish to calculate the contingency tables
 
 rm -f ${JOB}.exe
@@ -430,7 +378,7 @@ if [ ! -e ${JOB}.exe ]; then
 fi
 
 # Loop over accuracy
-for ACC in 0.24
+for ACC in 0.14
 do
 subnotice "Running F90 program for ACC $ACC"
 # Run f90 file
@@ -441,20 +389,21 @@ ${IDELTA}
 ${NbNights}
 ${STARTMINUTE}
 ${ENDMINUTE}
-${MAXSEE}
+${MAXGLF}
 ${ACC}
 "${ROOT}"
 "${TAIL}"
 "${STARTIN}"
 '$FILE_LIST'
-'$FIGS_ROOT_DIR/pippo1.ps/cps'
-'$FIGS_ROOT_DIR/pippo2.ps/cps'
+'$FIGS_ROOT_DIR/temp1.ps/cps'
+'$FIGS_ROOT_DIR/temp2.ps/cps'
 FALSE
 EOF
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
-rm -f $FIGS_ROOT_DIR/pippo1.ps $FIGS_ROOT_DIR/pippo2.ps
+rm -f $FIGS_ROOT_DIR/temp1.ps $FIGS_ROOT_DIR/temp2.ps
+
 done
-rm -f ${JOB}.exe
+rm -f ${JOB}.exe test.dat
 #
 ## End of computing graphics and statistics for PERSISTENCE data
 #########################################
@@ -462,9 +411,13 @@ rm -f ${JOB}.exe
 # check tmpfile file
 # a file named tmpfile_NAME-OF-THE-VARIABLE is expected in $PROG_ROOT_DIR
 # Loop over accuracy
-if [ ! -e $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth} ]; then
-  error "$WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth}} not produced"
-fi
+for ACC in 0.14
+do
+  if [ ! -e $WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth} ]; then
+    error "$WRKDIR/${skills_file}_PER_${prefix}_${skills_file_lastmonth} not produced"
+  fi
+done
+
 
 ##################################################################################
 ##################################################################################
@@ -490,7 +443,7 @@ cat << EOF > $WRKDIR/figures_${prefix}.tex
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSBEF}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSAFT}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSPER}}
-\caption{$descri ($unitof): (a) STANDARD CONFIGURATION ($<$ 1.5''), (b) WITH AR (1H), (c) PERSISTENCE (1H).}
+\caption{${FCST_DAY}${FCST_LEN} - $descri ($unitof): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE (1H)}
 \label{fig:$prefix}
 \end{figure}
 EOF
@@ -506,11 +459,11 @@ notice "Extracting skills and creating contingency tables for each accuray"
 
 cd $WRKDIR
 
-for ACC in 0.0 0.24
+for ACC in 0.0 0.14
 do
 # BEFORE STUFF
-PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep PERCENTILES | grep X33_ | head -n1 | awk '{print $4}'`
-PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep PERCENTILES | grep X66_ | head -n1 | awk '{print $4}'`
+PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep PERCENTILES | grep X33_ | awk '{print $4}'`
+PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep PERCENTILES | grep X66_ | awk '{print $4}'`
 VAL1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $5}'`
 VAL2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $6}'`
 VAL3=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $7}'`
@@ -520,13 +473,15 @@ VAL6=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep C
 VAL7=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW3 | awk '{print $5}'`
 VAL8=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW3 | awk '{print $6}'`
 VAL9=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW3 | awk '{print $7}'`
-SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep NbLines_TOT | awk '{print $3}'`
+#SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep NbLines_TOT | awk '{print $3}'`
+#SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep 'Hit rate computed on' | head -n 1`
+SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep 'Number of points' | head -n 1`
 POD1BEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD1 | awk '{print $5}'`
 POD2BEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD2 | awk '{print $5}'`
 POD3BEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep POD3 | awk '{print $5}'`
 PCBEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep PC | awk '{print $5}'`
 EBDBEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep BEF | grep EBD | awk '{print $5}'`
-my_nice_caption='Contingency table for variable '$descri' ('$unitof') in standard configuration and accuracy '$ACC
+my_nice_caption=${FCST_DAY}${FCST_LEN}' - Contingency table for  '$descri' ('$unitof') in standard configuration and accuracy '$ACC
 cat << EOF > $WRKDIR/contingency_tableBEF${prefix}_${ACC}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[p!]
@@ -540,7 +495,7 @@ cat << EOF > $WRKDIR/contingency_tableBEF${prefix}_${ACC}.tex
                                                  & $PERC1  $<$ $prefix $<$ $PERC2 & $VAL4                & $VAL5                       & $VAL6              \\\\
                                                  & $prefix $>$ $PERC2             & $VAL7                & $VAL8                       & $VAL9              \\\\
 \hline
-\multicolumn{5}{l}{Sample size: $SAMPSIZ; PC=$PCBEF\\%; EBD=$EBDBEF\\%; POD1=$POD1BEF\\%; POD2=$POD2BEF\\%; POD3=$POD3BEF\\%}
+\multicolumn{5}{l}{$SAMPSIZ PC=$PCBEF\\%; EBD=$EBDBEF\\%; POD1=$POD1BEF\\%; POD2=$POD2BEF\\%; POD3=$POD3BEF\\%}
 \end{tabular}
 \end{center}
 \caption{$my_nice_caption}
@@ -558,13 +513,15 @@ VAL6=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep C
 VAL7=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW3 | awk '{print $5}'`
 VAL8=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW3 | awk '{print $6}'`
 VAL9=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW3 | awk '{print $7}'`
-SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep NbLines_TOT | awk '{print $3}'`
+#SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep NbLines_TOT | awk '{print $3}'`
+#SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep 'Hit rate computed on' | head -n 1`
+SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep 'Number of points' | head -n 1`
 POD1AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD1 | awk '{print $5}'`
 POD2AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD2 | awk '{print $5}'`
 POD3AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD3 | awk '{print $5}'`
 PCAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep PC | awk '{print $5}'`
 EBDAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep EBD | awk '{print $5}'`
-my_nice_caption='Contingency table for variable '$descri' ('$unitof') processed with AR (1H) and accuracy '$ACC
+my_nice_caption=${FCST_DAY}${FCST_LEN}' - Contingency table for  '$descri' ('$unitof') processed with AR (1H) and accuracy '$ACC
 cat << EOF >> $WRKDIR/contingency_tableAFT${prefix}_${ACC}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[p!]
@@ -578,7 +535,7 @@ cat << EOF >> $WRKDIR/contingency_tableAFT${prefix}_${ACC}.tex
                                                  & $PERC1  $<$ $prefix $<$ $PERC2 & $VAL4                & $VAL5                       & $VAL6              \\\\
                                                  & $prefix $>$ $PERC2             & $VAL7                & $VAL8                       & $VAL9              \\\\
 \hline
-\multicolumn{5}{l}{Sample size: $SAMPSIZ; PC=$PCAFT\\%; EBD=$EBDAFT\\%; POD1=$POD1AFT\\%; POD2=$POD2AFT\\%; POD3=$POD3AFT\\%}
+\multicolumn{5}{l}{$SAMPSIZ PC=$PCAFT\\%; EBD=$EBDAFT\\%; POD1=$POD1AFT\\%; POD2=$POD2AFT\\%; POD3=$POD3AFT\\%}
 \end{tabular}
 \end{center}
 \caption{$my_nice_caption}
@@ -593,7 +550,7 @@ done
 
 notice "Extracting skills and creating PODs table for each accuray"
 
-for ACC in 0.0 0.24
+for ACC in 0.0 0.14
 do
 ## PODs for BEF and AFT
 #
@@ -610,7 +567,7 @@ POD3AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | gre
 PCAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep PC | awk '{print $5}'`
 EBDAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_${ACC} | grep LOGINFO | grep CONTTABLE | grep AFT | grep EBD | awk '{print $5}'`
 
-my_caption='PODs for '$descri' ('$unitof') and accuray '${ACC}
+my_caption=${FCST_DAY}${FCST_LEN}' - PODs for '$descri' ('$unitof') and accuray '${ACC}
 cat << EOF > $WRKDIR/tablePODs${prefix}_${ACC}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[p!]
