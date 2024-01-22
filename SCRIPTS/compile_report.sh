@@ -232,7 +232,7 @@ echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day2_PODs.tex
 echo '\subsection{Title for PODs tables of Day 2}' >> day2_PODs.tex
 echo '\Blindtext[3] ' >> day2_PODs.tex
 cat tablePODsws.tex tablePODswd.tex \
-    tablePODsrh.tex tablePODspwv.tex >> day2_PODs.
+    tablePODsrh.tex tablePODspwv.tex >> day2_PODs.tex
 cp day2_PODs.tex $WRKDIR/
 
 ######################

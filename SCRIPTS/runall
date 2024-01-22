@@ -21,6 +21,7 @@ fi
 ##############
 rm -f $WRKDIR/*.{tex,aux,toc,sty,out,log}
 rm -f $WRKDIR/main.{tex,aux,toc,sty,out,log,pdf}
+rm -f $WRKDIR/annex.{tex,aux,toc,sty,out,log,pdf}
 rm -f $WRKDIR/*.png
 for dd in night1 day1 night2 day2 night3 day3
 do
