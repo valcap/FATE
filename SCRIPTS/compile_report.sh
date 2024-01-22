@@ -228,12 +228,12 @@ cat contingency_tableBEFpwv.tex >> day2_contingency.tex
 echo '\clearpage' >> day2_contingency.tex
 cp day2_contingency.tex $WRKDIR/
 # PODs TABLES
-cp day2_PODs.tex $WRKDIR/
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day2_PODs.tex
 echo '\subsection{Title for PODs tables of Day 2}' >> day2_PODs.tex
 echo '\Blindtext[3] ' >> day2_PODs.tex
 cat tablePODsws.tex tablePODswd.tex \
-    tablePODsrh.tex tablePODspwv.tex >> day2_PODs.tex
+    tablePODsrh.tex tablePODspwv.tex >> day2_PODs.
+cp day2_PODs.tex $WRKDIR/
 
 ######################
 # NIGHT3
