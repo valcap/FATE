@@ -323,7 +323,11 @@ cp day3_PODs.tex $WRKDIR/
 ##################################################################################
 
 ##################################################################################
-cp $textLOGs_file $WRKDIR
+if [ ! -e $textLOGs_file ]; then
+  warning "file $textLOGs_file is missing";
+else
+  cp $textLOGs_file $WRKDIR
+fi
 # TEMPLATE
 # Check and modify the template Latex file
 if [ ! -e $main_tmpl_file ]; then

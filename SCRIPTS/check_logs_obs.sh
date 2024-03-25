@@ -259,7 +259,7 @@ cat << EOF > $WRKDIR/tableLOGs_ObsNight.tex
 \begin{tabular}{|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-\textbf{TODO} & \textbf{Current month} & \textbf{Incremental months}\\\\
+\textbf{Variable} & \textbf{Current month} & \textbf{Incremental months}\\\\
 \rowcolor[HTML]{C0C0C0} 
               & \textbf{(success rate \%)} & \textbf{(success rate \%)}\\\\
 \hline
@@ -272,7 +272,7 @@ RH                 & $VAL05 & $VAL12 \\\\
 PWV                & $VAL06 & $VAL13 \\\\  
 \hline
 \end{tabular}
-\caption{$my_caption}
+\caption{$my_caption}\label{tab:obs_ava_nig}
 \end{center}
 \end{table}
 EOF
@@ -285,7 +285,7 @@ cat << EOF > $WRKDIR/tableLOGs_ObsDay.tex
 \begin{tabular}{|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-\textbf{TODO} & \textbf{Current month} & \textbf{Incremental months}\\\\
+\textbf{Variable} & \textbf{Current month} & \textbf{Incremental months}\\\\
 \rowcolor[HTML]{C0C0C0} 
               & \textbf{(success rate \%)} & \textbf{(success rate \%)}\\\\
 \hline
@@ -295,7 +295,7 @@ RH                 & $VAL16 & $VAL20 \\\\
 PWV                & $VAL17 & $VAL21 \\\\
 \hline  
 \end{tabular}
-\caption{$my_caption}
+\caption{$my_caption}\label{tab:obs_ava_day}
 \end{center}
 \end{table}
 EOF
