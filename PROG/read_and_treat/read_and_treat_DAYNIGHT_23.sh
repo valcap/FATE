@@ -282,14 +282,14 @@ LISTA="$OUTPUTDIR/list_WD_LastMonth.txt"
 ls WD_TREATED/WD_ARevol_${hiter}_${NEWGG}${fcst_lenght}_${LASTMONTH}*.dat |cut -d"_" -f6|cut -d"." -f1|sort|uniq > ${LISTA}
     
 if [ $GG == "night" ]; then
-      mv -v "TAU_TREATED" "$OUTPUTDIR/"
-      mv -v "SEE_TREATED" "$OUTPUTDIR/"
-      mv -v "GLF_TREATED" "$OUTPUTDIR/"
+      mv -fv "TAU_TREATED" "$OUTPUTDIR/"
+      mv -fv "SEE_TREATED" "$OUTPUTDIR/"
+      mv -fv "GLF_TREATED" "$OUTPUTDIR/"
 fi
-mv -v "PWV_TREATED" "$OUTPUTDIR/"
-mv -v "RH_TREATED" "$OUTPUTDIR/"
-mv -v "WS_TREATED" "$OUTPUTDIR/"
-mv -v "WD_TREATED" "$OUTPUTDIR/"
+mv -fv "PWV_TREATED" "$OUTPUTDIR/"
+mv -fv "RH_TREATED" "$OUTPUTDIR/"
+mv -fv "WS_TREATED" "$OUTPUTDIR/"
+mv -fv "WD_TREATED" "$OUTPUTDIR/"
 
 exit 0;
 

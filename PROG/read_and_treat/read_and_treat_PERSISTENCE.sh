@@ -9,6 +9,10 @@ JOBWD=read_and_treat_AR_exclusive_WD
 #EITHER "night" or "day"
 LISTGG="night day"
 LISTHH="1H"
+LASTMONTHYEAR=2023
+LASTMONTHMONTH=12
+LASTMONTHDAY=31
+LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
 for daygg in $LISTGG; do
   GG="${daygg}"
@@ -242,20 +246,20 @@ EOF
 # _LastMonth TODO DA CAMBIARE OGNI MESE--------
     if [ $daygg == "night" ]; then
         LISTA="list_SEE_LastMonth.txt"
-        ls SEE_PERSIST_202312*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
+        ls SEE_PERSIST_${LASTMONTH}*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
         LISTA="list_TAU_LastMonth.txt"
-        ls TAU_PERSIST_202312*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
+        ls TAU_PERSIST_${LASTMONTH}*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
         LISTA="list_GLF_LastMonth.txt"
-        ls GLF_PERSIST_202312*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
+        ls GLF_PERSIST_${LASTMONTH}*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
     fi
     LISTA="list_PWV_LastMonth.txt"
-    ls PWV_PERSIST_202312*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
+    ls PWV_PERSIST_${LASTMONTH}*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
     LISTA="list_RH_LastMonth.txt"
-    ls RH_PERSIST_202312*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
+    ls RH_PERSIST_${LASTMONTH}*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
     LISTA="list_WS_LastMonth.txt"
-    ls WS_PERSIST_202312*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
+    ls WS_PERSIST_${LASTMONTH}*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
     LISTA="list_WD_LastMonth.txt"
-    ls WD_PERSIST_202312*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
+    ls WD_PERSIST_${LASTMONTH}*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
 
 #    
     if [ $daygg == "night" ]; then
