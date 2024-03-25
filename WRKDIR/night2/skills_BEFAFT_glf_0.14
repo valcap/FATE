@@ -1,0 +1,135 @@
+ GG=nig2
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=         108
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ MAXGLF=   999.000000    
+ ACC=  0.140000001    
+ ROOT=/home/report/DATA/TREATED/nig2/GLF_TREATED/
+ TAIL=.dat
+ STARTIN=GLF_ARevol_
+ CFILE_LIST_NIGHTS=list_GLF.txt                                                                                                            
+ /home/report/FIGS/glf_sim_mnh_ar_dimm_300_960_BEF_os18.ps/cps                                                           
+ /home/report/FIGS/pippo.ps/cps                                                                                          
+ BBBBBBBBBBB GLF_ARevol_1H_nig2_
+ NbLines_TOT=         540
+ MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
+ End of OBS data treatement
+ NbLines_TOT_Pix=       11664
+ MAXVAL_GLF_OBS_1D=  0.938288987    
+                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_BEF=    -0.08
+                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_BEF=     0.19
+                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_BEF=     0.17
+ INC_GLF_MOD_BEF=        4555
+ LOGINFO NbLines_TOT=       11664
+                                                                                                                                                                               LOGINFO BIAS_GLF_MOD_AFT=      NaN
+                                                                                                                                                                               LOGINFO RMSE_GLF_MOD_AFT=      NaN
+                                                                                                                                                                              LOGINFO SIGMA_GLF_MOD_AFT=      NaN
+ INC_GLF_MOD_AFT=        4555
+ NbLines_TOT=       11664
+ NbFit=        4555 NbLines_TOT=         540 NbPix=         108
+ K=           0
+ #### FIT BEF ####
+ ENTERING fit routine
+ ARRAYS SIZE:         4555        4555
+ ndata=         4555
+ sx=   2793.07593    
+ invx=   1.28184212E-07
+ q=   0.00000000     ndata=        4555 size(x)=        4555 chi2=   117.549057     sigb=   3.88259604E-03
+ B_TOT(slope)=  0.875575304    
+ #### FIT AFT #####
+ ENTERING fit routine
+ ARRAYS SIZE:         4555        4555
+ ndata=         4555
+ sx=   2793.07593    
+ invx=   1.28184212E-07
+ q=   0.00000000     ndata=        4555 size(x)=        4555 chi2=              NaN sigb=              NaN
+ B_TOT(slope)=              NaN
+ ***************
+ ***************
+ ***************
+ XMED_MOD_BEF=  0.542760015    
+ ***************
+ ##########################################
+ ######## HIT_RATE for BEF ###########
+ ##########################################
+ Contingency table filled with numbers.
+ LOGINFO Hit rate computed on        4555 points.
+ Number of points         4555 ;
+ LOGINFO X<  0.566794097      0.566794097     <X<  0.703415751     X>  0.703415751    
+ LOGINFO    1047.00000       885.000000       751.000000    
+ LOGINFO    403.000000       538.000000       558.000000    
+ LOGINFO    69.0000000       95.0000000       209.000000    
+ LOGINFO POD(event1)=   68.9269257    
+ LOGINFO POD(event2)=   35.4413681    
+ LOGINFO POD(event3)=   13.7681160    
+ LOGINFO PC=   39.3852921    
+ LOGINFO ebd=   18.0021954    
+ **************************************************
+ ****** HIT_RATE for BEF WITH RMSE=SD_instr *******
+ **************************************************
+ Contingency table filled with numbers.
+ Hit rate computed on        4555 points.
+ X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
+   1376.00000       259.000000       730.000000    
+   10.0000000       1402.00000       612.000000    
+   62.0000000       0.00000000       716.000000    
+ POD(event1)=   95.0276260    
+ POD(event2)=   84.4069824    
+ POD(event3)=   34.7910576    
+ PC=   76.7069168    
+ ebd=   17.3874874    
+                                                                                                                                                                           LOGINFO CONTTABLE BEF ROW0 X<   0.6   0.6<X<   0.7X> 0.7
+                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW1    1376    259    730
+                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW2      10   1402    612
+                                                                                                                                                                             LOGINFO CONTTABLE BEF ROW3      62      0    716
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD1      95.0
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD2      84.4
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD3      34.8
+                                                                                                                                                                               LOGINFO CONTTABLE BEF PC      76.7
+                                                                                                                                                                              LOGINFO CONTTABLE BEF EBD      17.4
+ ***************
+ XMED_MOD_AFT=              NaN
+ ***************
+ ##########################################
+ ############ HIT_RATE for AFT #############
+ ##########################################
+ Contingency table filled with numbers.
+ LOGINFO Hit rate computed on        4555 points.
+ Number of points         4555 ;
+ LOGINFO X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
+ LOGINFO    0.00000000       0.00000000       0.00000000    
+ LOGINFO    0.00000000       0.00000000       0.00000000    
+ LOGINFO    0.00000000       0.00000000       0.00000000    
+ LOGINFO POD(event1)=              NaN
+ LOGINFO POD(event2)=              NaN
+ LOGINFO POD(event3)=              NaN
+ LOGINFO PC=   0.00000000    
+ LOGINFO ebd=   0.00000000    
+ **************************************************
+ ****** HIT_RATE for AFT WITH RMSE=SD_instr *******
+ **************************************************
+                                                                                                                                                                            LOGINFO PERCENTILES X33_GLF=      0.6
+                                                                                                                                                                            LOGINFO PERCENTILES X66_GLF=      0.7
+ Contingency table filled with numbers.
+ Hit rate computed on        4555 points.
+ X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
+   0.00000000       0.00000000       0.00000000    
+   0.00000000       0.00000000       0.00000000    
+   0.00000000       0.00000000       0.00000000    
+ POD(event1)=              NaN
+ POD(event2)=              NaN
+ POD(event3)=              NaN
+ PC=   0.00000000    
+ ebd=   0.00000000    
+                                                                                                                                                                           LOGINFO CONTTABLE AFT ROW0 X<   0.6   0.6<X<   0.7X> 0.7
+                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW1       0      0      0
+                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW2       0      0      0
+                                                                                                                                                                             LOGINFO CONTTABLE AFT ROW3       0      0      0
+                                                                                                                                                                             LOGINFO CONTTABLE AFT POD1       NaN
+                                                                                                                                                                             LOGINFO CONTTABLE AFT POD2       NaN
+                                                                                                                                                                             LOGINFO CONTTABLE AFT POD3       NaN
+                                                                                                                                                                               LOGINFO CONTTABLE AFT PC       0.0
+                                                                                                                                                                              LOGINFO CONTTABLE AFT EBD       0.0

@@ -12,77 +12,77 @@
  CFILE_LIST_NIGHTS=list_PWV_LastMonth.txt                                                                                                  
  /home/report/FIGS/pippo1.ps/cps                                                                                         
  /home/report/FIGS/pippo2.ps/cps                                                                                         
- NbLines_TOT=         960
+ NbLines_TOT=         900
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
  NbLines_TOT_Pix=        3348
- MAXVAL_PWV_OBS_1D=   14.7384462    
-                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_BEF=    -0.75
-                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_BEF=     1.51
-                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_BEF=     1.32
- INC_PWV_MOD_BEF=        2018
+ MAXVAL_PWV_OBS_1D=   12.1770010    
+                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_BEF=    -0.23
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_BEF=     1.32
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_BEF=     1.30
+ INC_PWV_MOD_BEF=        2022
  NbLines_TOT=        3348
-                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_AFT=    -0.01
-                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_AFT=     0.27
-                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_AFT=     0.27
- INC_PWV_MOD_AFT=        2018
+                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_AFT=     0.01
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_AFT=     0.21
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_AFT=     0.21
+ INC_PWV_MOD_AFT=        2022
  NbLines_TOT=        3348
- NbFit=        2018 NbLines_TOT=         960 NbPix=         108
+ NbFit=        2022 NbLines_TOT=         900 NbPix=         108
  K=           0
  #### FIT BEF ####
  ENTERING fit routine
- ARRAYS SIZE:         2018        2018
- ndata=         2018
- sx=   8104.22168    
- invx=   1.52257051E-08
- q=   356929.000     ndata=        2018 size(x)=        2018 chi2=   1455.25317     sigb=   4.70948406E-03
- B_TOT(slope)=  0.813903034    
+ ARRAYS SIZE:         2022        2022
+ ndata=         2022
+ sx=   7888.53027    
+ invx=   1.60697038E-08
+ q=   0.00000000     ndata=        2022 size(x)=        2022 chi2=   3144.65161     sigb=   7.11221853E-03
+ B_TOT(slope)=  0.940383315    
  #### FIT AFT #####
  ENTERING fit routine
- ARRAYS SIZE:         2018        2018
- ndata=         2018
- sx=   8104.22168    
- invx=   1.52257051E-08
- q=   4.57944338E-41 ndata=        2018 size(x)=        2018 chi2=   149.402313     sigb=   1.50897715E-03
- B_TOT(slope)=  0.996624470    
+ ARRAYS SIZE:         2022        2022
+ ndata=         2022
+ sx=   7888.53027    
+ invx=   1.60697038E-08
+ q=   0.00000000     ndata=        2022 size(x)=        2022 chi2=   92.8456497     sigb=   1.22207997E-03
+ B_TOT(slope)=   1.00155139    
  ***************
- XMED_PWV=   2.70235705    
- X33_PWV=   1.90923655    
- X66_PWV=   3.76276088    
+ XMED_PWV=   2.47972727    
+ X33_PWV=   1.69834316    
+ X66_PWV=   4.07825232    
  ***************
  ***************
- XMED_MOD_BEF=   2.50867891    
+ XMED_MOD_BEF=   2.62231302    
  ***************
  ##########################################
  ######## HIT_RATE for BEF ###########
  ##########################################
  Contingency table filled with numbers.
- LOGINFO Hit rate computed on        2018 points.
- Number of points         2018 ;
+ LOGINFO Hit rate computed on        2022 points.
+ Number of points         2022 ;
  LOGINFO X<   1.89999998       1.89999998     <X<   3.46000004     X>   3.46000004    
- LOGINFO    638.000000       98.0000000       0.00000000    
- LOGINFO    32.0000000       452.000000       193.000000    
- LOGINFO    0.00000000       55.0000000       550.000000    
- LOGINFO POD(event1)=   95.2238770    
- LOGINFO POD(event2)=   74.7107468    
- LOGINFO POD(event3)=   74.0242233    
- LOGINFO PC=   81.2685852    
- LOGINFO ebd=   0.00000000    
+ LOGINFO    711.000000       35.0000000       0.00000000    
+ LOGINFO    151.000000       281.000000       77.0000000    
+ LOGINFO    8.00000000       58.0000000       701.000000    
+ LOGINFO POD(event1)=   81.7241364    
+ LOGINFO POD(event2)=   75.1336899    
+ LOGINFO POD(event3)=   90.1028290    
+ LOGINFO PC=   83.7289810    
+ LOGINFO ebd=  0.395647854    
  ***************
- XMED_MOD_AFT=   2.72719216    
+ XMED_MOD_AFT=   2.46996546    
  ***************
  ##########################################
  ############ HIT_RATE for AFT #############
  ##########################################
  Contingency table filled with numbers.
- LOGINFO Hit rate computed on        2018 points.
- Number of points         2018 ;
+ LOGINFO Hit rate computed on        2022 points.
+ Number of points         2022 ;
  LOGINFO X<   1.89999998       1.89999998     <X<   3.46000004     X>   3.46000004    
- LOGINFO    648.000000       17.0000000       0.00000000    
- LOGINFO    22.0000000       576.000000       17.0000000    
- LOGINFO    0.00000000       12.0000000       726.000000    
- LOGINFO POD(event1)=   96.7164154    
- LOGINFO POD(event2)=   95.2066116    
- LOGINFO POD(event3)=   97.7119827    
- LOGINFO PC=   96.6303253    
+ LOGINFO    850.000000       20.0000000       0.00000000    
+ LOGINFO    20.0000000       345.000000       7.00000000    
+ LOGINFO    0.00000000       9.00000000       771.000000    
+ LOGINFO POD(event1)=   97.7011490    
+ LOGINFO POD(event2)=   92.2459869    
+ LOGINFO POD(event3)=   99.1002579    
+ LOGINFO PC=   97.2304611    
  LOGINFO ebd=   0.00000000    

@@ -13,46 +13,46 @@
  /home/report/FIGS/pippo1.ps/cps                                                                                         
  /home/report/FIGS/pippo2.ps/cps                                                                                         
  F
- NbLines_TOT=         960
+ NbLines_TOT=        1020
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
  NbLines_TOT_Pix=        3348
- MAXVAL_WS_OBS_1D=   23.6192131    
-                                                                                                                                                                                LOGINFO BIAS_WS_MOD_BEF=    -0.69
-                                                                                                                                                                                LOGINFO RMSE_WS_MOD_BEF=     2.59
-                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_BEF=     2.50
+ MAXVAL_WS_OBS_1D=   16.6034241    
+                                                                                                                                                                                LOGINFO BIAS_WS_MOD_BEF=     0.60
+                                                                                                                                                                                LOGINFO RMSE_WS_MOD_BEF=     1.90
+                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_BEF=     1.80
  INC_WS_MOD_BEF=        2077
  LOGINFO NbLines_TOT=        3348
-                                                                                                                                                                                LOGINFO BIAS_WS_MOD_AFT=     0.13
-                                                                                                                                                                                LOGINFO RMSE_WS_MOD_AFT=     1.00
-                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_AFT=     0.99
+                                                                                                                                                                                LOGINFO BIAS_WS_MOD_AFT=    -0.06
+                                                                                                                                                                                LOGINFO RMSE_WS_MOD_AFT=     0.82
+                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_AFT=     0.82
  INC_WS_MOD_AFT=        2077
  NbLines_TOT=        3348
- NbFit=        2077 NbLines_TOT=         960 NbPix=         108
+ NbFit=        2077 NbLines_TOT=        1020 NbPix=         108
  K=           0
  #### FIT BEF ####
  ENTERING fit routine
  ARRAYS SIZE:         2077        2077
  ndata=         2077
- sx=   20574.3945    
- invx=   2.36235875E-09
- q=   0.00000000     ndata=        2077 size(x)=        2077 chi2=   10630.1758     sigb=   5.01363119E-03
- B_TOT(slope)=  0.930703640    
+ sx=   12223.6211    
+ invx=   6.69268241E-09
+ q=   0.00000000     ndata=        2077 size(x)=        2077 chi2=   7753.52002     sigb=   7.20707048E-03
+ B_TOT(slope)=   1.10154879    
  #### FIT AFT #####
  ENTERING fit routine
  ARRAYS SIZE:         2077        2077
  ndata=         2077
- sx=   20574.3945    
- invx=   2.36235875E-09
- q=   0.00000000     ndata=        2077 size(x)=        2077 chi2=   2048.63428     sigb=   2.20097112E-03
- B_TOT(slope)=   1.01314223    
+ sx=   12223.6211    
+ invx=   6.69268241E-09
+ q=   0.00000000     ndata=        2077 size(x)=        2077 chi2=   1377.31836     sigb=   3.03757121E-03
+ B_TOT(slope)=  0.989727497    
  ***************
-                                                                                                                                                                                        LOGINFO XMED_WS=      8.9
-                                                                                                                                                                                         LOGINFO X33_WS=      6.6
-                                                                                                                                                                                         LOGINFO X66_WS=     11.9
+                                                                                                                                                                                        LOGINFO XMED_WS=      5.8
+                                                                                                                                                                                         LOGINFO X33_WS=      4.9
+                                                                                                                                                                                         LOGINFO X66_WS=      6.7
  ***************
  ***************
- XMED_MOD_BEF=   7.89888000    
+ XMED_MOD_BEF=   6.77413797    
  ***************
  ##########################################
  ######## HIT_RATE for BEF ###########
@@ -61,16 +61,16 @@
  LOGINFO Hit rate computed on        2077 points.
  Number of points         2077 ;
  LOGINFO X<   4.21000004       4.21000004     <X<   7.55000019     X>   7.55000019    
- LOGINFO    76.0000000       24.0000000       0.00000000    
- LOGINFO    196.000000       473.000000       206.000000    
- LOGINFO    4.00000000       72.0000000       1026.00000    
- LOGINFO POD(event1)=   27.5362320    
- LOGINFO POD(event2)=   83.1282959    
- LOGINFO POD(event3)=   83.2792206    
- LOGINFO PC=   75.8305283    
- LOGINFO ebd=  0.192585453    
+ LOGINFO    201.000000       87.0000000       13.0000000    
+ LOGINFO    271.000000       742.000000       123.000000    
+ LOGINFO    11.0000000       316.000000       313.000000    
+ LOGINFO POD(event1)=   41.6149063    
+ LOGINFO POD(event2)=   64.8034897    
+ LOGINFO POD(event3)=   69.7104721    
+ LOGINFO PC=   60.4718323    
+ LOGINFO ebd=   1.15551281    
  ***************
- XMED_MOD_AFT=   8.91200066    
+ XMED_MOD_AFT=   5.82279968    
  ***************
  ##########################################
  ############ HIT_RATE for AFT #############
@@ -79,11 +79,11 @@
  LOGINFO Hit rate computed on        2077 points.
  Number of points         2077 ;
  LOGINFO X<   4.21000004       4.21000004     <X<   7.55000019     X>   7.55000019    
- LOGINFO    232.000000       39.0000000       0.00000000    
- LOGINFO    44.0000000       453.000000       40.0000000    
- LOGINFO    0.00000000       77.0000000       1192.00000    
- LOGINFO POD(event1)=   84.0579681    
- LOGINFO POD(event2)=   79.6133575    
- LOGINFO POD(event3)=   96.7532425    
- LOGINFO PC=   90.3707275    
+ LOGINFO    414.000000       100.000000       0.00000000    
+ LOGINFO    69.0000000       969.000000       89.0000000    
+ LOGINFO    0.00000000       76.0000000       360.000000    
+ LOGINFO POD(event1)=   85.7142868    
+ LOGINFO POD(event2)=   84.6288223    
+ LOGINFO POD(event3)=   80.1781693    
+ LOGINFO PC=   83.9191132    
  LOGINFO ebd=   0.00000000    
