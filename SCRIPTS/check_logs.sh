@@ -44,20 +44,17 @@ DUMMY_VAL='100.00'
 #ECMW: ECMWF initialisation data transmission
 VAL=`grep 'FATE: ECMWF_DATA_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | uniq | wc -l`
 VAL00=$(echo "scale=2; ($VAL/$TOTAL_MONTHLY_RUN)*100" | bc)
-#VAL00=$DUMMY_VAL
 
 #ESO: ftp access ESO – INPUT
-VAL=`grep 'ESO: ESO_SERVER_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | uniq | wc -l`
-VAL01=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
-#VAL01=$DUMMY_VAL
+#VAL=`grep 'ESO: ESO_SERVER_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | uniq | wc -l`
+#VAL01=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
 
 #ESO: ftp access ESO – OUPUT
-VAL02=$DUMMY_VAL
+#VAL02=$DUMMY_VAL
 
 #FATE: principal network
 VAL=`grep 'FATE: FATE_NETWORK_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*.GRIB_RAWRT.download_ecmwf_data.log | wc -l`
 VAL03=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
-#VAL03=$DUMMY_VAL
 
 #ESO: server INPUT
 VAL04=$DUMMY_VAL
@@ -71,7 +68,6 @@ else
   VAL=$VAL5B
 fi
 VAL05=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
-#VAL05=$DUMMY_VAL
 
 #FATE: model: explosion of simulations
 VAL_MNH_FAIL_NIGHT=`grep 'WARNING!!! SIMULATION' $LOGDIR_MNH_NIGHT/${PREV_MONTH_YY}/${PREV_MONTH_YY}${PREV_MONTH_MM}*_schedule.log | wc -l`
@@ -114,18 +110,14 @@ STRINGA_OK=`echo $STRINGA_FILES | sed -e "s/stoca/\*/g"`
 #ECMW: ECMWF initialisation data transmission
 VAL=`grep 'FATE: ECMWF_DATA_DOWNLOAD = OK' $STRINGA_OK | uniq | wc -l`
 VAL08=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
-#echo VAL08 $VAL08
-#VAL00=$DUMMY_VAL
 
 #ESO: ftp access ESO – INPUT
-VAL=`grep 'ESO: ESO_SERVER_DOWNLOAD = OK' $STRINGA_OK | uniq | wc -l`
-VAL09=$(echo "scale=2; (($VAL/4)/$TOTAL_MONTHLY_RUN)*100" | bc)
-#echo VAL09 $VAL09
+#VAL=`grep 'ESO: ESO_SERVER_DOWNLOAD = OK' $STRINGA_OK | uniq | wc -l`
+#VAL09=$(echo "scale=2; (($VAL/4)/$TOTAL_MONTHLY_RUN)*100" | bc)
 
 #FATE: principal network
 VAL=`grep 'FATE: FATE_NETWORK_DOWNLOAD = OK' $STRINGA_OK | wc -l`
 VAL11=$(echo "scale=2; (($VAL/4)/$TOTAL_MONTHLY_RUN)*100" | bc)
-#echo VAL11 $VAL11
 
 #ESO: servers OUTPUT
 VAL13A=`grep 'ESO server input 1A' $STRINGA_OK | grep OK | wc -l`
@@ -136,7 +128,6 @@ else
   VAL=$VAL13B
 fi
 VAL13=$(echo "scale=2; (($VAL/4)/$TOTAL_MONTHLY_RUN)*100" | bc)
-#echo VAL13 $VAL13
 
 #FATE: model: explosion of simulations
 #VAL_MNH_FAIL_NIGHT=`grep 'WARNING!!! SIMULATION' $LOGDIR_MNH_NIGHT/${PREV_MONTH_YY}/${PREV_MONTH_YY}*_schedule.log | wc -l`
@@ -157,7 +148,6 @@ done
 VAL_MNH_FAIL_TOT=$(echo "scale=1; ($VAL_MNH_FAIL_NIGHT+$VAL_MNH_FAIL_DAY)" | bc)
 VAL_MNH_FAIL_PERC=$(echo "scale=1; (100-($VAL_MNH_FAIL_TOT/$TOTAL_MONTHLY_RUN)*100)" | bc)
 VAL14=$VAL_MNH_FAIL_PERC
-#echo VAL14 $VAL14
 
 # CREATE LATEX TABLE
 my_caption='FATE: automatic forecasting system performance - statistics'
@@ -170,13 +160,11 @@ cat << EOF > $WRKDIR/tableLOGs.tex
 \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Automatic}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Current month}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Incremental months}} \\\\
 \multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{forecast system}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{(success rate in \%)}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{(success rate in \%)}} \\\\
 \hline
-\cellcolor[HTML]{C0C0C0}\textbf{ECMW:} ECMWF initialisation data transmission  & $VAL00  & $VAL08   \\\\
-\cellcolor[HTML]{C0C0C0}\textbf{ESO:} ftp access ESO - INPUT                   & $VAL01  & $VAL09   \\\\
-\cellcolor[HTML]{C0C0C0}\textbf{ESO:} ftp access ESO - OUPUT                   & $VAL02  & $VAL10   \\\\
+\cellcolor[HTML]{C0C0C0}\textbf{ECMWF:} ECMWF initialisation data transmission  & $VAL00  & $VAL08   \\\\
 \cellcolor[HTML]{C0C0C0}\textbf{FATE:} principal network                       & $VAL03  & $VAL11   \\\\
 \cellcolor[HTML]{C0C0C0}\textbf{ESO:} server INPUT                             & $VAL04  & $VAL12   \\\\
 \cellcolor[HTML]{C0C0C0}\textbf{ESO:} server OUTPUT                            & $VAL05  & $VAL13   \\\\
-\cellcolor[HTML]{C0C0C0}\textbf{FATE:} hydrodynamic computation efficiency         & $VAL06  & $VAL14   \\\\
+\cellcolor[HTML]{C0C0C0}\textbf{FATE:} hydrodynamic computation failure         & $VAL06  & $VAL14   \\\\\line
 \cellcolor[HTML]{C0C0C0}\textbf{FATE:} delay on providing a forecast           & $VAL07  & $VAL15   \\\\
 \hline
 \end{tabular}
@@ -185,6 +173,8 @@ cat << EOF > $WRKDIR/tableLOGs.tex
 \end{table}
 EOF
 #\cellcolor[HTML]{C0C0C0}\textbf{FATE:} model: explosion of simulations         & $VAL06  & $VAL14   \\\\
+#\cellcolor[HTML]{C0C0C0}\textbf{ESO:} ftp access ESO - INPUT                   & $VAL01  & $VAL09   \\\\
+#\cellcolor[HTML]{C0C0C0}\textbf{ESO:} ftp access ESO - OUPUT                   & $VAL02  & $VAL10   \\\\
 
 notice "End of "`basename $0`
 exit 0
