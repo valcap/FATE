@@ -324,7 +324,7 @@ cat << EOF > $WRKDIR/figures_${prefix}.tex
 \centering
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSBEF}}
 \caption{${FCST_DAY}${FCST_LEN} - $descri ($unitof): STANDARD CONFIGURATION}
-\label{fig:$prefix}
+\label{fig:$prefix:${FCST_DAY}${FCST_LEN}}
 \end{figure}
 EOF
 #
@@ -379,7 +379,7 @@ cat << EOF >> $WRKDIR/contingency_tableBEF${prefix}.tex
 \end{tabular}
 \end{center}
 \caption{$my_nice_caption}
-\label{tab:contingency${prefix}BEF}
+\label{tab:contingency${prefix}BEF:${FCST_DAY}${FCST_LEN}}
 \end{table}
 EOF
 

@@ -164,7 +164,7 @@ cat << EOF > $WRKDIR/tableLOGs.tex
 \cellcolor[HTML]{C0C0C0}\textbf{FATE:} principal network                       & $VAL03  & $VAL11   \\\\
 \cellcolor[HTML]{C0C0C0}\textbf{ESO:} server INPUT                             & $VAL04  & $VAL12   \\\\
 \cellcolor[HTML]{C0C0C0}\textbf{ESO:} server OUTPUT                            & $VAL05  & $VAL13   \\\\
-\cellcolor[HTML]{C0C0C0}\textbf{FATE:} hydrodynamic computation failure         & $VAL06  & $VAL14   \\\\\line
+\cellcolor[HTML]{C0C0C0}\textbf{FATE:} hydrodynamic computation failure         & $VAL06  & $VAL14   \\\\
 \cellcolor[HTML]{C0C0C0}\textbf{FATE:} delay on providing a forecast           & $VAL07  & $VAL15   \\\\
 \hline
 \end{tabular}

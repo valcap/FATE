@@ -415,7 +415,7 @@ cat << EOF > $WRKDIR/figures_${prefix}.tex
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSAFT}}
 \subfloat[]{\includegraphics[width=.33\linewidth,angle=0]{$EPSPER}}
 \caption{${FCST_DAY}${FCST_LEN} - $descri ($unitof): (a) STANDARD CONFIGURATION, (b) WITH AR (1H), (c) PERSISTENCE (1H)}
-\label{fig:$prefix}
+\label{fig:$prefix:${FCST_DAY}${FCST_LEN}}
 \end{figure}
 EOF
 #
@@ -470,7 +470,7 @@ cat << EOF >> $WRKDIR/contingency_tableBEF${prefix}.tex
 \end{tabular}
 \end{center}
 \caption{$my_nice_caption}
-\label{tab:contingency${prefix}BEF}
+\label{tab:contingency${prefix}BEF:${FCST_DAY}${FCST_LEN}}
 \end{table}
 EOF
 
@@ -510,7 +510,7 @@ cat << EOF >> $WRKDIR/contingency_tableAFT${prefix}.tex
 \end{tabular}
 \end{center}
 \caption{$my_nice_caption}
-\label{tab:contingency${prefix}AFT}
+\label{tab:contingency${prefix}AFT:${FCST_DAY}${FCST_LEN}}
 \end{table}
 EOF
 
