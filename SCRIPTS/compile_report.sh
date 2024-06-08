@@ -65,7 +65,7 @@ echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night1_contingency.tex
 echo '\subsection{NIGHT1: Contingency tables}' >> night1_contingency.tex
 echo 'Tables in this section are included in the range: \ref{tab:contingencywsBEF:night1}-\ref{tab:contingencyglfAFT:night1}.' >> night1_contingency.tex
 cat contingency_tableBEFws.tex contingency_tableAFTws.tex contingency_tableAFTws_FT.tex >> night1_contingency.tex
-echo '\clearpage' >> night1_contingency.tex
+#echo '\clearpage' >> night1_contingency.tex
 cat contingency_tableBEFwd.tex contingency_tableAFTwd.tex >> night1_contingency.tex
 echo '\clearpage' >> night1_contingency.tex
 cat contingency_tableBEFrh.tex contingency_tableAFTrh.tex contingency_tableAFTrh_FT.tex >> night1_contingency.tex
@@ -88,14 +88,12 @@ cp night1_contingency.tex $WRKDIR/
 # PODs TABLES
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night1_PODs.tex
 echo '\subsection{NIGHT1: Probability of detection (PODi) for long and short forecast time scales}' >> night1_PODs.tex
+echo 'Tables in this section are included in the range: \ref{tab:podws:night1}-\ref{tab:podglf0.14:night1}.' >> night1_PODs.tex
 cat tablePODsws.tex tablePODsws_FT.tex tablePODswd.tex >> night1_PODs.tex
-echo '\clearpage' >> night1_PODs.tex
+#echo '\clearpage' >> night1_PODs.tex
 cat tablePODsrh.tex tablePODsrh_FT.tex tablePODspwv.tex >> night1_PODs.tex
-echo '\clearpage' >> night1_PODs.tex
 cat tablePODssee_0.0.tex tablePODssee_0.24.tex >> night1_PODs.tex
-echo '\clearpage' >> night1_PODs.tex
 cat tablePODstau_0.0.tex tablePODstau_1.22.tex >> night1_PODs.tex
-echo '\clearpage' >> night1_PODs.tex
 cat tablePODsglf_0.0.tex tablePODsglf_0.14.tex >> night1_PODs.tex
 cp night1_PODs.tex $WRKDIR/
 
@@ -120,7 +118,6 @@ echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" > day1_statistics.tex
 echo '\subsection{DAY1: Summarizing values of bias, RMSE, SD for long and short forecast time scales}' >> day1_statistics.tex
 #echo '\Blindtext[4] ' >> day1_statistics.tex
 cat table_skills_BEF.tex table_skills_AFT-LASTM.tex table_skills_AFT.tex >> day1_statistics.tex
-#cat table_skills_BEF.tex >> day1_statistics.tex
 echo '\clearpage' >> day1_contingency.tex
 cp day1_statistics.tex $WRKDIR/
 # CONTINGENCY TABLES
@@ -128,19 +125,16 @@ echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day1_contingency.tex
 echo '\subsection{DAY1: Contingency tables}' >> day1_contingency.tex
 echo 'Tables in this section are included in the range: \ref{tab:contingencywsBEF:day1}-\ref{tab:contingencypwvAFT:day1}.' >> day1_contingency.tex
 cat contingency_tableBEFws.tex contingency_tableAFTws.tex contingency_tableAFTws_FT.tex >> day1_contingency.tex
-echo '\clearpage' >> day1_contingency.tex
+#echo '\clearpage' >> day1_contingency.tex
 cat contingency_tableBEFwd.tex contingency_tableAFTwd.tex >> day1_contingency.tex
-echo '\clearpage' >> day1_contingency.tex
 cat contingency_tableBEFrh.tex contingency_tableAFTrh.tex contingency_tableAFTrh_FT.tex >> day1_contingency.tex
-echo '\clearpage' >> day1_contingency.tex
 cat contingency_tableBEFpwv.tex contingency_tableAFTpwv.tex >> day1_contingency.tex
-echo '\clearpage' >> day1_contingency.tex
 cp day1_contingency.tex $WRKDIR/
 echo '\clearpage' >> day1_contingency.tex
 # PODs TABLES
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day1_PODs.tex
 echo '\subsection{DAY1: Probability of detection (PODi) for long and short forecast time scales}' >> day1_PODs.tex
-#echo '\Blindtext[3] ' >> day1_PODs.tex
+echo 'Tables in this section are included in the range: \ref{tab:podws:day1}-\ref{tab:podpwv:day1}.' >> day1_PODs.tex
 cat tablePODsws.tex tablePODsws_FT.tex tablePODswd.tex \
     tablePODsrh.tex tablePODsrh_FT.tex tablePODspwv.tex >> day1_PODs.tex
 cp day1_PODs.tex $WRKDIR/
@@ -184,7 +178,7 @@ cp night2_contingency.tex $WRKDIR/
 # PODs TABLES
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night2_PODs.tex
 echo '\subsection{NIGHT2: Probability of detection (PODi) for long and short forecast time scale}' >> night2_PODs.tex
-#echo '\Blindtext[3] ' >> night2_PODs.tex
+echo 'Tables in this section are included in the range: \ref{tab:podws:night2}-\ref{tab:podglf0.14:night2}.' >> night2_PODs.tex
 cat tablePODsws.tex tablePODswd.tex \
     tablePODsrh.tex tablePODspwv.tex >> night2_PODs.tex
 cat tablePODssee_0.0.tex tablePODssee_0.24.tex \
@@ -224,7 +218,7 @@ cp day2_contingency.tex $WRKDIR/
 # PODs TABLES
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day2_PODs.tex
 echo '\subsection{DAY2: Probability of detection (PODi) for long and short forecast time scales}' >> day2_PODs.tex
-#echo '\Blindtext[3] ' >> day2_PODs.tex
+echo 'Tables in this section are included in the range: \ref{tab:podws:day2}-\ref{tab:podpwv:day2}.' >> day2_PODs.tex
 cat tablePODsws.tex tablePODswd.tex \
     tablePODsrh.tex tablePODspwv.tex >> day2_PODs.tex
 cp day2_PODs.tex $WRKDIR/
@@ -268,7 +262,7 @@ cp night3_contingency.tex $WRKDIR/
 # PODs TABLES
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > night3_PODs.tex
 echo '\subsection{NIGHT3: Probability of detection (PODi) for long and short forecast time scale}' >> night3_PODs.tex
-#echo '\Blindtext[3] ' >> night3_PODs.tex
+echo 'Tables in this section are included in the range: \ref{tab:podws:night3}-\ref{tab:podglf0.14:night3}.' >> night3_PODs.tex
 cat tablePODsws.tex tablePODswd.tex \
     tablePODsrh.tex tablePODspwv.tex >> night3_PODs.tex
 cat tablePODssee_0.0.tex tablePODssee_0.24.tex \
@@ -308,7 +302,7 @@ cp day3_contingency.tex $WRKDIR/
 # PODs TABLES
 echo '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' > day3_PODs.tex
 echo '\subsection{DAY3: Probability of detection (PODi) for long and short forecast time scales}' >> day3_PODs.tex
-#echo '\Blindtext[3] ' >> day3_PODs.tex
+echo 'Tables in this section are included in the range: \ref{tab:podws:day3}-\ref{tab:podpwv:day3}.' >> day3_PODs.tex
 cat tablePODsws.tex tablePODswd.tex \
     tablePODsrh.tex tablePODspwv.tex >> day3_PODs.tex
 cp day3_PODs.tex $WRKDIR/

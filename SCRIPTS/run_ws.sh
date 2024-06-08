@@ -531,8 +531,8 @@ rm -f $WRKDIR/contingency_tableAFT${prefix}.tex
 cd $WRKDIR
 
 # BEFORE STUFF
-PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep BEF | grep PERCENTILES | grep BEF | grep X33_ | awk '{print $5}'`
-PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep BEF | grep PERCENTILES | grep BEF |grep X66_ | awk '{print $5}'`
+  PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep BEF | grep PERCENTILES | grep BEF | grep X33_ | awk '{print $5}'`
+  PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep BEF | grep PERCENTILES | grep BEF |grep X66_ | awk '{print $5}'`
 VAL1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $5}'`
 VAL2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $6}'`
 VAL3=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $7}'`
@@ -573,8 +573,8 @@ cat << EOF >> $WRKDIR/contingency_tableBEF${prefix}.tex
 EOF
 
 # AFTER STUFF
-PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep AFT | grep PERCENTILES | grep AFT | grep X33_ | awk '{print $5}'`
-PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep AFT | grep PERCENTILES | grep AFT |grep X66_ | awk '{print $5}'`
+  PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep AFT | grep PERCENTILES | grep AFT | grep X33_ | awk '{print $5}'`
+  PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep AFT | grep PERCENTILES | grep AFT |grep X66_ | awk '{print $5}'`
 VAL1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $5}'`
 VAL2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $6}'`
 VAL3=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $7}'`
@@ -694,6 +694,7 @@ cat << EOF > $WRKDIR/tablePODs${prefix}.tex
 \hline
 \end{tabular}
 \caption{$my_caption}
+\label{tab:pod${prefix}:${FCST_DAY}${FCST_LEN}}
 \end{center}
 \end{table}
 EOF
@@ -733,6 +734,7 @@ cat << EOF > $WRKDIR/tablePODs${prefix}_FT.tex
 \hline
 \end{tabular}
 \caption{$my_caption}
+\label{tab:pod${prefix}FT:${FCST_DAY}${FCST_LEN}}
 \end{center}
 \end{table}
 EOF

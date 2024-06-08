@@ -380,6 +380,7 @@ cat << EOF > $WRKDIR/tablePODs${prefix}_${ACC}.tex
 \hline
 \end{tabular}
 \caption{$my_caption}
+\label{tab:pod${prefix}${ACC}:${FCST_DAY}${FCST_LEN}}
 \end{center}
 \end{table}
 EOF

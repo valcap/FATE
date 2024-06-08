@@ -420,6 +420,7 @@ cat << EOF > $WRKDIR/tablePODs${prefix}.tex
 \hline
 \end{tabular}
 \caption{$my_caption}
+\label{tab:pod${prefix}:${FCST_DAY}${FCST_LEN}}
 \end{center}
 \end{table}
 EOF
@@ -453,6 +454,7 @@ cat << EOF > $WRKDIR/tablePODs${prefix}_FT.tex
 \hline
 \end{tabular}
 \caption{$my_caption}
+\label{tab:pod${prefix}FT:${FCST_DAY}${FCST_LEN}}
 \end{center}
 \end{table}
 EOF
