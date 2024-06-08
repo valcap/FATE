@@ -9,6 +9,9 @@ cp -fv 202311*.dat /home/report/DATA/DA_TRATTARE/test/night/
 cp -fv 202312*.dat /home/report/DATA/DA_TRATTARE/test/night/
 cp -fv 202401*.dat /home/report/DATA/DA_TRATTARE/test/night/
 cp -fv 202402*.dat /home/report/DATA/DA_TRATTARE/test/night/
+cp -fv 202403*.dat /home/report/DATA/DA_TRATTARE/test/night/
+cp -fv 202404*.dat /home/report/DATA/DA_TRATTARE/test/night/
+cp -fv 202405*.dat /home/report/DATA/DA_TRATTARE/test/night/
 #######################################################
 
 #######################################################
@@ -21,6 +24,9 @@ cp -fv 202311*.dat /home/report/DATA/DA_TRATTARE/test/day/
 cp -fv 202312*.dat /home/report/DATA/DA_TRATTARE/test/day/
 cp -fv 202401*.dat /home/report/DATA/DA_TRATTARE/test/day/
 cp -fv 202402*.dat /home/report/DATA/DA_TRATTARE/test/day/
+cp -fv 202403*.dat /home/report/DATA/DA_TRATTARE/test/day/
+cp -fv 202404*.dat /home/report/DATA/DA_TRATTARE/test/day/
+cp -fv 202405*.dat /home/report/DATA/DA_TRATTARE/test/day/
 #######################################################
 
 #######################################################
@@ -29,12 +35,13 @@ cp -fv 202402*.dat /home/report/DATA/DA_TRATTARE/test/day/
 # REM: ricordarsi di cambiare le righe di codice che creano i files list_*_LastMonth.txt che devono contenere solo l'ultimo mese
 cd /home/report/PROG/read_and_treat
 sh read_and_treat_DAYNIGHT_1.sh
-sh read_and_treat_PERSISTENCE.sh
 # REM: ricordarsi di cambiare le righe di codice che creano i files list_*_LastMonth.txt che devono contenere solo l'ultimo mese
+sh read_and_treat_PERSISTENCE.sh
 # REM: se casualmente mancano alcuni files, fare una copia da uno dei giorni adiacenti
 
 # i file di output vanno a finire in
-/home/report/DATA/TREATED # e sottocartelle day1, nig1, day_PERSIST, nig_PERSIST
+ls /home/report/DATA/TREATED
+# e sottocartelle day1, nig1, day_PERSIST, nig_PERSIST
 #######################################################
 
 #######################################################
@@ -47,7 +54,8 @@ sh read_and_treat_DAYNIGHT_23.sh
 # REM: se casualmente mancano alcuni files, fare una copia da uno dei giorni adiacenti oppure boh
 
 # i dati vanno a finire in 
-/home/report/DATA/TREATED # e sottocartelle day2,3 e nig2,3
+ls /home/report/DATA/TREATED
+# e sottocartelle day2,3 e nig2,3
 #######################################################
 
 #######################################################
