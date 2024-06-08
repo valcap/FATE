@@ -1,25 +1,27 @@
-\BOOKMARK [1][-]{section.1}{Title for Night 1}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Title for Figures of Night 1}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Title for Statistics of Night 1}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Title for PODs tables of Night 1}{section.1}% 4
-\BOOKMARK [1][-]{section.2}{Title for Day 1}{}% 5
-\BOOKMARK [2][-]{subsection.2.1}{Title for Figures of Day 1}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.2}{Title for Statistics of Day 1}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.3}{Title for PODs tables of Day 1}{section.2}% 8
-\BOOKMARK [1][-]{section.3}{Title for Night 2}{}% 9
-\BOOKMARK [2][-]{subsection.3.1}{Title for Figures of Night 2}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.2}{Title for Statistics of Night 2}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.3}{Title for PODs tables of Night 2}{section.3}% 12
-\BOOKMARK [1][-]{section.4}{Title for Day 2}{}% 13
-\BOOKMARK [2][-]{subsection.4.1}{Title for Figures of Day 2}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.2}{Title for Statistics of Day 2}{section.4}% 15
-\BOOKMARK [2][-]{subsection.4.3}{Title for PODs tables of Day 2}{section.4}% 16
-\BOOKMARK [1][-]{section.5}{Title for Night 3}{}% 17
-\BOOKMARK [2][-]{subsection.5.1}{Title for Figures of Night 3}{section.5}% 18
-\BOOKMARK [2][-]{subsection.5.2}{Title for Statistics of Night 3}{section.5}% 19
-\BOOKMARK [2][-]{subsection.5.3}{Title for PODs tables of Night 3}{section.5}% 20
-\BOOKMARK [1][-]{section.6}{Title for Day 3}{}% 21
-\BOOKMARK [2][-]{subsection.6.1}{Title for Figures of Day 3}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.2}{Title for Statistics of Day 3}{section.6}% 23
-\BOOKMARK [2][-]{subsection.6.3}{Title for PODs tables of Day 3}{section.6}% 24
-\BOOKMARK [1][-]{section.7}{WP Statistical analysis of the forecast system failures and ESO observation availability}{}% 25
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{NIGHT1: Statistical analysis of forecast performances}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{NIGHT1: Scatter plots \(bias, RMSE, SD\) for long and short forecast time scale}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{NIGHT1: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{NIGHT1: Probability of detection \(PODi\) for long and short forecast time scales}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{DAY1: Statistical analysis of forecast performances related}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{DAY1: Scatter plots \(bias, RMSE, SD\) for long and short forecast time scale}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{DAY1: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{DAY1: Probability of detection \(PODi\) for long and short forecast time scales}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{NIGHT2: Statistical analysis of forecast performances}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{NIGHT2: Scatter plots \(bias, RMSE, SD\) for long and short forecast time scale}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{NIGHT2: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.3}{NIGHT2: Probability of detection \(PODi\) for long and short forecast time scale}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{DAY2: Statistical analysis of forecast performances}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{DAY2: Scatter plots \(bias, RMSE, SD\) for long and short forecast time scale}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{DAY2: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{DAY2: Probability of detection \(PODi\) for long and short forecast time scales}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{NIGHT3: Statistical analysis of forecast performances}{}% 18
+\BOOKMARK [2][-]{subsection.6.1}{NIGHT3: Scatter plots \(bias, RMSE, SD\) for long and short forecast time scale}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.2}{NIGHT3: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.3}{NIGHT3: Probability of detection \(PODi\) for long and short forecast time scale}{section.6}% 21
+\BOOKMARK [1][-]{section.7}{DAY3: Statistical analysis of forecast performances}{}% 22
+\BOOKMARK [2][-]{subsection.7.1}{DAY3: Scatter plots \(bias, RMSE, SD\) for long and short forecast time scale}{section.7}% 23
+\BOOKMARK [2][-]{subsection.7.2}{DAY3: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{section.7}% 24
+\BOOKMARK [2][-]{subsection.7.3}{DAY3: Probability of detection \(PODi\) for long and short forecast time scales}{section.7}% 25
+\BOOKMARK [1][-]{section.8}{WP Statistical analysis of the forecast system failures and ESO observation availability}{}% 26
+\BOOKMARK [1][-]{table.caption.93}{References}{}% 27

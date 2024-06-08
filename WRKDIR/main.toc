@@ -1,25 +1,27 @@
-\contentsline {section}{\numberline {1}Title for Night 1}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Title for Figures of Night 1}{4}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Title for Statistics of Night 1}{8}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Title for PODs tables of Night 1}{10}{subsection.1.3}
-\contentsline {section}{\numberline {2}Title for Day 1}{16}{section.2}
-\contentsline {subsection}{\numberline {2.1}Title for Figures of Day 1}{17}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Title for Statistics of Day 1}{20}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Title for PODs tables of Day 1}{22}{subsection.2.3}
-\contentsline {section}{\numberline {3}Title for Night 2}{24}{section.3}
-\contentsline {subsection}{\numberline {3.1}Title for Figures of Night 2}{25}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Title for Statistics of Night 2}{29}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Title for PODs tables of Night 2}{30}{subsection.3.3}
-\contentsline {section}{\numberline {4}Title for Day 2}{33}{section.4}
-\contentsline {subsection}{\numberline {4.1}Title for Figures of Day 2}{34}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Title for Statistics of Day 2}{37}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Title for PODs tables of Day 2}{38}{subsection.4.3}
-\contentsline {section}{\numberline {5}Title for Night 3}{40}{section.5}
-\contentsline {subsection}{\numberline {5.1}Title for Figures of Night 3}{41}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Title for Statistics of Night 3}{45}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Title for PODs tables of Night 3}{46}{subsection.5.3}
-\contentsline {section}{\numberline {6}Title for Day 3}{49}{section.6}
-\contentsline {subsection}{\numberline {6.1}Title for Figures of Day 3}{50}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Title for Statistics of Day 3}{53}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Title for PODs tables of Day 3}{54}{subsection.6.3}
-\contentsline {section}{\numberline {7}WP Statistical analysis of the forecast system failures and ESO observation availability}{56}{section.7}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {section}{\numberline {2}NIGHT1: Statistical analysis of forecast performances}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}NIGHT1: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}NIGHT1: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{11}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}NIGHT1: Probability of detection (PODi) for long and short forecast time scales}{12}{subsection.2.3}
+\contentsline {section}{\numberline {3}DAY1: Statistical analysis of forecast performances related}{18}{section.3}
+\contentsline {subsection}{\numberline {3.1}DAY1: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{19}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}DAY1: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{21}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}DAY1: Probability of detection (PODi) for long and short forecast time scales}{22}{subsection.3.3}
+\contentsline {section}{\numberline {4}NIGHT2: Statistical analysis of forecast performances}{24}{section.4}
+\contentsline {subsection}{\numberline {4.1}NIGHT2: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{25}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}NIGHT2: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{29}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}NIGHT2: Probability of detection (PODi) for long and short forecast time scale}{30}{subsection.4.3}
+\contentsline {section}{\numberline {5}DAY2: Statistical analysis of forecast performances}{33}{section.5}
+\contentsline {subsection}{\numberline {5.1}DAY2: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{34}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}DAY2: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{36}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}DAY2: Probability of detection (PODi) for long and short forecast time scales}{37}{subsection.5.3}
+\contentsline {section}{\numberline {6}NIGHT3: Statistical analysis of forecast performances}{39}{section.6}
+\contentsline {subsection}{\numberline {6.1}NIGHT3: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{40}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}NIGHT3: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{44}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}NIGHT3: Probability of detection (PODi) for long and short forecast time scale}{45}{subsection.6.3}
+\contentsline {section}{\numberline {7}DAY3: Statistical analysis of forecast performances}{48}{section.7}
+\contentsline {subsection}{\numberline {7.1}DAY3: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{49}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}DAY3: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{51}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}DAY3: Probability of detection (PODi) for long and short forecast time scales}{52}{subsection.7.3}
+\contentsline {section}{\numberline {8}WP Statistical analysis of the forecast system failures and ESO observation availability}{54}{section.8}
+\contentsline {section}{References}{59}{table.caption.93}

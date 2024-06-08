@@ -2,7 +2,7 @@
  HH=1H
  IDELTA=          10
  NbPix=         108
- NbNights=          31
+ NbNights=          23
  STARTMINUTE=       18000
  ENDMINUTE=       57600
  LIMIT=   3.00000000    
@@ -19,34 +19,34 @@
  NbLines_TOT=        1020
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
- NbLines_TOT_Pix=        3348
-                                                                                                                                                                                LOGINFO BIAS_WD_MOD_BEF=   -10.65
-                                                                                                                                                                                LOGINFO RMSE_WD_MOD_BEF=    36.97
-                                                                                                                                                                               LOGINFO SIGMA_WD_MOD_BEF=    35.40
- INC_MOD_BEF=        1838
- LOGINFO NbLines_TOT=        3348
+ NbLines_TOT_Pix=        2484
+                                                                                                                                                                                LOGINFO BIAS_WD_MOD_BEF=    -6.27
+                                                                                                                                                                                LOGINFO RMSE_WD_MOD_BEF=    19.55
+                                                                                                                                                                               LOGINFO SIGMA_WD_MOD_BEF=    18.52
+ INC_MOD_BEF=        1430
+ LOGINFO NbLines_TOT=        2484
                                                                                                                                                                                 LOGINFO BIAS_WD_MOD_AFT=     0.00
                                                                                                                                                                                 LOGINFO RMSE_WD_MOD_AFT=     0.00
                                                                                                                                                                                LOGINFO SIGMA_WD_MOD_AFT=     0.00
- INC_MOD_AFT=        1838
- NbLines_TOT=        3348
- NbFit=        1838 NbLines_TOT=        1020 NbPix=         108
+ INC_MOD_AFT=        1430
+ NbLines_TOT=        2484
+ NbFit=        1430 NbLines_TOT=        1020 NbPix=         108
  K=           0
  #### FIT BEF ####
  ENTERING fit routine
- ARRAYS SIZE:         1838        1838
- ndata=         1838
- sx=   448424.219    
- invx=   4.97303934E-12
- q=   0.00000000     ndata=        1838 size(x)=        1838 chi2=   11043666.0     sigb=   7.41487835E-03
- B_TOT(slope)=   1.00211525    
+ ARRAYS SIZE:         1430        1430
+ ndata=         1430
+ sx=   311818.281    
+ invx=   1.02848242E-11
+ q=   0.00000000     ndata=        1430 size(x)=        1430 chi2=   27374762.0     sigb=   1.67910382E-02
+ B_TOT(slope)=   1.12942839    
  #### FIT AFT #####
  ENTERING fit routine
- ARRAYS SIZE:         1838        1838
- ndata=         1838
- sx=   448424.219    
- invx=   4.97303934E-12
- q=   0.00000000     ndata=        1838 size(x)=        1838 chi2=              NaN sigb=              NaN
+ ARRAYS SIZE:         1430        1430
+ ndata=         1430
+ sx=   311818.281    
+ invx=   1.02848242E-11
+ q=   0.00000000     ndata=        1430 size(x)=        1430 chi2=              NaN sigb=              NaN
  B_TOT(slope)=              NaN
  ##########################################
  ######## HIT_RATE for BEF ###########
@@ -55,34 +55,34 @@
                                                                                                                                                                                          LOGINFO THRES2     135.0
                                                                                                                                                                                          LOGINFO THRES3     225.0
  Contingency table filled with numbers.
- Number of points         1838 ;
+ Number of points         1430 ;
  X<   45.0000000     <X<   135.000000     <X<   225.000000     <X
-   358.000000       31.0000000       0.00000000       24.0000000    
-   26.0000000       19.0000000       16.0000000       0.00000000    
-   3.00000000       23.0000000       183.000000       58.0000000    
-   374.000000       26.0000000       47.0000000       650.000000    
- POD(event1)=   47.0433655    
- POD(event2)=   19.1919193    
- POD(event3)=   74.3902435    
- POD(event4)=   88.7978134    
- PC=   65.8324280    
- ebd=   1.57780194    
+   1067.00000       19.0000000       0.00000000       27.0000000    
+   22.0000000       34.0000000       16.0000000       0.00000000    
+   0.00000000       6.00000000       57.0000000       38.0000000    
+   27.0000000       1.00000000       7.00000000       109.000000    
+ POD(event1)=   95.6093216    
+ POD(event2)=   56.6666679    
+ POD(event3)=   71.2500000    
+ POD(event4)=   62.6436768    
+ PC=   88.6013947    
+ ebd=   6.99300691E-02
                                                                                                                                                                            LOGINFO CONTTABLE BEF ROW0 X<45.0  45.0<X<135.0  135.0<X<225.0  X>225.0
-                                                                                                                                                                              LOGINFO CONTTABLE BEF ROW1    358     31      0     24
-                                                                                                                                                                              LOGINFO CONTTABLE BEF ROW2     26     19     16      0
-                                                                                                                                                                              LOGINFO CONTTABLE BEF ROW3      3     23    183     58
-                                                                                                                                                                              LOGINFO CONTTABLE BEF ROW4    374     26     47    650
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD1      47.0
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD2      19.2
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD3      74.4
-                                                                                                                                                                             LOGINFO CONTTABLE BEF POD4      88.8
-                                                                                                                                                                               LOGINFO CONTTABLE BEF PC      65.8
-                                                                                                                                                                              LOGINFO CONTTABLE BEF EBD       1.6
+                                                                                                                                                                              LOGINFO CONTTABLE BEF ROW1   1067     19      0     27
+                                                                                                                                                                              LOGINFO CONTTABLE BEF ROW2     22     34     16      0
+                                                                                                                                                                              LOGINFO CONTTABLE BEF ROW3      0      6     57     38
+                                                                                                                                                                              LOGINFO CONTTABLE BEF ROW4     27      1      7    109
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD1      95.6
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD2      56.7
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD3      71.2
+                                                                                                                                                                             LOGINFO CONTTABLE BEF POD4      62.6
+                                                                                                                                                                               LOGINFO CONTTABLE BEF PC      88.6
+                                                                                                                                                                              LOGINFO CONTTABLE BEF EBD       0.1
  ##########################################
  ############ HIT_RATE for AFT #############
  ##########################################
  Contingency table filled with numbers.
- Number of points         1838 ;
+ Number of points         1430 ;
  X<   45.0000000     <X<   135.000000     <X<   225.000000     <X
    0.00000000       0.00000000       0.00000000       0.00000000    
    0.00000000       0.00000000       0.00000000       0.00000000    

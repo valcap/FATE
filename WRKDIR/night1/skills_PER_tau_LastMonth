@@ -2,7 +2,7 @@
  HH=1H
  IDELTA=          10
  NbPix=         108
- NbNights=          31
+ NbNights=           9
  STARTMINUTE=       18000
  ENDMINUTE=       57600
  MAXTAU=   999.000000    
@@ -13,57 +13,57 @@
  CFILE_LIST_NIGHTS=list_TAU_LastMonth.txt                                                                                                  
  /home/report/FIGS/pippo1.ps/cps                                                                                         
  /home/report/FIGS/pippo2.ps/cps                                                                                         
- NbLines_TOT=         420
+ NbLines_TOT=         660
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
- NbLines_TOT_Pix=        3348
- MAXVAL_TAU_OBS_1D=   15.1239901    
-                                                                                                                                                                               LOGINFO BIAS_TAU_MOD_BEF=    -0.57
-                                                                                                                                                                               LOGINFO RMSE_TAU_MOD_BEF=     2.35
-                                                                                                                                                                              LOGINFO SIGMA_TAU_MOD_BEF=     2.28
- INC_TAU_MOD_BEF=        1261
- LOGINFO BEF NbLines_TOT=        3348
-                                                                                                                                                                               LOGINFO BIAS_TAU_MOD_AFT=     0.03
-                                                                                                                                                                               LOGINFO RMSE_TAU_MOD_AFT=     1.44
-                                                                                                                                                                              LOGINFO SIGMA_TAU_MOD_AFT=     1.44
- INC_TAU_MOD_AFT=        1261
- NbLines_TOT=        3348
- NbFit=        1261 NbLines_TOT=         420 NbPix=         108
+ NbLines_TOT_Pix=         972
+ MAXVAL_TAU_OBS_1D=   7.54229832    
+                                                                                                                                                                               LOGINFO BIAS_TAU_MOD_BEF=    -1.37
+                                                                                                                                                                               LOGINFO RMSE_TAU_MOD_BEF=     1.75
+                                                                                                                                                                              LOGINFO SIGMA_TAU_MOD_BEF=     1.10
+ INC_TAU_MOD_BEF=         358
+ LOGINFO BEF NbLines_TOT=         972
+                                                                                                                                                                               LOGINFO BIAS_TAU_MOD_AFT=    -0.05
+                                                                                                                                                                               LOGINFO RMSE_TAU_MOD_AFT=     0.76
+                                                                                                                                                                              LOGINFO SIGMA_TAU_MOD_AFT=     0.76
+ INC_TAU_MOD_AFT=         358
+ NbLines_TOT=         972
+ NbFit=         358 NbLines_TOT=         660 NbPix=         108
  K=           0
  #### FIT BEF ####
  ENTERING fit routine
- ARRAYS SIZE:         1261        1261
- ndata=         1261
- sx=   8305.55371    
- invx=   1.44964893E-08
- q=   0.00000000     ndata=        1261 size(x)=        1261 chi2=   5738.64697     sigb=   9.12811048E-03
- B_TOT(slope)=  0.913288295    
+ ARRAYS SIZE:          358         358
+ ndata=          358
+ sx=   1476.05310    
+ invx=   4.58982413E-07
+ q=   0.00000000     ndata=         358 size(x)=         358 chi2=   205.716873     sigb=   9.74427350E-03
+ B_TOT(slope)=  0.668661416    
  #### FIT AFT #####
  ENTERING fit routine
- ARRAYS SIZE:         1261        1261
- ndata=         1261
- sx=   8305.55371    
- invx=   1.44964893E-08
- q=   0.00000000     ndata=        1261 size(x)=        1261 chi2=   2607.29004     sigb=   6.15277141E-03
- B_TOT(slope)=   1.00494146    
+ ARRAYS SIZE:          358         358
+ ndata=          358
+ sx=   1476.05310    
+ invx=   4.58982413E-07
+ q=   0.00000000     ndata=         358 size(x)=         358 chi2=   204.977661     sigb=   9.72675160E-03
+ B_TOT(slope)=  0.988318384    
  ***************
-                                                                                                                                                                           LOGINFO PERCENTILES XMED_TAU=      6.1
-                                                                                                                                                                            LOGINFO PERCENTILES X33_TAU=      4.8
-                                                                                                                                                                            LOGINFO PERCENTILES X66_TAU=      7.5
+                                                                                                                                                                           LOGINFO PERCENTILES XMED_TAU=      4.0
+                                                                                                                                                                            LOGINFO PERCENTILES X33_TAU=      3.5
+                                                                                                                                                                            LOGINFO PERCENTILES X66_TAU=      4.5
  ***************
  ***************
- XMED_MOD_BEF=   5.82422161    
+ XMED_MOD_BEF=   2.88218546    
  ***************
  ##########################################
  ######## HIT_RATE for BEF ###########
  ##########################################
  Contingency table filled with numbers.
- LOGINFO Hit rate computed on        1261 points.
- Number of points         1261 ;
+ LOGINFO Hit rate computed on         358 points.
+ Number of points          358 ;
  LOGINFO X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
  LOGINFO    0.00000000       0.00000000       0.00000000    
  LOGINFO    0.00000000       0.00000000       0.00000000    
- LOGINFO    0.00000000       0.00000000       1261.00000    
+ LOGINFO    0.00000000       0.00000000       358.000000    
  LOGINFO POD(event1)=              NaN
  LOGINFO POD(event2)=              NaN
  LOGINFO POD(event3)=   100.000000    
@@ -73,29 +73,29 @@
  ****** HIT_RATE for BEF WITH RMSE=SD_instr *******
  **************************************************
  Contingency table filled with numbers.
- Hit rate computed on        1261 points.
+ Hit rate computed on         358 points.
  X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
    0.00000000       0.00000000       0.00000000    
    0.00000000       0.00000000       0.00000000    
-   0.00000000       0.00000000       1261.00000    
+   0.00000000       0.00000000       358.000000    
  POD(event1)=              NaN
  POD(event2)=              NaN
  POD(event3)=   100.000000    
  PC=   100.000000    
  ebd=   0.00000000    
  ***************
- XMED_MOD_AFT=   6.10224962    
+ XMED_MOD_AFT=   3.85400009    
  ***************
  ##########################################
  ############ HIT_RATE for AFT #############
  ##########################################
  Contingency table filled with numbers.
- LOGINFO Hit rate computed on        1261 points.
- Number of points         1261 ;
+ LOGINFO Hit rate computed on         358 points.
+ Number of points          358 ;
  LOGINFO X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
  LOGINFO    0.00000000       0.00000000       0.00000000    
  LOGINFO    0.00000000       0.00000000       0.00000000    
- LOGINFO    0.00000000       0.00000000       1261.00000    
+ LOGINFO    0.00000000       0.00000000       358.000000    
  LOGINFO POD(event1)=              NaN
  LOGINFO POD(event2)=              NaN
  LOGINFO POD(event3)=   100.000000    
@@ -105,11 +105,11 @@
  ****** HIT_RATE for AFT WITH RMSE=SD_instr *******
  **************************************************
  Contingency table filled with numbers.
- Hit rate computed on        1261 points.
+ Hit rate computed on         358 points.
  X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
    0.00000000       0.00000000       0.00000000    
    0.00000000       0.00000000       0.00000000    
-   0.00000000       0.00000000       1261.00000    
+   0.00000000       0.00000000       358.000000    
  POD(event1)=              NaN
  POD(event2)=              NaN
  POD(event3)=   100.000000    

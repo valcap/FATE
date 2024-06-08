@@ -2,7 +2,7 @@
  HH=1H
  IDELTA=          10
  NbPix=         108
- NbNights=         116
+ NbNights=         256
  STARTMINUTE=       18000
  ENDMINUTE=       57600
  LIMIT=   0.00000000    
@@ -16,74 +16,74 @@
  NbLines_TOT=        1020
  MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
  End of OBS data treatement
- NbLines_TOT_Pix=       12528
+ NbLines_TOT_Pix=       27648
  MAXVAL_WS_OBS_1D=   23.6192131    
-                                                                                                                                                                                LOGINFO BIAS_WS_MOD_BEF=     0.08
-                                                                                                                                                                                LOGINFO RMSE_WS_MOD_BEF=     2.28
-                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_BEF=     2.27
- INC_WS_MOD_BEF=        7758
- LOGINFO NbLines_TOT=       12528
-                                                                                                                                                                                LOGINFO BIAS_WS_MOD_AFT=     0.05
-                                                                                                                                                                                LOGINFO RMSE_WS_MOD_AFT=     0.94
-                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_AFT=     0.94
- INC_WS_MOD_AFT=        7758
- NbLines_TOT=       12528
- NbFit=        7758 NbLines_TOT=        1020 NbPix=         108
+                                                                                                                                                                                LOGINFO BIAS_WS_MOD_BEF=     0.42
+                                                                                                                                                                                LOGINFO RMSE_WS_MOD_BEF=     2.16
+                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_BEF=     2.12
+ INC_WS_MOD_BEF=       17113
+ LOGINFO NbLines_TOT=       27648
+                                                                                                                                                                                LOGINFO BIAS_WS_MOD_AFT=    -0.00
+                                                                                                                                                                                LOGINFO RMSE_WS_MOD_AFT=     0.90
+                                                                                                                                                                               LOGINFO SIGMA_WS_MOD_AFT=     0.90
+ INC_WS_MOD_AFT=       17113
+ NbLines_TOT=       27648
+ NbFit=       17113 NbLines_TOT=        1020 NbPix=         108
  K=           0
  #### FIT BEF ####
  ENTERING fit routine
- ARRAYS SIZE:         7758        7758
- ndata=         7758
- sx=   61111.4414    
- invx=   2.67765726E-10
- q=   0.00000000     ndata=        7758 size(x)=        7758 chi2=   41089.0117     sigb=   3.31738871E-03
- B_TOT(slope)=   1.00968432    
+ ARRAYS SIZE:        17113       17113
+ ndata=        17113
+ sx=   122245.422    
+ invx=   6.69167430E-11
+ q=   0.00000000     ndata=       17113 size(x)=       17113 chi2=   88326.7031     sigb=   2.43130117E-03
+ B_TOT(slope)=   1.05886912    
  #### FIT AFT #####
  ENTERING fit routine
- ARRAYS SIZE:         7758        7758
- ndata=         7758
- sx=   61111.4414    
- invx=   2.67765726E-10
- q=   0.00000000     ndata=        7758 size(x)=        7758 chi2=   6814.44824     sigb=   1.35097979E-03
- B_TOT(slope)=   1.00674558    
+ ARRAYS SIZE:        17113       17113
+ ndata=        17113
+ sx=   122245.422    
+ invx=   6.69167430E-11
+ q=   0.00000000     ndata=       17113 size(x)=       17113 chi2=   13974.2637     sigb=   9.67068481E-04
+ B_TOT(slope)=  0.999746859    
  ***************
-                                                                                                                                                                                        LOGINFO XMED_WS=      6.8
-                                                                                                                                                                                         LOGINFO X33_WS=      5.4
-                                                                                                                                                                                         LOGINFO X66_WS=      8.6
+                                                                                                                                                                                        LOGINFO XMED_WS=      6.1
+                                                                                                                                                                                         LOGINFO X33_WS=      4.9
+                                                                                                                                                                                         LOGINFO X66_WS=      7.7
  ***************
  ***************
- XMED_MOD_BEF=   7.24177551    
+ XMED_MOD_BEF=   7.01927090    
  ***************
  ##########################################
  ######## HIT_RATE for BEF ###########
  ##########################################
  Contingency table filled with numbers.
- LOGINFO Hit rate computed on        7758 points.
- Number of points         7758 ;
+ LOGINFO Hit rate computed on       17113 points.
+ Number of points        17113 ;
  LOGINFO X<   4.21000004       4.21000004     <X<   7.55000019     X>   7.55000019    
- LOGINFO    516.000000       190.000000       20.0000000    
- LOGINFO    850.000000       2121.00000       584.000000    
- LOGINFO    49.0000000       735.000000       2693.00000    
- LOGINFO POD(event1)=   36.4664307    
- LOGINFO POD(event2)=   69.6323013    
- LOGINFO POD(event3)=   81.6803131    
- LOGINFO PC=   68.7032776    
- LOGINFO ebd=  0.889404476    
+ LOGINFO    1881.00000       389.000000       49.0000000    
+ LOGINFO    2253.00000       4569.00000       972.000000    
+ LOGINFO    121.000000       2001.00000       4878.00000    
+ LOGINFO POD(event1)=   44.2068176    
+ LOGINFO POD(event2)=   65.6559830    
+ LOGINFO POD(event3)=   82.6919785    
+ LOGINFO PC=   66.1952896    
+ LOGINFO ebd=  0.993396819    
  ***************
- XMED_MOD_AFT=   6.90599918    
+ XMED_MOD_AFT=   6.09100008    
  ***************
  ##########################################
  ############ HIT_RATE for AFT #############
  ##########################################
  Contingency table filled with numbers.
- LOGINFO Hit rate computed on        7758 points.
- Number of points         7758 ;
+ LOGINFO Hit rate computed on       17113 points.
+ Number of points        17113 ;
  LOGINFO X<   4.21000004       4.21000004     <X<   7.55000019     X>   7.55000019    
- LOGINFO    1177.00000       292.000000       2.00000000    
- LOGINFO    238.000000       2479.00000       225.000000    
- LOGINFO    0.00000000       275.000000       3070.00000    
- LOGINFO POD(event1)=   83.1802139    
- LOGINFO POD(event2)=   81.3854218    
- LOGINFO POD(event3)=   93.1149521    
- LOGINFO PC=   86.6976013    
- LOGINFO ebd=   2.57798415E-02
+ LOGINFO    3725.00000       724.000000       2.00000000    
+ LOGINFO    530.000000       5740.00000       487.000000    
+ LOGINFO    0.00000000       495.000000       5410.00000    
+ LOGINFO POD(event1)=   87.5440674    
+ LOGINFO POD(event2)=   82.4831161    
+ LOGINFO POD(event3)=   91.7104568    
+ LOGINFO PC=   86.9222260    
+ LOGINFO ebd=   1.16870217E-02
