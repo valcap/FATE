@@ -63,6 +63,17 @@ fi
 ## End of check directories
 #########################################
 
+#########################################
+## Check whether day or night 
+#
+IS_DAY='FALSE'
+if [ ${FCST_DAY} == 'day' ]; then
+  IS_DAY='TRUE'
+fi
+#
+## End of check directories
+#########################################
+
 WRKDIR=$WRKDIR'/'${FCST_DAY}${FCST_LEN}
 
 ##################################################################################
@@ -124,6 +135,7 @@ ${ENDMINUTE}
 '$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_stan.ps/cps'
 '$FIGS_ROOT_DIR/pippo.ps/cps'
 FALSE
+$IS_DAY
 EOF
 rm -f ${JOB}.exe
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
@@ -213,6 +225,7 @@ ${ENDMINUTE}
 '$FIGS_ROOT_DIR/temp1.ps/cps'
 '$FIGS_ROOT_DIR/temp2.ps/cps'
 FALSE
+$IS_DAY
 EOF
 rm -f ${JOB}.exe
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
@@ -285,6 +298,7 @@ ${ENDMINUTE}
 '$FIGS_ROOT_DIR/temp1.ps/cps'
 '$FIGS_ROOT_DIR/temp2.ps/cps'
 TRUE
+$IS_DAY
 EOF
 rm -f ${JOB}.exe
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat

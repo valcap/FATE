@@ -70,6 +70,7 @@ do
   RMSE_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep RMSE | cut -d '=' -f2`
   SD_LAST=`cat $FILE_SKILLS | grep LOGINFO | grep BEF | grep SIGMA | cut -d '=' -f2`
   my_caption=${FCST_DAY}${FCST_LEN}' - Statistics for variables in standard configuration: incremental month (i.e., since the begining of service) \\textit\{vs\} last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING')'
+  my_label='tab:'${FCST_DAY}${FCST_LEN}':statBEF'
   if [ ${FCST_DAY} == "day" ]; then
     cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"            | \
@@ -83,6 +84,7 @@ do
                                      sed -e "s!SEEbiasLM!-!"|sed -e "s!SEErmseLM!-!"|sed -e "s!SEEsdLM!-!"|
                                      sed -e "s!TAUbiasLM!-!"|sed -e "s!TAUrmseLM!-!"|sed -e "s!TAUsdLM!-!"|
                                      sed -e "s!GLFbiasLM!-!"|sed -e "s!GLFrmseLM!-!"|sed -e "s!GLFsdLM!-!"|
+                                     sed -e "s!MYLABEL!$my_label!"   |
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
   else
@@ -92,6 +94,7 @@ do
                                      sed -e "s!${prefixUC}biasLM!$BIAS_LAST!"        | \
                                      sed -e "s!${prefixUC}rmseLM!$RMSE_LAST!"        | \
                                      sed -e "s!${prefixUC}sdLM!$SD_LAST!"        | \
+                                     sed -e "s!MYLABEL!$my_label!"   |
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
   fi
@@ -131,6 +134,7 @@ if [ ${FCST_DAY} == "night" ]; then
                                        sed -e "s!${prefixUC}biasLM!$BIAS_LAST!"        | \
                                        sed -e "s!${prefixUC}rmseLM!$RMSE_LAST!"        | \
                                        sed -e "s!${prefixUC}sdLM!$SD_LAST!"        | \
+                                       sed -e "s!MYLABEL!$my_label!"   |
                                        sed -e "s!TABCAPTION!$my_caption!"   \
                                        > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
     mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_BEF.tex
@@ -159,6 +163,7 @@ do
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
   my_caption=${FCST_DAY}${FCST_LEN}' - Incremental month (i.e., since the beginning of service): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
+  my_label='tab:'${FCST_DAY}${FCST_LEN}':statAFT:IM'
   if [ ${FCST_DAY} == "day" ]; then
   cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
@@ -172,6 +177,7 @@ do
                                      sed -e "s!SEERMSEPER!-!"|sed -e "s!SEESDPER!-!"|
                                      sed -e "s!TAURMSEPER!-!"|sed -e "s!TAUSDPER!-!"|
                                      sed -e "s!GLFRMSEPER!-!"|sed -e "s!GLFSDPER!-!"|
+                                     sed -e "s!MYLABEL!$my_label!"   |
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
   else
@@ -181,6 +187,7 @@ do
                                      sed -e "s!${prefixUC}BIASPER!$BIAS_PERS!"        | \
                                      sed -e "s!${prefixUC}RMSEPER!$RMSE_PERS!"        | \
                                      sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
+                                     sed -e "s!MYLABEL!$my_label!"   |
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
   fi
@@ -222,6 +229,7 @@ if [ ${FCST_DAY} == "night" ]; then
                                        sed -e "s!${prefixUC}SD!$SD!"        | \
                                        sed -e "s!${prefixUC}RMSEPER!$RMSE_PERS!"        | \
                                        sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
+                                       sed -e "s!MYLABEL!$my_label!"   |
                                        sed -e "s!TABCAPTION!$my_caption!"   \
                                        > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
     mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT.tex
@@ -250,6 +258,7 @@ do
   RMSE_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep RMSE | cut -d '=' -f2`
   SD_PERS=`cat $FILE_SKILLS | grep LOGINFO | grep AFT | grep SIGMA | cut -d '=' -f2`
   my_caption=${FCST_DAY}${FCST_LEN}' - Last month ('$LASTMONTHSTRING'-'$LASTYEARSTRING'): statistics for variables with AR (1H) \\textit\{vs\} persistence (1H)'
+  my_label='tab:'${FCST_DAY}${FCST_LEN}':statAFT:LM'
   if [ ${FCST_DAY} == "day" ]; then
   cat $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex | sed -e "s!${prefixUC}BIAS!$BIAS!"    | \
                                      sed -e "s!${prefixUC}RMSE!$RMSE!"    | \
@@ -263,6 +272,7 @@ do
                                      sed -e "s!SEERMSEPER!-!"|sed -e "s!SEESDPER!-!"|
                                      sed -e "s!TAURMSEPER!-!"|sed -e "s!TAUSDPER!-!"|
                                      sed -e "s!GLFRMSEPER!-!"|sed -e "s!GLFSDPER!-!"|
+                                     sed -e "s!MYLABEL!$my_label!"   |
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
   else
@@ -272,6 +282,7 @@ do
                                      sed -e "s!${prefixUC}BIASPER!$BIAS_PERS!"        | \
                                      sed -e "s!${prefixUC}RMSEPER!$RMSE_PERS!"        | \
                                      sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
+                                     sed -e "s!MYLABEL!$my_label!"   |
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
   fi
@@ -313,6 +324,7 @@ do
                                      sed -e "s!${prefixUC}SD!$SD!"        | \
                                      sed -e "s!${prefixUC}RMSEPER!$RMSE_PERS!"        | \
                                      sed -e "s!${prefixUC}SDPER!$SD_PERS!"        | \
+                                     sed -e "s!MYLABEL!$my_label!"   |
                                      sed -e "s!TABCAPTION!$my_caption!"   \
                                      > $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex
   mv $WRKDIR/${FCST_DAY}${FCST_LEN}/table_tmpl_TEMP.tex $WRKDIR/${FCST_DAY}${FCST_LEN}/table_skills_AFT-LASTM.tex

@@ -68,17 +68,6 @@ if [ ! -d $WRKDIR ]; then
   mkdir -p $WRKDIR
 fi
 
-#########################################
-## Check whether day or night 
-#
-IS_DAY='FALSE'
-if [ ${FCST_DAY} == 'day' ]; then
-  IS_DAY='TRUE'
-fi
-#
-## End of check directories
-#########################################
-
 ##################################################################################
 ##################################################################################
 #                                   BEFORE data 
@@ -139,7 +128,6 @@ ${LIMIT}
 '$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_stan.ps/cps'
 '$FIGS_ROOT_DIR/pippo.ps/cps'
 FALSE
-$IS_DAY
 EOF
 rm -f ${JOB}.exe
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
@@ -233,7 +221,6 @@ ${LIMIT}
 '$FIGS_ROOT_DIR/temp1.ps/cps'
 '$FIGS_ROOT_DIR/temp2.ps/cps'
 FALSE
-$IS_DAY
 EOF
 rm -f ${JOB}.exe
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
@@ -303,7 +290,6 @@ ${LIMIT}
 '$FIGS_ROOT_DIR/tmp1.ps/cps'
 '$FIGS_ROOT_DIR/tmp2.ps/cps'
 TRUE
-$IS_DAY
 EOF
 rm -f ${JOB}.exe
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
@@ -384,7 +370,7 @@ EBDBEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTA
 my_nice_caption=${FCST_DAY}${FCST_LEN}' - Contingency table for {'$descri'} ('$unitof') in standard configuration'
 cat << EOF >> $WRKDIR/contingency_tableBEF${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[h!]
+\begin{table}[t!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
@@ -420,7 +406,7 @@ EBDBEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTA
 my_caption=${FCST_DAY}${FCST_LEN}' - PODs for '$descri' ('$unitof')'
 cat << EOF > $WRKDIR/tablePODs${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[h!]
+\begin{table}[t!]
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline
@@ -454,7 +440,7 @@ my_caption=${FCST_DAY}${FCST_LEN}' - PODs for '$descri' ('$unitof') and threshol
 echo $WRKDIR/tablePODs${prefix}_FT.tex
 cat << EOF > $WRKDIR/tablePODs${prefix}_FT.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[h!]
+\begin{table}[t!]
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline

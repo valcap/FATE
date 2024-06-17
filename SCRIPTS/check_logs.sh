@@ -72,8 +72,8 @@ VAL05=$(echo "scale=2; (($VAL/2)/$TOTAL_MONTHLY_RUN)*100" | bc)
 #FATE: model: explosion of simulations
 VAL_MNH_FAIL_NIGHT=`grep 'WARNING!!! SIMULATION' $LOGDIR_MNH_NIGHT/${PREV_MONTH_YY}/${PREV_MONTH_YY}${PREV_MONTH_MM}*_schedule.log | wc -l`
 VAL_MNH_FAIL_DAY=`grep 'WARNING!!! SIMULATION' $LOGDIR_MNH_DAY/${PREV_MONTH_YY}/${PREV_MONTH_YY}${PREV_MONTH_MM}*_schedule.log | wc -l`
-VAL_MNH_FAIL_TOT=$(echo "scale=1; ($VAL_MNH_FAIL_NIGHT+$VAL_MNH_FAIL_DAY)" | bc)
-VAL_MNH_FAIL_PERC=$(echo "scale=1; (100-($VAL_MNH_FAIL_TOT/$TOTAL_MONTHLY_RUN)*100)" | bc)
+VAL_MNH_FAIL_TOT=$(echo "scale=2; ($VAL_MNH_FAIL_NIGHT+$VAL_MNH_FAIL_DAY)" | bc)
+VAL_MNH_FAIL_PERC=$(echo "scale=2; (100-($VAL_MNH_FAIL_TOT/$TOTAL_MONTHLY_RUN)*100)" | bc)
 VAL06=$VAL_MNH_FAIL_PERC
 
 #FATE: delay on providing a forecast
@@ -145,12 +145,12 @@ while [ "$current_date" != "$end_date" ]; do
     # Aggiungi un mese alla data corrente
     current_date=$(date -d "$current_date + 1 month" "+%Y-%m-%d")
 done
-VAL_MNH_FAIL_TOT=$(echo "scale=1; ($VAL_MNH_FAIL_NIGHT+$VAL_MNH_FAIL_DAY)" | bc)
-VAL_MNH_FAIL_PERC=$(echo "scale=1; (100-($VAL_MNH_FAIL_TOT/$TOTAL_MONTHLY_RUN)*100)" | bc)
+VAL_MNH_FAIL_TOT=$(echo "scale=2; ($VAL_MNH_FAIL_NIGHT+$VAL_MNH_FAIL_DAY)" | bc)
+VAL_MNH_FAIL_PERC=$(echo "scale=2; (100-($VAL_MNH_FAIL_TOT/$TOTAL_MONTHLY_RUN)*100)" | bc)
 VAL14=$VAL_MNH_FAIL_PERC
 
 # CREATE LATEX TABLE
-my_caption='FATE: automatic forecasting system performance - statistics'
+my_caption='FATE: automatic forecasting system performance - statistics. Agreed maintance from anybody do not enter in the failure percentage computation.'
 cat << EOF > $WRKDIR/tableLOGs.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[]

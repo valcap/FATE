@@ -69,6 +69,18 @@ if [ ! -d $WRKDIR ]; then
   mkdir -p $WRKDIR
 fi
 
+
+#########################################
+## Check whether day or night 
+#
+IS_DAY='FALSE'
+if [ ${FCST_DAY} == 'day' ]; then
+  IS_DAY='TRUE'
+fi
+#
+## End of check directories
+#########################################
+
 ##################################################################################
 ##################################################################################
 #                                   BEFORE and AFTER data 
@@ -129,10 +141,10 @@ ${LIMIT}
 '$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_BEF_stan.ps/cps'
 '$FIGS_ROOT_DIR/${prefix}_sim_mnh_ar_dimm_${STARTMINUTE}_${ENDMINUTE}_AFT_stan.ps/cps'
 FALSE
+$IS_DAY
 EOF
 rm -f ${JOB}.exe
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
-
 #
 ## End of computing graphics and statistics for BEFORE and AFTER data
 #########################################
@@ -227,6 +239,7 @@ ${LIMIT}
 '$FIGS_ROOT_DIR/temp1.ps/cps'
 '$FIGS_ROOT_DIR/temp2.ps/cps'
 FALSE
+$IS_DAY
 EOF
 rm -f ${JOB}.exe
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
@@ -296,6 +309,7 @@ ${LIMIT}
 '$FIGS_ROOT_DIR/tmp1.ps/cps'
 '$FIGS_ROOT_DIR/tmp2.ps/cps'
 TRUE
+$IS_DAY
 EOF
 rm -f ${JOB}.exe
 rm -f out_scatter_for_python_bef.dat out_scatter_for_python_aft.dat
@@ -531,8 +545,8 @@ rm -f $WRKDIR/contingency_tableAFT${prefix}.tex
 cd $WRKDIR
 
 # BEFORE STUFF
-  PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep BEF | grep PERCENTILES | grep BEF | grep X33_ | awk '{print $5}'`
-  PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep BEF | grep PERCENTILES | grep BEF |grep X66_ | awk '{print $5}'`
+PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep BEF | grep PERCENTILES | grep BEF | grep X33_ | awk '{print $5}'`
+PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep BEF | grep PERCENTILES | grep BEF |grep X66_ | awk '{print $5}'`
 VAL1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $5}'`
 VAL2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $6}'`
 VAL3=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep BEF | grep ROW1 | awk '{print $7}'`
@@ -553,7 +567,7 @@ EBDBEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTA
 my_nice_caption=${FCST_DAY}${FCST_LEN}' - Contingency table for {'$descri'} ('$unitof') in standard configuration'
 cat << EOF >> $WRKDIR/contingency_tableBEF${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[t!]
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
@@ -573,8 +587,8 @@ cat << EOF >> $WRKDIR/contingency_tableBEF${prefix}.tex
 EOF
 
 # AFTER STUFF
-  PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep AFT | grep PERCENTILES | grep AFT | grep X33_ | awk '{print $5}'`
-  PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep AFT | grep PERCENTILES | grep AFT |grep X66_ | awk '{print $5}'`
+PERC1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep AFT | grep PERCENTILES | grep AFT | grep X33_ | awk '{print $5}'`
+PERC2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep AFT | grep PERCENTILES | grep AFT |grep X66_ | awk '{print $5}'`
 VAL1=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $5}'`
 VAL2=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $6}'`
 VAL3=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep ROW1 | awk '{print $7}'`
@@ -595,7 +609,7 @@ EBDAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTA
 my_nice_caption=${FCST_DAY}${FCST_LEN}' - Contingency table for  '$descri' ('$unitof') processed with AR (1H)'
 cat << EOF >> $WRKDIR/contingency_tableAFT${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[t!]
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
@@ -637,7 +651,7 @@ EBDAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_FIXTHRES | grep LOGINFO | gr
 my_nice_caption=${FCST_DAY}${FCST_LEN}' - Contingency table for  '$descri' ('$unitof') processed with AR (1H) and thresholds (12.0,18.0) '$unitof
 cat << EOF >> $WRKDIR/contingency_tableAFT${prefix}_FT.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[t!]
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
@@ -680,7 +694,7 @@ EBDAFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTA
 my_caption=${FCST_DAY}${FCST_LEN}' - PODs for '$descri' ('$unitof')'
 cat << EOF > $WRKDIR/tablePODs${prefix}.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[t!]
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline
@@ -720,7 +734,7 @@ my_caption=${FCST_DAY}${FCST_LEN}' - PODs for '$descri' ('$unitof') and threshol
 echo $WRKDIR/tablePODs${prefix}_FT.tex
 cat << EOF > $WRKDIR/tablePODs${prefix}_FT.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[t!]
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline

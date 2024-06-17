@@ -41,6 +41,7 @@ REAL,DIMENSION(:),ALLOCATABLE      :: CDX_RH,CDY_RH,CDX_MOD_BEF,CDY_MOD_BEF,CDX_
 REAL,DIMENSION(3,3)                :: TAB_HR
 REAL,DIMENSION(3)                  :: POD
 LOGICAL                              :: FIX_THRES
+LOGICAL                              :: IS_DAY
 
 !***************************************************************
 INTERFACE
@@ -90,6 +91,8 @@ READ (5,*)PGPLOT2
 PRINT*, PGPLOT2
 READ (5,*)FIX_THRES
 PRINT*,FIX_THRES
+READ (5,*)IS_DAY
+PRINT*,IS_DAY
 
 ALLOCATE(CFILE_DATE(NbNights))
 ALLOCATE(DATE(NbNights))
@@ -385,6 +388,9 @@ TAB_HR=NOVAL
 IF ( FIX_THRES ) THEN
   X33_RH=50.0
   X66_RH=70.0
+ELSE IF ( IS_DAY ) THEN
+  X33_RH=8.89
+  X66_RH=17.92
 ELSE
   X33_RH=7.09
   X66_RH=15.32
@@ -424,6 +430,9 @@ TAB_HR=NOVAL
 IF ( FIX_THRES ) THEN
   X33_RH=50.0
   X66_RH=70.0
+ELSE IF ( IS_DAY ) THEN
+  X33_RH=8.89
+  X66_RH=17.92
 ELSE
   X33_RH=7.09
   X66_RH=15.32
