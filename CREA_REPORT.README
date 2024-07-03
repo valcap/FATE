@@ -1,66 +1,72 @@
 
-#######################################################
-# mi sposto nella directory dove si trova l'archivio dei dati (night1)
+FATE
+LAMMA/INAF
+Istruzioni creazione Report mensile
+
+Introduction
+Questo documento contiene le istruzioni per la creazione semi-automatica del report circa le prestazioni del sistema di previsioni astro-climatiche all’interno del progetto FATE.
+Il codice si trova sulla macchina
+IP: *********
+User: *******
+Password: **********
+Cartella: /home/report/scripts
+
+Istruzioni creazione report
+###############################################
+# COPIA DATI RAW NIGHT
+# mi sposto nella directory dove si trova l'archivio dei dati (night)
 cd /TERASTARMET/FATE_BACKUPS_mesohp1/AUTOMATION_OUTPUTS/AUTOREGRESSION/postproc/DAT_ARCHIVE/
 # copio solo i mesi/giorni che mi interessano nella directory di lavoro
-cp -fv 202309*.dat /home/report/DATA/DA_TRATTARE/test/night/
-cp -fv 202310*.dat /home/report/DATA/DA_TRATTARE/test/night/
-cp -fv 202311*.dat /home/report/DATA/DA_TRATTARE/test/night/
-cp -fv 202312*.dat /home/report/DATA/DA_TRATTARE/test/night/
-cp -fv 202401*.dat /home/report/DATA/DA_TRATTARE/test/night/
-cp -fv 202402*.dat /home/report/DATA/DA_TRATTARE/test/night/
-cp -fv 202403*.dat /home/report/DATA/DA_TRATTARE/test/night/
-cp -fv 202404*.dat /home/report/DATA/DA_TRATTARE/test/night/
-cp -fv 202405*.dat /home/report/DATA/DA_TRATTARE/test/night/
-#######################################################
-
-#######################################################
-# mi sposto nella directory dove si trova l'archivio dei dati (day1)
+cp -fv 202406*.dat /home/report/DATA/DA_TRATTARE/test/night/
+cp -fv 202407*.dat /home/report/DATA/DA_TRATTARE/test/night/
+##############################################
+###############################################
+# COPIA DATI RAW DAY
+# mi sposto nella directory dove si trova l'archivio dei dati (day)
 cd /TERASTARMET/FATE_BACKUPS_mesohp2/AUTOMATION_OUTPUTS/AUTOREGRESSION/postproc/DAT_ARCHIVE/
 # copio solo i mesi/giorni che mi interessano nella directory di lavoro
-cp -fv 202309*.dat /home/report/DATA/DA_TRATTARE/test/day/
-cp -fv 202310*.dat /home/report/DATA/DA_TRATTARE/test/day/
-cp -fv 202311*.dat /home/report/DATA/DA_TRATTARE/test/day/
-cp -fv 202312*.dat /home/report/DATA/DA_TRATTARE/test/day/
-cp -fv 202401*.dat /home/report/DATA/DA_TRATTARE/test/day/
-cp -fv 202402*.dat /home/report/DATA/DA_TRATTARE/test/day/
-cp -fv 202403*.dat /home/report/DATA/DA_TRATTARE/test/day/
-cp -fv 202404*.dat /home/report/DATA/DA_TRATTARE/test/day/
-cp -fv 202405*.dat /home/report/DATA/DA_TRATTARE/test/day/
-#######################################################
+cp -fv 202406*.dat /home/report/DATA/DA_TRATTARE/test/day/
+cp -fv 202407*.dat /home/report/DATA/DA_TRATTARE/test/day/
 
-#######################################################
-# NIGHT1 && DAY1
+###############################################
+###############################################
+# PREPROC NIGHT1 && DAY1
 # lancio la procedura di elaborazione dei dati in formato treated (sia operativi che persistence)
-# REM: ricordarsi di cambiare le righe di codice che creano i files list_*_LastMonth.txt che devono contenere solo l'ultimo mese
+# OPERATIVI
+# REM: ricordarsi di cambiare le righe di codice che creano i files list_*_LastMonth.txt che devono contenere solo l'ultimo mese. Questo si ottiene modificando le linee di codice seguenti:
+LASTMONTHYEAR=2024
+LASTMONTHMONTH=06
+LASTMONTHDAY=30
+quindi
 cd /home/report/PROG/read_and_treat
 sh read_and_treat_DAYNIGHT_1.sh
-# REM: ricordarsi di cambiare le righe di codice che creano i files list_*_LastMonth.txt che devono contenere solo l'ultimo mese
+# PERSISTENCE
+# REM: ricordarsi di cambiare le righe di codice che creano i files list_*_LastMonth.txt che devono contenere solo l'ultimo mese. Questo si ottiene modificando le linee di codice seguenti:
+LASTMONTHYEAR=2024
+LASTMONTHMONTH=06
+LASTMONTHDAY=30
 sh read_and_treat_PERSISTENCE.sh
-# REM: se casualmente mancano alcuni files, fare una copia da uno dei giorni adiacenti
-
 # i file di output vanno a finire in
-ls /home/report/DATA/TREATED
+ls -lrth /home/report/DATA/TREATED
 # e sottocartelle day1, nig1, day_PERSIST, nig_PERSIST
-#######################################################
+###############################################
 
 #######################################################
-# NIGHT2,3 && DAY2,3
+# PREPROC NIGHT2,3 && DAY2,3
 cd /home/report/PROG/read_and_treat
-# vanno cambiati i parametri in entrata, segnatamente:
+# vanno cambiati i parametri in entrata e lanciata la procedura 4 volte, segnatamente:
 # LISTGG= #EITHER "night" or "day"
-fcst_lenght= #EITHER "2" or "3"
+# fcst_lenght= #EITHER "2" or "3"
 sh read_and_treat_DAYNIGHT_23.sh
-# REM: se casualmente mancano alcuni files, fare una copia da uno dei giorni adiacenti oppure boh
-
-# i dati vanno a finire in 
-ls /home/report/DATA/TREATED
+# i dati vanno a finire in
+ls -lrth /home/report/DATA/TREATED
 # e sottocartelle day2,3 e nig2,3
-#######################################################
-
-#######################################################
+###############################################
+###############################################
 # PRODUZIONE DEL REPORT
 cd $HOME/SCRIPTS
 sh runall
-# prega che tutto vada bene
-#######################################################
+# Il report e l’annex vanno a finire in /home/report/REPORT
+ls -lrth /home/report/REPORT
+
+
