@@ -1,6 +1,6 @@
-\contentsline {subsection}{\numberline {0.1}NIGHT1: Contingency tables}{2}{subsection.0.1}
-\contentsline {subsection}{\numberline {0.2}DAY1: Contingency tables}{12}{subsection.0.2}
-\contentsline {subsection}{\numberline {0.3}NIGHT2: Contingency tables}{16}{subsection.0.3}
-\contentsline {subsection}{\numberline {0.4}DAY2: Contingency tables}{20}{subsection.0.4}
-\contentsline {subsection}{\numberline {0.5}NIGHT3: Contingency tables}{22}{subsection.0.5}
-\contentsline {subsection}{\numberline {0.6}DAY3: Contingency tables}{26}{subsection.0.6}
+\contentsline {section}{\numberline {1}NIGHT1: Contingency tables}{2}{section.1}
+\contentsline {section}{\numberline {2}DAY1: Contingency tables}{8}{section.2}
+\contentsline {section}{\numberline {3}NIGHT2: Contingency tables}{11}{section.3}
+\contentsline {section}{\numberline {4}DAY2: Contingency tables}{16}{section.4}
+\contentsline {section}{\numberline {5}NIGHT3: Contingency tables}{18}{section.5}
+\contentsline {section}{\numberline {6}DAY3: Contingency tables}{23}{section.6}

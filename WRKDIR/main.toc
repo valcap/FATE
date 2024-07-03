@@ -3,25 +3,25 @@
 \contentsline {subsection}{\numberline {2.1}NIGHT1: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{7}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}NIGHT1: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{11}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}NIGHT1: Probability of detection (PODi) for long and short forecast time scales}{12}{subsection.2.3}
-\contentsline {section}{\numberline {3}DAY1: Statistical analysis of forecast performances related}{18}{section.3}
-\contentsline {subsection}{\numberline {3.1}DAY1: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{19}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}DAY1: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{21}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}DAY1: Probability of detection (PODi) for long and short forecast time scales}{22}{subsection.3.3}
-\contentsline {section}{\numberline {4}NIGHT2: Statistical analysis of forecast performances}{24}{section.4}
-\contentsline {subsection}{\numberline {4.1}NIGHT2: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{25}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}NIGHT2: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{29}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}NIGHT2: Probability of detection (PODi) for long and short forecast time scale}{30}{subsection.4.3}
-\contentsline {section}{\numberline {5}DAY2: Statistical analysis of forecast performances}{33}{section.5}
-\contentsline {subsection}{\numberline {5.1}DAY2: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{34}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}DAY2: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{36}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}DAY2: Probability of detection (PODi) for long and short forecast time scales}{37}{subsection.5.3}
-\contentsline {section}{\numberline {6}NIGHT3: Statistical analysis of forecast performances}{39}{section.6}
-\contentsline {subsection}{\numberline {6.1}NIGHT3: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{40}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}NIGHT3: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{44}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}NIGHT3: Probability of detection (PODi) for long and short forecast time scale}{45}{subsection.6.3}
-\contentsline {section}{\numberline {7}DAY3: Statistical analysis of forecast performances}{48}{section.7}
-\contentsline {subsection}{\numberline {7.1}DAY3: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{49}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}DAY3: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{51}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}DAY3: Probability of detection (PODi) for long and short forecast time scales}{52}{subsection.7.3}
-\contentsline {section}{\numberline {8}WP Statistical analysis of the forecast system failures and ESO observation availability}{54}{section.8}
-\contentsline {section}{References}{59}{table.caption.93}
+\contentsline {section}{\numberline {3}DAY1: Statistical analysis of forecast performances related}{15}{section.3}
+\contentsline {subsection}{\numberline {3.1}DAY1: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{16}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}DAY1: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{18}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}DAY1: Probability of detection (PODi) for long and short forecast time scales}{19}{subsection.3.3}
+\contentsline {section}{\numberline {4}NIGHT2: Statistical analysis of forecast performances}{21}{section.4}
+\contentsline {subsection}{\numberline {4.1}NIGHT2: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{22}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}NIGHT2: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{26}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}NIGHT2: Probability of detection (PODi) for long and short forecast time scale}{27}{subsection.4.3}
+\contentsline {section}{\numberline {5}DAY2: Statistical analysis of forecast performances}{30}{section.5}
+\contentsline {subsection}{\numberline {5.1}DAY2: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{31}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}DAY2: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{33}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}DAY2: Probability of detection (PODi) for long and short forecast time scales}{34}{subsection.5.3}
+\contentsline {section}{\numberline {6}NIGHT3: Statistical analysis of forecast performances}{36}{section.6}
+\contentsline {subsection}{\numberline {6.1}NIGHT3: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{37}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}NIGHT3: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{41}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}NIGHT3: Probability of detection (PODi) for long and short forecast time scale}{42}{subsection.6.3}
+\contentsline {section}{\numberline {7}DAY3: Statistical analysis of forecast performances}{45}{section.7}
+\contentsline {subsection}{\numberline {7.1}DAY3: Scatter plots (bias, RMSE, SD) for long and short forecast time scale}{46}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}DAY3: Summarizing values of bias, RMSE, SD for long and short forecast time scales}{48}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}DAY3: Probability of detection (PODi) for long and short forecast time scales}{49}{subsection.7.3}
+\contentsline {section}{\numberline {8}WP Statistical analysis of the forecast system failures and ESO observation availability}{51}{section.8}
+\contentsline {section}{References}{56}{table.caption.93}

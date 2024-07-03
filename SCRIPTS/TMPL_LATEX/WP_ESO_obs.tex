@@ -5,7 +5,7 @@ Table \ref{tab:LOGs} reports the status of success rate in carrying out a comple
 \noindent
 Each item in the first column starts with a label that indicates the origin of the 'potential' problem. Labels are: ECMWF, ESO, FATE. The success rate for the current month is calculated by the number of success cases divided by the number of days in a month. The success rate for the current incremental month is calculated by the number of success cases divided by the number of days since the start of the operations.
 %in the number of months covered since the operation starting date up to the current month.
-The operations starting date is YYYYMMDD. The success rate is calculated using Eq.\ref{eq_eso_obs}:\\  \\
+The operations starting date is 20240601. The success rate is calculated using Eq.\ref{eq_eso_obs}:\\  \\
 \begin{equation}
 (1-M/E)\times 100
 \label{eq_eso_obs}
@@ -14,17 +14,17 @@ where M is the number of failures and E is the number of full days. We mean with
 \noindent
 {\bf LEGEND:}\\ \\
 \noindent
-{\bf - ECMWF: ECMWF initialisation data transmission}: missing initialisation data coming from ECMWF.  We consider a failure = 1 if data are not found in the main server 1a\footnote{See tech-note-20221019-001} (or 1b) in the related specific temporal windows on 24h. Server 1a is the main server located in ESO-Santiago (Chile), server 1b is the back-up server located in ESO-Garching (Germany). \\ \\
+{\bf - ECMWF: forecasts initialisation data availability}: missing initialisation data coming from ECMWF.  We consider a failure = 1 if data are not found in the main server 1a\footnote{See tech-note-20221019-001} (or 1b) in the related specific temporal windows on 24h. Server 1a is the main server located in ESO-Santiago (Chile), server 1b is the back-up server located in ESO-Garching (Germany). \\ \\
 \noindent
-{\bf - FATE:  principal network}:  failure on networks (main and back-up) in LaMMA. We consider a failure = 1 when both of them, the main network and the back-up network, do not allow the expected delivery on a full day. \\ \\
+{\bf - FATE: service network operativity}:  failure on networks (main and back-up) in LaMMA. We consider a failure = 1 when both of them, the main network and the back-up network, do not allow the expected delivery on a full day. \\ \\
 \noindent
-{\bf - ESO:  server INPUT}: server presenting bad operation. We have a failure = 1 when the server receiving the ECMWF data-set is not responding on a time scale of a full day and initialization data can not be downloaded in the temporal windows dedicated for carrying out the forecast for a full day. (Art. 7.1) \\ \\ 
+{\bf - ESO: server INPUT operativity for initialisation data download}: server presenting bad operation. We have a failure = 1 when the server receiving the ECMWF data-set is not responding on a time scale of a full day and initialization data can not be downloaded in the temporal windows dedicated for carrying out the forecast for a full day. (Art. 7.1) \\ \\ 
 \noindent
-{\bf - ESO: server OUPUT}: server presenting bad operation. We have a failure = 1 when the server receiving the delivery data-set from FATE is not responding and delivery data can not be uploaded (for night and day) neither on the main nor the back-up server within the time indicated in the technical specification.  More precisely: two hours before the sunrise and the sunset (contract Art.7.1). \\ \\
+{\bf - ESO: server OUTPUT operativity for service product upload}: server presenting bad operation. We have a failure = 1 when the server receiving the delivery data-set from FATE is not responding and delivery data can not be uploaded (for night and day) neither on the main nor the back-up server within the time indicated in the technical specification.  More precisely: two hours before the sunrise and the sunset (contract Art.7.1). \\ \\
 \noindent
-{\bf - FATE: hydrodynamic computation failure}: missing forecasts. We have a failure = 1 when the missing forecasts are due to a hydrodynamic computation numerical instability that leads to the forecast failure. \\ \\
+{\bf - FATE: hydrodynamic computation success}: missing forecasts. We have a failure = 1 when the missing forecasts are due to a hydrodynamic computation numerical instability that leads to the forecast failure. \\ \\
 \noindent
-{\bf - FATE: delay on providing a forecast}:  missing deliveries. We have a failure = 1 when deliveries are not uploaded due to a FATE problem for a full forecast day (contract Art. 7.1). \\ \\ 
+{\bf - FATE: forecasts provision success}:  missing deliveries. We have a failure = 1 when deliveries are not uploaded due to a FATE problem for a full forecast day (contract Art. 7.1). \\ \\ 
 
 The first five rows are independent items. The last row is the sum of the failures due to FATE. It is useful for the calculation of potential penalties. Agreed maintance from anybody do not enter in the failure percentage computation.
 

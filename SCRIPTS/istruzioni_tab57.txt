@@ -1,0 +1,17 @@
+17:00:01 - TODAY IS: 2024061800
+17:00:01 - NETWORK IS: GRIB_RAWRT
+17:00:01 - FATE: FATE_NETWORK_DOWNLOAD = OK    ----> FATE: principal network
+17:00:01 - ESO: ESO_SERVER_DOWNLOAD = OK ----> ESO: server INPUT
+17:00:01 - ECMWF: ECMWF_DATA_ON_ESO_SERVER_DOWNLOAD = OK ----> ECMWF: ECMWF initialisation data transmission
+17:00:01 - FATE: ECMWF_DATA_DOWNLOAD = OK
+17:00:01 - FATE: FATE_MODEL_RUN = OK     ----> FATE: hydrodynamic computation failure
+17:00:01 - FATE: FATE_NETWORK_UPLOAD = OK
+17:00:16 - ESO: ESO_SERVER_UPLOAD = OK   ----> ESO: server OUTPUT
+17:00:28 - FATE: FATE_DATA_UPLOAD = OK   ----> FATE: delay on providing a forecast
+17:00:28 - FATE: SEND_EMAIL_TO_INTERNAL = OK
+
+
+da  cambiare sulla tabella
+- ECMWF: availability of ECMWF data on ESO server
+- FATE: principal network: via principal
+- FATE: delay on providing a forecast: cambiare voce FATE

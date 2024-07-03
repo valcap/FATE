@@ -48,13 +48,13 @@ python3 Data_Availability.py -s ${PREV_MONTH_YY}${PREV_MONTH_MM}01 -e ${PREV_MON
 # ASTRO
 VAL_SEE_MISS_NIGHT=`cat $WRKDIR/pippo.night | grep 'See' | cut -d ',' -f2`
 VAL_SEE_EXPE_NIGHT=`cat $WRKDIR/pippo.night | grep 'See' | cut -d ',' -f3`
-VAL_SEE_FAIL_PERC=$(echo "scale=3; (100-($VAL_SEE_MISS_NIGHT/$VAL_SEE_EXPE_NIGHT)*100)" | bc)
+VAL_SEE_FAIL_PERC=$(echo "scale=2; (100-($VAL_SEE_MISS_NIGHT/$VAL_SEE_EXPE_NIGHT)*100)" | bc)
 VAL_TAU_MISS_NIGHT=`cat $WRKDIR/pippo.night | grep 'Tau' | cut -d ',' -f2`
 VAL_TAU_EXPE_NIGHT=`cat $WRKDIR/pippo.night | grep 'Tau' | cut -d ',' -f3`
-VAL_TAU_FAIL_PERC=$(echo "scale=3; (100-($VAL_TAU_MISS_NIGHT/$VAL_TAU_EXPE_NIGHT)*100)" | bc)
+VAL_TAU_FAIL_PERC=$(echo "scale=2; (100-($VAL_TAU_MISS_NIGHT/$VAL_TAU_EXPE_NIGHT)*100)" | bc)
 VAL_GLF_MISS_NIGHT=`cat $WRKDIR/pippo.night | grep 'Glf' | cut -d ',' -f2`
 VAL_GLF_EXPE_NIGHT=`cat $WRKDIR/pippo.night | grep 'Glf' | cut -d ',' -f3`
-VAL_GLF_FAIL_PERC=$(echo "scale=3; (100-($VAL_GLF_MISS_NIGHT/$VAL_GLF_EXPE_NIGHT)*100)" | bc)
+VAL_GLF_FAIL_PERC=$(echo "scale=2; (100-($VAL_GLF_MISS_NIGHT/$VAL_GLF_EXPE_NIGHT)*100)" | bc)
 VAL00=$VAL_SEE_FAIL_PERC
 VAL01=$VAL_TAU_FAIL_PERC
 VAL02=$VAL_GLF_FAIL_PERC
@@ -65,7 +65,7 @@ CCC=`cat $WRKDIR/pippo.night | grep 'Ws' | cut -d ',' -f3`
 DDD=0
 VAL_WS_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_WS_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_WS_FAIL_PERC=$(echo "scale=3; (100-($VAL_WS_MISS_TOT/$VAL_WS_EXPE_TOT)*100)" | bc)
+VAL_WS_FAIL_PERC=$(echo "scale=2; (100-($VAL_WS_MISS_TOT/$VAL_WS_EXPE_TOT)*100)" | bc)
 VAL03=$VAL_WS_FAIL_PERC
 # METEO WD
 AAA=`cat $WRKDIR/pippo.night | grep 'Wd' | cut -d ',' -f2`
@@ -74,7 +74,7 @@ CCC=`cat $WRKDIR/pippo.night | grep 'Wd' | cut -d ',' -f3`
 DDD=0
 VAL_WD_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_WD_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_WD_FAIL_PERC=$(echo "scale=3; (100-($VAL_WD_MISS_TOT/$VAL_WD_EXPE_TOT)*100)" | bc)
+VAL_WD_FAIL_PERC=$(echo "scale=2; (100-($VAL_WD_MISS_TOT/$VAL_WD_EXPE_TOT)*100)" | bc)
 VAL04=$VAL_WD_FAIL_PERC
 # METEO RH
 AAA=`cat $WRKDIR/pippo.night | grep 'Rh' | cut -d ',' -f2`
@@ -83,7 +83,7 @@ CCC=`cat $WRKDIR/pippo.night | grep 'Rh' | cut -d ',' -f3`
 DDD=0
 VAL_RH_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_RH_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_RH_FAIL_PERC=$(echo "scale=3; (100-($VAL_RH_MISS_TOT/$VAL_RH_EXPE_TOT)*100)" | bc)
+VAL_RH_FAIL_PERC=$(echo "scale=2; (100-($VAL_RH_MISS_TOT/$VAL_RH_EXPE_TOT)*100)" | bc)
 VAL05=$VAL_RH_FAIL_PERC
 # METEO PWV
 AAA=`cat $WRKDIR/pippo.night | grep 'Pwv' | cut -d ',' -f2`
@@ -92,7 +92,7 @@ CCC=`cat $WRKDIR/pippo.night | grep 'Pwv' | cut -d ',' -f3`
 DDD=0
 VAL_PWV_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_PWV_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_PWV_FAIL_PERC=$(echo "scale=3; (100-($VAL_PWV_MISS_TOT/$VAL_PWV_EXPE_TOT)*100)" | bc)
+VAL_PWV_FAIL_PERC=$(echo "scale=2; (100-($VAL_PWV_MISS_TOT/$VAL_PWV_EXPE_TOT)*100)" | bc)
 VAL06=$VAL_PWV_FAIL_PERC
 
 # DAY Observations received
@@ -107,7 +107,7 @@ CCC=`cat $WRKDIR/pippo.day | grep 'Ws' | cut -d ',' -f3`
 DDD=0
 VAL_WS_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_WS_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_WS_FAIL_PERC=$(echo "scale=3; (100-($VAL_WS_MISS_TOT/$VAL_WS_EXPE_TOT)*100)" | bc)
+VAL_WS_FAIL_PERC=$(echo "scale=2; (100-($VAL_WS_MISS_TOT/$VAL_WS_EXPE_TOT)*100)" | bc)
 VAL14=$VAL_WS_FAIL_PERC
 # METEO WD
 AAA=`cat $WRKDIR/pippo.day | grep 'Wd' | cut -d ',' -f2`
@@ -116,7 +116,7 @@ CCC=`cat $WRKDIR/pippo.day | grep 'Wd' | cut -d ',' -f3`
 DDD=0
 VAL_WD_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_WD_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_WD_FAIL_PERC=$(echo "scale=3; (100-($VAL_WD_MISS_TOT/$VAL_WD_EXPE_TOT)*100)" | bc)
+VAL_WD_FAIL_PERC=$(echo "scale=2; (100-($VAL_WD_MISS_TOT/$VAL_WD_EXPE_TOT)*100)" | bc)
 VAL15=$VAL_WD_FAIL_PERC
 # METEO RH
 AAA=`cat $WRKDIR/pippo.day | grep 'Rh' | cut -d ',' -f2`
@@ -125,7 +125,7 @@ CCC=`cat $WRKDIR/pippo.day | grep 'Rh' | cut -d ',' -f3`
 DDD=0
 VAL_RH_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_RH_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_RH_FAIL_PERC=$(echo "scale=3; (100-($VAL_RH_MISS_TOT/$VAL_RH_EXPE_TOT)*100)" | bc)
+VAL_RH_FAIL_PERC=$(echo "scale=2; (100-($VAL_RH_MISS_TOT/$VAL_RH_EXPE_TOT)*100)" | bc)
 VAL16=$VAL_RH_FAIL_PERC
 # METEO PWV
 AAA=`cat $WRKDIR/pippo.day | grep 'Pwv' | cut -d ',' -f2`
@@ -134,7 +134,7 @@ CCC=`cat $WRKDIR/pippo.day | grep 'Pwv' | cut -d ',' -f3`
 DDD=0
 VAL_PWV_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_PWV_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_PWV_FAIL_PERC=$(echo "scale=3; (100-($VAL_PWV_MISS_TOT/$VAL_PWV_EXPE_TOT)*100)" | bc)
+VAL_PWV_FAIL_PERC=$(echo "scale=2; (100-($VAL_PWV_MISS_TOT/$VAL_PWV_EXPE_TOT)*100)" | bc)
 VAL17=$VAL_PWV_FAIL_PERC
 
 rm -f $WRKDIR/pippo.night $WRKDIR/pippo.day
@@ -162,13 +162,13 @@ python3 Data_Availability.py -s $STARTOFSERVICE_STR2 -e ${PREV_MONTH_YY}${PREV_M
 # ASTRO
 VAL_SEE_MISS_NIGHT=`cat $WRKDIR/pippo.night | grep 'See' | cut -d ',' -f2`
 VAL_SEE_EXPE_NIGHT=`cat $WRKDIR/pippo.night | grep 'See' | cut -d ',' -f3`
-VAL_SEE_FAIL_PERC=$(echo "scale=3; (100-($VAL_SEE_MISS_NIGHT/$VAL_SEE_EXPE_NIGHT)*100)" | bc)
+VAL_SEE_FAIL_PERC=$(echo "scale=2; (100-($VAL_SEE_MISS_NIGHT/$VAL_SEE_EXPE_NIGHT)*100)" | bc)
 VAL_TAU_MISS_NIGHT=`cat $WRKDIR/pippo.night | grep 'Tau' | cut -d ',' -f2`
 VAL_TAU_EXPE_NIGHT=`cat $WRKDIR/pippo.night | grep 'Tau' | cut -d ',' -f3`
-VAL_TAU_FAIL_PERC=$(echo "scale=3; (100-($VAL_TAU_MISS_NIGHT/$VAL_TAU_EXPE_NIGHT)*100)" | bc)
+VAL_TAU_FAIL_PERC=$(echo "scale=2; (100-($VAL_TAU_MISS_NIGHT/$VAL_TAU_EXPE_NIGHT)*100)" | bc)
 VAL_GLF_MISS_NIGHT=`cat $WRKDIR/pippo.night | grep 'Glf' | cut -d ',' -f2`
 VAL_GLF_EXPE_NIGHT=`cat $WRKDIR/pippo.night | grep 'Glf' | cut -d ',' -f3`
-VAL_GLF_FAIL_PERC=$(echo "scale=3; (100-($VAL_GLF_MISS_NIGHT/$VAL_GLF_EXPE_NIGHT)*100)" | bc)
+VAL_GLF_FAIL_PERC=$(echo "scale=2; (100-($VAL_GLF_MISS_NIGHT/$VAL_GLF_EXPE_NIGHT)*100)" | bc)
 VAL07=$VAL_SEE_FAIL_PERC; VAL08=$VAL_TAU_FAIL_PERC; VAL09=$VAL_GLF_FAIL_PERC
 # METEO WS
 AAA=`cat $WRKDIR/pippo.night | grep 'Ws' | cut -d ',' -f2`
@@ -177,7 +177,7 @@ CCC=`cat $WRKDIR/pippo.night | grep 'Ws' | cut -d ',' -f3`
 DDD=0
 VAL_WS_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_WS_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_WS_FAIL_PERC=$(echo "scale=3; (100-($VAL_WS_MISS_TOT/$VAL_WS_EXPE_TOT)*100)" | bc)
+VAL_WS_FAIL_PERC=$(echo "scale=2; (100-($VAL_WS_MISS_TOT/$VAL_WS_EXPE_TOT)*100)" | bc)
 VAL10=$VAL_WS_FAIL_PERC
 # METEO WD
 AAA=`cat $WRKDIR/pippo.night | grep 'Wd' | cut -d ',' -f2`
@@ -186,7 +186,7 @@ CCC=`cat $WRKDIR/pippo.night | grep 'Wd' | cut -d ',' -f3`
 DDD=0
 VAL_WD_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_WD_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_WD_FAIL_PERC=$(echo "scale=3; (100-($VAL_WD_MISS_TOT/$VAL_WD_EXPE_TOT)*100)" | bc)
+VAL_WD_FAIL_PERC=$(echo "scale=2; (100-($VAL_WD_MISS_TOT/$VAL_WD_EXPE_TOT)*100)" | bc)
 VAL11=$VAL_WD_FAIL_PERC
 # METEO RH
 AAA=`cat $WRKDIR/pippo.night | grep 'Rh' | cut -d ',' -f2`
@@ -195,7 +195,7 @@ CCC=`cat $WRKDIR/pippo.night | grep 'Rh' | cut -d ',' -f3`
 DDD=0
 VAL_RH_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_RH_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_RH_FAIL_PERC=$(echo "scale=3; (100-($VAL_RH_MISS_TOT/$VAL_RH_EXPE_TOT)*100)" | bc)
+VAL_RH_FAIL_PERC=$(echo "scale=2; (100-($VAL_RH_MISS_TOT/$VAL_RH_EXPE_TOT)*100)" | bc)
 VAL12=$VAL_RH_FAIL_PERC
 # METEO PWV
 AAA=`cat $WRKDIR/pippo.night | grep 'Pwv' | cut -d ',' -f2`
@@ -204,7 +204,7 @@ CCC=`cat $WRKDIR/pippo.night | grep 'Pwv' | cut -d ',' -f3`
 DDD=0
 VAL_PWV_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_PWV_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_PWV_FAIL_PERC=$(echo "scale=3; (100-($VAL_PWV_MISS_TOT/$VAL_PWV_EXPE_TOT)*100)" | bc)
+VAL_PWV_FAIL_PERC=$(echo "scale=2; (100-($VAL_PWV_MISS_TOT/$VAL_PWV_EXPE_TOT)*100)" | bc)
 VAL13=$VAL_PWV_FAIL_PERC
 
 # DAY Observations received
@@ -219,7 +219,7 @@ CCC=`cat $WRKDIR/pippo.day | grep 'Ws' | cut -d ',' -f3`
 DDD=0
 VAL_WS_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_WS_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_WS_FAIL_PERC=$(echo "scale=3; (100-($VAL_WS_MISS_TOT/$VAL_WS_EXPE_TOT)*100)" | bc)
+VAL_WS_FAIL_PERC=$(echo "scale=2; (100-($VAL_WS_MISS_TOT/$VAL_WS_EXPE_TOT)*100)" | bc)
 VAL18=$VAL_WS_FAIL_PERC
 # METEO WD
 AAA=`cat $WRKDIR/pippo.day | grep 'Wd' | cut -d ',' -f2`
@@ -228,7 +228,7 @@ CCC=`cat $WRKDIR/pippo.day | grep 'Wd' | cut -d ',' -f3`
 DDD=0
 VAL_WD_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_WD_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_WD_FAIL_PERC=$(echo "scale=3; (100-($VAL_WD_MISS_TOT/$VAL_WD_EXPE_TOT)*100)" | bc)
+VAL_WD_FAIL_PERC=$(echo "scale=2; (100-($VAL_WD_MISS_TOT/$VAL_WD_EXPE_TOT)*100)" | bc)
 VAL19=$VAL_WD_FAIL_PERC
 # METEO RH
 AAA=`cat $WRKDIR/pippo.day | grep 'Rh' | cut -d ',' -f2`
@@ -237,7 +237,7 @@ CCC=`cat $WRKDIR/pippo.day | grep 'Rh' | cut -d ',' -f3`
 DDD=0
 VAL_RH_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_RH_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_RH_FAIL_PERC=$(echo "scale=3; (100-($VAL_RH_MISS_TOT/$VAL_RH_EXPE_TOT)*100)" | bc)
+VAL_RH_FAIL_PERC=$(echo "scale=2; (100-($VAL_RH_MISS_TOT/$VAL_RH_EXPE_TOT)*100)" | bc)
 VAL20=$VAL_RH_FAIL_PERC
 # METEO PWV
 AAA=`cat $WRKDIR/pippo.day | grep 'Pwv' | cut -d ',' -f2`
@@ -246,7 +246,7 @@ CCC=`cat $WRKDIR/pippo.day | grep 'Pwv' | cut -d ',' -f3`
 DDD=0
 VAL_PWV_MISS_TOT=$(echo "scale=0; ($AAA+$BBB)" | bc)
 VAL_PWV_EXPE_TOT=$(echo "scale=0; ($CCC+$DDD)" | bc)
-VAL_PWV_FAIL_PERC=$(echo "scale=3; (100-($VAL_PWV_MISS_TOT/$VAL_PWV_EXPE_TOT)*100)" | bc)
+VAL_PWV_FAIL_PERC=$(echo "scale=2; (100-($VAL_PWV_MISS_TOT/$VAL_PWV_EXPE_TOT)*100)" | bc)
 VAL21=$VAL_PWV_FAIL_PERC
 
 rm -f $WRKDIR/pippo.night $WRKDIR/pippo.day

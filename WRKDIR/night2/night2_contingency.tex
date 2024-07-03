@@ -1,19 +1,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{NIGHT2: Contingency tables}
-Tables in this section are included in the range: \ref{tab:contingencywsBEF:night2}-\ref{tab:contingencyglfBEF:night2}.
+\section{NIGHT2: Contingency tables}\label{sec:night2:cont}
+Tables in section \ref{sec:night2:cont} are included in the range: \ref{tab:contingencywsBEF:night2}-\ref{tab:contingencyglfBEF:night2}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[t!]
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{llccc}
 \hline
 {wind speed}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
 {$m s^{-1}$}                                       &                             & ws $<$ 4.2   & 4.2 $<$ ws $<$ 7.6 & ws $>$ 7.6 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 4.2             & 3531                & 1311                       & 93              \\
-                                                 & 4.2  $<$ ws $<$ 7.6 & 2233                & 2651                       & 998              \\
-                                                 & ws $>$ 7.6             & 252                & 1221                       & 4782              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & ws $<$ 4.2             & 214                & 108                       & 12              \\
+                                                 & 4.2  $<$ ws $<$ 7.6 & 90                & 202                       & 171              \\
+                                                 & ws $>$ 7.6             & 61                & 84                       & 934              \\
 \hline 
-\multicolumn{5}{l}{ Number of points        17072 ; PC=64.2\%; EBD=2.0\%; POD1=58.7\%; POD2=51.1\%; POD3=81.4\%}                 \\
+\multicolumn{5}{l}{ Number of points         1876 ; PC=72.0\%; EBD=3.9\%; POD1=58.6\%; POD2=51.3\%; POD3=83.6\%}                 \\
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for {wind speed} ($m s^{-1}$) in standard configuration}
@@ -27,12 +27,12 @@ Tables in this section are included in the range: \ref{tab:contingencywsBEF:nigh
 {wind direction}                                       &                             &    \multicolumn{4}{c}{Observations}                 \\
 {degree}                                       &                             & {North}   & {East} & {South} & {West} \\
 \hline
-\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}                    & 6647   & 480    & 66     & 151\\
-                                                 & {East}                     & 547   & 777    & 632     & 9\\
-                                                 & {South}                    & 41   & 268   & 2898    & 232\\
-                                                 & {West}                     & 103  & 79   & 82    & 165\\
+\multicolumn{1}{c}{\multirow{4}{*}{Model data}}  & {North}                    & 1419   & 27    & 7     & 0\\
+                                                 & {East}                     & 39   & 47    & 4     & 0\\
+                                                 & {South}                    & 10   & 14   & 57    & 0\\
+                                                 & {West}                     & 32  & 0   & 2    & 0\\
 \hline 
-\multicolumn{6}{l}{ Number of points        13177 ; PC=79.6\%; EBD=1.5\%; POD1=90.6\%; POD2=48.4\%; POD3=78.8\%; POD4=29.6\%}                 \\
+\multicolumn{6}{l}{ Number of points         1658 ; PC=91.9\%; EBD=1.0\%; POD1=94.6\%; POD2=53.4\%; POD3=81.4\%; POD4=NaN\%}                 \\
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for {wind direction} (degree) in standard configuration}
@@ -46,11 +46,11 @@ Tables in this section are included in the range: \ref{tab:contingencywsBEF:nigh
 {relative humidity}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
 {percent}                                       &                             & rh $<$ 7.1   & 7.1 $<$ rh $<$ 15.3 & rh $>$ 15.3 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.1             & 1888                & 696                       & 55              \\
-                                                 & 7.1  $<$ rh $<$ 15.3 & 2482                & 3533                       & 1043              \\
-                                                 & rh $>$ 15.3             & 642                & 1948                       & 4663              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & rh $<$ 7.1             & 306                & 112                       & 0              \\
+                                                 & 7.1  $<$ rh $<$ 15.3 & 412                & 567                       & 89              \\
+                                                 & rh $>$ 15.3             & 18                & 53                       & 319              \\
 \hline
-\multicolumn{5}{l}{ Number of points        16950 ; PC=59.5\%; EBD=4.1\%; POD1=37.7\%; POD2=57.2\%; POD3=80.9\%}
+\multicolumn{5}{l}{ Number of points         1876 ; PC=63.5\%; EBD=1.0\%; POD1=41.6\%; POD2=77.5\%; POD3=78.2\%}
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for  relative humidity (percent) in standard configuration}
@@ -64,11 +64,11 @@ Tables in this section are included in the range: \ref{tab:contingencywsBEF:nigh
 {precipitable water vapor}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
 {mm}                                       &                             & pwv $<$ 1.9   & 1.9 $<$ pwv $<$ 3.5 & pwv $>$ 3.5 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 2805                & 715                       & 40              \\
-                                                 & 1.9  $<$ pwv $<$ 3.5 & 669                & 3133                       & 890              \\
-                                                 & pwv $>$ 3.5             & 19                & 883                       & 7014              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & pwv $<$ 1.9             & 667                & 124                       & 0              \\
+                                                 & 1.9  $<$ pwv $<$ 3.5 & 136                & 411                       & 166              \\
+                                                 & pwv $>$ 3.5             & 0                & 1                       & 301              \\
 \hline
-\multicolumn{5}{l}{ Number of points        16168 ; PC=80.1\%; EBD=0.4\%; POD1=80.3\%; POD2=66.2\%; POD3=88.3\%}                 \\
+\multicolumn{5}{l}{ Number of points         1806 ; PC=76.4\%; EBD=0.0\%; POD1=83.1\%; POD2=76.7\%; POD3=64.5\%}                 \\
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for  precipitable water vapor (mm) in standard configuration  }
@@ -83,11 +83,11 @@ Tables in this section are included in the range: \ref{tab:contingencywsBEF:nigh
 {total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
 {arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 2662                & 1472                       & 581              \\
-                                                 & 0.6  $<$ see $<$ 0.8 & 1118                & 1410                       & 1232              \\
-                                                 & see $>$ 0.8             & 290                & 855                       & 1603              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 218                & 72                       & 0              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 204                & 115                       & 130              \\
+                                                 & see $>$ 0.8             & 51                & 88                       & 220              \\
 \hline
-\multicolumn{5}{l}{ Number of points        11223 ; PC=\%; EBD=\%; POD1=\%; POD2=\%; POD3=\%}
+\multicolumn{5}{l}{ Number of points         1098 ; PC=\%; EBD=\%; POD1=\%; POD2=\%; POD3=\%}
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for  total seeing (arcsec) in standard configuration and accuracy 0.0}
@@ -101,16 +101,17 @@ Tables in this section are included in the range: \ref{tab:contingencywsBEF:nigh
 {total seeing}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
 {arcsec}                                       &                             & see $<$ 0.6   & 0.6 $<$ see $<$ 0.8 & see $>$ 0.8 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 3855                & 0                       & 397              \\
-                                                 & 0.6  $<$ see $<$ 0.8 & 0                & 3557                       & 397              \\
-                                                 & see $>$ 0.8             & 215                & 180                       & 3019              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & see $<$ 0.6             & 431                & 0                       & 0              \\
+                                                 & 0.6  $<$ see $<$ 0.8 & 0                & 222                       & 0              \\
+                                                 & see $>$ 0.8             & 42                & 53                       & 350              \\
 \hline
-\multicolumn{5}{l}{ Number of points        11223 ; PC=\%; EBD=\%; POD1=\%; POD2=\%; POD3=\%}
+\multicolumn{5}{l}{ Number of points         1098 ; PC=\%; EBD=\%; POD1=\%; POD2=\%; POD3=\%}
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for  total seeing (arcsec) in standard configuration and accuracy 0.24}
 \label{tab:contingencyseeBEF:night2}
 \end{table}
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[p!]
 \begin{center}
@@ -119,11 +120,11 @@ Tables in this section are included in the range: \ref{tab:contingencywsBEF:nigh
 {wavefront coherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
 {ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 1525                & 581                       & 61              \\
-                                                 & 3.4  $<$ tau $<$ 5.8 & 578                & 1344                       & 528              \\
-                                                 & tau $>$ 5.8             & 97                & 1325                       & 4054              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 291                & 176                       & 56              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 35                & 143                       & 95              \\
+                                                 & tau $>$ 5.8             & 3                & 19                       & 83              \\
 \hline
-\multicolumn{5}{l}{ Number of points        10093 ; PC=68.6\%; EBD=1.6\%; POD1=69.3\%; POD2=41.4\%; POD3=87.3\%}
+\multicolumn{5}{l}{ Number of points          901 ; PC=57.4\%; EBD=6.5\%; POD1=88.4\%; POD2=42.3\%; POD3=35.5\%}
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for  wavefront coherence time (ms) in standard configuration and accuracy 0.0}
@@ -137,11 +138,11 @@ Tables in this section are included in the range: \ref{tab:contingencywsBEF:nigh
 {wavefront coherence time}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
 {ms}                                       &                             & tau $<$ 3.4   & 3.4 $<$ tau $<$ 5.8 & tau $>$ 5.8 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 1939                & 49                       & 268              \\
-                                                 & 3.4  $<$ tau $<$ 5.8 & 164                & 2282                       & 268              \\
-                                                 & tau $>$ 5.8             & 97                & 919                       & 4375              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & tau $<$ 3.4             & 323                & 17                       & 94              \\
+                                                 & 3.4  $<$ tau $<$ 5.8 & 3                & 316                       & 94              \\
+                                                 & tau $>$ 5.8             & 3                & 5                       & 140              \\
 \hline
-\multicolumn{5}{l}{ Number of points        10093 ; PC=85.2\%; EBD=3.6\%; POD1=88.1\%; POD2=70.2\%; POD3=89.1\%}
+\multicolumn{5}{l}{ Number of points          901 ; PC=86.5\%; EBD=10.8\%; POD1=98.2\%; POD2=93.5\%; POD3=42.7\%}
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for  wavefront coherence time (ms) in standard configuration and accuracy 1.22}
@@ -156,11 +157,11 @@ Tables in this section are included in the range: \ref{tab:contingencywsBEF:nigh
 {ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
 {dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 1557                & 1643                       & 1350              \\
-                                                 & 0.6  $<$ glf $<$ 0.7 & 1063                & 1518                       & 1690              \\
-                                                 & glf $>$ 0.7             & 250                & 375                       & 843              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 109                & 88                       & 40              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 125                & 202                       & 160              \\
+                                                 & glf $>$ 0.7             & 27                & 64                       & 134              \\
 \hline
-\multicolumn{5}{l}{ Number of points        10289 ; PC=38.1\%; EBD=15.6\%; POD1=54.3\%; POD2=42.9\%; POD3=21.7\%}
+\multicolumn{5}{l}{ Number of points          949 ; PC=46.9\%; EBD=7.1\%; POD1=41.8\%; POD2=57.1\%; POD3=40.1\%}
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for  ground layer fraction (dimensionless) in standard configuration and accuracy 0.0}
@@ -174,11 +175,11 @@ Tables in this section are included in the range: \ref{tab:contingencywsBEF:nigh
 {ground layer fraction}                                       &                                                    & \multicolumn{3}{c}{Observations}                 \\
 {dimensionless}                                       &                             & glf $<$ 0.6   & 0.6 $<$ glf $<$ 0.7 & glf $>$ 0.7 \\
 \hline
-\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 2585                & 384                       & 1493              \\
-                                                 & 0.6  $<$ glf $<$ 0.7 & 35                & 3128                       & 1217              \\
-                                                 & glf $>$ 0.7             & 250                & 24                       & 2390              \\
+\multicolumn{1}{c}{\multirow{3}{*}{Model data}}  & glf $<$ 0.6             & 228                & 13                       & 48              \\
+                                                 & 0.6  $<$ glf $<$ 0.7 & 6                & 336                       & 42              \\
+                                                 & glf $>$ 0.7             & 27                & 5                       & 286              \\
 \hline
-\multicolumn{5}{l}{ Number of points        10289 ; PC=78.8\%; EBD=16.9\%; POD1=90.1\%; POD2=88.5\%; POD3=46.9\%}
+\multicolumn{5}{l}{ Number of points          949 ; PC=89.6\%; EBD=7.9\%; POD1=87.4\%; POD2=94.9\%; POD3=76.1\%}
 \end{tabular}
 \end{center}
 \caption{night2 - Contingency table for  ground layer fraction (dimensionless) in standard configuration and accuracy 0.14}

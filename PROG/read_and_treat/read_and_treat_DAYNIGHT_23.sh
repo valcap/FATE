@@ -7,13 +7,13 @@ JOB=read_and_treat_AR_exclusive
 JOBWD=read_and_treat_AR_exclusive_WD
 
 #EITHER "night" or "day"
-LISTGG="night"
+LISTGG="day"
 #EITHER "2" or "3"
 fcst_lenght=3
 hiter="1H" # per compatibilit`'a con quanto si fa per night/day 1
 LASTMONTHYEAR=2024
-LASTMONTHMONTH=05
-LASTMONTHDAY=31
+LASTMONTHMONTH=06
+LASTMONTHDAY=30
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
 for daygg in $LISTGG; do
@@ -75,6 +75,14 @@ for daygg in $LISTGG; do
   ls "${FILEPATH}"|grep "AR_${GG}.dat"|cut -d"_" -f1|sort|uniq > $LISTATMP
   LISTA="lista_auto.asc"; rm -f $LISTA
   for datenow in $(cat ${LISTATMP}); do
+##########################################################################
+    # TODO: MIGLIORARE
+    # MODIFICA 1 GIUGNO 2024 DATA DI INIZIO DEL SERVIZIO
+    if [ $datenow -lt 20240601 ]; then
+      echo "skipping $datenow"
+      continue
+    fi
+##########################################################################
     if [ $datenow -le $LASTMONTHYEAR$LASTMONTHMONTH$LASTMONTHDAY ]; then
       echo $datenow >> $LISTA
     fi

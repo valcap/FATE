@@ -1,0 +1,175 @@
+#!/bin/bash
+
+############################################################################
+# Usage
+############################################################################
+if [ $# -ne 1 ]; then
+  echo 'Not enough/too many arguments'
+  echo "Usage: $0 env_file"
+  echo "Example: $0 $HOME/SCRIPTS/fate-report.env"
+  echo ""
+  exit 1
+else
+  envfile=$1
+fi
+
+# Source of env file
+if [ -e $envfile ]; then
+  source $envfile
+else 
+  echo "ops $envfile does not exist in "`pwd`; exit 1
+fi
+
+# Source of functions
+if [ -e $funcfile ]; then
+  source $funcfile
+else
+  echo "ops $funcfile does not exist in "`pwd`; exit 1
+fi
+
+#################################################################
+notice "Start of "`basename $0`
+
+#################################################################
+#                     CURRENT MONTH
+#################################################################
+PREV_MONTH_MM=`date +%m --date "today - 1 month"`
+CURR_MONTH_MM=`date +%m --date "today"`
+PREV_MONTH_YY=`date +%Y --date "today - 1 month"`
+CURR_MONTH_YY=`date +%Y --date "today"`
+DAYS_PREV_MON=`date +%d --date "${CURR_MONTH_YY}-${CURR_MONTH_MM}-01 -1 day"`
+TOTAL_MONTHLY_RUN=$(($DAYS_PREV_MON*2))
+echo PREV_MONTH_MM=$PREV_MONTH_MM CURR_MONTH_MM=$CURR_MONTH_MM PREV_MONTH_YY=$PREV_MONTH_YY CURR_MONTH_YY=$CURR_MONTH_YY
+echo DAYS_PREV_MON=$DAYS_PREV_MON
+echo TOTAL_MONTHLY_RUN=$TOTAL_MONTHLY_RUN
+
+DUMMY_VAL='-999.00'
+VAL00=$DUMMY_VAL; VAL03=$DUMMY_VAL;
+VAL04=$DUMMY_VAL; VAL05=$DUMMY_VAL;
+VAL06=$DUMMY_VAL; VAL07=$DUMMY_VAL;
+SUFFIX='.GRIB_RAWRT.check_upload_to_eso.sh'
+echo 'LOG FILES '$LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*${SUFFIX}
+
+#ECMW: ECMWF initialisation data transmission
+VAL=`grep 'ECMWF: ECMWF_DATA_ON_ESO_SERVER_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*${SUFFIX} | uniq | wc -l`
+VAL00=$(echo "scale=2; ($VAL/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#FATE: principal network
+VAL=`grep 'FATE_NETWORK_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*${SUFFIX} | uniq | wc -l`
+VAL03=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#ESO: server INPUT
+VAL=`grep 'ESO: ESO_SERVER_DOWNLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*${SUFFIX} | grep -v 'ECMWF' | uniq | wc -l`
+VAL04=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#ESO: servers OUTPUT
+VAL=`grep 'ESO: ESO_SERVER_UPLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*${SUFFIX} | uniq | wc -l`
+VAL05=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#FATE: model: explosion of simulations
+VAL=`grep 'FATE_MODEL_RUN = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*${SUFFIX} | uniq | wc -l`
+VAL06=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#FATE: delay on providing a forecast
+VAL=`grep 'FATE_DATA_UPLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*${SUFFIX} | uniq | wc -l`
+VAL07=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#################################################################
+#                     INCREMENTAL MONTH
+#################################################################
+
+DUMMY_VAL='-999.00'
+#SUFFIX='GRIB_RAWRT.download_ecmwf_data.log'
+SUFFIX='.GRIB_RAWRT.check_upload_to_eso.sh'
+VAL08=$DUMMY_VAL; VAL11=$DUMMY_VAL;
+VAL12=$DUMMY_VAL; VAL13=$DUMMY_VAL;
+VAL14=$DUMMY_VAL; VAL15=$DUMMY_VAL;
+###############################################
+# TODO CALCOLARE MEGLIO
+# ANZI DA RIFARE, COSI NON FUNZICA
+TOTAL_MONTHLY_RUN=0
+STRINGA_FILES=' ' 
+start_date="${STARTOFSERVICE_YYYY}-${STARTOFSERVICE_MM}-01"
+end_date=$(date -d "${ENDOFSERVICE_YYYY}-${ENDOFSERVICE_MM}-01 + 1 month" "+%Y-%m-%d")
+current_date="$start_date"
+while [ "$current_date" != "$end_date" ]; do
+    # Formatta la data per mostrare solo mese e anno
+    current_month=$(date -d "$current_date" "+%m")
+    current_year=$(date -d "$current_date" "+%Y")
+    ndays=$(date -d "$current_year-$((current_month+1))-01 - 1 day" +%d)
+    echo $days
+    # Aggiungi un mese alla data corrente
+    current_date=$(date -d "$current_date + 1 month" "+%Y-%m-%d")
+    TOTAL_MONTHLY_RUN=$((TOTAL_MONTHLY_RUN + ndays))
+    STRINGA_FILES=$STRINGA_FILES' '$LOGDIR/$current_year$current_month'stoca'$SUFFIX' ' 
+done
+STRINGA_OK=`echo $STRINGA_FILES | sed -e "s/stoca/\*/g"`
+TOTAL_MONTHLY_RUN=$((TOTAL_MONTHLY_RUN * 2))
+echo STRINGA_OK=$STRINGA_OK
+echo TOTAL_MONTHLY_RUN=$TOTAL_MONTHLY_RUN
+
+#ECMW: ECMWF initialisation data transmission
+VAL=`grep 'ECMWF: ECMWF_DATA_ON_ESO_SERVER_DOWNLOAD = OK' $STRINGA_OK | uniq | wc -l`
+VAL08=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#FATE: principal network
+VAL=`grep 'FATE_NETWORK_DOWNLOAD = OK' ${STRINGA_OK} | uniq | wc -l`
+VAL11=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#ESO: server INPUT
+VAL=`grep 'ESO: ESO_SERVER_DOWNLOAD = OK' ${STRINGA_OK} | uniq | wc -l`
+VAL12=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#ESO: servers OUTPUT
+VAL=`grep 'ESO: ESO_SERVER_UPLOAD = OK' ${STRINGA_OK} | uniq | wc -l`
+VAL13=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#FATE: model: explosion of simulations
+VAL=`grep 'FATE_MODEL_RUN = OK' ${STRINGA_OK} | uniq | wc -l`
+VAL14=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+#FATE: delay on providing a forecast
+VAL=`grep 'FATE_DATA_UPLOAD = OK' ${STRINGA_OK} | uniq | wc -l`
+VAL15=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+
+# TODOTODOTODO
+VAL00='100.00'
+VAL08=$VAL00
+#VAL08=$VAL00
+#VAL11=$VAL03
+#VAL12=$VAL04
+#VAL13=$VAL05
+#VAL14=$VAL06
+#VAL15=$VAL07
+# CREATE LATEX TABLE
+my_caption='FATE: automatic forecasting system performance - statistics. Agreed maintance from anybody do not enter in the failure percentage computation.'
+cat << EOF > $WRKDIR/tableLOGs.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Automatic}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Current month}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Incremental months}} \\\\
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{forecast system}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{(success rate in \%)}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{(success rate in \%)}} \\\\
+\hline
+\cellcolor[HTML]{C0C0C0}\textbf{ECMWF:} forecasts initialisation data availability  & $VAL00  & $VAL08   \\\\
+\cellcolor[HTML]{C0C0C0}\textbf{FATE:}  service network operativity                                    & $VAL03  & $VAL11   \\\\
+\cellcolor[HTML]{C0C0C0}\textbf{ESO:} server INPUT operativity for initialisation data download                                & $VAL04  & $VAL12   \\\\
+\cellcolor[HTML]{C0C0C0}\textbf{ESO:} server OUTPUT operativity for service product upload                               & $VAL05  & $VAL13   \\\\
+\cellcolor[HTML]{C0C0C0}\textbf{FATE:} hydrodynamic computation success           & $VAL06  & $VAL14   \\\\
+\cellcolor[HTML]{C0C0C0}\textbf{FATE:} forecasts provision success             & $VAL07  & $VAL15   \\\\
+\hline
+\end{tabular}
+\caption{$my_caption}\label{tab:LOGs}
+\end{center}
+\end{table}
+EOF
+#\cellcolor[HTML]{C0C0C0}\textbf{FATE:} principal network                       & $VAL03  & $VAL11   \\\\
+#\cellcolor[HTML]{C0C0C0}\textbf{ECMWF:} ECMWF initialisation data transmission  & $VAL00  & $VAL08   \\\\
+#\cellcolor[HTML]{C0C0C0}\textbf{FATE:} model: explosion of simulations         & $VAL06  & $VAL14   \\\\
+#\cellcolor[HTML]{C0C0C0}\textbf{ESO:} ftp access ESO - INPUT                   & $VAL01  & $VAL09   \\\\
+#\cellcolor[HTML]{C0C0C0}\textbf{ESO:} ftp access ESO - OUPUT                   & $VAL02  & $VAL10   \\\\
+
+notice "End of "`basename $0`
+exit 0
+
