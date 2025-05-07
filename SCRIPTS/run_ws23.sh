@@ -451,7 +451,7 @@ PCBEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_FIXTHRES | grep LOGINFO | gre
 EBDBEF=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix}_FIXTHRES | grep LOGINFO | grep CONTTABLE | grep BEF | grep EBD | awk '{print $5}'`
 
 my_caption=${FCST_DAY}${FCST_LEN}' - PODs for '$descri' ('$unitof') and thresholds (12.0,18.0) '$unitof
-echo $WRKDIR/tablePODs${prefix}_FT.tex
+
 cat << EOF > $WRKDIR/tablePODs${prefix}_FT.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[h!]

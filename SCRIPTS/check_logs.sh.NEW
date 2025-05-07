@@ -33,6 +33,7 @@ notice "Start of "`basename $0`
 #################################################################
 #                     CURRENT MONTH
 #################################################################
+echo "computing statistics for CURRENT MONTH"
 PREV_MONTH_MM=`date +%m --date "today - 1 month"`
 CURR_MONTH_MM=`date +%m --date "today"`
 PREV_MONTH_YY=`date +%Y --date "today - 1 month"`
@@ -73,11 +74,15 @@ VAL06=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
 #FATE: delay on providing a forecast
 VAL=`grep 'FATE_DATA_UPLOAD = OK' $LOGDIR/${PREV_MONTH_YY}${PREV_MONTH_MM}*${SUFFIX} | uniq | wc -l`
 VAL07=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
+VAL00=$DUMMY_VAL; VAL03=$DUMMY_VAL;
+VAL04=$DUMMY_VAL; VAL05=$DUMMY_VAL;
+VAL06=$DUMMY_VAL; VAL07=$DUMMY_VAL;
 
 #################################################################
 #                     INCREMENTAL MONTH
 #################################################################
 
+echo "computing statistics for INCREMENTAL MONTH"
 DUMMY_VAL='-999.00'
 #SUFFIX='GRIB_RAWRT.download_ecmwf_data.log'
 SUFFIX='.GRIB_RAWRT.check_upload_to_eso.sh'
@@ -91,22 +96,45 @@ TOTAL_MONTHLY_RUN=0
 STRINGA_FILES=' ' 
 start_date="${STARTOFSERVICE_YYYY}-${STARTOFSERVICE_MM}-01"
 end_date=$(date -d "${ENDOFSERVICE_YYYY}-${ENDOFSERVICE_MM}-01 + 1 month" "+%Y-%m-%d")
+echo start_date=$start_date
+echo end_date=$end_date
 current_date="$start_date"
 while [ "$current_date" != "$end_date" ]; do
     # Formatta la data per mostrare solo mese e anno
-    current_month=$(date -d "$current_date" "+%m")
+    current_month=$(date -d "$current_date" "+%-m")
     current_year=$(date -d "$current_date" "+%Y")
+    
+    # Calcola il numero di giorni nel mese corrente
     ndays=$(date -d "$current_year-$((current_month+1))-01 - 1 day" +%d)
-    echo $days
+    echo $ndays
+    
     # Aggiungi un mese alla data corrente
     current_date=$(date -d "$current_date + 1 month" "+%Y-%m-%d")
+    echo current_date=$current_date
+    
+    # Aggiungi i giorni al totale mensile
     TOTAL_MONTHLY_RUN=$((TOTAL_MONTHLY_RUN + ndays))
-    STRINGA_FILES=$STRINGA_FILES' '$LOGDIR/$current_year$current_month'stoca'$SUFFIX' ' 
+    
+    # Costruisci la stringa di file
+    STRINGA_FILES=$STRINGA_FILES' '$LOGDIR/$current_year$(printf "%02d" $current_month)'stoca'$SUFFIX' '
 done
+
+#while [ "$current_date" != "$end_date" ]; do
+#    # Formatta la data per mostrare solo mese e anno
+#    current_month=$(date -d "$current_date" "+%m")
+#    current_year=$(date -d "$current_date" "+%Y")
+#    ndays=$(date -d "$current_year-$((current_month+1))-01 - 1 day" +%d)
+#    echo $ndays
+#    # Aggiungi un mese alla data corrente
+#    current_date=$(date -d "$current_date + 1 month" "+%Y-%m-%d")
+#    echo current_date=$current_date
+#    TOTAL_MONTHLY_RUN=$((TOTAL_MONTHLY_RUN + ndays))
+#    STRINGA_FILES=$STRINGA_FILES' '$LOGDIR/$current_year$current_month'stoca'$SUFFIX' ' 
+#done
 STRINGA_OK=`echo $STRINGA_FILES | sed -e "s/stoca/\*/g"`
 TOTAL_MONTHLY_RUN=$((TOTAL_MONTHLY_RUN * 2))
-echo STRINGA_OK=$STRINGA_OK
-echo TOTAL_MONTHLY_RUN=$TOTAL_MONTHLY_RUN
+#echo STRINGA_OK=$STRINGA_OK
+#echo TOTAL_MONTHLY_RUN=$TOTAL_MONTHLY_RUN
 
 #ECMW: ECMWF initialisation data transmission
 VAL=`grep 'ECMWF: ECMWF_DATA_ON_ESO_SERVER_DOWNLOAD = OK' $STRINGA_OK | uniq | wc -l`
@@ -133,16 +161,22 @@ VAL=`grep 'FATE_DATA_UPLOAD = OK' ${STRINGA_OK} | uniq | wc -l`
 VAL15=$(echo "scale=2; (($VAL)/$TOTAL_MONTHLY_RUN)*100" | bc)
 
 # TODOTODOTODO
-VAL00='100.00'
-VAL08=$VAL00
+DUMMY_VAL="-999.00"
+VAL00=$DUMMY_VAL
+VAL08=$DUMMY_VAL
+VAL04=$DUMMY_VAL
+VAL06=$DUMMY_VAL
 #VAL08=$VAL00
 #VAL11=$VAL03
 #VAL12=$VAL04
 #VAL13=$VAL05
-#VAL14=$VAL06
+VAL14=$VAL06
 #VAL15=$VAL07
+VAL08=$DUMMY_VAL; VAL11=$DUMMY_VAL;
+VAL12=$DUMMY_VAL; VAL13=$DUMMY_VAL;
+VAL14=$DUMMY_VAL; VAL15=$DUMMY_VAL;
 # CREATE LATEX TABLE
-my_caption='FATE: automatic forecasting system performance - statistics. Agreed maintance from anybody do not enter in the failure percentage computation.'
+my_caption='FATE: automatic forecasting system performance - statistics. Service interruption due to maintenance by any of the parties, previously communicated and agreed, do not affect the performance percentage computation (i.e. they are not considered service failure).'
 cat << EOF > $WRKDIR/tableLOGs.tex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[]

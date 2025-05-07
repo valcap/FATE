@@ -530,8 +530,8 @@ VAL16=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTAB
 #SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep NbLines_TOT | awk '{print $3}'`
 SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep 'Hit rate computed on' | head -n 1`
 SAMPSIZ=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep 'Number of points ' | head -n 1`
-echo BBB $SAMPSIZ
-echo $WRKDIR/${skills_file}_BEFAFT_${prefix}
+#echo BBB $SAMPSIZ
+#echo $WRKDIR/${skills_file}_BEFAFT_${prefix}
 POD1AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD1 | awk '{print $5}'`
 POD2AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD2 | awk '{print $5}'`
 POD3AFT=`cat $WRKDIR/${skills_file}_BEFAFT_${prefix} | grep LOGINFO | grep CONTTABLE | grep AFT | grep POD3 | awk '{print $5}'`
