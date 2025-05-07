@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2022.3.2)  3 JUL 2024 15:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2022.3.2)  5 MAY 2025 08:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -521,12 +521,12 @@ l.78 \include{night1_contingency}
 \openout2 = `night1_contingency.aux'.
 
  (./night1_contingency.tex
-Overfull \hbox (13.38768pt too wide) in paragraph at lines 61--73
+Overfull \hbox (16.16548pt too wide) in paragraph at lines 61--73
  [] 
  []
 
 
-Overfull \hbox (13.38768pt too wide) in paragraph at lines 80--92
+Overfull \hbox (16.16548pt too wide) in paragraph at lines 80--92
  [] 
  []
 
@@ -536,12 +536,12 @@ Overfull \hbox (13.38768pt too wide) in paragraph at lines 80--92
 \openout2 = `day1_contingency.aux'.
 
  (./day1_contingency.tex
-Overfull \hbox (11.16547pt too wide) in paragraph at lines 61--73
+Overfull \hbox (16.16548pt too wide) in paragraph at lines 61--73
  [] 
  []
 
 
-Overfull \hbox (11.16547pt too wide) in paragraph at lines 80--92
+Overfull \hbox (16.16548pt too wide) in paragraph at lines 80--92
  [] 
  []
 
@@ -555,7 +555,7 @@ Overfull \hbox (11.16547pt too wide) in paragraph at lines 80--92
 \openout2 = `night2_contingency.aux'.
 
  (./night2_contingency.tex
-Overfull \hbox (13.38768pt too wide) in paragraph at lines 25--37
+Overfull \hbox (16.16548pt too wide) in paragraph at lines 25--37
  [] 
  []
 
@@ -566,7 +566,7 @@ Overfull \hbox (13.38768pt too wide) in paragraph at lines 25--37
 \openout2 = `day2_contingency.aux'.
 
  (./day2_contingency.tex
-Overfull \hbox (11.16547pt too wide) in paragraph at lines 25--37
+Overfull \hbox (16.16548pt too wide) in paragraph at lines 25--37
  [] 
  []
 
@@ -580,7 +580,7 @@ Overfull \hbox (11.16547pt too wide) in paragraph at lines 25--37
 \openout2 = `night3_contingency.aux'.
 
  (./night3_contingency.tex
-Overfull \hbox (13.38768pt too wide) in paragraph at lines 25--37
+Overfull \hbox (16.16548pt too wide) in paragraph at lines 25--37
  [] 
  []
 
@@ -591,7 +591,7 @@ Overfull \hbox (13.38768pt too wide) in paragraph at lines 25--37
 \openout2 = `day3_contingency.aux'.
 
  (./day3_contingency.tex
-Overfull \hbox (11.16547pt too wide) in paragraph at lines 25--37
+Overfull \hbox (16.16548pt too wide) in paragraph at lines 25--37
  [] 
  []
 
@@ -620,7 +620,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
 Here is how much of TeX's memory you used:
  8092 strings out of 495063
  120490 string characters out of 3182202
- 241944 words of memory out of 3000000
+ 241945 words of memory out of 3000000
  11040 multiletter control sequences out of 15000+200000
  11221 words of font info for 42 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -636,7 +636,7 @@ lic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb>
-Output written on annex.pdf (25 pages, 305693 bytes).
+Output written on annex.pdf (25 pages, 305990 bytes).
 PDF statistics:
  295 PDF objects out of 1000 (max. 8388607)
  248 compressed objects within 3 object streams

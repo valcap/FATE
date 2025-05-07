@@ -1,0 +1,19 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Automatic}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Current month}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Incremental months}} \\
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{forecast system}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{(success rate in \%)}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{(success rate in \%)}} \\
+\hline
+\cellcolor[HTML]{C0C0C0}\textbf{ECMWF:} forecasts initialisation data availability  & -999.00  & -999.00   \\
+\cellcolor[HTML]{C0C0C0}\textbf{FATE:}  service network operativity                                    & -999.00  & -999.00   \\
+\cellcolor[HTML]{C0C0C0}\textbf{ESO:} server INPUT operativity for initialisation data download                                & -999.00  & -999.00   \\
+\cellcolor[HTML]{C0C0C0}\textbf{ESO:} server OUTPUT operativity for service product upload                               & -999.00  & -999.00   \\
+\cellcolor[HTML]{C0C0C0}\textbf{FATE:} hydrodynamic computation success           & -999.00  & -999.00   \\
+\cellcolor[HTML]{C0C0C0}\textbf{FATE:} forecasts provision success             & -999.00  & -999.00   \\
+\hline
+\end{tabular}
+\caption{FATE: automatic forecasting system performance - statistics. Service interruption due to maintenance by any of the parties, previously communicated and agreed, do not affect the performance percentage computation (i.e. they are not considered service failure).}\label{tab:LOGs}
+\end{center}
+\end{table}
