@@ -16,3 +16,12 @@
 /PROG/PERSISTENCE/test*
 /PROG/PERSISTENCE/tmpfile_*
 /PROG/AR_5GG_1H/tmpfile_*
+/file.list*.csv
+/file.miss*.csv
+/tree_structure.txt
+/calcolo_tabella*.txt
+/check_input_files.sh
+/scripts_old
+/OLD_PROG.tar.gz
+/FATE_BACKUP_PROGS_20240718.tar.gz
+/FATE_BACKUP_PROGS_20240618.tar.gz
