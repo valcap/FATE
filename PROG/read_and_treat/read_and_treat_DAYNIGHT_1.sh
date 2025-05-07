@@ -10,8 +10,8 @@ JOBWD=read_and_treat_AR_exclusive_WD
 LISTGG="day night"
 LISTHH="1H"
 fcst_lenght=1
-LASTMONTHYEAR=2024
-LASTMONTHMONTH=06
+LASTMONTHYEAR=2025
+LASTMONTHMONTH=04
 LASTMONTHDAY=30
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
@@ -257,7 +257,6 @@ EOF
     LISTA="$OUTPUTDIR/list_WD.txt"
     ls WD_ARevol_${hiter}_${NEWGG}$fcst_lenght*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}
 
-# _LastMonth TODO DA CAMBIARE OGNI MESE...........
     if [ $daygg == "night" ]; then
         LISTA="$OUTPUTDIR/list_SEE_LastMonth.txt"
         ls SEE_ARevol_${hiter}_${NEWGG}${fcst_lenght}_${LASTMONTH}*.dat |cut -d"_" -f5|cut -d"." -f1|sort|uniq > ${LISTA}

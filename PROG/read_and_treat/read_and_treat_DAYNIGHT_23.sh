@@ -1,21 +1,53 @@
 #!/bin/bash
 
+if [ $# -ne 2 ]; then
+  echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  echo "------------- need exactly two input variable ----------------"
+  echo "------------- sh $0 night|day 2|3             ----------------"
+  echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  exit 8
+fi
+LISTGG=$1
+fcst_lenght=$2
+# Check if LISTGG is either "night" or "day"
+if [ "$LISTGG" != "night" ] && [ "$LISTGG" != "day" ]; then
+  echo "Error: LISTGG must be either 'night' or 'day'."
+  exit 1
+fi
+# Check if fcst_lenght is either "2" or "3"
+if [ "$fcst_lenght" != "2" ] && [ "$fcst_lenght" != "3" ]; then
+  echo "Error: fcst_lenght must be either '2' or '3'."
+  exit 1
+fi
+#echo ------------------------
+echo LISTGG $LISTGG
+echo fcst_lenght $fcst_lenght
+echo ------------------------
+#exit
+
 rm PWV_TREATED_* RH_TREATED_* SEE_TREATED_* TAU_TREATED_* TEMP_TREATED_* WD_TREATED_* WS_TREATED_* -rf
 rm *.dat -f
 
 JOB=read_and_treat_AR_exclusive
 JOBWD=read_and_treat_AR_exclusive_WD
 
+#############
 #EITHER "night" or "day"
-LISTGG="day"
+#LISTGG="day"
 #EITHER "2" or "3"
-fcst_lenght=3
+#fcst_lenght=3
+#############
 hiter="1H" # per compatibilit`'a con quanto si fa per night/day 1
-LASTMONTHYEAR=2024
-LASTMONTHMONTH=06
+# TODO TODO TODO
+# cambiare ogni mese
+LASTMONTHYEAR=2025
+LASTMONTHMONTH=04
 LASTMONTHDAY=30
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
+####################
+# Start of procedure
+####################
 for daygg in $LISTGG; do
   GG="${daygg}" 
   NEWGG=`echo ${GG} | cut -c1-3`
@@ -66,7 +98,6 @@ for daygg in $LISTGG; do
     exit 1;
   fi
 #################################################################
-
 
   MAXMIN=60
   MINMIN=1
@@ -271,7 +302,6 @@ ls WS_TREATED/WS_ARevol_${hiter}_${NEWGG}$fcst_lenght*.dat |cut -d"_" -f6|cut -d
 LISTA="$OUTPUTDIR/list_WD.txt"
 ls WD_TREATED/WD_ARevol_${hiter}_${NEWGG}$fcst_lenght*.dat |cut -d"_" -f6|cut -d"." -f1|sort|uniq > ${LISTA}
 
-# _LastMonth TODO DA CAMBIARE OGNI MESE...........
 if [ $daygg == "night" ]; then
         LISTA="$OUTPUTDIR/list_SEE_LastMonth.txt"
         ls SEE_TREATED/SEE_ARevol_${hiter}_${NEWGG}${fcst_lenght}_${LASTMONTH}*.dat |cut -d"_" -f6|cut -d"." -f1|sort|uniq > ${LISTA}

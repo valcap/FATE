@@ -9,8 +9,8 @@ JOBWD=read_and_treat_AR_exclusive_WD
 #EITHER "night" or "day"
 LISTGG="night day"
 LISTHH="1H"
-LASTMONTHYEAR=2024
-LASTMONTHMONTH=06
+LASTMONTHYEAR=2025
+LASTMONTHMONTH=04
 LASTMONTHDAY=30
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
@@ -243,7 +243,6 @@ EOF
     LISTA="list_WD.txt"
     ls WD_PERSIST_*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
     
-# _LastMonth TODO DA CAMBIARE OGNI MESE--------
     if [ $daygg == "night" ]; then
         LISTA="list_SEE_LastMonth.txt"
         ls SEE_PERSIST_${LASTMONTH}*.dat |cut -d"_" -f3|cut -d"." -f1|sort|uniq > $OUTPUTDIR/${LISTA}
