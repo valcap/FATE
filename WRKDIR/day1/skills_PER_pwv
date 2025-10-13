@@ -1,0 +1,88 @@
+ GG=day
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=         341
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ MAXPWV=   15.0000000    
+ ROOT=/home/report/DATA/TREATED/day_PERSIST/PWV_TREATED/
+ TAIL=.dat
+ STARTIN=PWV_PERSIST_
+ CFILE_LIST_NIGHTS=list_PWV.txt                                                                                                            
+ /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_BEF_stan_per.ps/cps                                                       
+ /home/report/FIGS/pwv_sim_mnh_ar_dimm_300_960_AFT_stan_per.ps/cps                                                       
+ NbLines_TOT=        1020
+ MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
+ End of OBS data treatement
+ NbLines_TOT_Pix=       36828
+ MAXVAL_PWV_OBS_1D=   14.9990358    
+                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_BEF=     0.03
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_BEF=     0.87
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_BEF=     0.87
+ INC_PWV_MOD_BEF=       22348
+ NbLines_TOT=       36828
+                                                                                                                                                                               LOGINFO BIAS_PWV_MOD_AFT=    -0.01
+                                                                                                                                                                               LOGINFO RMSE_PWV_MOD_AFT=     0.23
+                                                                                                                                                                              LOGINFO SIGMA_PWV_MOD_AFT=     0.23
+ INC_PWV_MOD_AFT=       22348
+ NbLines_TOT=       36828
+ NbFit=       22348 NbLines_TOT=        1020 NbPix=         108
+ K=           0
+ #### FIT BEF ####
+ ENTERING fit routine
+ ARRAYS SIZE:        22348       22348
+ ndata=        22348
+ sx=   73703.3906    
+ invx=   1.84087814E-10
+ q=   1.72585273E-20 ndata=       22348 size(x)=       22348 chi2=   16995.3535     sigb=   1.76887482E-03
+ B_TOT(slope)=   1.00800872    
+ #### FIT AFT #####
+ ENTERING fit routine
+ ARRAYS SIZE:        22348       22348
+ ndata=        22348
+ sx=   73703.3906    
+ invx=   1.84087814E-10
+ q=   4.57776182E-41 ndata=       22348 size(x)=       22348 chi2=   1201.13123     sigb=   4.70248284E-04
+ B_TOT(slope)=  0.997534573    
+ ***************
+ XMED_PWV=   2.42688131    
+ X33_PWV=   1.81453967    
+ X66_PWV=   3.41938066    
+ ***************
+ ***************
+ XMED_MOD_BEF=   2.52612543    
+ ***************
+ ##########################################
+ ######## HIT_RATE for BEF ###########
+ ##########################################
+ Contingency table filled with numbers.
+ LOGINFO Hit rate computed on       22348 points.
+ Number of points        22348 ;
+ LOGINFO X<   1.89999998       1.89999998     <X<   3.46000004     X>   3.46000004    
+ LOGINFO    6824.00000       1168.00000       0.00000000    
+ LOGINFO    1322.00000       4555.00000       803.000000    
+ LOGINFO    49.0000000       1128.00000       6499.00000    
+ LOGINFO POD(event1)=   83.2702866    
+ LOGINFO POD(event2)=   66.4866486    
+ LOGINFO POD(event3)=   89.0030136    
+ LOGINFO PC=   79.9982147    
+ LOGINFO ebd=  0.219258994    
+ ***************
+ XMED_MOD_AFT=   2.40229988    
+ ***************
+ ##########################################
+ ############ HIT_RATE for AFT #############
+ ##########################################
+ Contingency table filled with numbers.
+ LOGINFO Hit rate computed on       22348 points.
+ Number of points        22348 ;
+ LOGINFO X<   1.89999998       1.89999998     <X<   3.46000004     X>   3.46000004    
+ LOGINFO    7938.00000       353.000000       0.00000000    
+ LOGINFO    257.000000       6291.00000       305.000000    
+ LOGINFO    0.00000000       207.000000       6997.00000    
+ LOGINFO POD(event1)=   96.8639450    
+ LOGINFO POD(event2)=   91.8260117    
+ LOGINFO POD(event3)=   95.8230591    
+ LOGINFO PC=   94.9794159    
+ LOGINFO ebd=   0.00000000    

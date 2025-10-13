@@ -1,0 +1,4 @@
+- cambiare il f90 che legge i treated del seeing nuovi che differiscono da quelli precedenti per AR calcolato ogni 10 minuti. Il nuovo file \'e:
+  see_mnh_ar_hit_def_os18_1000.f90.20250702 
+- lanciare questo programma sui dati di test di un anno che \'e:
+  /TERASTARMET/FATE_DOCUMENTATION/MONTHLY_REPORT_ELENA_TO_VALERIO_UPGRADE_FATE_2025_07/DATA/FATE_10min_asym_TEST_mean_next_hour/night1/1H_buf5/SEE_TREATED/SEE_ARevol_1H_night_20240801.dat

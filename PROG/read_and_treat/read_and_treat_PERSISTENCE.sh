@@ -9,9 +9,9 @@ JOBWD=read_and_treat_AR_exclusive_WD
 #EITHER "night" or "day"
 LISTGG="night day"
 LISTHH="1H"
-LASTMONTHYEAR=2025
-LASTMONTHMONTH=04
-LASTMONTHDAY=30
+LASTMONTHYEAR=$(date -d "last month" +%Y)
+LASTMONTHMONTH=$(date -d "last month" +%m)
+LASTMONTHDAY=$(date -d "$(date +%Y-%m-01) -1 day" +%d)
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
 for daygg in $LISTGG; do

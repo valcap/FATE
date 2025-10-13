@@ -40,9 +40,9 @@ JOBWD=read_and_treat_AR_exclusive_WD
 hiter="1H" # per compatibilit`'a con quanto si fa per night/day 1
 # TODO TODO TODO
 # cambiare ogni mese
-LASTMONTHYEAR=2025
-LASTMONTHMONTH=04
-LASTMONTHDAY=30
+LASTMONTHYEAR=$(date -d "last month" +%Y)
+LASTMONTHMONTH=$(date -d "last month" +%m)
+LASTMONTHDAY=$(date -d "$(date +%Y-%m-01) -1 day" +%d)
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
 ####################

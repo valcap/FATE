@@ -1,0 +1,117 @@
+ GG=nig
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=          23
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ MAXTAU=   999.000000    
+ ACC=   1.22000003    
+ ROOT=/home/report/DATA/TREATED/nig_PERSIST/TAU_TREATED/
+ TAIL=.dat
+ STARTIN=TAU_PERSIST_
+ CFILE_LIST_NIGHTS=list_TAU_LastMonth.txt                                                                                                  
+ /home/report/FIGS/pippo1.ps/cps                                                                                         
+ /home/report/FIGS/pippo2.ps/cps                                                                                         
+ NbLines_TOT=         660
+ MINUTE_DEF(1,1)=           0 MINUTE_DEF(1,869)=         869
+ End of OBS data treatement
+ NbLines_TOT_Pix=        2484
+ MAXVAL_TAU_OBS_1D=   27.8751984    
+                                                                                                                                                                               LOGINFO BIAS_TAU_MOD_BEF=    -1.25
+                                                                                                                                                                               LOGINFO RMSE_TAU_MOD_BEF=     2.71
+                                                                                                                                                                              LOGINFO SIGMA_TAU_MOD_BEF=     2.41
+ INC_TAU_MOD_BEF=        1273
+ LOGINFO BEF NbLines_TOT=        2484
+                                                                                                                                                                               LOGINFO BIAS_TAU_MOD_AFT=     0.02
+                                                                                                                                                                               LOGINFO RMSE_TAU_MOD_AFT=     1.31
+                                                                                                                                                                              LOGINFO SIGMA_TAU_MOD_AFT=     1.31
+ INC_TAU_MOD_AFT=        1273
+ NbLines_TOT=        2484
+ NbFit=        1273 NbLines_TOT=         660 NbPix=         108
+ K=           0
+ #### FIT BEF ####
+ ENTERING fit routine
+ ARRAYS SIZE:         1273        1273
+ ndata=         1273
+ sx=   7222.61133    
+ invx=   1.91695317E-08
+ q=   0.00000000     ndata=        1273 size(x)=        1273 chi2=   4065.33301     sigb=   8.83476995E-03
+ B_TOT(slope)=  0.779444993    
+ #### FIT AFT #####
+ ENTERING fit routine
+ ARRAYS SIZE:         1273        1273
+ ndata=         1273
+ sx=   7222.61133    
+ invx=   1.91695317E-08
+ q=   0.00000000     ndata=        1273 size(x)=        1273 chi2=   2200.13477     sigb=   6.49937801E-03
+ B_TOT(slope)=   1.00380135    
+ ***************
+                                                                                                                                                                           LOGINFO PERCENTILES XMED_TAU=      4.7
+                                                                                                                                                                            LOGINFO PERCENTILES X33_TAU=      3.4
+                                                                                                                                                                            LOGINFO PERCENTILES X66_TAU=      6.4
+ ***************
+ ***************
+ XMED_MOD_BEF=   4.08140182    
+ ***************
+ ##########################################
+ ######## HIT_RATE for BEF ###########
+ ##########################################
+ Contingency table filled with numbers.
+ LOGINFO Hit rate computed on        1273 points.
+ Number of points         1273 ;
+ LOGINFO X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
+ LOGINFO    0.00000000       0.00000000       0.00000000    
+ LOGINFO    0.00000000       0.00000000       0.00000000    
+ LOGINFO    0.00000000       0.00000000       1273.00000    
+ LOGINFO POD(event1)=              NaN
+ LOGINFO POD(event2)=              NaN
+ LOGINFO POD(event3)=   100.000000    
+ LOGINFO PC=   100.000000    
+ LOGINFO ebd=   0.00000000    
+ **************************************************
+ ****** HIT_RATE for BEF WITH RMSE=SD_instr *******
+ **************************************************
+ Contingency table filled with numbers.
+ Hit rate computed on        1273 points.
+ X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
+   0.00000000       0.00000000       0.00000000    
+   0.00000000       0.00000000       0.00000000    
+   0.00000000       0.00000000       1273.00000    
+ POD(event1)=              NaN
+ POD(event2)=              NaN
+ POD(event3)=   100.000000    
+ PC=   100.000000    
+ ebd=   0.00000000    
+ ***************
+ XMED_MOD_AFT=   4.51119995    
+ ***************
+ ##########################################
+ ############ HIT_RATE for AFT #############
+ ##########################################
+ Contingency table filled with numbers.
+ LOGINFO Hit rate computed on        1273 points.
+ Number of points         1273 ;
+ LOGINFO X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
+ LOGINFO    0.00000000       0.00000000       0.00000000    
+ LOGINFO    0.00000000       0.00000000       0.00000000    
+ LOGINFO    0.00000000       0.00000000       1273.00000    
+ LOGINFO POD(event1)=              NaN
+ LOGINFO POD(event2)=              NaN
+ LOGINFO POD(event3)=   100.000000    
+ LOGINFO PC=   100.000000    
+ LOGINFO ebd=   0.00000000    
+ **************************************************
+ ****** HIT_RATE for AFT WITH RMSE=SD_instr *******
+ **************************************************
+ Contingency table filled with numbers.
+ Hit rate computed on        1273 points.
+ X<  0.560000002      0.560000002     <X<  0.709999979     X>  0.709999979    
+   0.00000000       0.00000000       0.00000000    
+   0.00000000       0.00000000       0.00000000    
+   0.00000000       0.00000000       1273.00000    
+ POD(event1)=              NaN
+ POD(event2)=              NaN
+ POD(event3)=   100.000000    
+ PC=   100.000000    
+ ebd=   0.00000000    

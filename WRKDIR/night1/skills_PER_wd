@@ -1,0 +1,19 @@
+ GG=5GG
+ HH=1H
+ IDELTA=          10
+ NbPix=         108
+ NbNights=         439
+ STARTMINUTE=       18000
+ ENDMINUTE=       57600
+ LIMIT=   3.00000000    
+ ROOT=/home/report/DATA/TREATED/nig_PERSIST/WD_TREATED/
+ ROOT_WS=/home/report/DATA/TREATED/nig_PERSIST/WS_TREATED/
+ TAIL=.dat
+ STARTIN=WD_PERSIST_
+ STARTIN_WS=WS_PERSIST_
+ CFILE_LIST_NIGHTS=list_WD.txt                                                                                                             
+ /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_BEF_stan_per.ps/cps                                                        
+ /home/report/FIGS/wd_sim_mnh_ar_dimm_300_960_AFT_stan_per.ps/cps                                                        
+ WD_PERSIST_
+ WS_PERSIST_
+ NbLines_TOT=        1020

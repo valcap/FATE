@@ -10,11 +10,10 @@ JOBWD=read_and_treat_AR_exclusive_WD
 LISTGG="day night"
 LISTHH="1H"
 fcst_lenght=1
-LASTMONTHYEAR=2025
-LASTMONTHMONTH=04
-LASTMONTHDAY=30
+LASTMONTHYEAR=$(date -d "last month" +%Y)
+LASTMONTHMONTH=$(date -d "last month" +%m)
+LASTMONTHDAY=$(date -d "$(date +%Y-%m-01) -1 day" +%d)
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
-
 
 for daygg in $LISTGG; do
   GG="${daygg}"
