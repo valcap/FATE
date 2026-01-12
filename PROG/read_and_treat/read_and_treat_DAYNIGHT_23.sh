@@ -40,9 +40,12 @@ JOBWD=read_and_treat_AR_exclusive_WD
 hiter="1H" # per compatibilit`'a con quanto si fa per night/day 1
 # TODO TODO TODO
 # cambiare ogni mese
-LASTMONTHYEAR=$(date -d "last month" +%Y)
-LASTMONTHMONTH=$(date -d "last month" +%m)
-LASTMONTHDAY=$(date -d "$(date +%Y-%m-01) -1 day" +%d)
+#LASTMONTHYEAR=$(date -d "last month" +%Y)
+#LASTMONTHMONTH=$(date -d "last month" +%m)
+#LASTMONTHDAY=$(date -d "$(date +%Y-%m-01) -1 day" +%d)
+LASTMONTHYEAR=2025
+LASTMONTHMONTH=12
+LASTMONTHDAY=31
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
 ####################
@@ -127,7 +130,7 @@ for daygg in $LISTGG; do
     YEAR=$(echo $datenow|cut -c1-4)
     MONTH=$(echo $datenow|cut -c5-6)
     DAY=$(echo $datenow|cut -c7-8)
-    echo "+++ $GG --- $YEAR-$MONTH-$DAY +++"
+    echo "+++ working on $GG --- $YEAR-$MONTH-$DAY +++"
     
     DAYNOW=$(date -u -d "${datenow}" +%Y%m%d)
     DATEB=$(date -u -d"$DAYNOW +1day" +%Y%m%d)

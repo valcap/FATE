@@ -1,1 +1,1 @@
-/home/report/DATA/TREATED/day1/list_WD.txt
+/home/report/DATA/TREATED/nig2/list_WD.txt

@@ -33,6 +33,43 @@ do
 done
 
 ########
+# NIGHT1
+########
+echo "+++++++++++++++++++++++"
+echo "RUNNING NIGHT1"
+echo "+++++++++++++++++++++++"
+for var in WS WD RH PWV SEE TAU GLF
+do
+  ln -sf /home/report/DATA/TREATED/nig1/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
+  ln -sf /home/report/DATA/TREATED/nig1/list_${var}*.txt /home/report/PROG/PERSISTENCE/
+done
+./run_ws.sh     $envfile_astro night 1
+./run_wd.sh     $envfile_astro night 1
+./run_rh.sh     $envfile_astro night 1
+./run_pwv.sh    $envfile_astro night 1
+./run_see.sh    $envfile_astro night 1
+./run_tau.sh    $envfile_astro night 1
+./run_glf.sh    $envfile_astro night 1
+./run_skills.sh $envfile_astro night 1
+
+########
+# DAY1
+########
+echo "+++++++++++++++++++++++"
+echo "RUNNING DAY1"
+echo "+++++++++++++++++++++++"
+for var in WS WD RH PWV
+do
+  ln -sf /home/report/DATA/TREATED/day1/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
+  ln -sf /home/report/DATA/TREATED/day1/list_${var}*.txt /home/report/PROG/PERSISTENCE/
+done
+./run_ws.sh     $envfile_atmo day 1
+./run_wd.sh     $envfile_atmo day 1
+./run_rh.sh     $envfile_atmo day 1
+./run_pwv.sh    $envfile_atmo day 1
+./run_skills.sh $envfile_atmo day 1
+
+########
 # DAY3
 ########
 echo "+++++++++++++++++++++++"
@@ -105,43 +142,6 @@ done
 ./run_tau23.sh    $envfile_astro night 2
 ./run_glf23.sh    $envfile_astro night 2
 ./run_skills.sh $envfile_astro night 2
-
-########
-# NIGHT1
-########
-echo "+++++++++++++++++++++++"
-echo "RUNNING NIGHT1"
-echo "+++++++++++++++++++++++"
-for var in WS WD RH PWV SEE TAU GLF
-do
-  ln -sf /home/report/DATA/TREATED/nig1/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
-  ln -sf /home/report/DATA/TREATED/nig1/list_${var}*.txt /home/report/PROG/PERSISTENCE/
-done
-./run_ws.sh     $envfile_astro night 1
-./run_wd.sh     $envfile_astro night 1
-./run_rh.sh     $envfile_astro night 1
-./run_pwv.sh    $envfile_astro night 1
-./run_see.sh    $envfile_astro night 1
-./run_tau.sh    $envfile_astro night 1
-./run_glf.sh    $envfile_astro night 1
-./run_skills.sh $envfile_astro night 1
-
-########
-# DAY1
-########
-echo "+++++++++++++++++++++++"
-echo "RUNNING DAY1"
-echo "+++++++++++++++++++++++"
-for var in WS WD RH PWV
-do
-  ln -sf /home/report/DATA/TREATED/day1/list_${var}*.txt /home/report/PROG/AR_5GG_1H/
-  ln -sf /home/report/DATA/TREATED/day1/list_${var}*.txt /home/report/PROG/PERSISTENCE/
-done
-./run_ws.sh     $envfile_atmo day 1
-./run_wd.sh     $envfile_atmo day 1
-./run_rh.sh     $envfile_atmo day 1
-./run_pwv.sh    $envfile_atmo day 1
-./run_skills.sh $envfile_atmo day 1
 
 ########
 # TABLE WITH OBSERVATIONS

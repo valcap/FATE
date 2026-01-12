@@ -9,7 +9,7 @@ Il codice si trova sulla macchina
 IP: *********
 User: *******
 Password: **********
-Cartella: /home/report/scripts
+Cartella: /home/report/SCRIPTS
 
 Istruzioni creazione report
 ###############################################
@@ -19,6 +19,7 @@ cd /TERASTARMET/FATE_BACKUPS_mesohp1/AUTOMATION_OUTPUTS/AUTOREGRESSION/postproc/
 # copio solo i mesi/giorni che mi interessano nella directory di lavoro
 cp -fv 202406*.dat /home/report/DATA/DA_TRATTARE/test/night/
 cp -fv 202407*.dat /home/report/DATA/DA_TRATTARE/test/night/
+cp -fv 202408*.dat /home/report/DATA/DA_TRATTARE/test/night/
 ##############################################
 ###############################################
 # COPIA DATI RAW DAY
@@ -27,7 +28,7 @@ cd /TERASTARMET/FATE_BACKUPS_mesohp2/AUTOMATION_OUTPUTS/AUTOREGRESSION/postproc/
 # copio solo i mesi/giorni che mi interessano nella directory di lavoro
 cp -fv 202406*.dat /home/report/DATA/DA_TRATTARE/test/day/
 cp -fv 202407*.dat /home/report/DATA/DA_TRATTARE/test/day/
-
+cp -fv 202408*.dat /home/report/DATA/DA_TRATTARE/test/day/
 ###############################################
 ###############################################
 # PREPROC NIGHT1 && DAY1
@@ -54,10 +55,11 @@ ls -lrth /home/report/DATA/TREATED
 #######################################################
 # PREPROC NIGHT2,3 && DAY2,3
 cd /home/report/PROG/read_and_treat
-# vanno cambiati i parametri in entrata e lanciata la procedura 4 volte, segnatamente:
-# LISTGG= #EITHER "night" or "day"
-# fcst_lenght= #EITHER "2" or "3"
-sh read_and_treat_DAYNIGHT_23.sh
+# vanno cambiati i parametri in entrata e lanciata la procedura 4 volte
+sh read_and_treat_DAYNIGHT_23.sh night 2
+sh read_and_treat_DAYNIGHT_23.sh night 3
+sh read_and_treat_DAYNIGHT_23.sh day 2
+sh read_and_treat_DAYNIGHT_23.sh day 3
 # i dati vanno a finire in
 ls -lrth /home/report/DATA/TREATED
 # e sottocartelle day2,3 e nig2,3
@@ -65,6 +67,11 @@ ls -lrth /home/report/DATA/TREATED
 ###############################################
 # PRODUZIONE DEL REPORT
 cd $HOME/SCRIPTS
+# RICORDARSI DI CAMBIARE
+ENDOFSERVICE_YYYY='2024'
+ENDOFSERVICE_MM='08'
+ENDOFSERVICE_DD='31'
+# in fate-report-atmo.env
 sh runall
 # Il report e l’annex vanno a finire in /home/report/REPORT
 ls -lrth /home/report/REPORT

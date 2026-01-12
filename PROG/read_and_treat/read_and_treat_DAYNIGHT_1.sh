@@ -10,9 +10,12 @@ JOBWD=read_and_treat_AR_exclusive_WD
 LISTGG="day night"
 LISTHH="1H"
 fcst_lenght=1
-LASTMONTHYEAR=$(date -d "last month" +%Y)
-LASTMONTHMONTH=$(date -d "last month" +%m)
-LASTMONTHDAY=$(date -d "$(date +%Y-%m-01) -1 day" +%d)
+#LASTMONTHYEAR=$(date -d "last month" +%Y)
+#LASTMONTHMONTH=$(date -d "last month" +%m)
+#LASTMONTHDAY=$(date -d "$(date +%Y-%m-01) -1 day" +%d)
+LASTMONTHYEAR=2025
+LASTMONTHMONTH=12
+LASTMONTHDAY=31
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
 for daygg in $LISTGG; do
@@ -85,6 +88,7 @@ for daygg in $LISTGG; do
       YEAR=$(echo $datenow|cut -c1-4)
       MONTH=$(echo $datenow|cut -c5-6)
       DAY=$(echo $datenow|cut -c7-8)
+      echo "+++ working on $GG --- $YEAR-$MONTH-$DAY +++"
     
       DAYNOW=$(date -u -d "${datenow}" +%Y%m%d)
       DATEB=$(date -u -d"$DAYNOW +1day" +%Y%m%d)

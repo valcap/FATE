@@ -1,1 +1,1 @@
-/home/report/DATA/TREATED/nig1/list_GLF_LastMonth.txt
+/home/report/DATA/TREATED/nig2/list_GLF_LastMonth.txt
