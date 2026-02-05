@@ -13,8 +13,8 @@ fcst_lenght=1
 #LASTMONTHYEAR=$(date -d "last month" +%Y)
 #LASTMONTHMONTH=$(date -d "last month" +%m)
 #LASTMONTHDAY=$(date -d "$(date +%Y-%m-01) -1 day" +%d)
-LASTMONTHYEAR=2025
-LASTMONTHMONTH=12
+LASTMONTHYEAR=2026
+LASTMONTHMONTH=01
 LASTMONTHDAY=31
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
@@ -89,6 +89,12 @@ for daygg in $LISTGG; do
       MONTH=$(echo $datenow|cut -c5-6)
       DAY=$(echo $datenow|cut -c7-8)
       echo "+++ working on $GG --- $YEAR-$MONTH-$DAY +++"
+      # TODO: MIGLIORARE
+      # MODIFICA 1 GIUGNO 2024 DATA DI INIZIO DEL SERVIZIO
+      if [ $datenow -lt 20240601 ]; then
+        echo "skipping $datenow"
+        continue
+      fi
     
       DAYNOW=$(date -u -d "${datenow}" +%Y%m%d)
       DATEB=$(date -u -d"$DAYNOW +1day" +%Y%m%d)

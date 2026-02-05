@@ -43,8 +43,8 @@ hiter="1H" # per compatibilit`'a con quanto si fa per night/day 1
 #LASTMONTHYEAR=$(date -d "last month" +%Y)
 #LASTMONTHMONTH=$(date -d "last month" +%m)
 #LASTMONTHDAY=$(date -d "$(date +%Y-%m-01) -1 day" +%d)
-LASTMONTHYEAR=2025
-LASTMONTHMONTH=12
+LASTMONTHYEAR=2026
+LASTMONTHMONTH=01
 LASTMONTHDAY=31
 LASTMONTH=${LASTMONTHYEAR}${LASTMONTHMONTH}
 
