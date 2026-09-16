@@ -1,5 +1,5 @@
 # FATE Project - 2022-2025
-Bunch of procedures/scripts/programs in several languages aimed at producing automatic monthly reports.
+Bunch of procedures/scripts/programs in several languages aimed at producing monthly reports.
 Such reports contain skills of the Meso-NH forecasts (post-processed with AR [1]) verified against observed data.
 Forecast skills are compared with persistence's skills too.
 
